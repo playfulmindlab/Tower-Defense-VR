@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+public enum ElementType { None, Fire, Ice, Electric }
 
 public class TowerBehaviour : MonoBehaviour
 {
@@ -10,17 +13,33 @@ public class TowerBehaviour : MonoBehaviour
     public Transform towerPivot;
 
     public int towerCost = 100;
+    int health = 10;
+    public int maxHealth = 10;
+    public int shield = 10;
+
     public float damage;
     public float firerate;
     public float range;
+    public ElementType damageType;
+
+    public Slider healthBar;
+    public Slider shieldBar;
 
     private IDamageMethod currentDamageMethodClass;
     private float delay;
+    private float healthDamageMod = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         currentDamageMethodClass = GetComponent<IDamageMethod>();
+
+        health = maxHealth;
+        if (healthBar != null && shieldBar != null)
+        {
+            healthBar.maxValue = health;
+            shieldBar.maxValue = shield;
+        }
 
         if (currentDamageMethodClass == null)
         {
@@ -28,7 +47,7 @@ public class TowerBehaviour : MonoBehaviour
         }
         else
         {
-            currentDamageMethodClass.Init(damage, firerate);
+            currentDamageMethodClass.Init(damage * healthDamageMod, firerate);
         }
 
         delay = 1 / firerate;
@@ -37,6 +56,12 @@ public class TowerBehaviour : MonoBehaviour
     // Update is called once per frame
     public void Tick()
     {
+        if (healthBar != null && shieldBar != null)
+        {
+            healthBar.value = health;
+            shieldBar.value = shield;
+        }
+
         currentDamageMethodClass.DamageTick(target);
 
         if (target != null)
@@ -45,6 +70,22 @@ public class TowerBehaviour : MonoBehaviour
             posDifference.y = 0;
             if (towerPivot != null)
                 towerPivot.transform.rotation = Quaternion.LookRotation(posDifference, Vector3.up);
+        }
+    }
+
+    public void Damage(int damage)
+    {
+        if (health <= maxHealth * 0.3f)
+        {
+            healthDamageMod = 0.5f;
+        }
+    }
+
+    public void Heal(int healing)
+    {
+        if (health >= maxHealth * 0.3f)
+        {
+            healthDamageMod = 1f;
         }
     }
 

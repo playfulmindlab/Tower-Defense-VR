@@ -11,6 +11,7 @@ public class MissileCollision : MonoBehaviour
     private List<ParticleCollisionEvent> missileCollisions;
 
     public float damageValue = 0;
+    [SerializeField] bool splashDamage = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +28,22 @@ public class MissileCollision : MonoBehaviour
             explosionSystem.transform.position = missileCollisions[collisionEvent].intersection;
             explosionSystem.Play();
 
-            Collider[] enemiesInRadius = Physics.OverlapSphere(missileCollisions[collisionEvent].intersection, explositonRadius, baseClass.enemyLayer);
-
-            for (int i = 0; i < enemiesInRadius.Length; i++)
+            if (splashDamage == true)
             {
-                Enemy enemyToDamage = EnemySpawner.enemyTransformPairs[enemiesInRadius[i].transform];
+                Collider[] enemiesInRadius = Physics.OverlapSphere(missileCollisions[collisionEvent].intersection, explositonRadius, baseClass.enemyLayer);
+
+                for (int i = 0; i < enemiesInRadius.Length; i++)
+                {
+                    Enemy enemyToDamage = EnemySpawner.enemyTransformPairs[enemiesInRadius[i].transform];
+                    EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.damageResistance);
+                    TowerDefenseManager.EnqueueDamageData(damageToApply);
+
+                    damageValue = baseClass.DamageValue;
+                }
+            }
+            else
+            {
+                Enemy enemyToDamage = other.GetComponent<Enemy>();
                 EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.damageResistance);
                 TowerDefenseManager.EnqueueDamageData(damageToApply);
 

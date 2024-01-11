@@ -7,12 +7,14 @@ public class MissileDamage : Damage, IDamageMethod
     public LayerMask enemyLayer;
     [SerializeField] private ParticleSystem missileSystem;
     [SerializeField] private Transform towerHead;
+    [SerializeField] private float projectileSpeed = 30f;
 
     private ParticleSystem.MainModule missileSystemMain;
 
     public override void Init(float damage, float firerate)
     {
         missileSystemMain = missileSystem.main;
+        missileSystemMain.startSpeed = projectileSpeed;
         base.Init(damage, firerate);
     }
 
