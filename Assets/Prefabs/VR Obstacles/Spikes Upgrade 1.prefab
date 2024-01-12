@@ -97,7 +97,7 @@ MonoBehaviour:
   maxHealth: 1
   shield: 30
   damage: 2
-  firerate: 3
+  firerate: 2
   range: 0
   damageType: 0
   healthBar: {fileID: 6438041052752185983}

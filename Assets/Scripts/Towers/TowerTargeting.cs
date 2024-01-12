@@ -54,7 +54,6 @@ public class TowerTargeting
 
         JobHandle dependency = new JobHandle();
         JobHandle searchJobhandle = enemySearchJob.Schedule(enemiesToCalculate.Length, dependency);
-
         searchJobhandle.Complete();
 
         if (enemyToIndex[0] != -1) {
@@ -161,7 +160,17 @@ public class TowerTargeting
                 finalDistance += _nodeDistances[i];
             }
 
+            //DisposeSearchJob();
+
             return finalDistance;
+        }
+
+        public void DisposeSearchJob()
+        {
+            _enemiesToCalculate.Dispose();
+            _nodePositions.Dispose();
+            _nodeDistances.Dispose();
+            _enemyToIndex.Dispose();
         }
     }
 }

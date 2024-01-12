@@ -23,6 +23,8 @@ public class MissileCollision : MonoBehaviour
     {
         missileSystem.GetCollisionEvents(other, missileCollisions);
 
+        Debug.Log("Collision Events Count: " + missileCollisions.Count + " / " + other.name);
+
         for (int collisionEvent = 0; collisionEvent < missileCollisions.Count; collisionEvent++)
         {
             explosionSystem.transform.position = missileCollisions[collisionEvent].intersection;
