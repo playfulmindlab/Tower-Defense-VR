@@ -47,7 +47,7 @@ public class TowerBehaviour : MonoBehaviour
         }
         else
         {
-            currentDamageMethodClass.Init(damage * healthDamageMod, firerate);
+            currentDamageMethodClass.Init(damage, firerate);
         }
 
         delay = 1 / firerate;
@@ -75,17 +75,35 @@ public class TowerBehaviour : MonoBehaviour
 
     public void Damage(int damage)
     {
+        health -= damage;
+
+        if (health <= 0)
+            TowerDie();
+
         if (health <= maxHealth * 0.3f)
         {
             healthDamageMod = 0.5f;
+            currentDamageMethodClass.UpdateDamage(damage * healthDamageMod);
         }
+    }
+
+    public void TowerDie()
+    {
+        //TODO: wirte code for what happens when tower dies here
+        Destroy(gameObject);
     }
 
     public void Heal(int healing)
     {
+        health += healing;
+
+        if (health > maxHealth)
+            health = maxHealth;
+
         if (health >= maxHealth * 0.3f)
         {
-            healthDamageMod = 1f;
+            healthDamageMod = 1.0f;
+            currentDamageMethodClass.UpdateDamage(damage * healthDamageMod);
         }
     }
 

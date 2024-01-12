@@ -6,6 +6,7 @@ public interface IDamageMethod
 {
     public void DamageTick(Enemy target);
     public void Init(float damage, float firerate);
+    public void UpdateDamage(float newDamage);
 }
 
 public class Damage : MonoBehaviour, IDamageMethod
@@ -37,6 +38,11 @@ public class Damage : MonoBehaviour, IDamageMethod
 
             delay = 1f / firerate;
         }
+    }
+
+    public void UpdateDamage(float newDamage)
+    {
+        damage = newDamage;
     }
 
 }

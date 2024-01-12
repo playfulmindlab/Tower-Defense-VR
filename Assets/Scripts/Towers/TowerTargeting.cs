@@ -10,19 +10,19 @@ public class TowerTargeting
     public static Enemy GetTarget(TowerBehaviour currentTower, TargetType targetMethod)
     {
         Collider[] enemiesInRange = Physics.OverlapSphere(currentTower.transform.position, currentTower.range, currentTower.enemiesLayer);
+        if (enemiesInRange.Length == 0) { return null; }
+
         NativeArray<EnemyData> enemiesToCalculate = new NativeArray<EnemyData>(enemiesInRange.Length, Allocator.TempJob);
         NativeArray<Vector3> nodePositions = new NativeArray<Vector3>(TowerDefenseManager.nodePositions, Allocator.TempJob);
         NativeArray<float> nodeDistances = new NativeArray<float>(TowerDefenseManager.nodeDistances, Allocator.TempJob);
         NativeArray<int> enemyToIndex = new NativeArray<int>(new int[] { -1 }, Allocator.TempJob);
         int enemyIndexToReturn = -1;
 
-        if (enemiesInRange.Length == 0){ return null; }
-
         for (int i = 0; i < enemiesToCalculate.Length; i++)
         {
             Enemy currentEnemy = enemiesInRange[i]./*transform.parent.*/GetComponent<Enemy>();
             int enemyIndexInList = EnemySpawner.enemiesInGame.FindIndex(x => x == currentEnemy);
-            enemiesToCalculate[i] = new EnemyData(currentEnemy.transform.position, currentEnemy.nodeIndex, currentEnemy.health, enemyIndexInList);
+            enemiesToCalculate[i] = new EnemyData(currentEnemy.transform.position, currentEnemy.nodeIndex, currentEnemy.Health, enemyIndexInList);
         }
 
         SearchForEnemy enemySearchJob = new SearchForEnemy

@@ -1,12 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     public Transform root;
     public float maxHealth;
-    public float health;
+
+    [SerializeField] float health;
+    public float Health
+    {
+        get { return health; }
+        set
+        {
+            health = value;
+            if (healthBar != null)
+            {
+                healthBar.value = health;
+            }
+        }
+    }
+
     public float speed;
     public List<Effect> activeEffects;
     public float damageResistance = 1f;
@@ -14,6 +29,7 @@ public class Enemy : MonoBehaviour
     public int id;
     public int nodeIndex;
 
+    [SerializeField] Slider healthBar;
     public void Init()
     {
         health = maxHealth;
@@ -21,6 +37,12 @@ public class Enemy : MonoBehaviour
         transform.position = TowerDefenseManager.nodePositions[0];
         speed = TowerDefenseManager.waveCount * 2;
         nodeIndex = 0;
+
+        if (healthBar != null)
+        {
+            healthBar.maxValue = maxHealth;
+            healthBar.value = health;
+        }
     }
 
     public void Tick()

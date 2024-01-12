@@ -161,13 +161,13 @@ public class TowerDefenseManager : MonoBehaviour
                 for (int i = 0; i < damageData.Count; i++)
                 {
                     EnemyDamage currentDamage = damageData.Dequeue();
-                    currentDamage.target.health -= currentDamage.totalDamage / currentDamage.resistance;
+                    currentDamage.target.Health -= currentDamage.totalDamage / currentDamage.resistance;
 
                     //currently, we only add money upon an enemy's death
                     //uncomment this to add more money based on damage dealt
                     //playerStats.AddMoney((int)currentDamage.totalDamage); 
 
-                    if (currentDamage.target.health <= 0)
+                    if (currentDamage.target.Health <= 0)
                     {
                         EnqueueEnemyToRemove(currentDamage.target);
                     }
@@ -226,6 +226,7 @@ public struct EnemyDamage
     }
 }
 
+[System.Serializable]
 public class Effect
 {
     public string effectName;
