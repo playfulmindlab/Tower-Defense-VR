@@ -255,13 +255,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01ffdc3a5595cf4a92ff8a7192d6524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesLayer:
+  targetLayer:
     serializedVersion: 2
     m_Bits: 128
   target: {fileID: 0}
   towerPivot: {fileID: 3637913227264682718}
   towerCost: 350
-  maxHealth: 10
+  health: 10
+  maxHealth: 100
   shield: 10
   damage: 1
   firerate: 10
@@ -432,7 +433,7 @@ Transform:
   m_GameObject: {fileID: 3386774100005428216}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -0.0075924248, y: 0.067, z: 0.213}
+  m_LocalPosition: {x: -0.0075924248, y: 0.067, z: 0.415}
   m_LocalScale: {x: 12.934415, y: 12.934411, z: 12.8571415}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -870,7 +871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 193
+      value: 129
       objectReference: {fileID: 0}
     - target: {fileID: 4737002907422082392, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: m_Mesh

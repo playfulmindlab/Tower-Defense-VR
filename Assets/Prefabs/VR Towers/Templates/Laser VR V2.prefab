@@ -225,15 +225,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01ffdc3a5595cf4a92ff8a7192d6524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesLayer:
+  targetLayer:
     serializedVersion: 2
     m_Bits: 128
   target: {fileID: 0}
   towerPivot: {fileID: 5092956461712401062}
   towerCost: 500
+  maxHealth: 10
+  shield: 10
   damage: 1
   firerate: 5
   range: 10
+  damageType: 0
+  healthBar: {fileID: 0}
+  shieldBar: {fileID: 0}
 --- !u!65 &5762500566701919140
 BoxCollider:
   m_ObjectHideFlags: 0

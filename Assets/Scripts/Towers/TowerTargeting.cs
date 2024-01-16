@@ -9,7 +9,7 @@ public class TowerTargeting
 
     public static Enemy GetTarget(TowerBehaviour currentTower, TargetType targetMethod)
     {
-        Collider[] enemiesInRange = Physics.OverlapSphere(currentTower.transform.position, currentTower.range, currentTower.enemiesLayer);
+        Collider[] enemiesInRange = Physics.OverlapSphere(currentTower.transform.position, currentTower.range, currentTower.targetLayer);
         if (enemiesInRange.Length == 0) { return null; }
 
         NativeArray<EnemyData> enemiesToCalculate = new NativeArray<EnemyData>(enemiesInRange.Length, Allocator.TempJob);
@@ -22,7 +22,8 @@ public class TowerTargeting
         {
             Enemy currentEnemy = enemiesInRange[i]./*transform.parent.*/GetComponent<Enemy>();
             int enemyIndexInList = EnemySpawner.enemiesInGame.FindIndex(x => x == currentEnemy);
-            enemiesToCalculate[i] = new EnemyData(currentEnemy.transform.position, currentEnemy.nodeIndex, currentEnemy.Health, enemyIndexInList);
+            if (enemyIndexInList != -1)
+                enemiesToCalculate[i] = new EnemyData(currentEnemy.transform.position, currentEnemy.nodeIndex, currentEnemy.Health, enemyIndexInList);
         }
 
         SearchForEnemy enemySearchJob = new SearchForEnemy

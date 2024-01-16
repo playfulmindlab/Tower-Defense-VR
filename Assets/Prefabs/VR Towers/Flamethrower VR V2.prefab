@@ -317,16 +317,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01ffdc3a5595cf4a92ff8a7192d6524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesLayer:
+  targetLayer:
     serializedVersion: 2
     m_Bits: 128
   target: {fileID: 0}
   towerPivot: {fileID: 2941597325087743895}
   towerCost: 400
+  health: 10
   maxHealth: 10
   shield: 10
-  damage: 0.5
-  firerate: 5
+  damage: 2
+  firerate: 1
   range: 6
   damageType: 1
   healthBar: {fileID: 2541615127789885808}

@@ -7,17 +7,17 @@ public enum ElementType { None, Fire, Ice, Electric }
 
 public class TowerBehaviour : MonoBehaviour
 {
-    public LayerMask enemiesLayer;
+    public LayerMask targetLayer;
 
     public Enemy target;
     public Transform towerPivot;
 
     public int towerCost = 100;
-    int health = 10;
+    [SerializeField] protected int health = 10;
     public int maxHealth = 10;
     public int shield = 10;
 
-    public float damage;
+    public int damage;
     public float firerate;
     public float range;
     public ElementType damageType;
@@ -26,20 +26,24 @@ public class TowerBehaviour : MonoBehaviour
     public Slider shieldBar;
 
     private IDamageMethod currentDamageMethodClass;
-    private float delay;
+    protected float delay;
     private float healthDamageMod = 1;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         currentDamageMethodClass = GetComponent<IDamageMethod>();
 
         health = maxHealth;
+
         if (healthBar != null && shieldBar != null)
         {
             healthBar.maxValue = health;
             shieldBar.maxValue = shield;
         }
+
+        //Uncomment this if you want to test healing or damage to towers
+        //health = 1;
 
         if (currentDamageMethodClass == null)
         {
@@ -54,7 +58,7 @@ public class TowerBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Tick()
+    public virtual void Tick()
     {
         if (healthBar != null && shieldBar != null)
         {

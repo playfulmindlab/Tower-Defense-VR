@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6346178433994488895}
-  - component: {fileID: 26585658529805958}
   - component: {fileID: 4236064142587593492}
   - component: {fileID: 4737002907422082392}
   m_Layer: 2
@@ -34,24 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &26585658529805958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204896475304053468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cb222e6afa972d46a8ee55d666f53e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseClass: {fileID: 0}
-  explosionSystem: {fileID: 0}
-  missileSystem: {fileID: 4236064142587593492}
-  explositonRadius: 3
-  damageValue: 0
-  splashDamage: 0
 --- !u!198 &4236064142587593492
 ParticleSystem:
   m_ObjectHideFlags: 0

@@ -17,10 +17,12 @@ public class MissileCollision : MonoBehaviour
     void Start()
     {
         missileCollisions = new List<ParticleCollisionEvent>();
+        Physics.IgnoreLayerCollision(0, 6);
     }
 
     private void OnParticleCollision(GameObject other)
     {
+        Debug.Log("Layer Collision: " + other.layer);
         missileSystem.GetCollisionEvents(other, missileCollisions);
 
         Debug.Log("Collision Events Count: " + missileCollisions.Count + " / " + other.name);

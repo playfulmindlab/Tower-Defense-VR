@@ -439,6 +439,7 @@ MonoBehaviour:
   maxHealth: 20
   health: 20
   speed: 8
+  activeEffects: []
   damageResistance: 1
   reward: 10
   id: 1
