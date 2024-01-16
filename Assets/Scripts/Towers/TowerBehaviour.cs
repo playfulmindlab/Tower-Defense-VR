@@ -25,6 +25,8 @@ public class TowerBehaviour : MonoBehaviour
     public Slider healthBar;
     public Slider shieldBar;
 
+    public GameObject upgradedTower;
+
     private IDamageMethod currentDamageMethodClass;
     protected float delay;
     private float healthDamageMod = 1;
@@ -75,6 +77,13 @@ public class TowerBehaviour : MonoBehaviour
             if (towerPivot != null)
                 towerPivot.transform.rotation = Quaternion.LookRotation(posDifference, Vector3.up);
         }
+    }
+
+    public void UpgradeTower()
+    {
+        TowerPlacementVR towerPlacement = GameObject.FindWithTag("Player").GetComponent<TowerPlacementVR>();
+
+        towerPlacement.UpgradeTower(this.gameObject, upgradedTower);
     }
 
     public void Damage(int damage)

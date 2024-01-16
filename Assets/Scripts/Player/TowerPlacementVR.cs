@@ -15,6 +15,7 @@ public class TowerPlacementVR : MonoBehaviour
     private Camera playerCamera;
 
     [SerializeField] VRPointer placementPointer;
+    [SerializeField] ParticleSystem upgradeConfetti;
     [SerializeField] public InputActionProperty towerSpawnerButton;
     [SerializeField] public InputActionProperty cancelTowerSpawnButton;
 
@@ -55,18 +56,7 @@ public class TowerPlacementVR : MonoBehaviour
 
                     if (!Physics.CheckBox(boxCenter, halfExtents, Quaternion.identity, placementCheckMask, QueryTriggerInteraction.Ignore))
                     {
-                        TowerBehaviour currentTowerBehaviour = currentPlacingTower.GetComponent<TowerBehaviour>();
-                        TowerDefenseManager.towersInGame.Add(currentTowerBehaviour);
-
-                        playerStats.SubtractMoney(currentTowerBehaviour.towerCost);
-
-                        towerCollider.isTrigger = false;
-                        towerCollider.gameObject.layer = 6;
-                        foreach (Transform child in towerCollider.transform)
-                        {
-                            child.gameObject.layer = 6;
-                        }
-                        towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; ;
+                        CreateNewTower(currentPlacingTower, towerCollider);
                         currentPlacingTower = null;
                     }
                 }
@@ -100,6 +90,23 @@ public class TowerPlacementVR : MonoBehaviour
         }
     }
 
+    void CreateNewTower(GameObject tower, Collider towerCollider)
+    {
+        TowerBehaviour currentTowerBehaviour = tower.GetComponent<TowerBehaviour>();
+        TowerDefenseManager.towersInGame.Add(currentTowerBehaviour);
+
+        playerStats.SubtractMoney(currentTowerBehaviour.towerCost);
+
+        towerCollider.isTrigger = false;
+        towerCollider.gameObject.layer = 6;
+        foreach (Transform child in towerCollider.transform)
+        {
+            child.gameObject.layer = 6;
+        }
+        towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; ;
+
+    }
+
     public void SetTowerToPlace(GameObject newTower)
     {
         int newTowerCost = newTower.GetComponent<TowerBehaviour>().towerCost;
@@ -111,6 +118,30 @@ public class TowerPlacementVR : MonoBehaviour
         else
         {
             Debug.Log("NOT_ERROR: You do not have the appropriate funds to buy this tower!");
+        }
+    }
+
+    public void UpgradeTower(GameObject oldTower, GameObject upgradedTower)
+    {
+        //GameObject upgradedTower = upgradedTower
+        int newTowerCost = upgradedTower.GetComponent<TowerBehaviour>().towerCost;
+
+        if (playerStats.CurrentMoney >= newTowerCost)
+        {
+            GameObject newTower = Instantiate(upgradedTower, oldTower.transform.position, Quaternion.identity);
+            BoxCollider towerCollider = newTower.GetComponent<BoxCollider>();
+
+            TowerDefenseManager.towersInGame.Remove(oldTower.GetComponent<TowerBehaviour>());
+
+            CreateNewTower(newTower, towerCollider);
+            Destroy(oldTower);
+
+            upgradeConfetti.transform.position = newTower.transform.position;
+            upgradeConfetti.Play();
+        }
+        else
+        {
+            Debug.Log("UPGRADE_ERROR: You do not have the appropriate funds to upgrade this tower!");
         }
     }
 }

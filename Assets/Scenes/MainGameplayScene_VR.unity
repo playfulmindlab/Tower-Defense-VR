@@ -530,6 +530,11 @@ Transform:
   - {fileID: 409196154}
   m_Father: {fileID: 6539829487890549584}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!198 &140275228 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8269580150248860517, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+  m_PrefabInstance: {fileID: 5114574408206688548}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &144856328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15113,7 +15118,7 @@ GameObject:
   - component: {fileID: 7179462287977057297}
   m_Layer: 0
   m_Name: Complete XR Origin Set Up Variant
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15175,6 +15180,83 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &5114574408206688548
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5956138708164448361, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956138708164448361, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956138708164448361, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956138708164448361, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956138708164448361, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956138708164448361, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956138708164448361, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956138708164448361, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956138708164448361, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956138708164448361, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269580150248860517, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269580150248860517, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269580150248860517, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269580150248860517, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269580150248860517, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: VelocityModule.speedModifier.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210438257176896218, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
+      propertyPath: m_Name
+      value: UpgradeConfetti
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aee6d5a9e8c6cbc4c854e783f2de22f4, type: 3}
 --- !u!4 &5132175068422787198
 Transform:
   m_ObjectHideFlags: 0
@@ -18117,6 +18199,7 @@ MonoBehaviour:
   playerStats: {fileID: 7179462287977057295}
   currentPlacingTower: {fileID: 0}
   placementPointer: {fileID: 542367048}
+  upgradeConfetti: {fileID: 140275228}
   towerSpawnerButton:
     m_UseReference: 1
     m_Action:
@@ -19425,3 +19508,4 @@ SceneRoots:
   - {fileID: 1229133334}
   - {fileID: 758877221}
   - {fileID: 7179462287977057294}
+  - {fileID: 5114574408206688548}
