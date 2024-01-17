@@ -777,7 +777,7 @@ MonoBehaviour:
     m_Bits: 128
   target: {fileID: 0}
   towerPivot: {fileID: 5734786658272153313}
-  towerCost: 350
+  towerCost: 800
   health: 10
   maxHealth: 10
   shield: 10

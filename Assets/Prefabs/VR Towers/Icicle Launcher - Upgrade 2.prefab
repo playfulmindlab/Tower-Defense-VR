@@ -839,7 +839,7 @@ MonoBehaviour:
     m_Bits: 128
   target: {fileID: 0}
   towerPivot: {fileID: 5734786658272153313}
-  towerCost: 350
+  towerCost: 1200
   health: 10
   maxHealth: 10
   shield: 10
@@ -849,6 +849,7 @@ MonoBehaviour:
   damageType: 2
   healthBar: {fileID: 3121754790502370582}
   shieldBar: {fileID: 5189627663775929171}
+  upgradedTower: {fileID: 0}
 --- !u!65 &582588043656198840
 BoxCollider:
   m_ObjectHideFlags: 0

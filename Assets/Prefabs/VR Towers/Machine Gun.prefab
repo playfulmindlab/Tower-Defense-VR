@@ -270,6 +270,7 @@ MonoBehaviour:
   damageType: 0
   healthBar: {fileID: 1316986364790579683}
   shieldBar: {fileID: 6081177905782535348}
+  upgradedTower: {fileID: 0}
 --- !u!65 &3660638161032093835
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -851,7 +852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -1099,7 +1100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2608180788022481126, guid: 51fc972c9a70a624abb9a9562e30dcb8, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2608180788022481126, guid: 51fc972c9a70a624abb9a9562e30dcb8, type: 3}
       propertyPath: InitialModule.startSpeed.scalar

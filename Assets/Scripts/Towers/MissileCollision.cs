@@ -22,10 +22,10 @@ public class MissileCollision : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("Layer Collision: " + other.layer);
+        //Debug.Log("Layer Collision: " + other.layer);
         missileSystem.GetCollisionEvents(other, missileCollisions);
 
-        Debug.Log("Collision Events Count: " + missileCollisions.Count + " / " + other.name);
+        //Debug.Log("Collision Events Count: " + missileCollisions.Count + " / " + other.name);
 
         for (int collisionEvent = 0; collisionEvent < missileCollisions.Count; collisionEvent++)
         {

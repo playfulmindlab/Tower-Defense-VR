@@ -5,10 +5,11 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI moneyText;
+    public int waveNum = 1;
     [SerializeField] private int startingMoney;
     [SerializeField] private int currentMoney;
 
+    [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private TextMeshProUGUI enemyCountText;
 

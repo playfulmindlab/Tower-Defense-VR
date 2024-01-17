@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
         health = maxHealth;
         activeEffects = new List<Effect>();
         transform.position = TowerDefenseManager.nodePositions[0];
-        speed = TowerDefenseManager.waveCount * 2;
+        speed = 1 + (TowerDefenseManager.waveCount * 0.7f);
         nodeIndex = 0;
 
         if (healthBar != null)

@@ -25,6 +25,7 @@ public class TowerDefenseManager : MonoBehaviour
 
     [SerializeField] int enemyKillCount;
     [SerializeField] int currEnemyKillCount;
+    int spawnedEnemiesCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -49,9 +50,11 @@ public class TowerDefenseManager : MonoBehaviour
             nodeDistances[i] = Vector3.Distance(nodePositions[i], nodePositions[i + 1]);
         }
 
+        UpdateWaveCount(1);
+
         StartCoroutine(GameplayLoop());
 
-        InvokeRepeating("SpawnTest", 0f, 1f);
+        //InvokeRepeating("SpawnTest", 0f, 1f);
         //InvokeRepeating("RemoveTest", 0f, 2f);
     }
 
@@ -64,21 +67,49 @@ public class TowerDefenseManager : MonoBehaviour
         }
     }
 
-    void UpdateKillCount()
+    public void UpdateWaveCount(int newWaveNum = -1)
     {
-        enemyKillCount += (waveCount * 5);
+        if (newWaveNum < 0)
+            waveCount++;
+
+        //CancelInvoke();
+
+        enemyKillCount = (waveCount * 5);
+        currEnemyKillCount = 0;
+        spawnedEnemiesCount = 0;
+
+        playerStats.DisplayWaveCount(waveCount);
+        playerStats.DisplayEnemyCount(enemyKillCount);
+
+        spawnEnemies = true;
+        InvokeRepeating("SpawnTest", 0f, 1f);
+    }
+
+    public void UpdateEnemyCount()
+    {
+        currEnemyKillCount++;
+        playerStats.DisplayEnemyCount(enemyKillCount - currEnemyKillCount);
     }
 
     IEnumerator GameplayLoop()
     {
         while(continueLoop == true)
         {
+            //Debug.Log("QUEUE COUNT: " + enemyIDsToSpawnQueue.Count);
             //Spawn Enemies
             if (spawnEnemies == true && enemyIDsToSpawnQueue.Count > 0)
             {
                 for (int i = 0; i < enemyIDsToSpawnQueue.Count; i++)
                 {
                     EnemySpawner.SummonEnemy(enemyIDsToSpawnQueue.Dequeue());
+
+                    spawnedEnemiesCount++;
+                    if (spawnedEnemiesCount >= enemyKillCount)
+                    {
+                        spawnEnemies = false;
+                        enemyIDsToSpawnQueue.Clear();
+                        CancelInvoke("SpawnTest");
+                    }
                 }
             }
 
@@ -161,15 +192,19 @@ public class TowerDefenseManager : MonoBehaviour
                 for (int i = 0; i < damageData.Count; i++)
                 {
                     EnemyDamage currentDamage = damageData.Dequeue();
-                    currentDamage.target.Health -= currentDamage.totalDamage / currentDamage.resistance;
 
-                    //currently, we only add money upon an enemy's death
-                    //uncomment this to add more money based on damage dealt
-                    //playerStats.AddMoney((int)currentDamage.totalDamage); 
-
-                    if (currentDamage.target.Health <= 0)
+                    if (currentDamage.target.Health > 0)
                     {
-                        EnqueueEnemyToRemove(currentDamage.target);
+                        currentDamage.target.Health -= currentDamage.totalDamage / currentDamage.resistance;
+
+                        //currently, we only add money upon an enemy's death
+                        //uncomment this to add more money based on damage dealt
+                        //playerStats.AddMoney((int)currentDamage.totalDamage); 
+
+                        if (currentDamage.target.Health <= 0 && !enemiesToRemoveQueue.Contains(currentDamage.target))
+                        {
+                            EnqueueEnemyToRemove(currentDamage.target);
+                        }
                     }
                 }
             }
@@ -177,11 +212,20 @@ public class TowerDefenseManager : MonoBehaviour
             //Remove Enemies
             if (enemiesToRemoveQueue.Count > 0)
             {
+                Debug.Log("REMOVE QUEUE COUNT: " + enemiesToRemoveQueue.Count + " @ " + Time.time);
                 for (int i = 0; i < enemiesToRemoveQueue.Count; i++)
                 {
                     //remove this line for a damage-focused economy system
                     playerStats.AddMoney(enemiesToRemoveQueue.Peek().reward);
                     EnemySpawner.RemoveEnemy(enemiesToRemoveQueue.Dequeue());
+
+                    UpdateEnemyCount();
+                    if (currEnemyKillCount >= enemyKillCount)
+                    {
+                        enemiesToRemoveQueue.Clear();
+                        damageData.Clear();
+                        UpdateWaveCount();
+                    }
                 }
             }
 
