@@ -2,22 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissileDamage : Damage, IDamageMethod
+public class LobbingMissileDamage : MissileDamage
 {
-    public LayerMask enemyLayer;
-    [SerializeField] protected ParticleSystem missileSystem;
-    [SerializeField] protected Transform towerHead;
-    [SerializeField] protected float projectileSpeed = 30f;
-
-    protected ParticleSystem.MainModule missileSystemMain;
-
-    public override void Init(float damage, float firerate)
-    {
-        missileSystemMain = missileSystem.main;
-        missileSystemMain.startSpeed = projectileSpeed;
-        base.Init(damage, firerate);
-    }
-
     public override void DamageTick(Enemy target)
     {
         if (target)
@@ -31,6 +17,10 @@ public class MissileDamage : Damage, IDamageMethod
             missileSystemMain.startRotationX = towerHead.forward.x;
             missileSystemMain.startRotationY = towerHead.forward.y;
             missileSystemMain.startRotationZ = towerHead.forward.z;
+
+            float dist = Vector3.Distance(target.transform.position, towerHead.transform.position);
+            projectileSpeed = Mathf.Sqrt(dist * missileSystemMain.gravityModifierMultiplier * 9.81f);
+            missileSystemMain.startSpeed = projectileSpeed;
 
             missileSystem.Play();
 

@@ -5,17 +5,6 @@ using UnityEngine;
 public class FlamethrowerTower : TowerBehaviour
 {
     [SerializeField] float rotateSpeed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public override void Tick()
     {
@@ -25,13 +14,18 @@ public class FlamethrowerTower : TowerBehaviour
             shieldBar.value = shield;
         }
 
-        if (towerPivot != null)
-            towerPivot.transform.Rotate(Vector3.up * Time.deltaTime * rotateSpeed * 5f);
+        currentDamageMethodClass.DamageTick(target);
 
-        if (delay > 0f)
+        if (towerPivot != null)
         {
-            delay -= Time.deltaTime;
-            return;
+            if (target != null)
+            {
+                Vector3 posDifference = target.transform.position - transform.position;
+                posDifference.y = 0;
+
+                float pingpong = Mathf.PingPong(Time.time * rotateSpeed * 5f, 90) - 45;
+                towerPivot.transform.rotation = Quaternion.LookRotation(posDifference, Vector3.up) * Quaternion.Euler(0f, pingpong, 0f);
+            }
         }
     }
 }

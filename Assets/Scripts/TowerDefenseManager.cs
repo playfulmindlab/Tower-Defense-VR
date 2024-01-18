@@ -23,6 +23,7 @@ public class TowerDefenseManager : MonoBehaviour
     public bool continueLoop = true;
     public bool spawnEnemies = true;
 
+    [SerializeField] GameObject colliderObject;
     [SerializeField] int enemyKillCount;
     [SerializeField] int currEnemyKillCount;
     int spawnedEnemiesCount = 0;
@@ -59,6 +60,7 @@ public class TowerDefenseManager : MonoBehaviour
     }
 
     void SpawnTest() { EnqueueEnemyIDToSummon(1); }
+
     void RemoveTest()
     {
         if (EnemySpawner.enemiesInGame.Count > 0)
@@ -156,6 +158,11 @@ public class TowerDefenseManager : MonoBehaviour
             //Tick Towers
             foreach(TowerBehaviour tower in towersInGame)
             {
+                /*if (tower.GetType().IsSubclassOf(typeof(FlamethrowerTower)))
+                {
+                    FlamethrowerTower flameTower = (FlamethrowerTower)tower;
+                    flameTower.target2 = TowerTargeting.GetTarget(flameTower, TowerTargeting.TargetType.Last);
+                }*/
                 tower.target = TowerTargeting.GetTarget(tower, TowerTargeting.TargetType.First);
                 tower.Tick();
             }

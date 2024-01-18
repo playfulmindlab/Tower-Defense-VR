@@ -27,7 +27,7 @@ public class TowerBehaviour : MonoBehaviour
 
     public GameObject upgradedTower;
 
-    private IDamageMethod currentDamageMethodClass;
+    protected IDamageMethod currentDamageMethodClass;
     protected float delay;
     private float healthDamageMod = 1;
 
