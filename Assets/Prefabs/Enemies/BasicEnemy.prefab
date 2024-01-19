@@ -441,6 +441,7 @@ MonoBehaviour:
   speed: 8
   activeEffects: []
   damageResistance: 1
+  damageResistances: []
   reward: 10
   id: 1
   nodeIndex: 0

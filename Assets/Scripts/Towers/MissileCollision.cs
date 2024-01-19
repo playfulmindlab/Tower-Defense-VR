@@ -39,7 +39,7 @@ public class MissileCollision : MonoBehaviour
                 for (int i = 0; i < enemiesInRadius.Length; i++)
                 {
                     Enemy enemyToDamage = EnemySpawner.enemyTransformPairs[enemiesInRadius[i].transform];
-                    EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.damageResistance);
+                    EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.GetResistanceModifier(baseClass.GetAttackType));
                     TowerDefenseManager.EnqueueDamageData(damageToApply);
 
                     damageValue = baseClass.DamageValue;
@@ -48,7 +48,7 @@ public class MissileCollision : MonoBehaviour
             else
             {
                 Enemy enemyToDamage = other.GetComponent<Enemy>();
-                EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.damageResistance);
+                EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.GetResistanceModifier(baseClass.GetAttackType));
                 TowerDefenseManager.EnqueueDamageData(damageToApply);
 
                 damageValue = baseClass.DamageValue;

@@ -20,7 +20,6 @@ public class TowerBehaviour : MonoBehaviour
     public int damage;
     public float firerate;
     public float range;
-    public ElementType damageType;
 
     public Slider healthBar;
     public Slider shieldBar;

@@ -301,9 +301,9 @@ MonoBehaviour:
   damage: 8
   firerate: 0.8
   range: 5
-  damageType: 0
   healthBar: {fileID: 5408499257876270511}
   shieldBar: {fileID: 6871320235869885278}
+  upgradedTower: {fileID: 0}
 --- !u!65 &6740784192468324263
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -337,6 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d3b668b7f2684bb7b72b686cb4096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackType: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -843,7 +844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2608180788022481126, guid: 51fc972c9a70a624abb9a9562e30dcb8, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3124237719489630456, guid: 51fc972c9a70a624abb9a9562e30dcb8, type: 3}
       propertyPath: m_Name

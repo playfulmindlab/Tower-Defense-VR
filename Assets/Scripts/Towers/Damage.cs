@@ -11,6 +11,10 @@ public interface IDamageMethod
 
 public class Damage : MonoBehaviour, IDamageMethod
 {
+    [SerializeField] protected ElementType attackType;
+
+    public ElementType GetAttackType { get { return attackType; } set { } }
+
     protected private float damage;
     protected private float firerate;
     protected private float delay;
@@ -34,7 +38,7 @@ public class Damage : MonoBehaviour, IDamageMethod
                 return;
             }
 
-            TowerDefenseManager.EnqueueDamageData(new EnemyDamage(target, damage, target.damageResistance));
+            TowerDefenseManager.EnqueueDamageData(new EnemyDamage(target, damage, target.GetResistanceModifier(attackType)));
 
             delay = 1f / firerate;
         }

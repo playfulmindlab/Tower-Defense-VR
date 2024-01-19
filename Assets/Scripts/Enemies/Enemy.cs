@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public struct DamageResistance
+{
+    public ElementType resistanceType;
+    public float resistanceModifier;
+}
+
 public class Enemy : MonoBehaviour
 {
     public Transform root;
@@ -25,15 +32,22 @@ public class Enemy : MonoBehaviour
     public float speed;
     public List<Effect> activeEffects;
     public float damageResistance = 1f;
+    public DamageResistance[] damageResistances = new DamageResistance[0];
     public int reward = 10;
     public int id;
     public int nodeIndex;
+
+    Dictionary<ElementType, float> damResistancesDict = new Dictionary<ElementType, float>();
 
     [SerializeField] Slider healthBar;
     public void Init()
     {
         health = maxHealth;
         activeEffects = new List<Effect>();
+        foreach(DamageResistance damRes in damageResistances)
+        {
+            damResistancesDict.Add(damRes.resistanceType, damRes.resistanceModifier);
+        }
         transform.position = TowerDefenseManager.nodePositions[0];
         speed = 1 + (TowerDefenseManager.waveCount * 0.7f);
         nodeIndex = 0;
@@ -43,6 +57,15 @@ public class Enemy : MonoBehaviour
             healthBar.maxValue = maxHealth;
             healthBar.value = health;
         }
+    }
+
+    public float GetResistanceModifier(ElementType attackType)
+    {
+        Debug.Log("COUNT: " + damResistancesDict.Count + " // CONTAINED?: " + damResistancesDict.ContainsKey(attackType));
+        if (damResistancesDict.Count > 0 && damResistancesDict.ContainsKey(attackType))
+            return damResistancesDict[attackType];
+
+        return 1f;
     }
 
     public void Tick()
@@ -57,7 +80,7 @@ public class Enemy : MonoBehaviour
                 }
                 else
                 {
-                    TowerDefenseManager.EnqueueDamageData(new EnemyDamage(this, activeEffects[i].damage, 1f));
+                    TowerDefenseManager.EnqueueDamageData(new EnemyDamage(this, activeEffects[i].damage, GetResistanceModifier(activeEffects[i].element)));
                     activeEffects[i].damageDelay = 1f / activeEffects[i].damageRate;
                 }
                 activeEffects[i].expireTime -= Time.deltaTime;

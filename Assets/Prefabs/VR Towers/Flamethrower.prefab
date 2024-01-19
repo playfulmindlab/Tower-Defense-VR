@@ -136,12 +136,10 @@ MonoBehaviour:
   damage: 2
   firerate: 1
   range: 3
-  damageType: 1
   healthBar: {fileID: 6340789004258302821}
   shieldBar: {fileID: 70979792664552238}
   upgradedTower: {fileID: 0}
   rotateSpeed: 30
-  fireEffect: {fileID: 0}
 --- !u!65 &5874515159302801773
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -175,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0433298245dcc0d4ebea0e1243b8ab40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackType: 1
   fireEffect: {fileID: 1183340217060245055}
   fireVolume: {fileID: 911385641881567468}
 --- !u!54 &1464527991977398517

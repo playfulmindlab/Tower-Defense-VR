@@ -846,7 +846,6 @@ MonoBehaviour:
   damage: 20
   firerate: 1
   range: 5
-  damageType: 2
   healthBar: {fileID: 3121754790502370582}
   shieldBar: {fileID: 5189627663775929171}
   upgradedTower: {fileID: 0}
@@ -883,6 +882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d3b668b7f2684bb7b72b686cb4096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackType: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -1363,7 +1363,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2608180788022481126, guid: 51fc972c9a70a624abb9a9562e30dcb8, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2608180788022481126, guid: 51fc972c9a70a624abb9a9562e30dcb8, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

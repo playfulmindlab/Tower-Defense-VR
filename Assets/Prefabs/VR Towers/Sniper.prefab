@@ -300,9 +300,9 @@ MonoBehaviour:
   damage: 20
   firerate: 0.5
   range: 5
-  damageType: 0
   healthBar: {fileID: 8029968050623235861}
   shieldBar: {fileID: 5126995975077313770}
+  upgradedTower: {fileID: 0}
 --- !u!65 &793246411881218053
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d3b668b7f2684bb7b72b686cb4096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackType: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -1442,7 +1443,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 100
+    maxNumParticles: 30
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0

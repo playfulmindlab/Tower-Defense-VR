@@ -11,7 +11,7 @@ public class FireVolumeManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Effect flameEffect = new Effect("Fire", baseClass.DamageValue, baseClass.FirerateValue, effectTime);
+            Effect flameEffect = new Effect("Fire", baseClass.DamageValue, baseClass.FirerateValue, baseClass.GetAttackType, effectTime);
             AppliedEffect effect = new AppliedEffect(EnemySpawner.enemyTransformPairs[other.transform], flameEffect);
             TowerDefenseManager.EnqueueEffectToApply(effect);
         }

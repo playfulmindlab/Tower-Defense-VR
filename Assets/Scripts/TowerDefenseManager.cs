@@ -202,7 +202,7 @@ public class TowerDefenseManager : MonoBehaviour
 
                     if (currentDamage.target.Health > 0)
                     {
-                        currentDamage.target.Health -= currentDamage.totalDamage / currentDamage.resistance;
+                        currentDamage.target.Health -= currentDamage.totalDamage * currentDamage.resistance;
 
                         //currently, we only add money upon an enemy's death
                         //uncomment this to add more money based on damage dealt
@@ -285,14 +285,16 @@ public class Effect
     public float damage;
     public float damageRate;
     public float damageDelay;
+    public ElementType element;
 
     public float expireTime;
 
-    public Effect(string newEffectName, float newDamage, float newDamageRate, float newExpireTime)
+    public Effect(string newEffectName, float newDamage, float newDamageRate, ElementType newElement, float newExpireTime)
     {
         effectName = newEffectName;
         damage = newDamage;
         damageRate = newDamageRate;
+        element = newElement;
         damageDelay = 1f / newDamageRate;
         expireTime = newExpireTime;
     }

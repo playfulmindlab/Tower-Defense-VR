@@ -88,20 +88,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01ffdc3a5595cf4a92ff8a7192d6524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesLayer:
+  targetLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   target: {fileID: 0}
   towerPivot: {fileID: 0}
   towerCost: 200
+  health: 10
   maxHealth: 1
   shield: 30
   damage: 2
   firerate: 2
   range: 0
-  damageType: 0
   healthBar: {fileID: 6438041052752185983}
   shieldBar: {fileID: 6689535041708520854}
+  upgradedTower: {fileID: 0}
 --- !u!65 &3452546741357064191
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -135,7 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b82035347dd4f4aa4190cb27379d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectTime: 100
+  attackType: 0
+  effectTime: 5
 --- !u!54 &326937150322060834
 Rigidbody:
   m_ObjectHideFlags: 0
