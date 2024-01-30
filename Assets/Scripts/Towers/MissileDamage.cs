@@ -18,9 +18,29 @@ public class MissileDamage : Damage, IDamageMethod
         base.Init(damage, firerate);
     }
 
+    public void ActivateGun(bool activeState)
+    {
+        if (activeState == true)
+        {
+            missileSystemMain.loop = true;
+            missileSystemMain.maxParticles = 1000;
+            var emission = missileSystem.emission;
+            emission.rateOverTimeMultiplier = missileSystemMain.startSpeedMultiplier / 5f;
+            missileSystem.Play();
+        }
+        else
+        {
+            missileSystem.Stop();
+            missileSystemMain.loop = false;
+            missileSystemMain.maxParticles = 10;
+            var emission = missileSystem.emission;
+            emission.rateOverTimeMultiplier = 0f;
+        }
+    }
+
     public override void DamageTick(Enemy target)
     {
-        if (target)
+        if (target && canFire == true)
         {
             if (delay > 0f)
             {

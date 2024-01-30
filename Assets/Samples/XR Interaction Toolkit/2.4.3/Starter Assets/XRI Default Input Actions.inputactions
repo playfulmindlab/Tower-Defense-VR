@@ -403,6 +403,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "L Trigger Press",
+                    "type": "Button",
+                    "id": "7c31295a-c4af-401e-9685-9df4782248a0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump Control - Aim",
+                    "type": "Value",
+                    "id": "05418a4c-d4b2-4c42-9467-9c3d5ca5e741",
+                    "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -612,6 +630,28 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Aim Flags",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3ab13ded-3560-483b-81ae-576694ee1a6c",
+                    "path": "<XRController>{LeftHand}/{SecondaryTrigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "L Trigger Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "36921c5e-7668-4449-93a2-1beb48b40d8d",
+                    "path": "<XRController>{LeftHand}/deviceRotation",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump Control - Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1139,6 +1179,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "R Trigger Press",
+                    "type": "Button",
+                    "id": "364b41f5-a3d5-40fd-adee-44a45be2da7e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1348,6 +1397,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Aim Flags",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b8dcc01f-1414-404f-bc41-64f4f4f4304c",
+                    "path": "<XRController>{RightHand}/{SecondaryTrigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "R Trigger Press",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

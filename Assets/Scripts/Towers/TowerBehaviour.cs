@@ -11,6 +11,7 @@ public class TowerBehaviour : MonoBehaviour
 
     public Enemy target;
     public Transform towerPivot;
+    public bool canFire = true;
 
     public int towerCost = 100;
     [SerializeField] protected int health = 10;
@@ -67,14 +68,17 @@ public class TowerBehaviour : MonoBehaviour
             shieldBar.value = shield;
         }
 
-        currentDamageMethodClass.DamageTick(target);
-
-        if (target != null)
+        if (canFire == true)
         {
-            Vector3 posDifference = target.transform.position - transform.position;
-            posDifference.y = 0;
-            if (towerPivot != null)
-                towerPivot.transform.rotation = Quaternion.LookRotation(posDifference, Vector3.up);
+            currentDamageMethodClass.DamageTick(target);
+
+            if (target != null)
+            {
+                Vector3 posDifference = target.transform.position - transform.position;
+                posDifference.y = 0;
+                if (towerPivot != null)
+                    towerPivot.transform.rotation = Quaternion.LookRotation(posDifference, Vector3.up);
+            }
         }
     }
 

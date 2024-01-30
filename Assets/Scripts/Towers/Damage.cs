@@ -11,6 +11,7 @@ public interface IDamageMethod
 
 public class Damage : MonoBehaviour, IDamageMethod
 {
+    public bool canFire = true;
     [SerializeField] protected ElementType attackType;
 
     public ElementType GetAttackType { get { return attackType; } set { } }

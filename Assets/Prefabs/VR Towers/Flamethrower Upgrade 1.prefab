@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 1768241287443200200}
   - component: {fileID: 5272223154011103370}
   - component: {fileID: 2835492966266183823}
+  - component: {fileID: 3853998737259107296}
   m_Layer: 2
   m_Name: TowerCanvas
   m_TagString: Untagged
@@ -206,6 +207,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106b10df8a1121945a4a3a75720e827f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3853998737259107296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776850980393554542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RaycastTriggerInteraction: 1
 --- !u!1 &1274399731004777505
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0433298245dcc0d4ebea0e1243b8ab40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canFire: 1
   attackType: 0
   fireEffect: {fileID: 8705502247021938685}
   fireVolume: {fileID: 4171568121967010490}

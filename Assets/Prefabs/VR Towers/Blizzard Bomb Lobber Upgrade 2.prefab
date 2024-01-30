@@ -869,6 +869,7 @@ GameObject:
   - component: {fileID: 9139573451691980063}
   - component: {fileID: 1680262913175215974}
   - component: {fileID: 6468742621268318478}
+  - component: {fileID: 1652391236646095605}
   m_Layer: 2
   m_Name: TowerCanvas
   m_TagString: Untagged
@@ -972,6 +973,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106b10df8a1121945a4a3a75720e827f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1652391236646095605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548166460593164257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RaycastTriggerInteraction: 1
 --- !u!1 &8225656022212276058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,6 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a2c9f12f23774484731f325185cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canFire: 1
   attackType: 0
   enemyLayer:
     serializedVersion: 2

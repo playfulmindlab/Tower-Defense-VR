@@ -19,21 +19,16 @@ public class TowerPlacementVR : MonoBehaviour
     [SerializeField] public InputActionProperty towerSpawnerButton;
     [SerializeField] public InputActionProperty cancelTowerSpawnButton;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerCamera = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //if (towerSpawnerButton.action.WasPerformedThisFrame()){ }
-
         if (currentPlacingTower != null)
         {
             currentPlacingTower.transform.position = placementPointer.endPoint;
-            //Debug.Log(currentPlacingTower.transform.position + " vs " + placementPointer.endPoint);
 
             if (cancelTowerSpawnButton.action.WasPerformedThisFrame())
             {
@@ -123,7 +118,6 @@ public class TowerPlacementVR : MonoBehaviour
 
     public void UpgradeTower(GameObject oldTower, GameObject upgradedTower)
     {
-        //GameObject upgradedTower = upgradedTower
         int newTowerCost = upgradedTower.GetComponent<TowerBehaviour>().towerCost;
 
         if (playerStats.CurrentMoney >= newTowerCost)
