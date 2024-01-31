@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 6547725450694157919}
   - component: {fileID: 9154071367705556552}
   - component: {fileID: 3733587650601946132}
+  - component: {fileID: 2660989322472062284}
   m_Layer: 2
   m_Name: TowerCanvas
   m_TagString: Untagged
@@ -303,6 +304,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106b10df8a1121945a4a3a75720e827f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2660989322472062284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2746196037428164478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RaycastTriggerInteraction: 1
 --- !u!1 &3178614584635990012
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +468,7 @@ MonoBehaviour:
     m_Bits: 0
   target: {fileID: 0}
   towerPivot: {fileID: 0}
+  canFire: 1
   towerCost: 200
   health: 10
   maxHealth: 1
@@ -491,8 +512,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b82035347dd4f4aa4190cb27379d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canFire: 1
   attackType: 0
-  effectTime: 5
+  effectTime: 100
 --- !u!54 &1937583011785296523
 Rigidbody:
   m_ObjectHideFlags: 0

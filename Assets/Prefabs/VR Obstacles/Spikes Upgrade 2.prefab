@@ -57,6 +57,7 @@ MonoBehaviour:
     m_Bits: 0
   target: {fileID: 0}
   towerPivot: {fileID: 0}
+  canFire: 1
   towerCost: 200
   health: 10
   maxHealth: 1
@@ -100,8 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b82035347dd4f4aa4190cb27379d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canFire: 1
   attackType: 0
-  effectTime: 5
+  effectTime: 100
 --- !u!54 &6092227618357881648
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -282,6 +282,7 @@ MonoBehaviour:
     m_Bits: 128
   target: {fileID: 0}
   towerPivot: {fileID: 3637913227264682718}
+  canFire: 1
   towerCost: 350
   health: 10
   maxHealth: 100
@@ -392,7 +393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6000795821749396507
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1117,7 +1118,7 @@ GameObject:
   - component: {fileID: 1119023137141129106}
   - component: {fileID: 7164728244246135558}
   - component: {fileID: 416485305057872360}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Reticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1133,7 +1134,7 @@ RectTransform:
   m_GameObject: {fileID: 8798411143745757498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.099999994, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6000795821749396507}
@@ -1141,7 +1142,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 5}
+  m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7164728244246135558
 CanvasRenderer:
@@ -1412,6 +1413,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
+      propertyPath: lengthInSec
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: emitterVelocityMode
       value: 0
       objectReference: {fileID: 0}
@@ -1434,6 +1443,10 @@ PrefabInstance:
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits

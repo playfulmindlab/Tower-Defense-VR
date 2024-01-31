@@ -48,9 +48,9 @@ public class MissileDamage : Damage, IDamageMethod
                 return;
             }
 
-            missileSystemMain.startRotationX = towerHead.forward.x;
-            missileSystemMain.startRotationY = towerHead.forward.y;
-            missileSystemMain.startRotationZ = towerHead.forward.z;
+            //missileSystemMain.startRotationX = towerHead.forward.x;
+            //missileSystemMain.startRotationY = towerHead.forward.y;
+            //missileSystemMain.startRotationZ = towerHead.forward.z;
 
             missileSystem.Play();
 

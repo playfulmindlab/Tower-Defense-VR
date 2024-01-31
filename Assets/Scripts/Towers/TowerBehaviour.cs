@@ -44,9 +44,6 @@ public class TowerBehaviour : MonoBehaviour
             shieldBar.maxValue = shield;
         }
 
-        //Uncomment this if you want to test healing or damage to towers
-        //health = 1;
-
         if (currentDamageMethodClass == null)
         {
             Debug.LogError("Tower " + this.gameObject.name + " has no damage class attached!");
@@ -55,6 +52,10 @@ public class TowerBehaviour : MonoBehaviour
         {
             currentDamageMethodClass.Init(damage, firerate);
         }
+
+        //Uncomment this if you want to test healing or damage to towers
+        health = 1;
+        Damage(0);
 
         delay = 1 / firerate;
     }
@@ -99,7 +100,9 @@ public class TowerBehaviour : MonoBehaviour
         if (health <= maxHealth * 0.3f)
         {
             healthDamageMod = 0.5f;
-            currentDamageMethodClass.UpdateDamage(damage * healthDamageMod);
+            Debug.Log("Damage Pre " + GetComponent<Damage>().DamageValue + " // " + (this.damage * healthDamageMod));
+            currentDamageMethodClass.UpdateDamage(this.damage * healthDamageMod);
+            Debug.Log("Damage Post " + GetComponent<Damage>().DamageValue);
         }
     }
 

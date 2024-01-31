@@ -777,6 +777,7 @@ MonoBehaviour:
     m_Bits: 128
   target: {fileID: 0}
   towerPivot: {fileID: 5734786658272153313}
+  canFire: 1
   towerCost: 800
   health: 10
   maxHealth: 10
@@ -820,6 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d3b668b7f2684bb7b72b686cb4096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canFire: 1
   attackType: 0
   enemyLayer:
     serializedVersion: 2
@@ -1045,6 +1047,10 @@ PrefabInstance:
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
       value: 129
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737002907422082392, guid: d1df631048f08d94797db2905f49296f, type: 3}
+      propertyPath: m_RenderAlignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6346178433994488895, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: m_LocalPosition.x
