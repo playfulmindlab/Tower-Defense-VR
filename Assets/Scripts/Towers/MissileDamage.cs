@@ -6,13 +6,17 @@ public class MissileDamage : Damage, IDamageMethod
 {
     public LayerMask enemyLayer;
     [SerializeField] protected ParticleSystem missileSystem;
+    //[SerializeField] AudioClip firingSFX;
     [SerializeField] protected Transform towerHead;
     [SerializeField] protected float projectileSpeed = 30f;
 
+
     protected ParticleSystem.MainModule missileSystemMain;
+    AudioSource audioSource;
 
     public override void Init(float damage, float firerate)
     {
+        audioSource = GetComponent<AudioSource>();
         missileSystemMain = missileSystem.main;
         missileSystemMain.startSpeed = projectileSpeed;
         base.Init(damage, firerate);
@@ -22,6 +26,7 @@ public class MissileDamage : Damage, IDamageMethod
     {
         if (activeState == true)
         {
+            audioSource.loop = true;
             missileSystemMain.loop = true;
             missileSystemMain.maxParticles = 1000;
             var emission = missileSystem.emission;
@@ -31,6 +36,7 @@ public class MissileDamage : Damage, IDamageMethod
         else
         {
             missileSystem.Stop();
+            audioSource.loop = false;
             missileSystemMain.loop = false;
             missileSystemMain.maxParticles = 10;
             var emission = missileSystem.emission;

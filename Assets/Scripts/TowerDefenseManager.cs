@@ -27,6 +27,7 @@ public class TowerDefenseManager : MonoBehaviour
     [SerializeField] int enemyKillCount;
     [SerializeField] int currEnemyKillCount;
     int spawnedEnemiesCount = 0;
+    int testVar;
 
     // Start is called before the first frame update
     void Start()
@@ -73,8 +74,6 @@ public class TowerDefenseManager : MonoBehaviour
     {
         if (newWaveNum < 0)
             waveCount++;
-
-        //CancelInvoke();
 
         enemyKillCount = (waveCount * 5);
         currEnemyKillCount = 0;
@@ -277,18 +276,25 @@ public struct EnemyDamage
     }
 }
 
+public enum EffectType { Damage, Slow, Shock}
+
 [System.Serializable]
 public class Effect
 {
     public string effectName;
+
+    public EffectType effectType;
 
     public float damage;
     public float damageRate;
     public float damageDelay;
     public ElementType element;
 
+    public float slowAmount;
+    public float origSpeed;
     public float expireTime;
 
+    //Damage Over Time Effect
     public Effect(string newEffectName, float newDamage, float newDamageRate, ElementType newElement, float newExpireTime)
     {
         effectName = newEffectName;
@@ -297,6 +303,24 @@ public class Effect
         element = newElement;
         damageDelay = 1f / newDamageRate;
         expireTime = newExpireTime;
+
+        effectType = EffectType.Damage;
+    }
+
+    //Slow Effect
+    public Effect(string newEffectName, float newSlowAmount, float newOrigSpeed, float newExpireTime)
+    {
+        effectName = newEffectName;
+        slowAmount = newSlowAmount;
+        origSpeed = newOrigSpeed;
+        expireTime = newExpireTime;
+
+        effectType = EffectType.Slow;
+    }
+
+    public EffectType GetEffectType()
+    {
+        return effectType;
     }
 }
 

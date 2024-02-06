@@ -1403,7 +1403,7 @@
                 {
                     "name": "",
                     "id": "b8dcc01f-1414-404f-bc41-64f4f4f4304c",
-                    "path": "<XRController>{RightHand}/{SecondaryTrigger}",
+                    "path": "<XRController>{RightHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",

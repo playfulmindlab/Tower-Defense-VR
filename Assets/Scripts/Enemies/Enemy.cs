@@ -30,6 +30,11 @@ public class Enemy : MonoBehaviour
     }
 
     public float speed;
+    public float Speed
+    {
+        get { return speed; }
+        set { }
+    }
     public List<Effect> activeEffects;
     public float damageResistance = 1f;
     public DamageResistance[] damageResistances = new DamageResistance[0];
@@ -72,18 +77,35 @@ public class Enemy : MonoBehaviour
     {
         for (int i = 0; i < activeEffects.Count; i++)
         {
-            if (activeEffects[i].expireTime > 0f)
+            if (activeEffects[i].GetEffectType() == EffectType.Damage)
             {
-                if (activeEffects[i].damageDelay > 0f)
+                if (activeEffects[i].expireTime > 0f)
                 {
-                    activeEffects[i].damageDelay -= Time.deltaTime;
+                    if (activeEffects[i].damageDelay > 0f)
+                    {
+                        activeEffects[i].damageDelay -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        TowerDefenseManager.EnqueueDamageData(new EnemyDamage(this, activeEffects[i].damage, GetResistanceModifier(activeEffects[i].element)));
+                        activeEffects[i].damageDelay = 1f / activeEffects[i].damageRate;
+                    }
+                    activeEffects[i].expireTime -= Time.deltaTime;
+                }
+            }
+            else if (activeEffects[i].GetEffectType() == EffectType.Slow)
+            {
+                activeEffects[i].expireTime -= Time.deltaTime;
+                if (activeEffects[i].expireTime > 0)
+                {
+                    speed = activeEffects[i].origSpeed * activeEffects[i].slowAmount;
+                    Debug.Log("Step 1: " + speed + " // " + activeEffects[i].origSpeed + " x " + activeEffects[i].slowAmount);
                 }
                 else
                 {
-                    TowerDefenseManager.EnqueueDamageData(new EnemyDamage(this, activeEffects[i].damage, GetResistanceModifier(activeEffects[i].element)));
-                    activeEffects[i].damageDelay = 1f / activeEffects[i].damageRate;
+                    speed = activeEffects[i].origSpeed;
+                    Debug.Log("Step 2: " + speed);
                 }
-                activeEffects[i].expireTime -= Time.deltaTime;
             }
         }
         activeEffects.RemoveAll(x => x.expireTime <= 0f);
