@@ -54,8 +54,8 @@ public class TowerBehaviour : MonoBehaviour
         }
 
         //Uncomment this if you want to test healing or damage to towers
-        health = 1;
-        Damage(0);
+        //health = 1;
+        //Damage(0);
 
         delay = 1 / firerate;
     }
