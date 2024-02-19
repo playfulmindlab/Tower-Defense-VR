@@ -135,6 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8519183058987526884}
   - component: {fileID: 2996582893133653865}
+  - component: {fileID: 2520137066508750792}
   m_Layer: 0
   m_Name: turret_2
   m_TagString: Untagged
@@ -181,6 +182,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2520137066508750792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263233995516532286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2367362426244018729
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +255,7 @@ MonoBehaviour:
     m_Bits: 128
   target: {fileID: 0}
   towerPivot: {fileID: 2480524560664747237}
+  canFire: 1
   towerCost: 350
   health: 10
   maxHealth: 10
@@ -245,6 +265,7 @@ MonoBehaviour:
   range: 6
   healthBar: {fileID: 5351027559298390862}
   shieldBar: {fileID: 299358341410339401}
+  outline: {fileID: 0}
   upgradedTower: {fileID: 0}
 --- !u!65 &372938984123403702
 BoxCollider:

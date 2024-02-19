@@ -143,6 +143,7 @@ MonoBehaviour:
     m_Bits: 64
   target: {fileID: 0}
   towerPivot: {fileID: 8495807574837101080}
+  canFire: 1
   towerCost: 500
   health: 10
   maxHealth: 10
@@ -150,9 +151,10 @@ MonoBehaviour:
   damage: 3
   firerate: 5
   range: 6
-  damageType: 0
   healthBar: {fileID: 508678915267847166}
   shieldBar: {fileID: 3838256858923551615}
+  outline: {fileID: 0}
+  upgradedTower: {fileID: 0}
   rotateSpeed: 30
 --- !u!114 &3806134857472510845
 MonoBehaviour:
@@ -166,6 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a93aee2fa582324982409fc822b6c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canFire: 1
+  attackType: 0
 --- !u!54 &5746008875087740948
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -866,8 +870,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100006, guid: 41606faa755d0f942b715592449052d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2351219149858604481}
   m_SourcePrefab: {fileID: 100100000, guid: 41606faa755d0f942b715592449052d3, type: 3}
+--- !u!1 &8495807574836944444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: 41606faa755d0f942b715592449052d3, type: 3}
+  m_PrefabInstance: {fileID: 8495807574836975770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2351219149858604481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8495807574836944444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &8495807574837101080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 41606faa755d0f942b715592449052d3, type: 3}

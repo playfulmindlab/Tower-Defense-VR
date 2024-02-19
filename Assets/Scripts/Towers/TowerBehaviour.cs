@@ -24,12 +24,14 @@ public class TowerBehaviour : MonoBehaviour
 
     public Slider healthBar;
     public Slider shieldBar;
+    public Outline outline;
 
     public GameObject upgradedTower;
 
     protected IDamageMethod currentDamageMethodClass;
     protected float delay;
     private float healthDamageMod = 1;
+
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -52,6 +54,9 @@ public class TowerBehaviour : MonoBehaviour
         {
             currentDamageMethodClass.Init(damage, firerate);
         }
+
+        outline = GetComponentInChildren<Outline>();
+        outline.OutlineWidth = 0;
 
         //Uncomment this if you want to test healing or damage to towers
         //health = 1;

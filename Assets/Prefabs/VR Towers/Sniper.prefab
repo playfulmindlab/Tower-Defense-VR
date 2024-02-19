@@ -293,6 +293,7 @@ MonoBehaviour:
     m_Bits: 128
   target: {fileID: 0}
   towerPivot: {fileID: 2585447481753820550}
+  canFire: 1
   towerCost: 350
   health: 10
   maxHealth: 10
@@ -302,6 +303,7 @@ MonoBehaviour:
   range: 5
   healthBar: {fileID: 8029968050623235861}
   shieldBar: {fileID: 5126995975077313770}
+  outline: {fileID: 0}
   upgradedTower: {fileID: 0}
 --- !u!65 &793246411881218053
 BoxCollider:
@@ -336,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d3b668b7f2684bb7b72b686cb4096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canFire: 1
   attackType: 0
   enemyLayer:
     serializedVersion: 2
@@ -5863,8 +5866,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 400004, guid: 9d25894dedbc3a547b268d9a0e54e5b3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3658155709638867241}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100008, guid: 9d25894dedbc3a547b268d9a0e54e5b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5620334800302106161}
   m_SourcePrefab: {fileID: 100100000, guid: 9d25894dedbc3a547b268d9a0e54e5b3, type: 3}
+--- !u!1 &2585447481753649578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100008, guid: 9d25894dedbc3a547b268d9a0e54e5b3, type: 3}
+  m_PrefabInstance: {fileID: 2585447481753683714}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5620334800302106161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2585447481753649578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &2585447481753820550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 9d25894dedbc3a547b268d9a0e54e5b3, type: 3}

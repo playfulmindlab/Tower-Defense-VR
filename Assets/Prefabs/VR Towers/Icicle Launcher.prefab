@@ -620,6 +620,7 @@ MonoBehaviour:
   range: 5
   healthBar: {fileID: 3121754790502370582}
   shieldBar: {fileID: 5189627663775929171}
+  outline: {fileID: 0}
   upgradedTower: {fileID: 6841574946867306588, guid: 65e09a0aa355a6e47bf7fbd9d5fb7374, type: 3}
 --- !u!65 &582588043656198840
 BoxCollider:
@@ -1418,8 +1419,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 400006, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       insertIndex: 0
       addedObject: {fileID: 9113754174083036006}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100010, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4605759590042303707}
   m_SourcePrefab: {fileID: 100100000, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
+--- !u!1 &5734786658271859405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100010, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
+  m_PrefabInstance: {fileID: 5734786658271761511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4605759590042303707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5734786658271859405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &5734786658272153313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}

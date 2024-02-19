@@ -35,6 +35,10 @@ public class Enemy : MonoBehaviour
         get { return speed; }
         set { }
     }
+
+    public int attack = 3;
+    public float attackRate = 1f;
+
     public List<Effect> activeEffects;
     public float damageResistance = 1f;
     public DamageResistance[] damageResistances = new DamageResistance[0];
@@ -73,8 +77,17 @@ public class Enemy : MonoBehaviour
         return 1f;
     }
 
+    public virtual void Attack(TowerBehaviour attackedObject)
+    {
+        attackedObject.Damage(attack);
+    }
+
     public void Tick()
     {
+        //Attack Obstacle
+
+
+        //Effects Activate
         for (int i = 0; i < activeEffects.Count; i++)
         {
             if (activeEffects[i].GetEffectType() == EffectType.Damage)
