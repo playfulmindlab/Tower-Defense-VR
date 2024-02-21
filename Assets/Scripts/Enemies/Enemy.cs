@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 public struct DamageResistance
@@ -33,7 +34,11 @@ public class Enemy : MonoBehaviour
     public float Speed
     {
         get { return speed; }
-        set { }
+        set {
+            speed = value;
+            if (speedText != null)
+                speedText.text = "Speed: " + Speed.ToString();
+        }
     }
 
     public int attack = 3;
@@ -49,6 +54,8 @@ public class Enemy : MonoBehaviour
     Dictionary<ElementType, float> damResistancesDict = new Dictionary<ElementType, float>();
 
     [SerializeField] Slider healthBar;
+    [SerializeField] TextMeshProUGUI speedText;
+
     public void Init()
     {
         health = maxHealth;
@@ -58,7 +65,7 @@ public class Enemy : MonoBehaviour
             damResistancesDict.Add(damRes.resistanceType, damRes.resistanceModifier);
         }
         transform.position = TowerDefenseManager.nodePositions[0];
-        speed = 1 + (TowerDefenseManager.waveCount * 0.7f);
+        Speed = 1 + (TowerDefenseManager.waveCount * 0.7f);
         nodeIndex = 0;
 
         if (healthBar != null)
@@ -111,12 +118,12 @@ public class Enemy : MonoBehaviour
                 activeEffects[i].expireTime -= Time.deltaTime;
                 if (activeEffects[i].expireTime > 0)
                 {
-                    speed = activeEffects[i].origSpeed * activeEffects[i].slowAmount;
+                    Speed = activeEffects[i].origSpeed * activeEffects[i].slowAmount;
                     Debug.Log("Step 1: " + speed + " // " + activeEffects[i].origSpeed + " x " + activeEffects[i].slowAmount);
                 }
                 else
                 {
-                    speed = activeEffects[i].origSpeed;
+                    Speed = activeEffects[i].origSpeed;
                     Debug.Log("Step 2: " + speed);
                 }
             }
