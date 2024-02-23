@@ -1131,7 +1131,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 3880337054511021057}
   canFire: 1
-  towerCost: 350
+  towerCost: 1000
   health: 10
   maxHealth: 10
   shield: 10
@@ -1176,7 +1176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canFire: 1
-  attackType: 0
+  attackType: 2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1

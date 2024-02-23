@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canFire: 1
-  attackType: 0
+  attackType: 2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128

@@ -127,6 +127,33 @@ public class Enemy : MonoBehaviour
                     Debug.Log("Step 2: " + speed);
                 }
             }
+            else if (activeEffects[i].GetEffectType() == EffectType.Shock)
+            {
+                activeEffects[i].expireTime -= Time.deltaTime;
+                activeEffects[i].stopExpireTime -= Time.deltaTime;
+
+                if (activeEffects[i].expireTime > 0) {
+                    if (activeEffects[i].stopExpireTime <= 0f)
+                    {
+                        Effect shockEffect = activeEffects[i];
+
+                        if (Speed == 0) //if speed = 0, switch to moving
+                        {
+                            Speed = shockEffect.origSpeed;
+                            shockEffect.stopExpireTime = shockEffect.stopIntervalTime; 
+                        }
+                        else //otherwise, enemy has NOT stopped and needs to be!
+                        {
+                            Speed = 0f;
+                            shockEffect.stopExpireTime = shockEffect.resumeIntervalTime ;
+                        }
+                    }
+                }
+                else
+                {
+                    Speed = activeEffects[i].origSpeed;
+                }
+            }
         }
         activeEffects.RemoveAll(x => x.expireTime <= 0f);
     }

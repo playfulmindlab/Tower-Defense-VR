@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canFire: 1
-  attackType: 0
+  attackType: 1
   fireEffect: {fileID: 8705502247021938685}
   fireVolume: {fileID: 4171568121967010490}
 --- !u!54 &1344333874232364538

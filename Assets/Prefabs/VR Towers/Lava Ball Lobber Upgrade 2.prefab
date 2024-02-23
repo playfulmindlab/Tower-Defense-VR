@@ -981,7 +981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canFire: 1
-  attackType: 0
+  attackType: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1

@@ -291,6 +291,11 @@ public class Effect
     public ElementType element;
 
     public float slowAmount;
+
+    public float stopIntervalTime;
+    public float resumeIntervalTime;
+    public float stopExpireTime;
+
     public float origSpeed;
     public float expireTime;
 
@@ -317,6 +322,20 @@ public class Effect
 
         effectType = EffectType.Slow;
     }
+
+    //Shock Effect
+    public Effect(string newEffectName, float newStopIntervalTime, float newResumeIntervalTime, float newOrigSpeed, float newExpireTime)
+    {
+        effectName = newEffectName;
+        stopIntervalTime = newStopIntervalTime;
+        resumeIntervalTime = newResumeIntervalTime;
+        origSpeed = newOrigSpeed;
+        expireTime = newExpireTime;
+        stopExpireTime = stopIntervalTime;
+
+        effectType = EffectType.Shock;
+    }
+
 
     public EffectType GetEffectType()
     {
