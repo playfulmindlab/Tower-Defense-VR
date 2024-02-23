@@ -10,8 +10,6 @@ public class VRPointer : MonoBehaviour
     public Vector3 endPoint;
     public GameObject collision;
 
-    public LayerMask towerLayer;
-
     int layerMaskInt = ~6;
 
     private void Awake()
