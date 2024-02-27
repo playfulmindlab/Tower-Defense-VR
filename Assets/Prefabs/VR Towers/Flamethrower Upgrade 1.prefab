@@ -328,7 +328,7 @@ MonoBehaviour:
   healthBar: {fileID: 4792026873438484637}
   shieldBar: {fileID: 5571909631037118141}
   outline: {fileID: 0}
-  upgradedTower: {fileID: 0}
+  upgradedTower: {fileID: 7179862029848007442, guid: 2a9a3195306070243bc2bbbf09b96df4, type: 3}
   rotateSpeed: 30
 --- !u!65 &1154899532457875847
 BoxCollider:

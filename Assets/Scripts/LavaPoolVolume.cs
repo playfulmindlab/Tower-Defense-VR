@@ -18,7 +18,8 @@ public class LavaPoolVolume : ObstacleDamageVolume
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            damagingEnemies.Dequeue();
+            if (damagingEnemies.Count > 0)
+                damagingEnemies.Dequeue();
         }
     }
 }

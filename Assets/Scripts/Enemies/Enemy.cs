@@ -60,10 +60,13 @@ public class Enemy : MonoBehaviour
     {
         health = maxHealth;
         activeEffects = new List<Effect>();
-        foreach(DamageResistance damRes in damageResistances)
+
+        damResistancesDict.Clear();
+        foreach (DamageResistance damRes in damageResistances)
         {
             damResistancesDict.Add(damRes.resistanceType, damRes.resistanceModifier);
         }
+
         transform.position = TowerDefenseManager.nodePositions[0];
         Speed = 1 + (TowerDefenseManager.waveCount * 0.7f);
         nodeIndex = 0;

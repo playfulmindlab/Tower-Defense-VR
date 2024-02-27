@@ -2710,6 +2710,10 @@ PrefabInstance:
       propertyPath: pointerLength
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 1468085002957717203, guid: fcfb50e207326fd4db768bbfbe4f374f, type: 3}
+      propertyPath: towerLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2721589714025914238, guid: fcfb50e207326fd4db768bbfbe4f374f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5581,9 +5585,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 856443668}
     - target: {fileID: 3883821262958399493, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883821262958399493, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 856443668}
+    - target: {fileID: 3883821262958399493, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 7179862029848007442, guid: 2a9a3195306070243bc2bbbf09b96df4, type: 3}
+    - target: {fileID: 3883821262958399495, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_Name
+      value: 'FlamethrowerUpgrade2Button '
+      objectReference: {fileID: 0}
     - target: {fileID: 3987380611172676474, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6457,7 +6473,7 @@ MonoBehaviour:
   continueLoop: 1
   spawnEnemies: 1
   colliderObject: {fileID: 0}
-  enemyKillCount: 0
+  enemyRemovedCount: 0
   currEnemyKillCount: 0
 --- !u!4 &936530110
 Transform:
@@ -12527,7 +12543,7 @@ MonoBehaviour:
   m_ImproveAccuracyWithSphereCollider: 1
   m_PhysicsLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 65
   m_PhysicsTriggerInteraction: 1
 --- !u!1001 &1707490546
 PrefabInstance:
@@ -14749,7 +14765,7 @@ MonoBehaviour:
   m_ConeCastAngle: 6
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 2147483681
+    m_Bits: 2147483745
   m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 0

@@ -24,7 +24,7 @@ public class TowerDefenseManager : MonoBehaviour
     public bool spawnEnemies = true;
 
     [SerializeField] GameObject colliderObject;
-    [SerializeField] int enemyKillCount;
+    [SerializeField] int enemyRemovedCount;
     [SerializeField] int currEnemyKillCount;
     int spawnedEnemiesCount = 0;
     int testVar;
@@ -70,26 +70,32 @@ public class TowerDefenseManager : MonoBehaviour
         }
     }
 
+
     public void UpdateWaveCount(int newWaveNum = -1)
     {
         if (newWaveNum < 0)
             waveCount++;
+        else
+            waveCount = newWaveNum;
 
-        enemyKillCount = (waveCount * 5);
+        enemyRemovedCount = (waveCount * 5);
         currEnemyKillCount = 0;
         spawnedEnemiesCount = 0;
 
         playerStats.DisplayWaveCount(waveCount);
-        playerStats.DisplayEnemyCount(enemyKillCount);
+        playerStats.DisplayEnemyCount(enemyRemovedCount);
 
         spawnEnemies = true;
+        Debug.Log("Fake Round Setup: WaveCount: " + waveCount + " // EnemyRemovedCount: " + enemyRemovedCount + 
+            "// SpawnedEnemiesCount: " + spawnedEnemiesCount + //"// EnemiesInGameCount: " + enemyRemovedCount + 
+            " // SpawnEnemies: " + spawnEnemies);
         InvokeRepeating("SpawnTest", 0f, 1f);
     }
 
     public void UpdateEnemyCount()
     {
         currEnemyKillCount++;
-        playerStats.DisplayEnemyCount(enemyKillCount - currEnemyKillCount);
+        playerStats.DisplayEnemyCount(enemyRemovedCount - currEnemyKillCount);
     }
 
     IEnumerator GameplayLoop()
@@ -98,14 +104,16 @@ public class TowerDefenseManager : MonoBehaviour
         {
             //Debug.Log("QUEUE COUNT: " + enemyIDsToSpawnQueue.Count);
             //Spawn Enemies
+            Debug.Log("Spawn Checking -- SpawnEnemies: " + spawnEnemies + " // EnemyIDsCount: " + enemyIDsToSpawnQueue.Count);
             if (spawnEnemies == true && enemyIDsToSpawnQueue.Count > 0)
             {
                 for (int i = 0; i < enemyIDsToSpawnQueue.Count; i++)
                 {
+                    Debug.Log("Spawning " + enemyIDsToSpawnQueue.Peek());
                     EnemySpawner.SummonEnemy(enemyIDsToSpawnQueue.Dequeue());
 
                     spawnedEnemiesCount++;
-                    if (spawnedEnemiesCount >= enemyKillCount)
+                    if (spawnedEnemiesCount >= enemyRemovedCount)
                     {
                         spawnEnemies = false;
                         enemyIDsToSpawnQueue.Clear();
@@ -226,7 +234,7 @@ public class TowerDefenseManager : MonoBehaviour
                     EnemySpawner.RemoveEnemy(enemiesToRemoveQueue.Dequeue());
 
                     UpdateEnemyCount();
-                    if (currEnemyKillCount >= enemyKillCount)
+                    if (currEnemyKillCount >= enemyRemovedCount)
                     {
                         enemiesToRemoveQueue.Clear();
                         damageData.Clear();
