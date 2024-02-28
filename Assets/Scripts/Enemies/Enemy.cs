@@ -43,10 +43,13 @@ public class Enemy : MonoBehaviour
 
     public int attack = 3;
     public float attackRate = 1f;
+    EnemyForwardSensor obstacleSensor;
+    [SerializeField] TowerBehaviour attackingTower;
 
-    public List<Effect> activeEffects;
     public float damageResistance = 1f;
     public DamageResistance[] damageResistances = new DamageResistance[0];
+    public List<Effect> activeEffects;
+
     public int reward = 10;
     public int id;
     public int nodeIndex;
@@ -55,6 +58,9 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] Slider healthBar;
     [SerializeField] TextMeshProUGUI speedText;
+
+    float origSpeed;
+    float attackDelay = 1f;
 
     public void Init()
     {
@@ -71,10 +77,19 @@ public class Enemy : MonoBehaviour
         Speed = 1 + (TowerDefenseManager.waveCount * 0.7f);
         nodeIndex = 0;
 
+        origSpeed = Speed;
+
+        attackDelay = 1 / attackRate;
+
         if (healthBar != null)
         {
             healthBar.maxValue = maxHealth;
             healthBar.value = health;
+        }
+
+        if (transform.GetComponentsInChildren<EnemyForwardSensor>().Length > 0)
+        {
+            obstacleSensor = transform.GetComponentsInChildren<EnemyForwardSensor>()[0];
         }
     }
 
@@ -95,7 +110,23 @@ public class Enemy : MonoBehaviour
     public void Tick()
     {
         //Attack Obstacle
-
+        //TODO: Find better way to get info for attacking Obstacles (check Enemy ForwardSensor as well)
+        if (obstacleSensor.obstacleObject != null)
+        {
+            Speed = 0f;
+            attackDelay -= Time.deltaTime;
+            if (attackDelay <= 0)
+            {
+                obstacleSensor.obstacleObject.Damage(attack);
+                attackDelay = 1 / attackRate;
+            }
+        }
+        else
+        {
+            Speed = origSpeed;
+        }
+        //attackingTower
+        //if ()
 
         //Effects Activate
         for (int i = 0; i < activeEffects.Count; i++)

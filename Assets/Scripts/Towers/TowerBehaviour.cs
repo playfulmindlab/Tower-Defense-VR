@@ -97,10 +97,27 @@ public class TowerBehaviour : MonoBehaviour
 
     public void Damage(int damage)
     {
+        if (shield > 0)
+        {
+            if (shield - damage < 0)
+            {
+                damage -= shield;
+                shield = 0;
+            }
+            else
+            {
+                shield -= damage;
+                damage = 0;
+            }
+        }
+
         health -= damage;
 
-        if (health <= 0)
+        if (health <= 0 && this.gameObject.activeSelf)
+        {
+            this.gameObject.SetActive(false);
             TowerDie();
+        }
 
         if (health <= maxHealth * 0.3f)
         {
@@ -114,7 +131,11 @@ public class TowerBehaviour : MonoBehaviour
     public void TowerDie()
     {
         //TODO: wirte code for what happens when tower dies here
-        Destroy(gameObject);
+        this.gameObject.SetActive(false);
+        canFire = false;
+        TowerDefenseManager.EnqueueTowerToRemove(this);
+
+        //Destroy(gameObject);
     }
 
     public void Heal(int healing)

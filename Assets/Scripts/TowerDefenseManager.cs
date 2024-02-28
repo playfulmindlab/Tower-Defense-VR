@@ -8,6 +8,7 @@ using UnityEngine.Jobs;
 public class TowerDefenseManager : MonoBehaviour
 {
     public static List<TowerBehaviour> towersInGame;
+    private static Queue<TowerBehaviour> towersToRemoveQueue;
     public static Vector3[] nodePositions;
     public static float[] nodeDistances;
     public static int waveCount = 1;
@@ -27,12 +28,12 @@ public class TowerDefenseManager : MonoBehaviour
     [SerializeField] int enemyRemovedCount;
     [SerializeField] int currEnemyKillCount;
     int spawnedEnemiesCount = 0;
-    int testVar;
 
     // Start is called before the first frame update
     void Start()
     {
         towersInGame = new List<TowerBehaviour>();
+        towersToRemoveQueue = new Queue<TowerBehaviour>();
         enemyIDsToSpawnQueue = new Queue<int>();
         enemiesToRemoveQueue = new Queue<Enemy>();
         damageData = new Queue<EnemyDamage>();
@@ -86,9 +87,9 @@ public class TowerDefenseManager : MonoBehaviour
         playerStats.DisplayEnemyCount(enemyRemovedCount);
 
         spawnEnemies = true;
-        Debug.Log("Fake Round Setup: WaveCount: " + waveCount + " // EnemyRemovedCount: " + enemyRemovedCount + 
-            "// SpawnedEnemiesCount: " + spawnedEnemiesCount + //"// EnemiesInGameCount: " + enemyRemovedCount + 
-            " // SpawnEnemies: " + spawnEnemies);
+        //Debug.Log("Fake Round Setup: WaveCount: " + waveCount + " // EnemyRemovedCount: " + enemyRemovedCount + 
+        //    "// SpawnedEnemiesCount: " + spawnedEnemiesCount + //"// EnemiesInGameCount: " + enemyRemovedCount + 
+        //    " // SpawnEnemies: " + spawnEnemies);
         InvokeRepeating("SpawnTest", 0f, 1f);
     }
 
@@ -104,7 +105,7 @@ public class TowerDefenseManager : MonoBehaviour
         {
             //Debug.Log("QUEUE COUNT: " + enemyIDsToSpawnQueue.Count);
             //Spawn Enemies
-            Debug.Log("Spawn Checking -- SpawnEnemies: " + spawnEnemies + " // EnemyIDsCount: " + enemyIDsToSpawnQueue.Count);
+            //Debug.Log("Spawn Checking -- SpawnEnemies: " + spawnEnemies + " // EnemyIDsCount: " + enemyIDsToSpawnQueue.Count);
             if (spawnEnemies == true && enemyIDsToSpawnQueue.Count > 0)
             {
                 for (int i = 0; i < enemyIDsToSpawnQueue.Count; i++)
@@ -245,6 +246,15 @@ public class TowerDefenseManager : MonoBehaviour
 
             //Remove Towers
 
+            if (towersToRemoveQueue.Count > 0)
+            {
+                Debug.Log("REMOVE QUEUE COUNT: " + towersToRemoveQueue.Count + " @ " + Time.time);
+                for (int i = 0; i < towersToRemoveQueue.Count; i++)
+                {
+                    RemoveTower(towersToRemoveQueue.Dequeue());
+                }
+            }
+
             yield return null;
         }
     }
@@ -268,7 +278,20 @@ public class TowerDefenseManager : MonoBehaviour
     {
         enemiesToRemoveQueue.Enqueue(enemyToRemove);
     }
+
+    public static void EnqueueTowerToRemove(TowerBehaviour towerToRemove)
+    {
+        towersToRemoveQueue.Enqueue(towerToRemove);
+    }
+
+    void RemoveTower(TowerBehaviour towerToRemove)
+    {
+        towersInGame.Remove(towerToRemove);
+
+        Destroy(towerToRemove.gameObject);
+    }
 }
+
 
 public struct EnemyDamage
 {
@@ -381,6 +404,10 @@ public struct MoveEnemiesJob : IJobParallelForTransform
             if (transform.position == positionToMoveTo)
             {
                 nodeIndex[index]++;
+
+                Vector3 positionToRotateTowards = nodePositions[nodeIndex[index]];
+                Vector3 newDir = transform.position - positionToRotateTowards;
+                transform.rotation = Quaternion.LookRotation(newDir, Vector3.up);
             }
         }
     }
