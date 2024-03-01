@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Slider healthBar;
     [SerializeField] TextMeshProUGUI speedText;
 
-    float origSpeed;
+    [SerializeField] float origSpeed;
     float attackDelay = 1f;
 
     public void Init()
@@ -104,29 +104,34 @@ public class Enemy : MonoBehaviour
 
     public virtual void Attack(TowerBehaviour attackedObject)
     {
-        attackedObject.Damage(attack);
+        if (attackedObject != null)
+            attackedObject.Damage(attack);
+    }
+
+    public void ChangeTowerTarget(TowerBehaviour newTower)
+    {
+        attackingTower = newTower;
+
+        if (attackingTower != null) Speed = 0f;
+        else Speed = origSpeed;
     }
 
     public void Tick()
     {
         //Attack Obstacle
-        //TODO: Find better way to get info for attacking Obstacles (check Enemy ForwardSensor as well)
-        if (obstacleSensor.obstacleObject != null)
+        if (attackingTower != null)
         {
-            Speed = 0f;
             attackDelay -= Time.deltaTime;
             if (attackDelay <= 0)
             {
-                obstacleSensor.obstacleObject.Damage(attack);
+                Attack(attackingTower);
                 attackDelay = 1 / attackRate;
             }
         }
-        else
+        else if (speed == 0 && attackingTower == null)
         {
-            Speed = origSpeed;
+            ChangeTowerTarget(null);
         }
-        //attackingTower
-        //if ()
 
         //Effects Activate
         for (int i = 0; i < activeEffects.Count; i++)

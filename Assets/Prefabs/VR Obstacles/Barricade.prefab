@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 9025790507391920904}
   m_Layer: 2
   m_Name: Barricade
-  m_TagString: Obstacle
+  m_TagString: AttackObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

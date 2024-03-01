@@ -122,9 +122,9 @@ public class TowerBehaviour : MonoBehaviour
         if (health <= maxHealth * 0.3f)
         {
             healthDamageMod = 0.5f;
-            Debug.Log("Damage Pre " + GetComponent<Damage>().DamageValue + " // " + (this.damage * healthDamageMod));
+            //Debug.Log("Damage Pre " + GetComponent<Damage>().DamageValue + " // " + (this.damage * healthDamageMod));
             currentDamageMethodClass.UpdateDamage(this.damage * healthDamageMod);
-            Debug.Log("Damage Post " + GetComponent<Damage>().DamageValue);
+            //Debug.Log("Damage Post " + GetComponent<Damage>().DamageValue);
         }
     }
 

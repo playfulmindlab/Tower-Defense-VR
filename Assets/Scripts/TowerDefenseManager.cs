@@ -281,7 +281,8 @@ public class TowerDefenseManager : MonoBehaviour
 
     public static void EnqueueTowerToRemove(TowerBehaviour towerToRemove)
     {
-        towersToRemoveQueue.Enqueue(towerToRemove);
+        if (!towersToRemoveQueue.Contains(towerToRemove))
+            towersToRemoveQueue.Enqueue(towerToRemove);
     }
 
     void RemoveTower(TowerBehaviour towerToRemove)

@@ -18,10 +18,9 @@ public class ItemHolderScript : MonoBehaviour
 
     private void Update()
     {
-        if (rTriggerButton.action.WasPerformedThisFrame())
-        {
-            Debug.Log("Out trigger x");
-        }
+        //if (rTriggerButton.action.WasPerformedThisFrame())
+        //    Debug.Log("Out trigger x");
+        
 
         if (rTriggerButton.action.WasPerformedThisFrame() && heldItem != null)
         {

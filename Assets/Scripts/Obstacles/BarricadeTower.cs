@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class BarricadeTower : TowerBehaviour
 {
-    // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-
     }
 
     public override void Tick()

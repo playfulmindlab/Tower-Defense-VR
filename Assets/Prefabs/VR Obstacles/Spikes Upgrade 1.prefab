@@ -95,7 +95,7 @@ MonoBehaviour:
   towerPivot: {fileID: 0}
   canFire: 1
   towerCost: 200
-  health: 10
+  health: 1
   maxHealth: 1
   shield: 30
   damage: 2
@@ -103,6 +103,7 @@ MonoBehaviour:
   range: 0
   healthBar: {fileID: 6438041052752185983}
   shieldBar: {fileID: 6689535041708520854}
+  outline: {fileID: 0}
   upgradedTower: {fileID: 885003659285066802, guid: f4ec80c305c0c914681c5377156c98ce, type: 3}
 --- !u!65 &3452546741357064191
 BoxCollider:

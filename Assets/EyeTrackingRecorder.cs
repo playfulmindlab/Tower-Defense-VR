@@ -13,7 +13,7 @@ public class EyeTrackingRecorder : MonoBehaviour
     [SerializeField] string customFilePath = "N/A";
 
     string newDataLine = "";
-    string folderID = "00";
+    //string folderID = "00";
 
     // Start is called before the first frame update
     void Awake()
@@ -28,10 +28,10 @@ public class EyeTrackingRecorder : MonoBehaviour
         //otherwise, create a new folder based on the time & date
 #if UNITY_EDITOR
         StreamWriter writer = new StreamWriter(Application.dataPath + "/Resources/EyeTrackingTempData.csv", false);       
-        writer.WriteLine("First Line,Use this for Headers");
+        writer.WriteLine("Timestamp,Participant,Game,Total Time Played,Session Number,Session Time Played,Map Number,Level Number,Wave Number,Event,Object,X Coordinates,Y Coordinates,Jump Status");
         writer.Close();
 #else
-        folderID = System.DateTime.Now.ToString("MM-dd/hh:mm:ss");
+        string folderID = System.DateTime.Now.ToString("MM-dd/hh:mm:ss");
         StreamWriter writer = new StreamWriter(Application.dataPath + "/TDEyeData_" + folderID + ".csv", false);
         writer.Write("First Line,Use this for Headers");
         writer.Close();
