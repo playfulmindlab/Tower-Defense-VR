@@ -7,17 +7,18 @@ public class PoolCreatorMissileCollision : MonoBehaviour
     [SerializeField] private MissileDamage baseClass;
     [SerializeField] private ParticleSystem explosionSystem;
     [SerializeField] private ParticleSystem missileSystem;
-    [SerializeField] private float explositonRadius;
+    [SerializeField] private float explosionRadius;
     private List<ParticleCollisionEvent> missileCollisions;
 
-    public float damageValue = 0;
     public GameObject poolPrefab;
+
+    public GameObject explosionRadiusObject;
 
     // Start is called before the first frame update
     void Start()
     {
         missileCollisions = new List<ParticleCollisionEvent>();
-        Physics.IgnoreLayerCollision(2, 7);
+        Physics.IgnoreLayerCollision(2, 6);
     }
 
     private void OnParticleCollision(GameObject other)
@@ -29,8 +30,22 @@ public class PoolCreatorMissileCollision : MonoBehaviour
             explosionSystem.transform.position = missileCollisions[collisionEvent].intersection;
             explosionSystem.Play();
 
+            Collider[] enemiesInRadius = Physics.OverlapSphere(missileCollisions[collisionEvent].intersection, explosionRadius, 1 << LayerMask.NameToLayer("Enemy"));
+            Debug.Log("Enemies: " + enemiesInRadius.Length + " / On: " + LayerMask.NameToLayer("Enemy"));
+
+            for (int i = 0; i < enemiesInRadius.Length; i++)
+            {
+                Debug.Log("Collider: " + enemiesInRadius[i] + " Layer: " + enemiesInRadius[i].gameObject.layer);
+                Enemy enemyToDamage = EnemySpawner.enemyTransformPairs[enemiesInRadius[i].transform];
+                EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.GetResistanceModifier(baseClass.GetAttackType));
+                TowerDefenseManager.EnqueueDamageData(damageToApply);
+            }
+
             Vector3 spawnPoint = missileCollisions[collisionEvent].intersection + (Vector3.down * missileSystem.main.startSizeYMultiplier / 2f);
             Instantiate(poolPrefab, spawnPoint, Quaternion.identity);
+
+            GameObject newRadius = Instantiate(explosionRadiusObject, spawnPoint, Quaternion.identity);
+            newRadius.transform.localScale *= explosionRadius;
         }
     }
 }

@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 4462741008040980767}
   - component: {fileID: 7724235491548272804}
   - component: {fileID: 13833435228890685}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: ForwardMarker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f661cc9f69a12a04bb050954c112a401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleObject: {fileID: 0}
   enemyBase: {fileID: 0}
 --- !u!1 &6632320008412532555
 GameObject:
@@ -576,6 +575,7 @@ MonoBehaviour:
   nodeIndex: 0
   healthBar: {fileID: 5573631458049861443}
   speedText: {fileID: 3051123839813206527}
+  origSpeed: 0
 --- !u!54 &7121118778861733903
 Rigidbody:
   m_ObjectHideFlags: 0
