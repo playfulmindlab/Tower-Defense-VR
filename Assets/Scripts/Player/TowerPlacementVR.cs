@@ -12,16 +12,25 @@ public class TowerPlacementVR : MonoBehaviour
     [SerializeField] private PlayerStats playerStats;
 
     [SerializeField] private GameObject currentPlacingTower;
+    [SerializeField] GameObject radiusDecalObject;
+    [SerializeField] RadiusSizeEditor radiusSizeEditor;
     private Camera playerCamera;
 
     [SerializeField] VRPointer placementPointer;
     [SerializeField] ParticleSystem upgradeConfetti;
     [SerializeField] public InputActionProperty towerSpawnerButton;
     [SerializeField] public InputActionProperty cancelTowerSpawnButton;
+    [SerializeField] public InputActionProperty deleteTowerButton;
 
     void Start()
     {
         playerCamera = Camera.main;
+    }
+
+    public void CancelTowerPlacement()
+    {
+        Destroy(currentPlacingTower);
+        currentPlacingTower = null;
     }
 
     void Update()
@@ -29,11 +38,11 @@ public class TowerPlacementVR : MonoBehaviour
         if (currentPlacingTower != null)
         {
             currentPlacingTower.transform.position = placementPointer.endPoint;
+            radiusDecalObject.transform.position = placementPointer.endPoint;
 
             if (cancelTowerSpawnButton.action.WasPerformedThisFrame())
             {
-                Destroy(currentPlacingTower);
-                currentPlacingTower = null;
+                CancelTowerPlacement();
                 return;
             }
 
@@ -53,6 +62,8 @@ public class TowerPlacementVR : MonoBehaviour
                     {
                         CreateNewTower(currentPlacingTower, towerCollider);
                         currentPlacingTower = null;
+
+                        radiusDecalObject.transform.position = new Vector3(0f, -1000f, 0f);
                     }
                 }
                 else if (currentPlacingTower.CompareTag("Obstacle") &&
@@ -79,10 +90,14 @@ public class TowerPlacementVR : MonoBehaviour
                         }
                         towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
                         currentPlacingTower = null;
+
+                        radiusDecalObject.transform.position = new Vector3(0f, -1000f, 0f);
                     }
                 }
             }
         }
+
+
     }
 
     void CreateNewTower(GameObject tower, Collider towerCollider)
@@ -108,7 +123,13 @@ public class TowerPlacementVR : MonoBehaviour
 
         if (playerStats.CurrentMoney >= newTowerCost)
         {
+            if (currentPlacingTower != null)
+            {
+                CancelTowerPlacement();
+            }
+
             currentPlacingTower = Instantiate(newTower, Vector3.zero, Quaternion.identity);
+            radiusDecalObject.GetComponent<RadiusSizeEditor>().ChangeRadiusSize(newTower.GetComponent<TowerBehaviour>().range);
         }
         else
         {

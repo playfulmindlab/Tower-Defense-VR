@@ -55,8 +55,11 @@ public class TowerBehaviour : MonoBehaviour
             currentDamageMethodClass.Init(damage, firerate);
         }
 
-        outline = GetComponentInChildren<Outline>();
-        outline.OutlineWidth = 0;
+        if (GetComponentInChildren<Outline>())
+        {
+            outline = GetComponentInChildren<Outline>();
+            outline.OutlineWidth = 0;
+        }
 
         //Uncomment this if you want to test healing or damage to towers
         //health = 1;

@@ -35,6 +35,15 @@ public class JumpedTowerControls : MonoBehaviour
         towerHead.rotation = rot;// * Quaternion.Euler(0, 270, 0);
     }
 
+    public void RotateGun(Vector2 balanceBoardCoords)
+    {
+        Quaternion rot;
+
+        rot = Quaternion.Euler(new Vector3(balanceBoardCoords.x, balanceBoardCoords.y, 0f));
+
+        towerHead.rotation = rot;
+    }
+
     public void SetGunFire(bool firing)
     {
         missileDamage.ActivateGun(firing);
