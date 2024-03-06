@@ -1506,6 +1506,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Delete Tower",
+                    "type": "Button",
+                    "id": "5edb5bdd-689b-47c0-b2a4-1fa658394c89",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1660,6 +1669,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Place Tower",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f519fe3a-0113-47fc-9c3f-26b88412ca30",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Delete Tower",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

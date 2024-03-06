@@ -1759,6 +1759,5 @@ MonoBehaviour:
   baseClass: {fileID: 6860273657113457284}
   explosionSystem: {fileID: 3570549527469085482}
   missileSystem: {fileID: 6675968645787612973}
-  explosionRadius: 8
+  explosionRadius: 6
   poolPrefab: {fileID: 4980372603547493659, guid: ad4c3abe3917ebe449397049ce76c6f6, type: 3}
-  explosionRadiusObject: {fileID: 4083235429807288321, guid: 6d7b31b1ad1456442a38e984e5e39286, type: 3}

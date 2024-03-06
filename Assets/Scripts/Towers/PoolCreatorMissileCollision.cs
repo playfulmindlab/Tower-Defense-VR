@@ -12,7 +12,7 @@ public class PoolCreatorMissileCollision : MonoBehaviour
 
     public GameObject poolPrefab;
 
-    public GameObject explosionRadiusObject;
+    //public GameObject explosionRadiusObject;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class PoolCreatorMissileCollision : MonoBehaviour
         {
             explosionSystem.transform.position = missileCollisions[collisionEvent].intersection;
             explosionSystem.Play();
-
+            
             Collider[] enemiesInRadius = Physics.OverlapSphere(missileCollisions[collisionEvent].intersection, explosionRadius, 1 << LayerMask.NameToLayer("Enemy"));
             Debug.Log("Enemies: " + enemiesInRadius.Length + " / On: " + LayerMask.NameToLayer("Enemy"));
 
@@ -44,8 +44,9 @@ public class PoolCreatorMissileCollision : MonoBehaviour
             Vector3 spawnPoint = missileCollisions[collisionEvent].intersection + (Vector3.down * missileSystem.main.startSizeYMultiplier / 2f);
             Instantiate(poolPrefab, spawnPoint, Quaternion.identity);
 
-            GameObject newRadius = Instantiate(explosionRadiusObject, spawnPoint, Quaternion.identity);
-            newRadius.transform.localScale *= explosionRadius;
+            //GameObject newRadius = Instantiate(explosionRadiusObject, spawnPoint, Quaternion.identity);
+            //newRadius.transform.localScale *= explosionRadius;
+            
         }
     }
 }

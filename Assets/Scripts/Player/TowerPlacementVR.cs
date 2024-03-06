@@ -13,7 +13,7 @@ public class TowerPlacementVR : MonoBehaviour
 
     [SerializeField] private GameObject currentPlacingTower;
     [SerializeField] GameObject radiusDecalObject;
-    [SerializeField] RadiusSizeEditor radiusSizeEditor;
+    //[SerializeField] RadiusSizeEditor radiusSizeEditor;
     private Camera playerCamera;
 
     [SerializeField] VRPointer placementPointer;
@@ -35,6 +35,8 @@ public class TowerPlacementVR : MonoBehaviour
 
     void Update()
     {
+
+
         if (currentPlacingTower != null)
         {
             currentPlacingTower.transform.position = placementPointer.endPoint;
@@ -66,7 +68,8 @@ public class TowerPlacementVR : MonoBehaviour
                         radiusDecalObject.transform.position = new Vector3(0f, -1000f, 0f);
                     }
                 }
-                else if (currentPlacingTower.CompareTag("Obstacle") &&
+                else if ((currentPlacingTower.CompareTag("Obstacle") ||
+                        currentPlacingTower.CompareTag("AttackObstacle")) &&
                         placementPointer.collision.CompareTag("Path"))
                 {
                     BoxCollider towerCollider = currentPlacingTower.gameObject.GetComponent<BoxCollider>();
@@ -97,6 +100,19 @@ public class TowerPlacementVR : MonoBehaviour
             }
         }
 
+        else
+        {
+            if (deleteTowerButton.action.WasPerformedThisFrame())
+            {
+                Debug.Log("ButtonPressed");
+                if (placementPointer.collision.GetComponent<TowerBehaviour>() != null)
+                {
+                    Debug.Log("DeletingTower");
+                    TowerDefenseManager.EnqueueTowerToRemove(placementPointer.collision.GetComponent<TowerBehaviour>());
+                }
+
+            }
+        }
 
     }
 
