@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LSL;
+using Unity.VisualScripting;
 
 namespace LSL4Unity.Samples.SimpleInlet
-{
+{ 
     // You probably don't need this namespace. We do it to avoid contaminating the global namespace of your project.
-    public class SimpleInletBalanceBoard : MonoBehaviour
+    public class SimpleInletScaleObject : MonoBehaviour
     {
         /*
          * This example shows the minimal code required to get an LSL inlet running
@@ -26,8 +27,9 @@ namespace LSL4Unity.Samples.SimpleInlet
         private StreamInlet inlet;
 
         // We need buffers to pass to LSL when pulling data.
-        private float[,] data_buffer;  // Note it's a 2D Array, not array of arrays. Each element has to be indexed specifically, no frames/columns.
-        private double[] timestamp_buffer;
+        private string[] data_buffer;  // Note it's a 2D Array, not array of arrays. Each element has to be indexed specifically, no frames/columns.
+        private double timestamp_buffer;
+
 
         void Start()
         {
@@ -44,23 +46,42 @@ namespace LSL4Unity.Samples.SimpleInlet
 
         IEnumerator ResolveExpectedStream()
         {
+
             var results = resolver.results();
             while (results.Length == 0)
             {
+                Debug.Log("Detecting results");
                 yield return new WaitForSeconds(.1f);
                 results = resolver.results();
             }
 
+            Debug.Log("Found results : " + results.Length);
             inlet = new StreamInlet(results[0]);
 
-            // Prepare pull_chunk buffer
-            int buf_samples = (int)Mathf.Ceil((float)(inlet.info().nominal_srate() * max_chunk_duration));
-            // Debug.Log("Allocating buffers to receive " + buf_samples + " samples.");
-            int n_channels = inlet.info().channel_count();
-            data_buffer = new float[buf_samples, n_channels];
-            timestamp_buffer = new double[buf_samples];
+            //float vals = inlet.ConvertTo<float>();
+            Debug.Log(inlet.ToString() + " // "+ inlet.info().type());
 
-            //inlet.open_stream
+            // Prepare pull_chunk buffer
+            Debug.Log("Nominal S Rate: " + inlet.info().nominal_srate());
+            Debug.Log("Max Chunk: " + max_chunk_duration);
+            int buf_samples = (int)Mathf.Ceil((float)(inlet.info().nominal_srate() * max_chunk_duration));
+             Debug.Log("Allocating buffers to receive " + buf_samples + " samples.");
+            int n_channels = inlet.info().channel_count();
+            Debug.Log("N Channels: " + n_channels);
+
+            //buf_samples = 4;
+            data_buffer = new string[1];
+            timestamp_buffer = 0.0;
+
+            //Debug.Log("D_B_00: " + data_buffer[0, 0]);
+
+            //inlet.open_stream(1000);
+        }
+
+
+        private void OnApplicationQuit()
+        {
+            inlet.Close();
         }
 
         // Update is called once per frame
@@ -68,27 +89,28 @@ namespace LSL4Unity.Samples.SimpleInlet
         {
             if (inlet != null)
             {
-                Debug.Log(inlet.ToString());
-                //Debug.Log(inlet.)
-                int samples_returned = inlet.pull_chunk(data_buffer, timestamp_buffer);
-                Debug.Log("Samples returned: " + samples_returned);
+                inlet.pull_sample(data_buffer, timestamp_buffer);
+                //Debug.Log("D_B_00: " + data_buffer[0, 0].ToString());
+                //Debug.Log("D_B_01: " + data_buffer[0, 1]);
+                //Debug.Log("D_B_10: " + data_buffer[1, 0]);
+                //Debug.Log("D_B_11: " + data_buffer[1, 1]);
 
-                if (samples_returned > 0)
-                {
+                Debug.Log("Samples returned: " + data_buffer[0] + " // Data Buffer: " + data_buffer.Length + " // Timestamps: " + timestamp_buffer);
+                //if (samples_returned > 0)
+                //{
                     // There are many things you can do with the incoming chunk to make it more palatable for Unity.
                     // Note that if you are going to do significant processing and feature extraction on your signal,
                     // it makes much more sense to do that in an external process then have that process output its
                     // result to yet another stream that you capture in Unity.
                     // Most of the time we only care about the latest sample to get a visual representation of the latest
                     // state, so that's what we do here: take the last sample only and use it to udpate the object scale.
-                    float x = data_buffer[samples_returned - 1, 0];
-                    float y = data_buffer[samples_returned - 1, 1];
-                    float z = data_buffer[samples_returned - 1, 2];
-                    var new_scale = new Vector3(x, y, z);
+                   // float x = data_buffer[samples_returned - 1, 0];
+                    //float y = data_buffer[samples_returned - 1, 1];
+                    //float z = data_buffer[samples_returned - 1, 2];
+                    //var new_scale = new Vector3(x, y, z);
                     // Debug.Log("Setting cylinder scale to " + new_scale);
                     //gameObject.transform.localScale = new_scale;
-                    Debug.Log(new_scale.ToString());
-                }
+                //}
             }
         }
     }
