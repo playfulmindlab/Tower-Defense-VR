@@ -1,622 +1,808 @@
-First Line,Use this for Headers
-20.55.52.591,DataValue
-20.55.53.873,DataValue
-20.55.53.927,DataValue
-20.55.53.930,DataValue
-20.55.53.933,DataValue
-20.55.53.935,DataValue
-20.55.53.938,DataValue
-20.55.53.940,DataValue
-20.55.53.943,DataValue
-20.55.53.960,DataValue
-20.55.53.963,DataValue
-20.55.53.965,DataValue
-20.55.53.968,DataValue
-20.55.53.970,DataValue
-20.55.53.973,DataValue
-20.55.53.976,DataValue
-20.55.53.978,DataValue
-20.55.53.981,DataValue
-20.55.53.983,DataValue
-20.55.53.986,DataValue
-20.55.53.988,DataValue
-20.55.53.991,DataValue
-20.55.53.993,DataValue
-20.55.53.995,DataValue
-20.55.53.997,DataValue
-20.55.53.999,DataValue
-20.55.54.002,DataValue
-20.55.54.004,DataValue
-20.55.54.007,DataValue
-20.55.54.009,DataValue
-20.55.54.011,DataValue
-20.55.54.014,DataValue
-20.55.54.016,DataValue
-20.55.54.019,DataValue
-20.55.54.021,DataValue
-20.55.54.024,DataValue
-20.55.54.027,DataValue
-20.55.54.030,DataValue
-20.55.54.033,DataValue
-20.55.54.036,DataValue
-20.55.54.039,DataValue
-20.55.54.042,DataValue
-20.55.54.046,DataValue
-20.55.54.049,DataValue
-20.55.54.052,DataValue
-20.55.54.054,DataValue
-20.55.54.057,DataValue
-20.55.54.060,DataValue
-20.55.54.063,DataValue
-20.55.54.066,DataValue
-20.55.54.069,DataValue
-20.55.54.072,DataValue
-20.55.54.074,DataValue
-20.55.54.077,DataValue
-20.55.54.080,DataValue
-20.55.54.082,DataValue
-20.55.54.085,DataValue
-20.55.54.087,DataValue
-20.55.54.090,DataValue
-20.55.54.093,DataValue
-20.55.54.095,DataValue
-20.55.54.098,DataValue
-20.55.54.101,DataValue
-20.55.54.104,DataValue
-20.55.54.107,DataValue
-20.55.54.110,DataValue
-20.55.54.112,DataValue
-20.55.54.115,DataValue
-20.55.54.118,DataValue
-20.55.54.121,DataValue
-20.55.54.124,DataValue
-20.55.54.127,DataValue
-20.55.54.130,DataValue
-20.55.54.133,DataValue
-20.55.54.136,DataValue
-20.55.54.138,DataValue
-20.55.54.142,DataValue
-20.55.54.146,DataValue
-20.55.54.149,DataValue
-20.55.54.152,DataValue
-20.55.54.155,DataValue
-20.55.54.159,DataValue
-20.55.54.162,DataValue
-20.55.54.166,DataValue
-20.55.54.169,DataValue
-20.55.54.171,DataValue
-20.55.54.174,DataValue
-20.55.54.177,DataValue
-20.55.54.180,DataValue
-20.55.54.183,DataValue
-20.55.54.185,DataValue
-20.55.54.188,DataValue
-20.55.54.191,DataValue
-20.55.54.194,DataValue
-20.55.54.197,DataValue
-20.55.54.200,DataValue
-20.55.54.203,DataValue
-20.55.54.206,DataValue
-20.55.54.209,DataValue
-20.55.54.212,DataValue
-20.55.54.215,DataValue
-20.55.54.218,DataValue
-20.55.54.222,DataValue
-20.55.54.225,DataValue
-20.55.54.228,DataValue
-20.55.54.231,DataValue
-20.55.54.233,DataValue
-20.55.54.236,DataValue
-20.55.54.239,DataValue
-20.55.54.241,DataValue
-20.55.54.245,DataValue
-20.55.54.247,DataValue
-20.55.54.250,DataValue
-20.55.54.253,DataValue
-20.55.54.255,DataValue
-20.55.54.258,DataValue
-20.55.54.261,DataValue
-20.55.54.264,DataValue
-20.55.54.268,DataValue
-20.55.54.271,DataValue
-20.55.54.274,DataValue
-20.55.54.276,DataValue
-20.55.54.279,DataValue
-20.55.54.282,DataValue
-20.55.54.285,DataValue
-20.55.54.288,DataValue
-20.55.54.291,DataValue
-20.55.54.294,DataValue
-20.55.54.297,DataValue
-20.55.54.299,DataValue
-20.55.54.302,DataValue
-20.55.54.305,DataValue
-20.55.54.307,DataValue
-20.55.54.310,DataValue
-20.55.54.313,DataValue
-20.55.54.316,DataValue
-20.55.54.320,DataValue
-20.55.54.323,DataValue
-20.55.54.326,DataValue
-20.55.54.329,DataValue
-20.55.54.331,DataValue
-20.55.54.334,DataValue
-20.55.54.337,DataValue
-20.55.54.340,DataValue
-20.55.54.342,DataValue
-20.55.54.345,DataValue
-20.55.54.348,DataValue
-20.55.54.350,DataValue
-20.55.54.353,DataValue
-20.55.54.356,DataValue
-20.55.54.359,DataValue
-20.55.54.361,DataValue
-20.55.54.364,DataValue
-20.55.54.367,DataValue
-20.55.54.370,DataValue
-20.55.54.372,DataValue
-20.55.54.376,DataValue
-20.55.54.378,DataValue
-20.55.54.381,DataValue
-20.55.54.384,DataValue
-20.55.54.386,DataValue
-20.55.54.389,DataValue
-20.55.54.392,DataValue
-20.55.54.395,DataValue
-20.55.54.398,DataValue
-20.55.54.401,DataValue
-20.55.54.404,DataValue
-20.55.54.407,DataValue
-20.55.54.410,DataValue
-20.55.54.413,DataValue
-20.55.54.416,DataValue
-20.55.54.418,DataValue
-20.55.54.421,DataValue
-20.55.54.424,DataValue
-20.55.54.427,DataValue
-20.55.54.430,DataValue
-20.55.54.433,DataValue
-20.55.54.435,DataValue
-20.55.54.438,DataValue
-20.55.54.441,DataValue
-20.55.54.444,DataValue
-20.55.54.447,DataValue
-20.55.54.450,DataValue
-20.55.54.452,DataValue
-20.55.54.455,DataValue
-20.55.54.458,DataValue
-20.55.54.462,DataValue
-20.55.54.465,DataValue
-20.55.54.468,DataValue
-20.55.54.471,DataValue
-20.55.54.475,DataValue
-20.55.54.478,DataValue
-20.55.54.481,DataValue
-20.55.54.484,DataValue
-20.55.54.487,DataValue
-20.55.54.490,DataValue
-20.55.54.493,DataValue
-20.55.54.496,DataValue
-20.55.54.498,DataValue
-20.55.54.501,DataValue
-20.55.54.504,DataValue
-20.55.54.507,DataValue
-20.55.54.510,DataValue
-20.55.54.513,DataValue
-20.55.54.516,DataValue
-20.55.54.519,DataValue
-20.55.54.522,DataValue
-20.55.54.525,DataValue
-20.55.54.528,DataValue
-20.55.54.530,DataValue
-20.55.54.533,DataValue
-20.55.54.536,DataValue
-20.55.54.538,DataValue
-20.55.54.541,DataValue
-20.55.54.543,DataValue
-20.55.54.546,DataValue
-20.55.54.549,DataValue
-20.55.54.551,DataValue
-20.55.54.554,DataValue
-20.55.54.557,DataValue
-20.55.54.560,DataValue
-20.55.54.563,DataValue
-20.55.54.565,DataValue
-20.55.54.568,DataValue
-20.55.54.570,DataValue
-20.55.54.572,DataValue
-20.55.54.575,DataValue
-20.55.54.577,DataValue
-20.55.54.579,DataValue
-20.55.54.581,DataValue
-20.55.54.584,DataValue
-20.55.54.586,DataValue
-20.55.54.589,DataValue
-20.55.54.592,DataValue
-20.55.54.594,DataValue
-20.55.54.597,DataValue
-20.55.54.600,DataValue
-20.55.54.603,DataValue
-20.55.54.606,DataValue
-20.55.54.609,DataValue
-20.55.54.611,DataValue
-20.55.54.614,DataValue
-20.55.54.617,DataValue
-20.55.54.620,DataValue
-20.55.54.623,DataValue
-20.55.54.625,DataValue
-20.55.54.628,DataValue
-20.55.54.631,DataValue
-20.55.54.634,DataValue
-20.55.54.637,DataValue
-20.55.54.640,DataValue
-20.55.54.643,DataValue
-20.55.54.646,DataValue
-20.55.54.649,DataValue
-20.55.54.651,DataValue
-20.55.54.654,DataValue
-20.55.54.657,DataValue
-20.55.54.659,DataValue
-20.55.54.662,DataValue
-20.55.54.664,DataValue
-20.55.54.667,DataValue
-20.55.54.670,DataValue
-20.55.54.673,DataValue
-20.55.54.675,DataValue
-20.55.54.678,DataValue
-20.55.54.680,DataValue
-20.55.54.683,DataValue
-20.55.54.685,DataValue
-20.55.54.688,DataValue
-20.55.54.690,DataValue
-20.55.54.693,DataValue
-20.55.54.695,DataValue
-20.55.54.698,DataValue
-20.55.54.700,DataValue
-20.55.54.703,DataValue
-20.55.54.706,DataValue
-20.55.54.709,DataValue
-20.55.54.712,DataValue
-20.55.54.714,DataValue
-20.55.54.717,DataValue
-20.55.54.720,DataValue
-20.55.54.724,DataValue
-20.55.54.727,DataValue
-20.55.54.729,DataValue
-20.55.54.732,DataValue
-20.55.54.734,DataValue
-20.55.54.737,DataValue
-20.55.54.740,DataValue
-20.55.54.743,DataValue
-20.55.54.745,DataValue
-20.55.54.748,DataValue
-20.55.54.751,DataValue
-20.55.54.753,DataValue
-20.55.54.756,DataValue
-20.55.54.759,DataValue
-20.55.54.761,DataValue
-20.55.54.764,DataValue
-20.55.54.767,DataValue
-20.55.54.770,DataValue
-20.55.54.773,DataValue
-20.55.54.776,DataValue
-20.55.54.778,DataValue
-20.55.54.781,DataValue
-20.55.54.784,DataValue
-20.55.54.787,DataValue
-20.55.54.790,DataValue
-20.55.54.792,DataValue
-20.55.54.796,DataValue
-20.55.54.798,DataValue
-20.55.54.801,DataValue
-20.55.54.804,DataValue
-20.55.54.807,DataValue
-20.55.54.810,DataValue
-20.55.54.813,DataValue
-20.55.54.815,DataValue
-20.55.54.819,DataValue
-20.55.54.823,DataValue
-20.55.54.826,DataValue
-20.55.54.829,DataValue
-20.55.54.832,DataValue
-20.55.54.835,DataValue
-20.55.54.838,DataValue
-20.55.54.841,DataValue
-20.55.54.844,DataValue
-20.55.54.848,DataValue
-20.55.54.851,DataValue
-20.55.54.854,DataValue
-20.55.54.858,DataValue
-20.55.54.860,DataValue
-20.55.54.863,DataValue
-20.55.54.866,DataValue
-20.55.54.870,DataValue
-20.55.54.873,DataValue
-20.55.54.876,DataValue
-20.55.54.879,DataValue
-20.55.54.882,DataValue
-20.55.54.885,DataValue
-20.55.54.888,DataValue
-20.55.54.891,DataValue
-20.55.54.893,DataValue
-20.55.54.896,DataValue
-20.55.54.899,DataValue
-20.55.54.901,DataValue
-20.55.54.904,DataValue
-20.55.54.907,DataValue
-20.55.54.910,DataValue
-20.55.54.912,DataValue
-20.55.54.915,DataValue
-20.55.54.919,DataValue
-20.55.54.921,DataValue
-20.55.54.925,DataValue
-20.55.54.928,DataValue
-20.55.54.931,DataValue
-20.55.54.933,DataValue
-20.55.54.936,DataValue
-20.55.54.939,DataValue
-20.55.54.942,DataValue
-20.55.54.945,DataValue
-20.55.54.947,DataValue
-20.55.54.950,DataValue
-20.55.54.953,DataValue
-20.55.54.956,DataValue
-20.55.54.960,DataValue
-20.55.54.963,DataValue
-20.55.54.965,DataValue
-20.55.54.968,DataValue
-20.55.54.970,DataValue
-20.55.54.973,DataValue
-20.55.54.976,DataValue
-20.55.54.978,DataValue
-20.55.54.981,DataValue
-20.55.54.983,DataValue
-20.55.54.986,DataValue
-20.55.54.989,DataValue
-20.55.54.992,DataValue
-20.55.54.994,DataValue
-20.55.54.997,DataValue
-20.55.55.000,DataValue
-20.55.55.003,DataValue
-20.55.55.006,DataValue
-20.55.55.009,DataValue
-20.55.55.011,DataValue
-20.55.55.013,DataValue
-20.55.55.016,DataValue
-20.55.55.018,DataValue
-20.55.55.021,DataValue
-20.55.55.024,DataValue
-20.55.55.027,DataValue
-20.55.55.029,DataValue
-20.55.55.032,DataValue
-20.55.55.035,DataValue
-20.55.55.038,DataValue
-20.55.55.041,DataValue
-20.55.55.044,DataValue
-20.55.55.047,DataValue
-20.55.55.050,DataValue
-20.55.55.052,DataValue
-20.55.55.055,DataValue
-20.55.55.058,DataValue
-20.55.55.061,DataValue
-20.55.55.064,DataValue
-20.55.55.067,DataValue
-20.55.55.070,DataValue
-20.55.55.074,DataValue
-20.55.55.076,DataValue
-20.55.55.079,DataValue
-20.55.55.083,DataValue
-20.55.55.089,DataValue
-20.55.55.093,DataValue
-20.55.55.095,DataValue
-20.55.55.100,DataValue
-20.55.55.104,DataValue
-20.55.55.107,DataValue
-20.55.55.110,DataValue
-20.55.55.113,DataValue
-20.55.55.116,DataValue
-20.55.55.118,DataValue
-20.55.55.121,DataValue
-20.55.55.124,DataValue
-20.55.55.126,DataValue
-20.55.55.129,DataValue
-20.55.55.132,DataValue
-20.55.55.134,DataValue
-20.55.55.137,DataValue
-20.55.55.140,DataValue
-20.55.55.143,DataValue
-20.55.55.147,DataValue
-20.55.55.150,DataValue
-20.55.55.153,DataValue
-20.55.55.156,DataValue
-20.55.55.159,DataValue
-20.55.55.163,DataValue
-20.55.55.167,DataValue
-20.55.55.170,DataValue
-20.55.55.173,DataValue
-20.55.55.176,DataValue
-20.55.55.179,DataValue
-20.55.55.182,DataValue
-20.55.55.186,DataValue
-20.55.55.189,DataValue
-20.55.55.192,DataValue
-20.55.55.196,DataValue
-20.55.55.200,DataValue
-20.55.55.203,DataValue
-20.55.55.207,DataValue
-20.55.55.210,DataValue
-20.55.55.214,DataValue
-20.55.55.217,DataValue
-20.55.55.220,DataValue
-20.55.55.224,DataValue
-20.55.55.227,DataValue
-20.55.55.230,DataValue
-20.55.55.233,DataValue
-20.55.55.236,DataValue
-20.55.55.239,DataValue
-20.55.55.242,DataValue
-20.55.55.246,DataValue
-20.55.55.248,DataValue
-20.55.55.252,DataValue
-20.55.55.256,DataValue
-20.55.55.260,DataValue
-20.55.55.263,DataValue
-20.55.55.265,DataValue
-20.55.55.269,DataValue
-20.55.55.272,DataValue
-20.55.55.275,DataValue
-20.55.55.279,DataValue
-20.55.55.282,DataValue
-20.55.55.285,DataValue
-20.55.55.289,DataValue
-20.55.55.293,DataValue
-20.55.55.296,DataValue
-20.55.55.299,DataValue
-20.55.55.303,DataValue
-20.55.55.306,DataValue
-20.55.55.309,DataValue
-20.55.55.312,DataValue
-20.55.55.315,DataValue
-20.55.55.318,DataValue
-20.55.55.321,DataValue
-20.55.55.324,DataValue
-20.55.55.328,DataValue
-20.55.55.331,DataValue
-20.55.55.334,DataValue
-20.55.55.336,DataValue
-20.55.55.339,DataValue
-20.55.55.343,DataValue
-20.55.55.346,DataValue
-20.55.55.348,DataValue
-20.55.55.351,DataValue
-20.55.55.353,DataValue
-20.55.55.356,DataValue
-20.55.55.358,DataValue
-20.55.55.361,DataValue
-20.55.55.364,DataValue
-20.55.55.366,DataValue
-20.55.55.369,DataValue
-20.55.55.373,DataValue
-20.55.55.376,DataValue
-20.55.55.380,DataValue
-20.55.55.384,DataValue
-20.55.55.387,DataValue
-20.55.55.390,DataValue
-20.55.55.394,DataValue
-20.55.55.397,DataValue
-20.55.55.400,DataValue
-20.55.55.403,DataValue
-20.55.55.408,DataValue
-20.55.55.412,DataValue
-20.55.55.415,DataValue
-20.55.55.417,DataValue
-20.55.55.421,DataValue
-20.55.55.423,DataValue
-20.55.55.426,DataValue
-20.55.55.429,DataValue
-20.55.55.433,DataValue
-20.55.55.436,DataValue
-20.55.55.440,DataValue
-20.55.55.444,DataValue
-20.55.55.446,DataValue
-20.55.55.449,DataValue
-20.55.55.452,DataValue
-20.55.55.454,DataValue
-20.55.55.457,DataValue
-20.55.55.460,DataValue
-20.55.55.463,DataValue
-20.55.55.466,DataValue
-20.55.55.469,DataValue
-20.55.55.472,DataValue
-20.55.55.475,DataValue
-20.55.55.478,DataValue
-20.55.55.480,DataValue
-20.55.55.483,DataValue
-20.55.55.486,DataValue
-20.55.55.490,DataValue
-20.55.55.493,DataValue
-20.55.55.495,DataValue
-20.55.55.498,DataValue
-20.55.55.500,DataValue
-20.55.55.503,DataValue
-20.55.55.506,DataValue
-20.55.55.510,DataValue
-20.55.55.512,DataValue
-20.55.55.515,DataValue
-20.55.55.517,DataValue
-20.55.55.519,DataValue
-20.55.55.522,DataValue
-20.55.55.525,DataValue
-20.55.55.527,DataValue
-20.55.55.530,DataValue
-20.55.55.533,DataValue
-20.55.55.535,DataValue
-20.55.55.537,DataValue
-20.55.55.540,DataValue
-20.55.55.543,DataValue
-20.55.55.546,DataValue
-20.55.55.549,DataValue
-20.55.55.552,DataValue
-20.55.55.554,DataValue
-20.55.55.558,DataValue
-20.55.55.560,DataValue
-20.55.55.563,DataValue
-20.55.55.566,DataValue
-20.55.55.570,DataValue
-20.55.55.573,DataValue
-20.55.55.575,DataValue
-20.55.55.578,DataValue
-20.55.55.581,DataValue
-20.55.55.583,DataValue
-20.55.55.586,DataValue
-20.55.55.589,DataValue
-20.55.55.592,DataValue
-20.55.55.594,DataValue
-20.55.55.598,DataValue
-20.55.55.601,DataValue
-20.55.55.604,DataValue
-20.55.55.607,DataValue
-20.55.55.609,DataValue
-20.55.55.612,DataValue
-20.55.55.615,DataValue
-20.55.55.618,DataValue
-20.55.55.621,DataValue
-20.55.55.624,DataValue
-20.55.55.627,DataValue
-20.55.55.630,DataValue
-20.55.55.632,DataValue
-20.55.55.635,DataValue
-20.55.55.638,DataValue
-20.55.55.641,DataValue
-20.55.55.644,DataValue
-20.55.55.646,DataValue
-20.55.55.649,DataValue
-20.55.55.651,DataValue
-20.55.55.654,DataValue
-20.55.55.657,DataValue
-20.55.55.660,DataValue
-20.55.55.663,DataValue
-20.55.55.666,DataValue
-20.55.55.680,DataValue
-20.55.55.684,DataValue
-20.55.55.687,DataValue
-20.55.55.690,DataValue
-20.55.55.693,DataValue
-20.55.55.696,DataValue
-20.55.55.699,DataValue
-20.55.55.702,DataValue
-20.55.55.705,DataValue
-20.55.55.708,DataValue
-20.55.55.710,DataValue
-20.55.55.713,DataValue
-20.55.55.715,DataValue
-20.55.55.718,DataValue
-20.55.55.720,DataValue
-20.55.55.723,DataValue
-20.55.55.726,DataValue
-20.55.55.728,DataValue
-20.55.55.731,DataValue
-20.55.55.733,DataValue
-20.55.55.735,DataValue
-20.55.55.738,DataValue
-20.55.55.748,DataValue
+Timestamp,Participant,Game,Total Time Played,Session Number,Session Time Played,Map Number,Level Number,Wave Number,Event,Object,X Coordinates,Y Coordinates,Jump Status
+15.57.08.247,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.09.785,N/A,N/A
+15.57.09.893,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.09.905,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.09.912,N/A,N/A
+15.57.09.925,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.09.938,N/A,N/A
+15.57.09.954,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.09.968,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.09.982,N/A,N/A
+15.57.09.997,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.012,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.027,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.041,N/A,N/A
+15.57.10.056,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.071,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.084,N/A,N/A
+15.57.10.099,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.114,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.128,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.142,N/A,N/A
+15.57.10.156,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.170,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.184,N/A,N/A
+15.57.10.199,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.211,N/A,N/A
+15.57.10.226,N/A,N/A
+15.57.10.241,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.255,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.269,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.282,N/A,N/A
+15.57.10.297,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.311,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.324,N/A,N/A
+15.57.10.338,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.353,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.365,N/A,N/A
+15.57.10.380,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.394,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.408,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.421,N/A,N/A
+15.57.10.435,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.450,N/A,N/A
+15.57.10.463,N/A,N/A
+15.57.10.478,N/A,N/A
+15.57.10.491,N/A,N/A
+15.57.10.505,N/A,N/A
+15.57.10.520,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.534,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.547,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.561,N/A,N/A
+15.57.10.575,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.589,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.602,N/A,N/A
+15.57.10.617,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.632,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.644,N/A,N/A
+15.57.10.659,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.673,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.687,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.700,N/A,N/A
+15.57.10.714,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.728,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.742,N/A,N/A
+15.57.10.756,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.770,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.784,N/A,N/A
+15.57.10.798,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.812,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.825,N/A,N/A
+15.57.10.840,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.854,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.868,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.881,N/A,N/A
+15.57.10.895,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.910,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.923,N/A,N/A
+15.57.10.937,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.951,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.964,N/A,N/A
+15.57.10.979,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.10.993,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.11.007,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.11.019,N/A,N/A
+15.57.11.034,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.11.049,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.11.062,N/A,N/A
+15.57.11.076,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.11.090,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.11.103,N/A,N/A
+15.57.11.118,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.11.131,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.11.145,N/A,N/A
+15.57.11.159,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.172,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.186,N/A,N/A
+15.57.11.202,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.216,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.229,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.242,N/A,N/A
+15.57.11.257,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.271,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.284,N/A,N/A
+15.57.11.300,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.313,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.327,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.341,N/A,N/A
+15.57.11.356,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.370,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.382,N/A,N/A
+15.57.11.397,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.411,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.424,N/A,N/A
+15.57.11.439,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.453,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.466,N/A,N/A
+15.57.11.481,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.494,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.509,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.522,N/A,N/A
+15.57.11.537,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.551,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.564,N/A,N/A
+15.57.11.578,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.592,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.606,N/A,N/A
+15.57.11.620,N/A,N/A
+15.57.11.634,N/A,N/A
+15.57.11.648,N/A,N/A
+15.57.11.662,N/A,N/A
+15.57.11.676,N/A,N/A
+15.57.11.690,N/A,N/A
+15.57.11.703,N/A,N/A
+15.57.11.718,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.11.731,N/A,N/A
+15.57.11.746,N/A,N/A
+15.57.11.760,N/A,N/A
+15.57.11.774,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.11.788,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.11.801,N/A,N/A
+15.57.11.815,N/A,N/A
+15.57.11.829,N/A,N/A
+15.57.11.842,N/A,N/A
+15.57.11.857,N/A,N/A
+15.57.11.871,N/A,N/A
+15.57.11.884,N/A,N/A
+15.57.11.898,N/A,N/A
+15.57.11.912,N/A,N/A
+15.57.11.926,N/A,N/A
+15.57.11.941,N/A,N/A
+15.57.11.954,N/A,N/A
+15.57.11.968,N/A,N/A
+15.57.11.982,N/A,N/A
+15.57.11.996,N/A,N/A
+15.57.12.010,N/A,N/A
+15.57.12.024,N/A,N/A
+15.57.12.038,N/A,N/A
+15.57.12.052,N/A,N/A
+15.57.12.066,N/A,N/A
+15.57.12.079,N/A,N/A
+15.57.12.093,N/A,N/A
+15.57.12.108,N/A,N/A
+15.57.12.122,N/A,N/A
+15.57.12.135,N/A,N/A
+15.57.12.150,N/A,N/A
+15.57.12.163,N/A,N/A
+15.57.12.177,N/A,N/A
+15.57.12.191,N/A,N/A
+15.57.12.204,N/A,N/A
+15.57.12.219,N/A,N/A
+15.57.12.233,N/A,N/A
+15.57.12.247,N/A,N/A
+15.57.12.261,N/A,N/A
+15.57.12.275,N/A,N/A
+15.57.12.288,N/A,N/A
+15.57.12.302,N/A,N/A
+15.57.12.317,N/A,N/A
+15.57.12.330,N/A,N/A
+15.57.12.344,N/A,N/A
+15.57.12.359,N/A,N/A
+15.57.12.372,N/A,N/A
+15.57.12.386,N/A,N/A
+15.57.12.400,N/A,N/A
+15.57.12.414,N/A,N/A
+15.57.12.428,N/A,N/A
+15.57.12.441,N/A,N/A
+15.57.12.456,N/A,N/A
+15.57.12.469,N/A,N/A
+15.57.12.483,N/A,N/A
+15.57.12.498,N/A,N/A
+15.57.12.512,N/A,N/A
+15.57.12.526,N/A,N/A
+15.57.12.539,N/A,N/A
+15.57.12.554,N/A,N/A
+15.57.12.567,N/A,N/A
+15.57.12.581,N/A,N/A
+15.57.12.595,N/A,N/A
+15.57.12.610,N/A,N/A
+15.57.12.622,N/A,N/A
+15.57.12.637,N/A,N/A
+15.57.12.651,N/A,N/A
+15.57.12.665,N/A,N/A
+15.57.12.679,N/A,N/A
+15.57.12.693,N/A,N/A
+15.57.12.706,N/A,N/A
+15.57.12.721,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.735,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.749,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.762,N/A,N/A
+15.57.12.776,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.791,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.803,N/A,N/A
+15.57.12.818,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.833,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.845,N/A,N/A
+15.57.12.860,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.873,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.888,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.901,N/A,N/A
+15.57.12.915,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.929,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.942,N/A,N/A
+15.57.12.957,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.971,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.12.984,N/A,N/A
+15.57.12.999,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.012,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.027,N/A,N/A
+15.57.13.041,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.055,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.069,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.082,N/A,N/A
+15.57.13.096,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.111,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.124,N/A,N/A
+15.57.13.139,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.152,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.166,N/A,N/A
+15.57.13.180,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.194,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.208,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.222,N/A,N/A
+15.57.13.236,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.250,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.263,N/A,N/A
+15.57.13.277,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.291,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.304,N/A,N/A
+15.57.13.319,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.333,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.347,N/A,N/A
+15.57.13.361,N/A,N/A
+15.57.13.375,N/A,N/A
+15.57.13.389,N/A,N/A
+15.57.13.402,N/A,N/A
+15.57.13.417,N/A,N/A
+15.57.13.431,N/A,N/A
+15.57.13.444,N/A,N/A
+15.57.13.459,N/A,N/A
+15.57.13.472,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.486,N/A,N/A
+15.57.13.501,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.515,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.529,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.542,N/A,N/A
+15.57.13.557,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.13.570,N/A,N/A
+15.57.13.584,N/A,N/A
+15.57.13.598,N/A,N/A
+15.57.13.612,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.13.626,N/A,N/A
+15.57.13.640,N/A,N/A
+15.57.13.653,N/A,N/A
+15.57.13.667,N/A,N/A
+15.57.13.681,N/A,N/A
+15.57.13.695,N/A,N/A
+15.57.13.709,N/A,N/A
+15.57.13.723,N/A,N/A
+15.57.13.737,N/A,N/A
+15.57.13.751,N/A,N/A
+15.57.13.764,N/A,N/A
+15.57.13.779,N/A,N/A
+15.57.13.793,N/A,N/A
+15.57.13.807,N/A,N/A
+15.57.13.821,N/A,N/A
+15.57.13.834,N/A,N/A
+15.57.13.849,N/A,N/A
+15.57.13.862,N/A,N/A
+15.57.13.877,N/A,N/A
+15.57.13.891,N/A,N/A
+15.57.13.904,N/A,N/A
+15.57.13.918,N/A,N/A
+15.57.13.932,N/A,N/A
+15.57.13.946,N/A,N/A
+15.57.13.960,N/A,N/A
+15.57.13.974,N/A,N/A
+15.57.13.988,N/A,N/A
+15.57.14.001,N/A,N/A
+15.57.14.016,N/A,N/A
+15.57.14.029,N/A,N/A
+15.57.14.043,N/A,N/A
+15.57.14.057,N/A,N/A
+15.57.14.072,N/A,N/A
+15.57.14.085,N/A,N/A
+15.57.14.099,N/A,N/A
+15.57.14.113,N/A,N/A
+15.57.14.128,N/A,N/A
+15.57.14.141,N/A,N/A
+15.57.14.155,N/A,N/A
+15.57.14.169,N/A,N/A
+15.57.14.183,N/A,N/A
+15.57.14.197,N/A,N/A
+15.57.14.211,N/A,N/A
+15.57.14.225,N/A,N/A
+15.57.14.239,N/A,N/A
+15.57.14.252,N/A,N/A
+15.57.14.266,N/A,N/A
+15.57.14.281,N/A,N/A
+15.57.14.295,N/A,N/A
+15.57.14.308,Platform,0 | -1.5 | 0
+15.57.14.322,N/A,N/A
+15.57.14.337,Platform,0 | -1.5 | 0
+15.57.14.351,Platform,0 | -1.5 | 0
+15.57.14.364,N/A,N/A
+15.57.14.378,Platform,0 | -1.5 | 0
+15.57.14.392,Platform,0 | -1.5 | 0
+15.57.14.406,N/A,N/A
+15.57.14.420,Platform,0 | -1.5 | 0
+15.57.14.434,Platform,0 | -1.5 | 0
+15.57.14.448,Platform,0 | -1.5 | 0
+15.57.14.461,N/A,N/A
+15.57.14.475,Platform,0 | -1.5 | 0
+15.57.14.489,Platform,0 | -1.5 | 0
+15.57.14.503,N/A,N/A
+15.57.14.518,Platform,0 | -1.5 | 0
+15.57.14.531,Platform,0 | -1.5 | 0
+15.57.14.544,N/A,N/A
+15.57.14.559,Platform,0 | -1.5 | 0
+15.57.14.572,Platform,0 | -1.5 | 0
+15.57.14.586,N/A,N/A
+15.57.14.601,Platform,0 | -1.5 | 0
+15.57.14.615,Platform,0 | -1.5 | 0
+15.57.14.628,Platform,0 | -1.5 | 0
+15.57.14.642,N/A,N/A
+15.57.14.656,Platform,0 | -1.5 | 0
+15.57.14.671,Platform,0 | -1.5 | 0
+15.57.14.684,N/A,N/A
+15.57.14.698,Platform,0 | -1.5 | 0
+15.57.14.712,Platform,0 | -1.5 | 0
+15.57.14.726,N/A,N/A
+15.57.14.740,Platform,0 | -1.5 | 0
+15.57.14.754,Platform,0 | -1.5 | 0
+15.57.14.768,Platform,0 | -1.5 | 0
+15.57.14.781,N/A,N/A
+15.57.14.796,N/A,N/A
+15.57.14.809,N/A,N/A
+15.57.14.823,N/A,N/A
+15.57.14.838,N/A,N/A
+15.57.14.851,N/A,N/A
+15.57.14.865,N/A,N/A
+15.57.14.880,N/A,N/A
+15.57.14.893,N/A,N/A
+15.57.14.907,N/A,N/A
+15.57.14.921,N/A,N/A
+15.57.14.934,N/A,N/A
+15.57.14.949,N/A,N/A
+15.57.14.962,N/A,N/A
+15.57.14.977,N/A,N/A
+15.57.14.991,N/A,N/A
+15.57.15.004,N/A,N/A
+15.57.15.019,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.033,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.046,N/A,N/A
+15.57.15.061,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.075,N/A,N/A
+15.57.15.088,N/A,N/A
+15.57.15.101,N/A,N/A
+15.57.15.116,N/A,N/A
+15.57.15.130,N/A,N/A
+15.57.15.143,N/A,N/A
+15.57.15.157,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.171,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.185,N/A,N/A
+15.57.15.200,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.213,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.228,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.241,N/A,N/A
+15.57.15.255,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.270,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.283,N/A,N/A
+15.57.15.298,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.311,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.325,N/A,N/A
+15.57.15.339,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.353,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.366,N/A,N/A
+15.57.15.381,N/A,N/A
+15.57.15.395,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.408,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.422,N/A,N/A
+15.57.15.436,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.451,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.464,N/A,N/A
+15.57.15.479,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.493,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.506,N/A,N/A
+15.57.15.520,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.534,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.548,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.561,N/A,N/A
+15.57.15.576,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.590,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.603,N/A,N/A
+15.57.15.618,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.631,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.645,N/A,N/A
+15.57.15.659,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.673,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.687,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.701,N/A,N/A
+15.57.15.715,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.729,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.742,N/A,N/A
+15.57.15.756,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.771,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.784,N/A,N/A
+15.57.15.799,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.813,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.826,N/A,N/A
+15.57.15.841,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.854,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.869,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.882,N/A,N/A
+15.57.15.896,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.910,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.924,N/A,N/A
+15.57.15.938,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.952,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.965,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.15.979,N/A,N/A
+15.57.15.993,TestEyeTrackObject (2),8.46 | 0.8318926 | 10.4
+15.57.16.007,N/A,N/A
+15.57.16.021,N/A,N/A
+15.57.16.034,N/A,N/A
+15.57.16.049,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.062,N/A,N/A
+15.57.16.077,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.091,N/A,N/A
+15.57.16.104,N/A,N/A
+15.57.16.119,N/A,N/A
+15.57.16.133,N/A,N/A
+15.57.16.146,N/A,N/A
+15.57.16.160,N/A,N/A
+15.57.16.175,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.188,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.201,N/A,N/A
+15.57.16.216,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.230,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.243,N/A,N/A
+15.57.16.257,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.272,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.285,N/A,N/A
+15.57.16.299,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.313,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.327,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.341,N/A,N/A
+15.57.16.355,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.369,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.383,N/A,N/A
+15.57.16.397,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.410,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.424,N/A,N/A
+15.57.16.438,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.16.452,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.16.465,N/A,N/A
+15.57.16.480,N/A,N/A
+15.57.16.493,N/A,N/A
+15.57.16.508,N/A,N/A
+15.57.16.522,N/A,N/A
+15.57.16.536,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.549,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.563,N/A,N/A
+15.57.16.577,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.591,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.604,N/A,N/A
+15.57.16.619,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.634,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.647,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.661,N/A,N/A
+15.57.16.675,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.689,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.702,N/A,N/A
+15.57.16.717,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.731,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.744,N/A,N/A
+15.57.16.758,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.773,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.786,N/A,N/A
+15.57.16.801,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.814,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.828,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.841,N/A,N/A
+15.57.16.856,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.870,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.883,N/A,N/A
+15.57.16.898,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.911,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.926,N/A,N/A
+15.57.16.940,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.953,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.968,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.16.981,N/A,N/A
+15.57.16.994,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.009,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.021,N/A,N/A
+15.57.17.036,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.050,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.063,N/A,N/A
+15.57.17.078,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.092,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.106,N/A,N/A
+15.57.17.120,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.133,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.148,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.161,N/A,N/A
+15.57.17.175,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.190,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.203,N/A,N/A
+15.57.17.217,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.231,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.244,N/A,N/A
+15.57.17.259,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.273,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.286,N/A,N/A
+15.57.17.301,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.314,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.329,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.342,N/A,N/A
+15.57.17.356,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.371,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.384,N/A,N/A
+15.57.17.398,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.412,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.426,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.439,N/A,N/A
+15.57.17.454,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.468,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.481,N/A,N/A
+15.57.17.496,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.510,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.523,N/A,N/A
+15.57.17.537,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.551,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.565,N/A,N/A
+15.57.17.579,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.593,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.607,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.621,N/A,N/A
+15.57.17.634,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.649,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.662,N/A,N/A
+15.57.17.676,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.691,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.17.704,N/A,N/A
+15.57.17.718,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.732,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.746,N/A,N/A
+15.57.17.760,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.774,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.788,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.801,N/A,N/A
+15.57.17.816,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.830,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.843,N/A,N/A
+15.57.17.858,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.871,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.885,N/A,N/A
+15.57.17.899,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.913,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.927,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.941,N/A,N/A
+15.57.17.955,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.969,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.17.983,N/A,N/A
+15.57.17.996,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.011,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.024,N/A,N/A
+15.57.18.038,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.053,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.066,N/A,N/A
+15.57.18.081,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.094,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.108,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.121,N/A,N/A
+15.57.18.136,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.150,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.163,N/A,N/A
+15.57.18.178,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.192,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.205,N/A,N/A
+15.57.18.220,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.234,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.247,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.18.261,N/A,N/A
+15.57.18.275,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.289,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.303,N/A,N/A
+15.57.18.317,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.331,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.344,N/A,N/A
+15.57.18.359,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.373,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.386,N/A,N/A
+15.57.18.401,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.414,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.429,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.441,N/A,N/A
+15.57.18.456,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.470,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.483,N/A,N/A
+15.57.18.497,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.512,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.525,N/A,N/A
+15.57.18.540,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.553,TestEyeTrackObject (1),-5.9 | 0.8318926 | 10.4
+15.57.18.567,N/A,N/A
+15.57.18.581,N/A,N/A
+15.57.18.596,N/A,N/A
+15.57.18.609,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.623,N/A,N/A
+15.57.18.637,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.651,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.665,N/A,N/A
+15.57.18.679,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.693,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.706,N/A,N/A
+15.57.18.721,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.735,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.748,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.762,N/A,N/A
+15.57.18.777,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.791,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.803,N/A,N/A
+15.57.18.818,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.832,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.846,N/A,N/A
+15.57.18.860,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.874,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.888,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.901,N/A,N/A
+15.57.18.915,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.930,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.943,N/A,N/A
+15.57.18.957,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.971,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.18.985,N/A,N/A
+15.57.18.999,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.013,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.028,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.041,N/A,N/A
+15.57.19.055,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.069,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.083,N/A,N/A
+15.57.19.097,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.111,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.124,N/A,N/A
+15.57.19.138,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.152,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.166,N/A,N/A
+15.57.19.180,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.194,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.208,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.221,N/A,N/A
+15.57.19.236,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.250,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.263,N/A,N/A
+15.57.19.278,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.292,TestEyeTrackObject,0.2042194 | 0.8318926 | 10.4
+15.57.19.306,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.19.319,N/A,N/A
+15.57.19.333,DamageBombItem,-3.213182 | 0 | 10.25607
+15.57.19.347,N/A,N/A
+15.57.19.361,N/A,N/A
+15.57.19.375,N/A,N/A
+15.57.19.389,N/A,N/A
+15.57.19.403,N/A,N/A
+15.57.19.417,N/A,N/A
+15.57.19.431,N/A,N/A
+15.57.19.444,N/A,N/A
+15.57.19.459,N/A,N/A
+15.57.19.473,N/A,N/A
+15.57.19.487,N/A,N/A
+15.57.19.501,N/A,N/A
+15.57.19.514,N/A,N/A
+15.57.19.529,N/A,N/A
+15.57.19.542,N/A,N/A
+15.57.19.557,N/A,N/A
+15.57.19.570,N/A,N/A
+15.57.19.584,N/A,N/A
+15.57.19.598,N/A,N/A
+15.57.19.612,N/A,N/A
+15.57.19.626,N/A,N/A
+15.57.19.640,N/A,N/A
+15.57.19.654,N/A,N/A
+15.57.19.668,N/A,N/A
+15.57.19.681,N/A,N/A
+15.57.19.696,N/A,N/A
+15.57.19.709,N/A,N/A
+15.57.19.724,N/A,N/A
+15.57.19.737,N/A,N/A
+15.57.19.751,N/A,N/A
+15.57.19.765,N/A,N/A
+15.57.19.779,N/A,N/A
+15.57.19.794,N/A,N/A
+15.57.19.807,N/A,N/A
+15.57.19.821,N/A,N/A
+15.57.19.835,N/A,N/A
+15.57.19.849,N/A,N/A
+15.57.19.862,N/A,N/A
+15.57.19.877,N/A,N/A
+15.57.19.891,N/A,N/A
+15.57.19.904,N/A,N/A
+15.57.19.918,N/A,N/A
+15.57.19.932,N/A,N/A
+15.57.19.946,N/A,N/A
+15.57.19.961,N/A,N/A
+15.57.19.974,N/A,N/A
+15.57.19.989,N/A,N/A
+15.57.20.002,N/A,N/A
+15.57.20.016,N/A,N/A
+15.57.20.030,N/A,N/A
+15.57.20.044,N/A,N/A
+15.57.20.058,N/A,N/A
+15.57.20.071,N/A,N/A
+15.57.20.085,N/A,N/A
+15.57.20.099,N/A,N/A
+15.57.20.114,N/A,N/A
+15.57.20.128,N/A,N/A
+15.57.20.142,N/A,N/A
+15.57.20.156,N/A,N/A
+15.57.20.169,N/A,N/A
+15.57.20.182,N/A,N/A
+15.57.20.197,N/A,N/A
+15.57.20.210,N/A,N/A
+15.57.20.224,N/A,N/A
+15.57.20.239,N/A,N/A
+15.57.20.253,N/A,N/A
+15.57.20.267,N/A,N/A
+15.57.20.281,N/A,N/A
+15.57.20.294,N/A,N/A
+15.57.20.308,N/A,N/A
+15.57.20.322,N/A,N/A
+15.57.20.336,N/A,N/A
+15.57.20.351,N/A,N/A
+15.57.20.364,N/A,N/A
+15.57.20.378,N/A,N/A
+15.57.20.392,N/A,N/A
+15.57.20.405,N/A,N/A
+15.57.20.420,N/A,N/A
+15.57.20.434,N/A,N/A
+15.57.20.448,N/A,N/A
+15.57.20.461,N/A,N/A
+15.57.20.476,N/A,N/A
+15.57.20.490,N/A,N/A
+15.57.20.503,N/A,N/A
+15.57.20.517,N/A,N/A
+15.57.20.531,N/A,N/A
+15.57.20.545,N/A,N/A
+15.57.20.559,N/A,N/A
+15.57.20.573,N/A,N/A
+15.57.20.587,N/A,N/A
+15.57.20.601,N/A,N/A
+15.57.20.615,N/A,N/A
+15.57.20.629,N/A,N/A
+15.57.20.643,N/A,N/A
+15.57.20.657,N/A,N/A
+15.57.20.671,N/A,N/A
+15.57.20.684,N/A,N/A
+15.57.20.699,N/A,N/A
+15.57.20.712,N/A,N/A
+15.57.20.727,N/A,N/A
+15.57.20.785,N/A,N/A
+15.57.20.796,N/A,N/A
+15.57.20.813,N/A,N/A
+15.57.20.827,N/A,N/A
+15.57.20.842,N/A,N/A
+15.57.20.857,N/A,N/A
+15.57.20.872,N/A,N/A
+15.57.20.887,N/A,N/A
+15.57.20.902,N/A,N/A
+15.57.20.918,N/A,N/A
+15.57.20.931,N/A,N/A
+15.57.20.946,N/A,N/A
+15.57.20.959,N/A,N/A
+15.57.20.973,N/A,N/A
+15.57.20.988,N/A,N/A
+15.57.21.002,N/A,N/A
+15.57.21.016,N/A,N/A
+15.57.21.031,N/A,N/A
+15.57.21.044,N/A,N/A
+15.57.21.058,N/A,N/A
+15.57.21.072,N/A,N/A
+15.57.21.088,N/A,N/A
+15.57.21.101,N/A,N/A
+15.57.21.114,N/A,N/A
+15.57.21.128,N/A,N/A
+15.57.21.209,N/A,N/A

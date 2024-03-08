@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Oculus.Interaction.GrabAPI;
 using UnityEngine;
 
@@ -14,12 +15,16 @@ public class EyeTrackingRay : MonoBehaviour
     [SerializeField] private Color rayColorHoverState = Color.green;
 
     private LineRenderer lineRenderer;
+    private OVREyeGaze ovrEyeGaze;
     private List<EyeInteractable> eyeInteractables = new List<EyeInteractable>();
+
+    GameObject seenObject;
 
     // Start is called before the first frame update
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        ovrEyeGaze = GetComponent<OVREyeGaze>();
         SetupRay();
     }
 
@@ -31,8 +36,8 @@ public class EyeTrackingRay : MonoBehaviour
         lineRenderer.endWidth = rayWidth;
         lineRenderer.startColor = rayColorDefaultState;
         lineRenderer.endColor = rayColorDefaultState;
-        lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, transform.position + (Vector3.forward * rayDistance));
+        lineRenderer.SetPosition(0, Vector3.zero);
+        lineRenderer.SetPosition(1, (Vector3.forward * rayDistance));
     }
 
     // Update is called once per frame
@@ -47,9 +52,22 @@ public class EyeTrackingRay : MonoBehaviour
             lineRenderer.startColor = rayColorHoverState;
             lineRenderer.endColor = rayColorHoverState;
 
-            var eyeInteractable = hit.transform.GetComponent<EyeInteractable>();
-            eyeInteractables.Add(eyeInteractable);
-            eyeInteractable.IsHovered = true;
+            /*var eyeInteractable = hit.transform.GetComponent<EyeInteractable>();
+            if (eyeInteractable != null)
+            {
+                eyeInteractables.Add(eyeInteractable);
+                eyeInteractable.IsHovered = true;
+            }*/
+
+            GameObject eyeSee = hit.collider.gameObject;
+            if (eyeSee != null)
+            {
+                Debug.Log("See : " + eyeSee.name);
+                if (ovrEyeGaze.Eye == OVREyeGaze.EyeId.Left)
+                    EyeTrackingRecorder.instance.seenObjectL = eyeSee;
+                else
+                    EyeTrackingRecorder.instance.seenObjectR = eyeSee;
+            }
         }
         else
         {

@@ -88,9 +88,9 @@ namespace LSL4Unity.Samples.SimpleInlet
 
                     float[] coordValues = ConvertStringToFloat(data_buffer[0].ToString());
 
-                    Debug.Log("Maggies: " + coordValues[2]);
+                    //Debug.Log("Maggies: " + coordValues[2]);
 
-                    //string[] splitData = dataString.Split(dataString, char.Parse("X: "));
+                    
                 }
                 //if (samples_returned > 0)
                 //{
@@ -107,6 +107,13 @@ namespace LSL4Unity.Samples.SimpleInlet
                 // Debug.Log("Setting cylinder scale to " + new_scale);
                 //gameObject.transform.localScale = new_scale;
                 //}
+            }
+            //TODO: if you are in an environment where you CANNOT use a Balance Board,
+            //simply cycle on sin()/cos() values. This should only be used for testing,
+            //to make sure that rotations will adjust accordingly
+            else
+            {
+
             }
         }
 
