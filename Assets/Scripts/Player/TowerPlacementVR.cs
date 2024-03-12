@@ -105,10 +105,12 @@ public class TowerPlacementVR : MonoBehaviour
             if (deleteTowerButton.action.WasPerformedThisFrame())
             {
                 Debug.Log("ButtonPressed");
-                if (placementPointer.collision.GetComponent<TowerBehaviour>() != null)
+                TowerBehaviour deletingTower = placementPointer.collision.GetComponent<TowerBehaviour>();
+                if (deletingTower != null)
                 {
                     Debug.Log("DeletingTower");
-                    TowerDefenseManager.EnqueueTowerToRemove(placementPointer.collision.GetComponent<TowerBehaviour>());
+                    playerStats.AddMoney(deletingTower.towerCost);
+                    TowerDefenseManager.EnqueueTowerToRemove(deletingTower);
                 }
 
             }
@@ -145,7 +147,7 @@ public class TowerPlacementVR : MonoBehaviour
             }
 
             currentPlacingTower = Instantiate(newTower, Vector3.zero, Quaternion.identity);
-            radiusDecalObject.GetComponent<RadiusSizeEditor>().ChangeRadiusSize(newTower.GetComponent<TowerBehaviour>().range);
+            RadiusSizeEditor.instance.ChangeRadiusSize(newTower.GetComponent<TowerBehaviour>());
         }
         else
         {

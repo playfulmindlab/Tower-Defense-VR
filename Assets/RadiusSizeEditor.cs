@@ -5,16 +5,23 @@ using UnityEngine.Rendering.Universal;
 
 public class RadiusSizeEditor : MonoBehaviour
 {
+    public static RadiusSizeEditor instance;
+
     [SerializeField] DecalProjector decalProj;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (instance == null) instance = this;
+        else if (instance != this) Destroy(this.gameObject);
+
+
         decalProj = GetComponent<DecalProjector>();
     }
 
-    public void ChangeRadiusSize(float radiusSize)
+    public void ChangeRadiusSize(TowerBehaviour tower)
     {
-        decalProj.size = new Vector3(radiusSize * 2, radiusSize * 2, 4f);
+        transform.position = tower.transform.position;
+        decalProj.size = new Vector3(tower.range * 2, tower.range * 2, 4f);
     }
 }

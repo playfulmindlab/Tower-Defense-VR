@@ -140,6 +140,13 @@ public class Outline : MonoBehaviour {
     public void ChangeOutlineWidth(float newWidth)
     {
        OutlineWidth = newWidth;
+
+       RadiusSizeEditor.instance.ChangeRadiusSize(this.GetComponentInParent<TowerBehaviour>());
+
+        if (newWidth == 0)
+        {
+            RadiusSizeEditor.instance.transform.position = new Vector3(0, -1000, 0);
+        }
     }
 
   void OnDisable() {
