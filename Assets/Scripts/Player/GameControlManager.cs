@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.Inputs;
+using LSL4Unity.Samples.SimpleInlet;
 
 public enum ControlsSetting { Main, Jumped}
 
@@ -22,6 +23,8 @@ public class GameControlManager : MonoBehaviour
     [SerializeField] JumpedTowerControls jumpedTowerControls;
     [SerializeField] public InputActionProperty rotateJoystick, attackButton;
 
+    SimpleInletBalanceBoard bbInlet;
+
     bool firing = false;
 
     // Start is called before the first frame update
@@ -31,6 +34,9 @@ public class GameControlManager : MonoBehaviour
             instance = this;
         else
             Destroy(this.gameObject);
+
+
+        bbInlet = GetComponent<SimpleInletBalanceBoard>();
     }
 
     private void Update()
@@ -40,12 +46,12 @@ public class GameControlManager : MonoBehaviour
         {
             if (rotateJoystick.action != null)
             {
-                jumpedTowerControls.RotateGun(rotateJoystick.action.ReadValue<Quaternion>());
+                //jumpedTowerControls.RotateGun(rotateJoystick.action.ReadValue<Quaternion>());
+                jumpedTowerControls.RotateGun(bbInlet.rotationValues);
             }
 
             if (attackButton.action.WasPerformedThisFrame())
             {
-                Debug.Log("goin thru");
                 firing = !firing;
                 jumpedTowerControls.SetGunFire(firing);
             }

@@ -20,6 +20,7 @@ namespace LSL4Unity.Samples.SimpleInlet
         // We need to find the stream somehow. You must provide a StreamName in editor or before this object is Started.
         public string StreamName;
         ContinuousResolver resolver;
+        public Vector2 rotationValues = Vector2.zero;
 
         double max_chunk_duration = 0.2;  // Duration, in seconds, of buffer passed to pull_chunk. This must be > than average frame interval.
 
@@ -30,6 +31,12 @@ namespace LSL4Unity.Samples.SimpleInlet
         private string[] data_buffer;  // Note it's a 2D Array, not array of arrays. Each element has to be indexed specifically, no frames/columns.
         private double timestamp_buffer;
 
+        private bool isReady = false;
+        public bool IsReady
+        {
+            get { return isReady; }
+            set { }
+        }
 
         void Start()
         {
@@ -55,6 +62,7 @@ namespace LSL4Unity.Samples.SimpleInlet
                 results = resolver.results();
             }
 
+            isReady = true;
             Debug.Log("Found results : " + results.Length);
             inlet = new StreamInlet(results[0]);
 
@@ -86,7 +94,11 @@ namespace LSL4Unity.Samples.SimpleInlet
                 {
                     Debug.Log("Convert String to Viable Code here");
 
-                    float[] coordValues = ConvertStringToFloat(data_buffer[0].ToString());
+                    float[] coordValues = ConvertStringToFloat(data_buffer[0]);
+
+                    rotationValues = new Vector2(coordValues[0], coordValues[1]);
+
+                    //[0] = X, [1] = Y, [2] = Magnitude
 
                     //Debug.Log("Maggies: " + coordValues[2]);
 
@@ -113,7 +125,8 @@ namespace LSL4Unity.Samples.SimpleInlet
             //to make sure that rotations will adjust accordingly
             else
             {
-
+                float sinValue = Mathf.PingPong(Time.time *  25f, 180f) - 90f;
+                rotationValues = new Vector2(0f, sinValue);
             }
         }
 
