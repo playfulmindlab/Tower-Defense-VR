@@ -13,8 +13,8 @@ public class EnemyForwardSensor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("AttackObstacle"))// && obstacleObject == null)
-        {;
+        if (other.gameObject.CompareTag("AttackObstacle") || other.gameObject.CompareTag("BaseObstacle"))// && obstacleObject == null)
+        {
             if (other.gameObject.GetComponent<TowerBehaviour>() != null)
                 enemyBase.ChangeTowerTarget(other.gameObject.GetComponent<TowerBehaviour>());
         }
@@ -23,7 +23,7 @@ public class EnemyForwardSensor : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("Removed At YYY // Collider: " + other + " / " + other.gameObject + " / " + other.gameObject.tag.ToString());
-        if (other.gameObject.CompareTag("AttackObstacle"))// && obstacleObject != null)
+        if (other.gameObject.CompareTag("AttackObstacle") || other.gameObject.CompareTag("BaseObstacle"))// && obstacleObject != null)
         {
             Debug.Log("Removed At XXX");
             enemyBase.ChangeTowerTarget(null);

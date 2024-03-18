@@ -32,6 +32,7 @@ public class TowerBehaviour : MonoBehaviour
     protected float delay;
     private float healthDamageMod = 1;
 
+    public bool aliveOnSceneStart = false;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -44,6 +45,9 @@ public class TowerBehaviour : MonoBehaviour
         {
             healthBar.maxValue = health;
             shieldBar.maxValue = shield;
+
+            healthBar.value = health;
+            shieldBar.value = shield;
         }
 
         if (currentDamageMethodClass == null)
@@ -66,6 +70,25 @@ public class TowerBehaviour : MonoBehaviour
         //Damage(0);
 
         delay = 1 / firerate;
+
+        if (aliveOnSceneStart)
+        {
+            StartCoroutine(AddAliveTowerToTowerManager());
+        }
+    }
+
+    IEnumerator AddAliveTowerToTowerManager()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        TowerDefenseManager.towersInGame.Add(this);
+        gameObject.layer = 9;
+        foreach (Transform child in gameObject.transform)
+        {
+            child.gameObject.layer = 9;
+        }
+        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+
     }
 
     // Update is called once per frame
@@ -131,7 +154,7 @@ public class TowerBehaviour : MonoBehaviour
         }
     }
 
-    public void TowerDie()
+    public virtual void TowerDie()
     {
         //TODO: wirte code for what happens when tower dies here
         this.gameObject.SetActive(false);

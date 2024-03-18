@@ -12,6 +12,7 @@ public class TowerDefenseManager : MonoBehaviour
     public static Vector3[] nodePositions;
     public static float[] nodeDistances;
     public static int waveCount = 1;
+    public static bool isGameOver = false;
 
     private static Queue<int> enemyIDsToSpawnQueue;
     private static Queue<Enemy> enemiesToRemoveQueue;
@@ -25,13 +26,16 @@ public class TowerDefenseManager : MonoBehaviour
     public bool spawnEnemies = true;
 
     [SerializeField] GameObject colliderObject;
+    [SerializeField] GameObject gameOverScreen;
     [SerializeField] int enemyRemovedCount;
     [SerializeField] int currEnemyKillCount;
-    int spawnedEnemiesCount = 0;
+    int spawnedEnemiesCount = 0; 
 
     // Start is called before the first frame update
     void Start()
     {
+        //gameOverCo = GameOverSequence();
+
         towersInGame = new List<TowerBehaviour>();
         towersToRemoveQueue = new Queue<TowerBehaviour>();
         enemyIDsToSpawnQueue = new Queue<int>();
@@ -103,6 +107,12 @@ public class TowerDefenseManager : MonoBehaviour
     {
         while(continueLoop == true)
         {
+            if (isGameOver)
+            {
+                StartCoroutine(GameOverSequence());
+                continueLoop = false;
+                break;
+            }
             //Debug.Log("QUEUE COUNT: " + enemyIDsToSpawnQueue.Count);
             //Spawn Enemies
             //Debug.Log("Spawn Checking -- SpawnEnemies: " + spawnEnemies + " // EnemyIDsCount: " + enemyIDsToSpawnQueue.Count);
@@ -245,7 +255,6 @@ public class TowerDefenseManager : MonoBehaviour
             }
 
             //Remove Towers
-
             if (towersToRemoveQueue.Count > 0)
             {
                 Debug.Log("REMOVE QUEUE COUNT: " + towersToRemoveQueue.Count + " @ " + Time.time);
@@ -257,6 +266,17 @@ public class TowerDefenseManager : MonoBehaviour
 
             yield return null;
         }
+    }
+    IEnumerator GameOverSequence()
+    {
+        gameOverScreen.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuVR", UnityEngine.SceneManagement.LoadSceneMode.Single);
+    }
+
+    public static void BeginGameOverSequence()
+    {
+        isGameOver = true;
     }
 
     public static void EnqueueEnemyIDToSummon(int id)

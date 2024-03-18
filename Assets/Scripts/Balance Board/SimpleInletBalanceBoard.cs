@@ -78,7 +78,10 @@ namespace LSL4Unity.Samples.SimpleInlet
 
         private void OnApplicationQuit()
         {
-            inlet.Close();
+            if (inlet != null)
+                inlet.Close();
+            else
+                Debug.LogError("No StreamInlet detected during gameplay.");
         }
 
         // Update is called once per frame

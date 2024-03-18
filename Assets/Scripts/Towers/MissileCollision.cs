@@ -48,8 +48,12 @@ public class MissileCollision : MonoBehaviour
             else
             {
                 Enemy enemyToDamage = other.GetComponent<Enemy>();
-                EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.GetResistanceModifier(baseClass.GetAttackType));
-                TowerDefenseManager.EnqueueDamageData(damageToApply);
+                if (enemyToDamage != null)
+                {
+                    EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.GetResistanceModifier(baseClass.GetAttackType));
+                    TowerDefenseManager.EnqueueDamageData(damageToApply);
+                }
+
 
                 damageValue = baseClass.DamageValue;
             }
