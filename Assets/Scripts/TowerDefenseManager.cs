@@ -12,7 +12,7 @@ public class TowerDefenseManager : MonoBehaviour
     public static Vector3[] nodePositions;
     public static float[] nodeDistances;
     public static int waveCount = 1;
-    public static bool isGameOver = false;
+    [SerializeField] public static bool isGameOver = false;
 
     private static Queue<int> enemyIDsToSpawnQueue;
     private static Queue<Enemy> enemiesToRemoveQueue;
@@ -34,8 +34,6 @@ public class TowerDefenseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //gameOverCo = GameOverSequence();
-
         towersInGame = new List<TowerBehaviour>();
         towersToRemoveQueue = new Queue<TowerBehaviour>();
         enemyIDsToSpawnQueue = new Queue<int>();
@@ -57,12 +55,21 @@ public class TowerDefenseManager : MonoBehaviour
             nodeDistances[i] = Vector3.Distance(nodePositions[i], nodePositions[i + 1]);
         }
 
+        ResetGameStatistics();
         UpdateWaveCount(1);
 
         StartCoroutine(GameplayLoop());
 
         //InvokeRepeating("SpawnTest", 0f, 1f);
         //InvokeRepeating("RemoveTest", 0f, 2f);
+    }
+
+    void ResetGameStatistics()
+    {
+        gameOverScreen.SetActive(false);
+        isGameOver = false;
+        waveCount = 1;
+        continueLoop = true;
     }
 
     void SpawnTest() { EnqueueEnemyIDToSummon(1); }

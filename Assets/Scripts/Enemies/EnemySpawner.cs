@@ -37,6 +37,10 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             Debug.Log("EnemySpawner is already initialized!");
+
+            enemiesInGame.Clear();
+            enemiesInGameTransform.Clear();
+            enemyTransformPairs.Clear();
         }
     }
 
