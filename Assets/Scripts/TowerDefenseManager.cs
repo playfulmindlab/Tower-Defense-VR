@@ -70,6 +70,7 @@ public class TowerDefenseManager : MonoBehaviour
         isGameOver = false;
         waveCount = 1;
         continueLoop = true;
+        towersInGame.Clear();
     }
 
     void SpawnTest() { EnqueueEnemyIDToSummon(1); }

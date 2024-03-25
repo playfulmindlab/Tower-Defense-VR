@@ -44,8 +44,10 @@ public class GameControlManager : MonoBehaviour
         //TODO: try to move this to job system
         if (jumpedTowerControls != null)
         {
-            if (rotateJoystick.action != null)
+            //if (rotateJoystick.action != null)
+            if (bbInlet.IsReady)
             {
+
                 //jumpedTowerControls.RotateGun(rotateJoystick.action.ReadValue<Quaternion>());
                 jumpedTowerControls.RotateGun(bbInlet.rotationValues);
             }

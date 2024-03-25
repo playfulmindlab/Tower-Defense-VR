@@ -143,7 +143,7 @@ namespace LSL4Unity.Samples.SimpleInlet
 
             if (splitData.Length > 3 && float.TryParse(splitData[1], out float result1) && float.TryParse(splitData[2], out float result2))
             {
-                //NOTE: splitData[] is only "", and is ignored when recording values
+                //NOTE: splitData[0] is only "", and is ignored when recording values
                 Debug.Log("Split Data: " + splitData[1] + " | " + splitData[2] + " | " + splitData[3] + " | " + splitData.Length);
 
                 values[0] = float.Parse(splitData[1]);
