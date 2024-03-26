@@ -127,7 +127,7 @@ namespace LSL4Unity.Samples.SimpleInlet
             //to make sure that rotations will adjust accordingly
             else
             {
-                float sinValue = Mathf.PingPong(Time.time *  25f, 180f) - 90f;
+                float sinValue = Mathf.PingPong(Time.time *  25f, 180f) - 90 ;
                 rotationValues = new Vector2(0f, sinValue);
             }
         }

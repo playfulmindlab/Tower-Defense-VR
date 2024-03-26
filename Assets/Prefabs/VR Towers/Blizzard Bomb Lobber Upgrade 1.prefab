@@ -333,6 +333,7 @@ MonoBehaviour:
   shieldBar: {fileID: 8999630914800402411}
   outline: {fileID: 0}
   upgradedTower: {fileID: 797117038911625959, guid: 0542128d4c843a948ac5b241b7ded19b, type: 3}
+  aliveOnSceneStart: 0
 --- !u!65 &1775218287946729637
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1517,7 +1518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 1
+      value: 2049
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
@@ -1642,7 +1643,6 @@ MonoBehaviour:
   missileSystem: {fileID: 2163497414498910408}
   explosionRadius: 6
   poolPrefab: {fileID: 446902523181620443, guid: 70a5bfffacae043458aa1f86c7b2bf9b, type: 3}
-  explosionRadiusObject: {fileID: 4083235429807288321, guid: 6d7b31b1ad1456442a38e984e5e39286, type: 3}
 --- !u!4 &8997606165716631523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6346178433994488895, guid: d1df631048f08d94797db2905f49296f, type: 3}

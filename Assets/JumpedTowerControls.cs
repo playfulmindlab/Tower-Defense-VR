@@ -41,7 +41,7 @@ public class JumpedTowerControls : MonoBehaviour
 
         rot = Quaternion.Euler(new Vector3(balanceBoardCoords.x, balanceBoardCoords.y, 0f));
 
-        towerHead.rotation = rot;
+        towerHead.localEulerAngles = new Vector3(balanceBoardCoords.x, balanceBoardCoords.y, 0f);
     }
 
     public void RotateGun(float balanceX, float balanceY, float magnitude)

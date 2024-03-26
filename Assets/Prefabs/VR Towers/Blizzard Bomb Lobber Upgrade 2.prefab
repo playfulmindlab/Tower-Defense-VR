@@ -143,6 +143,7 @@ MonoBehaviour:
   shieldBar: {fileID: 1077405896171857075}
   outline: {fileID: 0}
   upgradedTower: {fileID: 0}
+  aliveOnSceneStart: 0
 --- !u!65 &1258443581456902066
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1715,7 +1716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 1
+      value: 2049
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

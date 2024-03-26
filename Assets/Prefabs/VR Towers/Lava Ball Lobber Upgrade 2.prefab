@@ -118,7 +118,6 @@ GameObject:
   - component: {fileID: 881942355475300742}
   - component: {fileID: 7758612933058206255}
   - component: {fileID: 8555594257964456645}
-  - component: {fileID: 7420692957028227327}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -191,29 +190,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7420692957028227327
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866307737213908687}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &987192739583220030
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,6 +808,7 @@ MonoBehaviour:
   shieldBar: {fileID: 101426724906005152}
   outline: {fileID: 0}
   upgradedTower: {fileID: 0}
+  aliveOnSceneStart: 0
 --- !u!65 &3909794139110643092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1631,7 +1608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 1
+      value: 2049
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

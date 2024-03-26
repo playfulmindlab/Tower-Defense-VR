@@ -35,18 +35,16 @@ public class TowerPlacementVR : MonoBehaviour
 
     void Update()
     {
-
-
         if (currentPlacingTower != null)
         {
-            currentPlacingTower.transform.position = placementPointer.endPoint;
-            radiusDecalObject.transform.position = placementPointer.endPoint;
-
             if (cancelTowerSpawnButton.action.WasPerformedThisFrame())
             {
                 CancelTowerPlacement();
                 return;
             }
+
+            currentPlacingTower.transform.position = placementPointer.endPoint;
+            radiusDecalObject.transform.position = placementPointer.endPoint;
 
             if (towerSpawnerButton.action.WasPerformedThisFrame() && placementPointer.collision != null)
             {
@@ -123,6 +121,8 @@ public class TowerPlacementVR : MonoBehaviour
         TowerBehaviour currentTowerBehaviour = tower.GetComponent<TowerBehaviour>();
         TowerDefenseManager.towersInGame.Add(currentTowerBehaviour);
 
+        RotateTowerTowardsPath(currentPlacingTower);
+
         playerStats.SubtractMoney(currentTowerBehaviour.towerCost);
 
         towerCollider.isTrigger = false;
@@ -133,6 +133,27 @@ public class TowerPlacementVR : MonoBehaviour
         }
         towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; ;
 
+    }
+
+    void RotateTowerTowardsPath(GameObject newTower)
+    {
+        int layerMask = 1 << 11; //"Path" Layer
+        float closestPathDistance = Mathf.Infinity;
+
+        RaycastHit hit;
+        for (int d = 0; d < 360; d += 90)
+        {
+            //Debug.Log("Checking at Degrees: " + d + " // Vec3: " + new Vector3(Mathf.Sin(d * Mathf.Deg2Rad), 0, Mathf.Cos(d * Mathf.Deg2Rad)));
+            if (Physics.Raycast(newTower.transform.position + (Vector3.up * 0.1f), new Vector3(Mathf.Sin(d * Mathf.Deg2Rad), 0, Mathf.Cos(d * Mathf.Deg2Rad)), out hit, Mathf.Infinity, layerMask))
+            {
+                if (hit.distance < closestPathDistance)
+                {
+                    newTower.transform.rotation = Quaternion.Euler(0, d, 0);
+                    //Debug.Log("Path " + hit.collider.gameObject.name + " // Distance: " + hit.distance);
+                    closestPathDistance = hit.distance;
+                }
+            }
+        }
     }
 
     public void SetTowerToPlace(GameObject newTower)
@@ -161,7 +182,7 @@ public class TowerPlacementVR : MonoBehaviour
 
         if (playerStats.CurrentMoney >= newTowerCost)
         {
-            GameObject newTower = Instantiate(upgradedTower, oldTower.transform.position, Quaternion.identity);
+            GameObject newTower = Instantiate(upgradedTower, oldTower.transform.position, oldTower.transform.rotation);
             BoxCollider towerCollider = newTower.GetComponent<BoxCollider>();
 
             TowerDefenseManager.towersInGame.Remove(oldTower.GetComponent<TowerBehaviour>());
