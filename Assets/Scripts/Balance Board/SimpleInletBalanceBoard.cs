@@ -53,7 +53,6 @@ namespace LSL4Unity.Samples.SimpleInlet
 
         IEnumerator ResolveExpectedStream()
         {
-
             var results = resolver.results();
             while (results.Length == 0)
             {

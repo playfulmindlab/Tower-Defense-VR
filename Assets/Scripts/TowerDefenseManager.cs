@@ -5,6 +5,8 @@ using UnityEngine;
 using Unity.Jobs;
 using UnityEngine.Jobs;
 
+public enum Phase{ None, Build, Defend, Repair }
+
 public class TowerDefenseManager : MonoBehaviour
 {
     public static List<TowerBehaviour> towersInGame;
@@ -29,7 +31,9 @@ public class TowerDefenseManager : MonoBehaviour
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] int enemyRemovedCount;
     [SerializeField] int currEnemyKillCount;
-    int spawnedEnemiesCount = 0; 
+    int spawnedEnemiesCount = 0;
+
+    [SerializeField] Phase currPhase;
 
     // Start is called before the first frame update
     void Start()
