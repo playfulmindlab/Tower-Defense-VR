@@ -5,7 +5,7 @@ using UnityEngine;
 using Unity.Jobs;
 using UnityEngine.Jobs;
 
-public enum Phase{ None, Build, Defend, Repair }
+public enum Phase{ None = 0, Build = 1, Defend = 2, Repair = 3 }
 
 public class TowerDefenseManager : MonoBehaviour
 {
@@ -33,11 +33,17 @@ public class TowerDefenseManager : MonoBehaviour
     [SerializeField] int currEnemyKillCount;
     int spawnedEnemiesCount = 0;
 
-    [SerializeField] Phase currPhase;
+    static Phase currPhase;
+    public static Phase CurrPhase
+    {
+        get { return currPhase; }
+        set { }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        currPhase = Phase.Build;
         towersInGame = new List<TowerBehaviour>();
         towersToRemoveQueue = new Queue<TowerBehaviour>();
         enemyIDsToSpawnQueue = new Queue<int>();
@@ -87,6 +93,16 @@ public class TowerDefenseManager : MonoBehaviour
         }
     }
 
+    public void ChangeCurrentPhaseButton(int phaseInt)
+    {
+        currPhase = (Phase)phaseInt;
+    }
+
+    public static void ChangeCurrentPhase(Phase newPhase)
+    {
+        currPhase = newPhase;
+    }
+
 
     public void UpdateWaveCount(int newWaveNum = -1)
     {
@@ -119,6 +135,7 @@ public class TowerDefenseManager : MonoBehaviour
     {
         while(continueLoop == true)
         {
+            //if base health = 0, start Game Over sequence
             if (isGameOver)
             {
                 StartCoroutine(GameOverSequence());

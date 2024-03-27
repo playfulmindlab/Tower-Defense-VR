@@ -158,44 +158,54 @@ public class TowerPlacementVR : MonoBehaviour
 
     public void SetTowerToPlace(GameObject newTower)
     {
-        int newTowerCost = newTower.GetComponent<TowerBehaviour>().towerCost;
-
-        if (playerStats.CurrentMoney >= newTowerCost)
+        if (TowerDefenseManager.CurrPhase == Phase.Build ||
+            TowerDefenseManager.CurrPhase == Phase.Repair)
         {
-            if (currentPlacingTower != null)
+            int newTowerCost = newTower.GetComponent<TowerBehaviour>().towerCost;
+
+            if (playerStats.CurrentMoney >= newTowerCost)
             {
-                CancelTowerPlacement();
-            }
+                if (currentPlacingTower != null)
+                {
+                    CancelTowerPlacement();
+                }
 
-            currentPlacingTower = Instantiate(newTower, Vector3.zero, Quaternion.identity);
-            RadiusSizeEditor.instance.ChangeRadiusSize(newTower.GetComponent<TowerBehaviour>());
+                currentPlacingTower = Instantiate(newTower, Vector3.zero, Quaternion.identity);
+                RadiusSizeEditor.instance.ChangeRadiusSize(newTower.GetComponent<TowerBehaviour>());
+            }
+            else
+            {
+                Debug.Log("NOT_ERROR: You do not have the appropriate funds to buy this tower!");
+            }
         }
-        else
-        {
-            Debug.Log("NOT_ERROR: You do not have the appropriate funds to buy this tower!");
-        }
+        else { Debug.LogError("ERROR: You are not currently in the Build or Repair phase!"); }
     }
 
     public void UpgradeTower(GameObject oldTower, GameObject upgradedTower)
     {
-        int newTowerCost = upgradedTower.GetComponent<TowerBehaviour>().towerCost;
-
-        if (playerStats.CurrentMoney >= newTowerCost)
+        if (TowerDefenseManager.CurrPhase == Phase.Build ||
+            TowerDefenseManager.CurrPhase == Phase.Repair)
         {
-            GameObject newTower = Instantiate(upgradedTower, oldTower.transform.position, oldTower.transform.rotation);
-            BoxCollider towerCollider = newTower.GetComponent<BoxCollider>();
+            int newTowerCost = upgradedTower.GetComponent<TowerBehaviour>().towerCost;
 
-            TowerDefenseManager.towersInGame.Remove(oldTower.GetComponent<TowerBehaviour>());
+            if (playerStats.CurrentMoney >= newTowerCost)
+            {
+                GameObject newTower = Instantiate(upgradedTower, oldTower.transform.position, oldTower.transform.rotation);
+                BoxCollider towerCollider = newTower.GetComponent<BoxCollider>();
 
-            CreateNewTower(newTower, towerCollider);
-            Destroy(oldTower);
+                TowerDefenseManager.towersInGame.Remove(oldTower.GetComponent<TowerBehaviour>());
 
-            upgradeConfetti.transform.position = newTower.transform.position;
-            upgradeConfetti.Play();
+                CreateNewTower(newTower, towerCollider);
+                Destroy(oldTower);
+
+                upgradeConfetti.transform.position = newTower.transform.position;
+                upgradeConfetti.Play();
+            }
+            else
+            {
+                Debug.Log("UPGRADE_ERROR: You do not have the appropriate funds to upgrade this tower!");
+            }
         }
-        else
-        {
-            Debug.Log("UPGRADE_ERROR: You do not have the appropriate funds to upgrade this tower!");
-        }
+        else { Debug.LogError("ERROR: You are not currently in the Build or Repair phase!"); }
     }
 }
