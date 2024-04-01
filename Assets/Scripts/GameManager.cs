@@ -24,10 +24,4 @@ public class GameManager : MonoBehaviour
     {
         return playerData;
     }
-
-    public void IncreaseWaveCount(int addWaves)
-    {
-        //playerData.wave += addWaves;
-
-    }
 }

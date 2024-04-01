@@ -8,6 +8,7 @@ public class JumpedTowerControls : MonoBehaviour
     [SerializeField] Camera towerCamera;
     Transform towerHead;
     MissileDamage missileDamage;
+    float damping = 5f;
 
     public void Awake()
     {
@@ -22,7 +23,8 @@ public class JumpedTowerControls : MonoBehaviour
 
     public void SetJumpedTower()
     {
-        GameControlManager.instance.SwapToJumpedControls(this);
+        if (TowerDefenseManager.CurrPhase == Phase.Defend || TowerDefenseManager.CurrPhase == Phase.Defend_ChooseJump)
+            GameControlManager.instance.SwapToJumpedControls(this);
     }
 
     public void ToggleAutoShoot()
@@ -37,12 +39,10 @@ public class JumpedTowerControls : MonoBehaviour
 
     public void RotateGun(Vector2 balanceBoardCoords)
     {
-        //Quaternion rot;
-        //rot = Quaternion.Euler(new Vector3(balanceBoardCoords.x, balanceBoardCoords.y, 0f));
+        Quaternion rot = Quaternion.Euler(new Vector3(-balanceBoardCoords.y * 2f, -balanceBoardCoords.x * 2, 0f));
 
-       // towerHead.localEulerAngles = new Vector3(balanceBoardCoords.x * 2f, balanceBoardCoords.y * 2, 0f);
-
-        towerHead.localEulerAngles = new Vector3(-balanceBoardCoords.y * 2f, -balanceBoardCoords.x * 2, 0f);
+        //towerHead.localEulerAngles = new Vector3(-balanceBoardCoords.y * 2f, -balanceBoardCoords.x * 2, 0f);
+        towerHead.rotation = Quaternion.Lerp(towerHead.transform.rotation, rot, Time.deltaTime * damping);
     }
 
     public void RotateGun(float balanceX, float balanceY, float magnitude)

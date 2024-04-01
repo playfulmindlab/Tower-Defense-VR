@@ -21,7 +21,7 @@ public class GameControlManager : MonoBehaviour
     [Header("Jumping Controls")]
     [SerializeField] Canvas towerViewCanvas;
     [SerializeField] JumpedTowerControls jumpedTowerControls;
-    [SerializeField] public InputActionProperty rotateJoystick, attackButton;
+    [SerializeField] public InputActionProperty /*rotateJoystick,*/ attackButton;
 
     SimpleInletBalanceBoard bbInlet;
 
@@ -35,7 +35,6 @@ public class GameControlManager : MonoBehaviour
         else
             Destroy(this.gameObject);
 
-
         bbInlet = GetComponent<SimpleInletBalanceBoard>();
     }
 
@@ -44,13 +43,7 @@ public class GameControlManager : MonoBehaviour
         //TODO: try to move this to job system
         if (jumpedTowerControls != null)
         {
-
-            //if (rotateJoystick.action != null)
-            //if (bbInlet.IsReady)
-            //{
-                //jumpedTowerControls.RotateGun(rotateJoystick.action.ReadValue<Quaternion>());
-                jumpedTowerControls.RotateGun(bbInlet.rotationValues);
-            //}
+            jumpedTowerControls.RotateGun(bbInlet.rotationValues);
 
             if (attackButton.action.WasPerformedThisFrame())
             {

@@ -10,21 +10,10 @@ public class ItemHolderScript : MonoBehaviour
 
     [SerializeField] public InputActionProperty rTriggerButton;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void Update()
     {
-        //if (rTriggerButton.action.WasPerformedThisFrame())
-        //    Debug.Log("Out trigger x");
-        
-
         if (rTriggerButton.action.WasPerformedThisFrame() && heldItem != null)
         {
-            Debug.Log("Out trigger y");
             heldItem.GetComponent<ItemScript>().ThrowItem();
             itemHolder.transform.GetChild(0);
             heldItem.transform.parent = null;
@@ -34,11 +23,14 @@ public class ItemHolderScript : MonoBehaviour
 
     public void AttachItemToItemHolder(GameObject newItem)
     {
-        GameObject spawnedObject = Instantiate(newItem, itemHolder.transform.position, Quaternion.identity);
-        spawnedObject.transform.parent = itemHolder.transform;
-        heldItem = spawnedObject;
+        if (TowerDefenseManager.CurrPhase == Phase.Defend)
+        {
+            GameObject spawnedObject = Instantiate(newItem, itemHolder.transform.position, Quaternion.identity);
+            spawnedObject.transform.parent = itemHolder.transform;
+            heldItem = spawnedObject;
 
-        heldItem.transform.localPosition = Vector3.zero;
-        heldItem.transform.localRotation = Quaternion.identity;
+            heldItem.transform.localPosition = Vector3.zero;
+            heldItem.transform.localRotation = Quaternion.identity;
+        }
     }
 }

@@ -5,10 +5,11 @@ using UnityEngine;
 using Unity.Jobs;
 using UnityEngine.Jobs;
 
-public enum Phase{ None = 0, Build = 1, Defend = 2, Repair = 3 }
+public enum Phase{ None = 0, Build = 1, Defend_ChooseJump = 2, Defend = 3, Repair = 4 }
 
 public class TowerDefenseManager : MonoBehaviour
 {
+    public static TowerDefenseManager instance;
     public static List<TowerBehaviour> towersInGame;
     private static Queue<TowerBehaviour> towersToRemoveQueue;
     public static Vector3[] nodePositions;
@@ -21,28 +22,27 @@ public class TowerDefenseManager : MonoBehaviour
     private static Queue<EnemyDamage> damageData;
     private static Queue<AppliedEffect> effectsQueue;
 
-    private PlayerStats playerStats;
-
     public Transform nodeParent;
-    public bool continueLoop = true;
-    public bool spawnEnemies = true;
 
     [SerializeField] GameObject colliderObject;
     [SerializeField] GameObject gameOverScreen;
-    [SerializeField] int enemyRemovedCount;
-    [SerializeField] int currEnemyKillCount;
-    int spawnedEnemiesCount = 0;
 
     static Phase currPhase;
-    public static Phase CurrPhase
-    {
-        get { return currPhase; }
-        set { }
-    }
+    public static Phase CurrPhase { get { return currPhase; } set { } }
+
+    PlayerStats playerStats;
+    int enemyRemovedCount;
+    int currEnemyKillCount;
+    int spawnedEnemiesCount = 0;
+    bool continueLoop = true;
+    bool spawnEnemies = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (instance != null) instance = this;
+        else Destroy(this);
+
         currPhase = Phase.Build;
         towersInGame = new List<TowerBehaviour>();
         towersToRemoveQueue = new Queue<TowerBehaviour>();
@@ -65,6 +65,8 @@ public class TowerDefenseManager : MonoBehaviour
             nodeDistances[i] = Vector3.Distance(nodePositions[i], nodePositions[i + 1]);
         }
 
+        spawnEnemies = false;
+
         ResetGameStatistics();
         UpdateWaveCount(1);
 
@@ -72,6 +74,33 @@ public class TowerDefenseManager : MonoBehaviour
 
         //InvokeRepeating("SpawnTest", 0f, 1f);
         //InvokeRepeating("RemoveTest", 0f, 2f);
+    }
+
+    public void ChangePhase(Phase newPhase)
+    {
+        currPhase = newPhase;
+
+        switch (currPhase)
+        {
+            case Phase.Build:
+                spawnEnemies = false;
+                break;
+
+            case Phase.Defend_ChooseJump:
+                spawnEnemies = true;
+                break;
+
+            case Phase.Defend:
+                spawnEnemies = true;
+                break;
+
+            case Phase.Repair:
+                spawnEnemies = false;
+                break;
+
+            default:
+                break;
+        }
     }
 
     void ResetGameStatistics()
@@ -102,7 +131,6 @@ public class TowerDefenseManager : MonoBehaviour
     {
         currPhase = newPhase;
     }
-
 
     public void UpdateWaveCount(int newWaveNum = -1)
     {
@@ -142,7 +170,7 @@ public class TowerDefenseManager : MonoBehaviour
                 continueLoop = false;
                 break;
             }
-            //Debug.Log("QUEUE COUNT: " + enemyIDsToSpawnQueue.Count);
+
             //Spawn Enemies
             //Debug.Log("Spawn Checking -- SpawnEnemies: " + spawnEnemies + " // EnemyIDsCount: " + enemyIDsToSpawnQueue.Count);
             if (spawnEnemies == true && enemyIDsToSpawnQueue.Count > 0)

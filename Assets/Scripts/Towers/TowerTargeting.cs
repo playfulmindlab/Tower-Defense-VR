@@ -9,6 +9,11 @@ public class TowerTargeting
 
     public static Enemy GetTarget(TowerBehaviour currentTower, TargetType targetMethod)
     {
+        if (EnemySpawner.enemiesInGame.Count < 1)
+            return null;
+
+        Debug.Log("ENEMIES: " + EnemySpawner.enemiesInGame.Count);
+
         Collider[] enemiesInRange = Physics.OverlapSphere(currentTower.transform.position, currentTower.range, currentTower.targetLayer);
         if (enemiesInRange.Length == 0) { return null; }
 
