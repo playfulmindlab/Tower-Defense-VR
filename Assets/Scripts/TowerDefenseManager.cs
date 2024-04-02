@@ -23,6 +23,7 @@ public class TowerDefenseManager : MonoBehaviour
     private static Queue<AppliedEffect> effectsQueue;
 
     public Transform nodeParent;
+    public int wavesTilWin = 3;
 
     [SerializeField] GameObject colliderObject;
     [SerializeField] GameObject gameOverScreen;

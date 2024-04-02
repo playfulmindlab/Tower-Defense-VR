@@ -53,13 +53,15 @@ public class EyeTrackingRecorder : MonoBehaviour
         //if we're running the program in the Eeditor, delete the contents of the EyeTrackingTempData file
         //otherwise, create a new folder based on the time & date
 #if UNITY_EDITOR
-        StreamWriter writer = new StreamWriter(Application.dataPath + "/Resources/EyeTrackingTempData.csv", false);       
-        writer.WriteLine("Timestamp,Participant,Game,Total Time Played,Session Number,Session Time Played,Map Number,Level Number,Wave Number,Event,Object,X Coordinates,Y Coordinates,Jump Status");
+        StreamWriter writer = new StreamWriter(Application.dataPath + "/Resources/EyeTrackingTempData.csv", false);
+        //writer.WriteLine("Timestamp,Participant,Game,Total Time Played,Session Number,Session Time Played,Map Number,Level Number,Wave Number,Event,Object,X Coordinates,Y Coordinates,Jump Status");
+        writer.WriteLine("Timestamp,Seen GameObject,Seen Object Coordinates");
         writer.Close();
 #else
         string folderID = System.DateTime.Now.ToString("MM-dd/hh:mm:ss");
         StreamWriter writer = new StreamWriter(Application.dataPath + "/TDEyeData_" + folderID + ".csv", false);
-        writer.Write("First Line,Use this for Headers");
+        //writer.Write("First Line,Use this for Headers");
+        writer.WriteLine("Timestamp,Seen GameObject,Seen Object Coordinates");
         writer.Close();
 #endif
 
