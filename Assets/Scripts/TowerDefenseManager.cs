@@ -27,6 +27,7 @@ public class TowerDefenseManager : MonoBehaviour
 
     [SerializeField] GameObject colliderObject;
     [SerializeField] GameObject gameOverScreen;
+    [SerializeField] GameObject victoryScreen;
 
     static Phase currPhase;
     public static Phase CurrPhase { get { return currPhase; } set { } }
@@ -107,6 +108,7 @@ public class TowerDefenseManager : MonoBehaviour
     void ResetGameStatistics()
     {
         gameOverScreen.SetActive(false);
+        victoryScreen.SetActive(false);
         isGameOver = false;
         waveCount = 1;
         continueLoop = true;
@@ -140,18 +142,26 @@ public class TowerDefenseManager : MonoBehaviour
         else
             waveCount = newWaveNum;
 
-        enemyRemovedCount = (waveCount * 5);
-        currEnemyKillCount = 0;
-        spawnedEnemiesCount = 0;
+        if (waveCount <= wavesTilWin)
+        {
+            enemyRemovedCount = (waveCount * 5);
+            currEnemyKillCount = 0;
+            spawnedEnemiesCount = 0;
 
-        playerStats.DisplayWaveCount(waveCount);
-        playerStats.DisplayEnemyCount(enemyRemovedCount);
+            playerStats.DisplayWaveCount(waveCount);
+            playerStats.DisplayEnemyCount(enemyRemovedCount);
 
-        spawnEnemies = true;
-        //Debug.Log("Fake Round Setup: WaveCount: " + waveCount + " // EnemyRemovedCount: " + enemyRemovedCount + 
-        //    "// SpawnedEnemiesCount: " + spawnedEnemiesCount + //"// EnemiesInGameCount: " + enemyRemovedCount + 
-        //    " // SpawnEnemies: " + spawnEnemies);
-        InvokeRepeating("SpawnTest", 0f, 1f);
+            spawnEnemies = true;
+            //Debug.Log("Fake Round Setup: WaveCount: " + waveCount + " // EnemyRemovedCount: " + enemyRemovedCount + 
+            //    "// SpawnedEnemiesCount: " + spawnedEnemiesCount + //"// EnemiesInGameCount: " + enemyRemovedCount + 
+            //    " // SpawnEnemies: " + spawnEnemies);
+            InvokeRepeating("SpawnTest", 0f, 1f);
+        }
+        else
+        {
+            StartCoroutine(VictorySequence());
+            continueLoop = false;
+        }
     }
 
     public void UpdateEnemyCount()
@@ -325,6 +335,14 @@ public class TowerDefenseManager : MonoBehaviour
             yield return null;
         }
     }
+
+    IEnumerator VictorySequence()
+    {
+        victoryScreen.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuVR", UnityEngine.SceneManagement.LoadSceneMode.Single);
+    }
+
     IEnumerator GameOverSequence()
     {
         gameOverScreen.SetActive(true);
