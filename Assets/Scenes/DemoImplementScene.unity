@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -265,13 +265,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3b6e3b5977f2c46b70addf24d23661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 50
+  rayDistance: 80
   rayWidth: 0.01
   layersToInclude:
     serializedVersion: 2
     m_Bits: 4294967295
-  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  rayColorHoverState: {r: 0, g: 1, b: 0, a: 1}
+  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 0}
+  rayColorHoverState: {r: 0, g: 1, b: 0, a: 0}
 --- !u!120 &17129095
 LineRenderer:
   serializedVersion: 2
@@ -404,7 +404,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17129091}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1660,13 +1660,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3b6e3b5977f2c46b70addf24d23661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 50
+  rayDistance: 80
   rayWidth: 0.01
   layersToInclude:
     serializedVersion: 2
     m_Bits: 4294967295
-  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  rayColorHoverState: {r: 0, g: 1, b: 0, a: 1}
+  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 0}
+  rayColorHoverState: {r: 0, g: 1, b: 0, a: 0}
 --- !u!120 &228600830
 LineRenderer:
   serializedVersion: 2
@@ -1799,7 +1799,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228600826}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3878,7 +3878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1468085002957717203, guid: fcfb50e207326fd4db768bbfbe4f374f, type: 3}
       propertyPath: pointerLength
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1468085002957717203, guid: fcfb50e207326fd4db768bbfbe4f374f, type: 3}
       propertyPath: towerLayer.m_Bits
@@ -6866,6 +6866,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645580241}
   m_CullTransparentMesh: 1
+--- !u!1 &650354380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 650354382}
+  - component: {fileID: 650354381}
+  m_Layer: 0
+  m_Name: MusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &650354381
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650354380}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e5de4f4d0da74574aa9e65cd8dd46b48, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.251
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 1
+  SpatializePostEffects: 0
+  Priority: 206
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &650354382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650354380}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &662518333
 GameObject:
   m_ObjectHideFlags: 0
@@ -9531,6 +9659,7 @@ MonoBehaviour:
   wavesTilWin: 3
   colliderObject: {fileID: 0}
   gameOverScreen: {fileID: 1053519138}
+  spawnEnemies: 0
 --- !u!4 &936530110
 Transform:
   m_ObjectHideFlags: 0
@@ -18177,7 +18306,7 @@ Transform:
   m_GameObject: {fileID: 1761417730}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.47, y: -0.25, z: -1.98}
+  m_LocalPosition: {x: 3.5, y: -0.25, z: -2}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21761,3 +21890,4 @@ SceneRoots:
   - {fileID: 7428511184813454366}
   - {fileID: 570379787}
   - {fileID: 1200190471}
+  - {fileID: 650354382}

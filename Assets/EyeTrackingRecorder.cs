@@ -63,6 +63,7 @@ public class EyeTrackingRecorder : MonoBehaviour
         //writer.Write("First Line,Use this for Headers");
         writer.WriteLine("Timestamp,Seen GameObject,Seen Object Coordinates");
         writer.Close();
+
 #endif
 
         if (sendToCustomFile ) { filePath = customFilePath; }

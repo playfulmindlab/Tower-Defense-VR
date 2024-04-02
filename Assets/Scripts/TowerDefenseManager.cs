@@ -36,13 +36,13 @@ public class TowerDefenseManager : MonoBehaviour
     int currEnemyKillCount;
     int spawnedEnemiesCount = 0;
     bool continueLoop = true;
-    bool spawnEnemies = true;
+    [SerializeField] bool spawnEnemies = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (instance != null) instance = this;
-        else Destroy(this);
+        if (instance == null) instance = this;
+        else { Debug.Log("SpareFound"); Destroy(this); }
 
         currPhase = Phase.Build;
         towersInGame = new List<TowerBehaviour>();
