@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Slider healthBar;
     [SerializeField] TextMeshProUGUI speedText;
 
-    [SerializeField] float origSpeed;
+    float origSpeed;
     float attackDelay = 1f;
 
     public void Init()
@@ -194,6 +194,7 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
+
         activeEffects.RemoveAll(x => x.expireTime <= 0f);
     }
 }
