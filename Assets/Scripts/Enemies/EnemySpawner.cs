@@ -41,6 +41,17 @@ public class EnemySpawner : MonoBehaviour
             enemiesInGame.Clear();
             enemiesInGameTransform.Clear();
             enemyTransformPairs.Clear();
+            enemyPrefabs.Clear();
+            enemyObjectPools.Clear();
+
+            EnemySummonData[] enemyData = Resources.LoadAll<EnemySummonData>("EnemyData");
+
+            foreach (EnemySummonData enemy in enemyData)
+            {
+                enemyPrefabs.Add(enemy.enemyID, enemy.enemyPrefab);
+                enemyObjectPools.Add(enemy.enemyID, new Queue<Enemy>());
+            }
+
         }
     }
 

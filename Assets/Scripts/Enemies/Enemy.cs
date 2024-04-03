@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Slider healthBar;
     [SerializeField] TextMeshProUGUI speedText;
 
+    Animator anim;
     float origSpeed;
     float attackDelay = 1f;
 
@@ -87,6 +88,8 @@ public class Enemy : MonoBehaviour
             healthBar.value = health;
         }
 
+        anim = transform.GetComponentInChildren<Animator>();
+
         if (transform.GetComponentsInChildren<EnemyForwardSensor>().Length > 0)
         {
             obstacleSensor = transform.GetComponentsInChildren<EnemyForwardSensor>()[0];
@@ -105,15 +108,36 @@ public class Enemy : MonoBehaviour
     public virtual void Attack(TowerBehaviour attackedObject)
     {
         if (attackedObject != null)
+        {
+            if (anim != null)
+            {
+                anim.SetInteger("AttackIndex", Random.Range(0, 3));
+                anim.SetTrigger("Attack");
+            }
             attackedObject.Damage(attack);
+        }
     }
 
     public void ChangeTowerTarget(TowerBehaviour newTower)
     {
         attackingTower = newTower;
 
-        if (attackingTower != null) Speed = 0f;
-        else Speed = origSpeed;
+        if (attackingTower != null)
+        {
+            if (anim != null)
+            {
+                anim.SetBool("Stopped", true);
+            }
+            Speed = 0f;
+        }
+        else
+        {
+            if (anim != null)
+            {
+                anim.SetBool("Stopped", false);
+            }
+            Speed = origSpeed;
+        }
     }
 
     public void Tick()

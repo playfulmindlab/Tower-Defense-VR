@@ -62,7 +62,7 @@ public class EyeTrackingRay : MonoBehaviour
             GameObject eyeSee = hit.collider.gameObject;
             if (eyeSee != null)
             {
-                Debug.Log("See : " + eyeSee.name);
+                //Debug.Log("See : " + eyeSee.name);
                 if (ovrEyeGaze.Eye == OVREyeGaze.EyeId.Left)
                     EyeTrackingRecorder.instance.seenObjectL = eyeSee;
                 else

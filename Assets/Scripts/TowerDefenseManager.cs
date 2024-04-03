@@ -12,8 +12,8 @@ public class TowerDefenseManager : MonoBehaviour
     public static TowerDefenseManager instance;
     public static List<TowerBehaviour> towersInGame;
     private static Queue<TowerBehaviour> towersToRemoveQueue;
-    public static Vector3[] nodePositions;
-    public static float[] nodeDistances;
+    public static Vector3[] nodePositions = null;
+    public static float[] nodeDistances = null;
     public static int waveCount = 1;
     [SerializeField] public static bool isGameOver = false;
 
@@ -53,24 +53,32 @@ public class TowerDefenseManager : MonoBehaviour
         damageData = new Queue<EnemyDamage>();
         effectsQueue = new Queue<AppliedEffect>();
         playerStats = FindObjectOfType<PlayerStats>();
-        EnemySpawner.Init();
 
-        nodePositions = new Vector3[nodeParent.childCount];
-        for (int i = 0; i < nodePositions.Length; i++)
+        if (nodePositions == null)
         {
-            nodePositions[i] = nodeParent.GetChild(i).position;
+            nodePositions = new Vector3[nodeParent.childCount];
+            for (int i = 0; i < nodePositions.Length; i++)
+            {
+                nodePositions[i] = nodeParent.GetChild(i).position;
+            }
         }
 
-        nodeDistances = new float[nodePositions.Length - 1];
-        for (int i = 0; i < nodeDistances.Length; i++)
+        if (nodeDistances == null)
         {
-            nodeDistances[i] = Vector3.Distance(nodePositions[i], nodePositions[i + 1]);
+            nodeDistances = new float[nodePositions.Length - 1];
+            for (int i = 0; i < nodeDistances.Length; i++)
+            {
+                nodeDistances[i] = Vector3.Distance(nodePositions[i], nodePositions[i + 1]);
+            }
         }
+
+        Debug.Log(nodePositions.Length + " // " + nodeDistances.Length);
 
         spawnEnemies = false;
 
         ResetGameStatistics();
-        UpdateWaveCount(1);
+        EnemySpawner.Init();
+        //UpdateWaveCount(1);
 
         StartCoroutine(GameplayLoop());
 
@@ -94,6 +102,7 @@ public class TowerDefenseManager : MonoBehaviour
 
             case Phase.Defend:
                 spawnEnemies = true;
+                UpdateWaveCount(1);
                 break;
 
             case Phase.Repair:
@@ -112,7 +121,12 @@ public class TowerDefenseManager : MonoBehaviour
         isGameOver = false;
         waveCount = 1;
         continueLoop = true;
+
         towersInGame.Clear();
+        enemyIDsToSpawnQueue.Clear();
+        towersToRemoveQueue.Clear();
+        damageData.Clear();
+        effectsQueue.Clear();
     }
 
     void SpawnTest() { EnqueueEnemyIDToSummon(1); }
@@ -127,7 +141,8 @@ public class TowerDefenseManager : MonoBehaviour
 
     public void ChangeCurrentPhaseButton(int phaseInt)
     {
-        currPhase = (Phase)phaseInt;
+        //currPhase = (Phase)phaseInt;
+        ChangePhase((Phase)phaseInt);
     }
 
     public static void ChangeCurrentPhase(Phase newPhase)
@@ -151,7 +166,7 @@ public class TowerDefenseManager : MonoBehaviour
             playerStats.DisplayWaveCount(waveCount);
             playerStats.DisplayEnemyCount(enemyRemovedCount);
 
-            spawnEnemies = true;
+            //spawnEnemies = true;
             //Debug.Log("Fake Round Setup: WaveCount: " + waveCount + " // EnemyRemovedCount: " + enemyRemovedCount + 
             //    "// SpawnedEnemiesCount: " + spawnedEnemiesCount + //"// EnemiesInGameCount: " + enemyRemovedCount + 
             //    " // SpawnEnemies: " + spawnEnemies);

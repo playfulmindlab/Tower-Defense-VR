@@ -121,18 +121,20 @@ public class TowerPlacementVR : MonoBehaviour
         TowerBehaviour currentTowerBehaviour = tower.GetComponent<TowerBehaviour>();
         TowerDefenseManager.towersInGame.Add(currentTowerBehaviour);
 
-        RotateTowerTowardsPath(currentPlacingTower);
+        if (currentPlacingTower != null)
+            RotateTowerTowardsPath(currentPlacingTower);
 
         playerStats.SubtractMoney(currentTowerBehaviour.towerCost);
 
         towerCollider.isTrigger = false;
         towerCollider.gameObject.layer = 6;
+
         foreach (Transform child in towerCollider.transform)
         {
             child.gameObject.layer = 6;
         }
-        towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; ;
 
+        towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; ;
     }
 
     void RotateTowerTowardsPath(GameObject newTower)
