@@ -175,7 +175,7 @@ public class TowerDefenseManager : MonoBehaviour
             playerStats.DisplayWaveCount(waveCount);
             playerStats.DisplayEnemyCount(enemyRemovedCount);
 
-            //spawnEnemies = true;
+            spawnEnemies = true;
             //Debug.Log("Fake Round Setup: WaveCount: " + waveCount + " // EnemyRemovedCount: " + enemyRemovedCount + 
             //    "// SpawnedEnemiesCount: " + spawnedEnemiesCount + //"// EnemiesInGameCount: " + enemyRemovedCount + 
             //    " // SpawnEnemies: " + spawnEnemies);
