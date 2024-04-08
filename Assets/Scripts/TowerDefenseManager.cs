@@ -41,6 +41,7 @@ public class TowerDefenseManager : MonoBehaviour
     [SerializeField] bool spawnEnemies = true;
 
     bool gamePaused = false;
+    public bool IsGamePaused { get { return gamePaused; } set { } }
     Phase prePausePhase = Phase.None;
 
     // Start is called before the first frame update
@@ -107,7 +108,8 @@ public class TowerDefenseManager : MonoBehaviour
             case Phase.Defend:
                 spawnEnemies = true;
                 phaseText.text = "PHASE: Defend";
-                UpdateWaveCount(1);
+                if (currPhase != Phase.Pause)
+                    UpdateWaveCount(1);
                 break;
 
             case Phase.Repair:
@@ -161,30 +163,33 @@ public class TowerDefenseManager : MonoBehaviour
 
     public void UpdateWaveCount(int newWaveNum = -1)
     {
-        if (newWaveNum < 0)
-            waveCount++;
-        else
-            waveCount = newWaveNum;
-
-        if (waveCount <= wavesTilWin)
+        if (gamePaused == false)
         {
-            enemyRemovedCount = (waveCount * 5);
-            currEnemyKillCount = 0;
-            spawnedEnemiesCount = 0;
+            if (newWaveNum < 0)
+                waveCount++;
+            else
+                waveCount = newWaveNum;
 
-            playerStats.DisplayWaveCount(waveCount);
-            playerStats.DisplayEnemyCount(enemyRemovedCount);
+            if (waveCount <= wavesTilWin)
+            {
+                enemyRemovedCount = (waveCount * 5);
+                currEnemyKillCount = 0;
+                spawnedEnemiesCount = 0;
 
-            spawnEnemies = true;
-            //Debug.Log("Fake Round Setup: WaveCount: " + waveCount + " // EnemyRemovedCount: " + enemyRemovedCount + 
-            //    "// SpawnedEnemiesCount: " + spawnedEnemiesCount + //"// EnemiesInGameCount: " + enemyRemovedCount + 
-            //    " // SpawnEnemies: " + spawnEnemies);
-            InvokeRepeating("SpawnTest", 0f, 1f);
-        }
-        else
-        {
-            StartCoroutine(VictorySequence());
-            continueLoop = false;
+                playerStats.DisplayWaveCount(waveCount);
+                playerStats.DisplayEnemyCount(enemyRemovedCount);
+
+                spawnEnemies = true;
+                //Debug.Log("Fake Round Setup: WaveCount: " + waveCount + " // EnemyRemovedCount: " + enemyRemovedCount + 
+                //    "// SpawnedEnemiesCount: " + spawnedEnemiesCount + //"// EnemiesInGameCount: " + enemyRemovedCount + 
+                //    " // SpawnEnemies: " + spawnEnemies);
+                InvokeRepeating("SpawnTest", 0f, 1f);
+            }
+            else
+            {
+                StartCoroutine(VictorySequence());
+                continueLoop = false;
+            }
         }
     }
 
@@ -196,7 +201,7 @@ public class TowerDefenseManager : MonoBehaviour
 
     IEnumerator GameplayLoop()
     {
-        while(continueLoop == true)
+        while (continueLoop == true)
         {
             //if base health = 0, start Game Over sequence
             if (isGameOver)
@@ -228,79 +233,91 @@ public class TowerDefenseManager : MonoBehaviour
             //Spawn Towers
 
             //Move Enemies
-            NativeArray<Vector3> nodesToUse = new NativeArray<Vector3>(nodePositions, Allocator.TempJob);
-            NativeArray<float> enemySpeeds = new NativeArray<float>(EnemySpawner.enemiesInGame.Count, Allocator.TempJob);
-            NativeArray<int> nodeIndices = new NativeArray<int>(EnemySpawner.enemiesInGame.Count, Allocator.TempJob);
-            TransformAccessArray enemyAccess = new TransformAccessArray(EnemySpawner.enemiesInGameTransform.ToArray(), 2);
-
-            for (int i = 0; i < EnemySpawner.enemiesInGame.Count; i++)
+            if (!gamePaused)
             {
-                enemySpeeds[i] = EnemySpawner.enemiesInGame[i].speed;
-                nodeIndices[i] = EnemySpawner.enemiesInGame[i].nodeIndex;
+                NativeArray<Vector3> nodesToUse = new NativeArray<Vector3>(nodePositions, Allocator.TempJob);
+                NativeArray<float> enemySpeeds = new NativeArray<float>(EnemySpawner.enemiesInGame.Count, Allocator.TempJob);
+                NativeArray<int> nodeIndices = new NativeArray<int>(EnemySpawner.enemiesInGame.Count, Allocator.TempJob);
+                TransformAccessArray enemyAccess = new TransformAccessArray(EnemySpawner.enemiesInGameTransform.ToArray(), 2);
+
+                for (int i = 0; i < EnemySpawner.enemiesInGame.Count; i++)
+                {
+                    enemySpeeds[i] = EnemySpawner.enemiesInGame[i].speed;
+                    nodeIndices[i] = EnemySpawner.enemiesInGame[i].nodeIndex;
+                }
+
+                MoveEnemiesJob moveJob = new MoveEnemiesJob
+                {
+                    nodePositions = nodesToUse,
+                    enemySpeed = enemySpeeds,
+                    nodeIndex = nodeIndices,
+                    deltaTime = Time.deltaTime //can't access Time.deltaTime while multithreading, so grab it here!
+                };
+
+                JobHandle moveJobHandle = moveJob.Schedule(enemyAccess);
+                moveJobHandle.Complete();
+
+                for (int i = 0; i < EnemySpawner.enemiesInGame.Count; i++)
+                {
+                    EnemySpawner.enemiesInGame[i].nodeIndex = nodeIndices[i];
+
+                    if (EnemySpawner.enemiesInGame[i].nodeIndex == nodePositions.Length)
+                    {
+                        EnqueueEnemyToRemove(EnemySpawner.enemiesInGame[i]);
+                    }
+                }
+
+                enemySpeeds.Dispose();
+                nodeIndices.Dispose();
+                enemyAccess.Dispose();
+                nodesToUse.Dispose();
             }
 
-            MoveEnemiesJob moveJob = new MoveEnemiesJob
+            //Tick Towers
+            if (!gamePaused)
             {
-                nodePositions = nodesToUse,
-                enemySpeed = enemySpeeds,
-                nodeIndex = nodeIndices,
-                deltaTime = Time.deltaTime //can't access Time.deltaTime while multithreading, so grab it here!
-            };
-
-            JobHandle moveJobHandle = moveJob.Schedule(enemyAccess);
-            moveJobHandle.Complete();
-
-            for (int i = 0; i < EnemySpawner.enemiesInGame.Count; i++)
-            {
-                EnemySpawner.enemiesInGame[i].nodeIndex = nodeIndices[i];
-
-                if (EnemySpawner.enemiesInGame[i].nodeIndex == nodePositions.Length)
+                foreach (TowerBehaviour tower in towersInGame)
                 {
-                    EnqueueEnemyToRemove(EnemySpawner.enemiesInGame[i]);
+                    /*if (tower.GetType().IsSubclassOf(typeof(FlamethrowerTower)))
+                    {
+                        FlamethrowerTower flameTower = (FlamethrowerTower)tower;
+                        flameTower.target2 = TowerTargeting.GetTarget(flameTower, TowerTargeting.TargetType.Last);
+                    }*/
+                    tower.target = TowerTargeting.GetTarget(tower, TowerTargeting.TargetType.First);
+                    tower.Tick();
                 }
             }
 
-            enemySpeeds.Dispose();
-            nodeIndices.Dispose();
-            enemyAccess.Dispose();
-            nodesToUse.Dispose();
-
-            //Tick Towers
-            foreach(TowerBehaviour tower in towersInGame)
-            {
-                /*if (tower.GetType().IsSubclassOf(typeof(FlamethrowerTower)))
-                {
-                    FlamethrowerTower flameTower = (FlamethrowerTower)tower;
-                    flameTower.target2 = TowerTargeting.GetTarget(flameTower, TowerTargeting.TargetType.Last);
-                }*/
-                tower.target = TowerTargeting.GetTarget(tower, TowerTargeting.TargetType.First);
-                tower.Tick();
-            }
-
             //Apply Effects
-            if (effectsQueue.Count > 0)
+            if (!gamePaused)
             {
-                for (int i = 0; i < effectsQueue.Count; i++)
+                if (effectsQueue.Count > 0)
                 {
-                    AppliedEffect currentDamage = effectsQueue.Dequeue();
+                    for (int i = 0; i < effectsQueue.Count; i++)
+                    {
+                        AppliedEffect currentDamage = effectsQueue.Dequeue();
 
-                    //if the enemy doesn't have the effect, then it is added to the enemy; if not, reset its expireTime
-                    Effect existingEffectOnEnemy = currentDamage.enemyToAffect.activeEffects.Find(x => x.effectName == currentDamage.effectToApply.effectName);
-                    if (existingEffectOnEnemy == null)
-                    {
-                        currentDamage.enemyToAffect.activeEffects.Add(currentDamage.effectToApply);
-                    }
-                    else
-                    {
-                        existingEffectOnEnemy.expireTime = currentDamage.effectToApply.expireTime;
+                        //if the enemy doesn't have the effect, then it is added to the enemy; if not, reset its expireTime
+                        Effect existingEffectOnEnemy = currentDamage.enemyToAffect.activeEffects.Find(x => x.effectName == currentDamage.effectToApply.effectName);
+                        if (existingEffectOnEnemy == null)
+                        {
+                            currentDamage.enemyToAffect.activeEffects.Add(currentDamage.effectToApply);
+                        }
+                        else
+                        {
+                            existingEffectOnEnemy.expireTime = currentDamage.effectToApply.expireTime;
+                        }
                     }
                 }
             }
 
             //Tick Enemies
-            foreach (Enemy currentEnemy in EnemySpawner.enemiesInGame)
+            if (!gamePaused)
             {
-                currentEnemy.Tick();
+                foreach (Enemy currentEnemy in EnemySpawner.enemiesInGame)
+                {
+                    currentEnemy.Tick();
+                }
             }
 
             //Damage Enemies

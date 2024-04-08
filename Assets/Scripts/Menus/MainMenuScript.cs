@@ -11,17 +11,12 @@ public class MainMenuScript : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene("Tower Defense Implementation", LoadSceneMode.Single);
-    }
-
-    public void NewGame(string newGameSceneName)
-    {
-        SceneManager.LoadScene(newGameSceneName, LoadSceneMode.Single);
+        GameManager.instance.ChangeScene("DemoImplementScene");
     }
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("LoadGameScreen", LoadSceneMode.Single);
+        GameManager.instance.ChangeScene("LoadGameScreen");
     }
 
     public void ToggleOptionsMenu(bool toggle)
