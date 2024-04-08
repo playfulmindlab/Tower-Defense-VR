@@ -5,7 +5,7 @@ using UnityEngine;
 using Unity.Jobs;
 using UnityEngine.Jobs;
 
-public enum Phase{ None = 0, Build = 1, Defend_ChooseJump = 2, Defend = 3, Repair = 4 }
+public enum Phase{ None = 0, Build = 1, Defend_ChooseJump = 2, Defend = 3, Repair = 4, Pause = 100 }
 
 public class TowerDefenseManager : MonoBehaviour
 {
@@ -28,7 +28,8 @@ public class TowerDefenseManager : MonoBehaviour
     [SerializeField] GameObject colliderObject;
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject victoryScreen;
-
+    [SerializeField] TMPro.TextMeshProUGUI phaseText;
+ 
     static Phase currPhase;
     public static Phase CurrPhase { get { return currPhase; } set { } }
 
@@ -36,8 +37,11 @@ public class TowerDefenseManager : MonoBehaviour
     int enemyRemovedCount;
     int currEnemyKillCount;
     int spawnedEnemiesCount = 0;
-    bool continueLoop = true;
+    [SerializeField] bool continueLoop = true;
     [SerializeField] bool spawnEnemies = true;
+
+    bool gamePaused = false;
+    Phase prePausePhase = Phase.None;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +49,7 @@ public class TowerDefenseManager : MonoBehaviour
         if (instance == null) instance = this;
         else { Debug.Log("SpareFound"); Destroy(this); }
 
-        currPhase = Phase.Build;
+        ChangePhase(Phase.Build);
         towersInGame = new List<TowerBehaviour>();
         towersToRemoveQueue = new Queue<TowerBehaviour>();
         enemyIDsToSpawnQueue = new Queue<int>();
@@ -88,30 +92,40 @@ public class TowerDefenseManager : MonoBehaviour
 
     public void ChangePhase(Phase newPhase)
     {
-        currPhase = newPhase;
-
-        switch (currPhase)
+        switch (newPhase)
         {
             case Phase.Build:
                 spawnEnemies = false;
+                phaseText.text = "PHASE: Build";
                 break;
 
             case Phase.Defend_ChooseJump:
                 spawnEnemies = true;
+                phaseText.text = "PHASE: Defend (Choose Jump Target)";
                 break;
 
             case Phase.Defend:
                 spawnEnemies = true;
+                phaseText.text = "PHASE: Defend";
                 UpdateWaveCount(1);
                 break;
 
             case Phase.Repair:
                 spawnEnemies = false;
+                phaseText.text = "PHASE: Repair";
+                break;
+
+            case Phase.Pause:
+                spawnEnemies = false;
+                prePausePhase = currPhase;
+                phaseText.text = "PAUSED";
                 break;
 
             default:
                 break;
         }
+
+        currPhase = newPhase;
     }
 
     void ResetGameStatistics()
@@ -143,11 +157,6 @@ public class TowerDefenseManager : MonoBehaviour
     {
         //currPhase = (Phase)phaseInt;
         ChangePhase((Phase)phaseInt);
-    }
-
-    public static void ChangeCurrentPhase(Phase newPhase)
-    {
-        currPhase = newPhase;
     }
 
     public void UpdateWaveCount(int newWaveNum = -1)
@@ -401,6 +410,20 @@ public class TowerDefenseManager : MonoBehaviour
         towersInGame.Remove(towerToRemove);
 
         Destroy(towerToRemove.gameObject);
+    }
+
+    public void TogglePause()
+    {
+        gamePaused = !gamePaused;
+
+        if (gamePaused == true)
+        {
+            ChangePhase(Phase.Pause);
+        }
+        else
+        {
+            ChangePhase(prePausePhase);
+        }
     }
 }
 

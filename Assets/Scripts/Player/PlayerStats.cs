@@ -5,7 +5,6 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    //public int waveNum = 1;
     [SerializeField] private int startingMoney;
     [SerializeField] private int currentMoney;
 

@@ -37,12 +37,12 @@ public class JumpedTowerControls : MonoBehaviour
         towerHead.rotation = rot;// * Quaternion.Euler(0, 270, 0);
     }
 
-    public void RotateGun(Vector2 balanceBoardCoords)
+    public void RotateGun(Vector2 balanceBoardCoords, float dampVal = 5f)
     {
         Quaternion rot = Quaternion.Euler(new Vector3(-balanceBoardCoords.y * 2f, -balanceBoardCoords.x * 2, 0f));
 
         //towerHead.localEulerAngles = new Vector3(-balanceBoardCoords.y * 2f, -balanceBoardCoords.x * 2, 0f);
-        towerHead.rotation = Quaternion.Lerp(towerHead.transform.rotation, rot, Time.deltaTime * damping);
+        towerHead.rotation = Quaternion.Slerp(towerHead.transform.rotation, rot, Time.deltaTime * dampVal);
     }
 
     public void RotateGun(float balanceX, float balanceY, float magnitude)

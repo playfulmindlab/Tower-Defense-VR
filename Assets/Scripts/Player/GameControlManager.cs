@@ -21,6 +21,7 @@ public class GameControlManager : MonoBehaviour
     [Header("Jumping Controls")]
     [SerializeField] Canvas towerViewCanvas;
     [SerializeField] JumpedTowerControls jumpedTowerControls;
+    [SerializeField] float cameraDamping = 5f;
     [SerializeField] public InputActionProperty /*rotateJoystick,*/ attackButton;
 
     SimpleInletBalanceBoard bbInlet;
@@ -43,7 +44,7 @@ public class GameControlManager : MonoBehaviour
         //TODO: try to move this to job system
         if (jumpedTowerControls != null)
         {
-            jumpedTowerControls.RotateGun(bbInlet.rotationValues);
+            jumpedTowerControls.RotateGun(bbInlet.rotationValues, cameraDamping);
 
             if (attackButton.action.WasPerformedThisFrame())
             {

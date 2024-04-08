@@ -297,6 +297,7 @@ MonoBehaviour:
   shieldBar: {fileID: 6081177905782535348}
   outline: {fileID: 0}
   upgradedTower: {fileID: 0}
+  aliveOnSceneStart: 0
 --- !u!114 &4050970522703880095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,7 +900,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4169492158260628100}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &1243745411488398470
 MonoBehaviour:
   m_ObjectHideFlags: 0
