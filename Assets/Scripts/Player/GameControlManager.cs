@@ -24,6 +24,8 @@ public class GameControlManager : MonoBehaviour
     [SerializeField] float cameraDamping = 5f;
     [SerializeField] public InputActionProperty /*rotateJoystick,*/ attackButton;
 
+    [SerializeField] string jumpSFXName = "JumpTower", unjumpSFXName = "UnjumpTower";
+
     SimpleInletBalanceBoard bbInlet;
 
     bool firing = false;
@@ -64,6 +66,7 @@ public class GameControlManager : MonoBehaviour
                 jumpedTowerControls.ToggleAutoShoot();
                 jumpedTowerControls.SetCamera(false);
                 jumpedTowerControls = null;
+                AudioManager.instance.PlaySFX("UnjumpTower", towerViewCanvas.transform.position);
                 break;
 
             case ControlsSetting.Jumped:
@@ -72,6 +75,7 @@ public class GameControlManager : MonoBehaviour
                 jumpedTowerControls.ToggleAutoShoot();
                 jumpedTowerControls.SetCamera(true);
                 firing = false;
+                AudioManager.instance.PlaySFX("JumpTower", towerViewCanvas.transform.position);
                 break;
         }
     }

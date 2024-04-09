@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour
 
     Dictionary<ElementType, float> damResistancesDict = new Dictionary<ElementType, float>();
 
+    [SerializeField] AudioClip deathSound;
     [SerializeField] Slider healthBar;
     [SerializeField] TextMeshProUGUI speedText;
 
@@ -114,6 +115,7 @@ public class Enemy : MonoBehaviour
                 anim.SetInteger("AttackIndex", Random.Range(0, 3));
                 anim.SetTrigger("Attack");
             }
+            AudioManager.instance.PlaySFX("EnemyAttack", transform.position);
             attackedObject.Damage(attack);
         }
     }
