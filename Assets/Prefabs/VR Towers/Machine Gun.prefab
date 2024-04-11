@@ -353,6 +353,7 @@ MonoBehaviour:
   missileSystem: {fileID: 2031073741363571204}
   towerHead: {fileID: 2124233296637705184}
   projectileSpeed: 30
+  firingSFXName: Gun1
 --- !u!54 &8923842401569580651
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -614,13 +615,13 @@ GameObject:
   - component: {fileID: 6174598506056227510}
   - component: {fileID: 1436409307632287101}
   - component: {fileID: 8374488477830146813}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: ReticleCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6000795821749396507
 RectTransform:
   m_ObjectHideFlags: 0
@@ -628,17 +629,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2399633575837858442}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3}
-  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1119023137141129106}
-  m_Father: {fileID: 3637913227264682718}
+  m_Father: {fileID: 291148959915241782}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.5}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6174598506056227510
@@ -839,7 +840,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.5, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6000795821749396507}
   m_Father: {fileID: 3637913227264682718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7884695244070077775
@@ -1345,7 +1347,7 @@ GameObject:
   - component: {fileID: 1119023137141129106}
   - component: {fileID: 7164728244246135558}
   - component: {fileID: 416485305057872360}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Reticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1369,7 +1371,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 5, y: 5}
+  m_SizeDelta: {x: 5, y: 7.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7164728244246135558
 CanvasRenderer:
@@ -1894,9 +1896,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 400006, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 291148959915241782}
-    - targetCorrespondingSourceObject: {fileID: 400006, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6000795821749396507}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100010, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       insertIndex: -1

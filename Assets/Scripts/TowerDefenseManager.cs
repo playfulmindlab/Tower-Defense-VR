@@ -93,6 +93,11 @@ public class TowerDefenseManager : MonoBehaviour
 
     public void ChangePhase(Phase newPhase)
     {
+        if (currPhase == Phase.Pause && prePausePhase != newPhase)
+        {
+            return;
+        }
+
         switch (newPhase)
         {
             case Phase.Build:
