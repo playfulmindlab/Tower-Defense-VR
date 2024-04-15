@@ -115,7 +115,7 @@ public class Enemy : MonoBehaviour
                 anim.SetInteger("AttackIndex", Random.Range(0, 3));
                 anim.SetTrigger("Attack");
             }
-            AudioManager.instance.PlaySFX("EnemyAttack", transform.position);
+            AudioManager.instance.PlaySFXRandom("EnemyAttack", transform.position, 3);
             attackedObject.Damage(attack);
         }
     }

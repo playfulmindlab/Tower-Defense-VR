@@ -188,6 +188,8 @@ public class TowerDefenseManager : MonoBehaviour
                 //Debug.Log("Fake Round Setup: WaveCount: " + waveCount + " // EnemyRemovedCount: " + enemyRemovedCount + 
                 //    "// SpawnedEnemiesCount: " + spawnedEnemiesCount + //"// EnemiesInGameCount: " + enemyRemovedCount + 
                 //    " // SpawnEnemies: " + spawnEnemies);
+
+                AudioManager.instance.PlaySFX("NewWaveSound", new Vector3(20, 10, 0));
                 InvokeRepeating("SpawnTest", 0f, 1f);
             }
             else
@@ -354,7 +356,7 @@ public class TowerDefenseManager : MonoBehaviour
                 Debug.Log("REMOVE QUEUE COUNT: " + enemiesToRemoveQueue.Count + " @ " + Time.time);
                 for (int i = 0; i < enemiesToRemoveQueue.Count; i++)
                 {
-                    AudioManager.instance.PlaySFX("EnemyDie", enemiesToRemoveQueue.Peek().gameObject.transform.position, 0.5f);
+                    AudioManager.instance.PlaySFXRandom("EnemyDie", enemiesToRemoveQueue.Peek().gameObject.transform.position, 4, 1f);
                     //remove this line for a damage-focused economy system
                     playerStats.AddMoney(enemiesToRemoveQueue.Peek().reward);
                     EnemySpawner.RemoveEnemy(enemiesToRemoveQueue.Dequeue());
@@ -393,6 +395,7 @@ public class TowerDefenseManager : MonoBehaviour
     IEnumerator GameOverSequence()
     {
         gameOverScreen.SetActive(true);
+        AudioManager.instance.PlaySFX("GameOver", Camera.main.transform.position);
         yield return new WaitForSeconds(4f);
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuVR", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
@@ -537,10 +540,13 @@ public struct AppliedEffect
     public Enemy enemyToAffect;
     public Effect effectToApply;
 
-    public AppliedEffect(Enemy newEnemy, Effect newEffect)
+    public AppliedEffect(Enemy newEnemy, Effect newEffect, string sfxName = null)
     {
         enemyToAffect = newEnemy;
         effectToApply = newEffect;
+
+        if (sfxName != null)
+            AudioManager.instance.PlaySFX(sfxName, newEnemy.transform.position);
     }
 }
 

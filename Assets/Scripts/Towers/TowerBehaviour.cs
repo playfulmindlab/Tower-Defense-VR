@@ -12,6 +12,7 @@ public class TowerBehaviour : MonoBehaviour
     public Enemy target;
     public Transform towerPivot;
     public bool canFire = true;
+    [SerializeField] string attackSFXName = "";
 
     public int towerCost = 100;
     [SerializeField] protected int health = 10;

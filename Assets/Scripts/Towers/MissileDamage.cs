@@ -9,7 +9,7 @@ public class MissileDamage : Damage, IDamageMethod
     //[SerializeField] AudioClip firingSFX;
     [SerializeField] protected Transform towerHead;
     [SerializeField] protected float projectileSpeed = 30f;
-    [SerializeField] string firingSFXName = "Gun1";
+    [SerializeField] string firingSFXName = "TowerBasicShot";
 
     protected ParticleSystem.MainModule missileSystemMain;
     AudioSource audioSource;
@@ -58,7 +58,7 @@ public class MissileDamage : Damage, IDamageMethod
             //missileSystemMain.startRotationY = towerHead.forward.y;
             //missileSystemMain.startRotationZ = towerHead.forward.z;
 
-            AudioManager.instance.PlaySFXPitched(firingSFXName, transform.position, 0.1f);
+            AudioManager.instance.PlaySFXRandom(firingSFXName, transform.position, 5, 0.1f);
             missileSystem.Play();
 
             delay = 1f / firerate;

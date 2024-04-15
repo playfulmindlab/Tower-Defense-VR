@@ -31,7 +31,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayMusic("MainTheme");
+        //PlayMusic("MainTheme");
     }
 
     public void PlayMusic(string musicName)
@@ -75,7 +75,14 @@ public class AudioManager : MonoBehaviour
         else Debug.LogError("Sound '" + sfxName + "' not present in AudioManager: SFXArray!");
     }
 
-    public void PlaySFX(string sfxName)
+    public void PlaySFXRandom(string sfxName, Vector3 sfxPosition, int maxRandom, float volume = 1f)
+    {
+        int sfxNum = UnityEngine.Random.Range(1, maxRandom + 1);
+        string newSFXName = sfxName + sfxNum;
+        PlaySFX(newSFXName, sfxPosition, volume);
+    }
+
+    /*public void PlaySFX(string sfxName)
     {
         sfxSound = Array.Find(sfxArray, x => x.name == sfxName);
 
@@ -84,5 +91,5 @@ public class AudioManager : MonoBehaviour
             //sfxSource.PlayOneShot(sfxSound.clip);
         }
         else Debug.LogError("Sound '" + sfxName + "' not present in AudioManager: SFXArray!");
-    }
+    }*/
 }
