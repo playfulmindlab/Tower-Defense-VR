@@ -23,6 +23,7 @@ public class TowerDefenseManager : MonoBehaviour
     private static Queue<AppliedEffect> effectsQueue;
 
     public Transform nodeParent;
+    [SerializeField] int numEnemiesPerWave = 10;
     public int wavesTilWin = 3;
 
     [SerializeField] GameObject colliderObject;
@@ -43,6 +44,7 @@ public class TowerDefenseManager : MonoBehaviour
     bool gamePaused = false;
     public bool IsGamePaused { get { return gamePaused; } set { } }
     Phase prePausePhase = Phase.None;
+
 
     // Start is called before the first frame update
     void Start()
@@ -177,7 +179,7 @@ public class TowerDefenseManager : MonoBehaviour
 
             if (waveCount <= wavesTilWin)
             {
-                enemyRemovedCount = (waveCount * 5);
+                enemyRemovedCount = (waveCount * numEnemiesPerWave);
                 currEnemyKillCount = 0;
                 spawnedEnemiesCount = 0;
 
