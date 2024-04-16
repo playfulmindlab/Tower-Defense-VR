@@ -8,7 +8,6 @@ public class JumpedTowerControls : MonoBehaviour
     [SerializeField] Camera towerCamera;
     Transform towerHead;
     MissileDamage missileDamage;
-    float damping = 5f;
 
     public void Awake()
     {

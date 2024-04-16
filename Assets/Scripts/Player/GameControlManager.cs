@@ -24,8 +24,6 @@ public class GameControlManager : MonoBehaviour
     [SerializeField] float cameraDamping = 5f;
     [SerializeField] public InputActionProperty /*rotateJoystick,*/ attackButton;
 
-    [SerializeField] string jumpSFXName = "JumpTower", unjumpSFXName = "UnjumpTower";
-
     SimpleInletBalanceBoard bbInlet;
 
     bool firing = false;

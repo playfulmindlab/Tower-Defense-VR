@@ -87,9 +87,9 @@ MonoBehaviour:
   reward: 10
   id: 1
   nodeIndex: 0
+  deathSound: {fileID: 0}
   healthBar: {fileID: 2768786598459170403}
   speedText: {fileID: 3111047383206839308}
-  origSpeed: 0
 --- !u!54 &4848413754284067895
 Rigidbody:
   m_ObjectHideFlags: 0

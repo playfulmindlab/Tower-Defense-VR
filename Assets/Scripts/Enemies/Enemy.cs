@@ -37,9 +37,12 @@ public class Enemy : MonoBehaviour
         set {
             speed = value;
             if (speedText != null)
-                speedText.text = "Speed: " + Speed.ToString();
+                speedText.text = "Speed: " + Speed.ToString("F2");
         }
     }
+    [SerializeField] float initialSpeed = 1f;
+    [SerializeField] float speedIncreasePerWave = 0.5f;
+
 
     public int attack = 3;
     public float attackRate = 1f;
@@ -76,7 +79,7 @@ public class Enemy : MonoBehaviour
         }
 
         transform.position = TowerDefenseManager.nodePositions[0];
-        Speed = 1 + (TowerDefenseManager.waveCount * 0.7f);
+        Speed = initialSpeed + ((TowerDefenseManager.waveCount - 1) * speedIncreasePerWave);
         nodeIndex = 0;
 
         origSpeed = Speed;
@@ -115,7 +118,8 @@ public class Enemy : MonoBehaviour
                 anim.SetInteger("AttackIndex", Random.Range(0, 3));
                 anim.SetTrigger("Attack");
             }
-            AudioManager.instance.PlaySFXRandom("EnemyAttack", transform.position, 3);
+
+            //AudioManager.instance.PlaySFXRandom("EnemyAttack", transform.position, 3);
             attackedObject.Damage(attack);
         }
     }
