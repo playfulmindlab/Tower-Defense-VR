@@ -12277,7 +12277,7 @@ MonoBehaviour:
   towerSpawnCanvas: {fileID: 764792394}
   towerViewCanvas: {fileID: 1951020948}
   jumpedTowerControls: {fileID: 0}
-  cameraDamping: 5
+  cameraDamping: 1
   attackButton:
     m_UseReference: 1
     m_Action:
