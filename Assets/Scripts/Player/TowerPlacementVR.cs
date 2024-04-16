@@ -89,6 +89,7 @@ public class TowerPlacementVR : MonoBehaviour
                         {
                             child.gameObject.layer = 9;
                         }
+                        AudioManager.instance.PlaySFXRandom("TowerPlaced", currentPlacingTower.transform.position, 3);
                         towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
                         currentPlacingTower = null;
 

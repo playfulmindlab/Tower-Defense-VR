@@ -102,24 +102,24 @@ public class TowerDefenseManager : MonoBehaviour
         {
             case Phase.Build:
                 spawnEnemies = false;
-                phaseText.text = "PHASE: Build";
+                phaseText.text = "Build";
                 break;
 
             case Phase.Defend_ChooseJump:
                 spawnEnemies = true;
-                phaseText.text = "PHASE: Defend (Choose Jump Target)";
+                phaseText.text = "Defend (Choose Jump Target)";
                 break;
 
             case Phase.Defend:
                 spawnEnemies = true;
-                phaseText.text = "PHASE: Defend";
+                phaseText.text = "Defend";
                 if (currPhase != Phase.Pause)
                     UpdateWaveCount(1);
                 break;
 
             case Phase.Repair:
                 spawnEnemies = false;
-                phaseText.text = "PHASE: Repair";
+                phaseText.text = "Repair";
                 break;
 
             case Phase.Pause:
