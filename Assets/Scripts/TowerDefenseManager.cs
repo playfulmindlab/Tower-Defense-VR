@@ -356,7 +356,7 @@ public class TowerDefenseManager : MonoBehaviour
                 Debug.Log("REMOVE QUEUE COUNT: " + enemiesToRemoveQueue.Count + " @ " + Time.time);
                 for (int i = 0; i < enemiesToRemoveQueue.Count; i++)
                 {
-                    AudioManager.instance.PlaySFXRandom("EnemyDie", enemiesToRemoveQueue.Peek().gameObject.transform.position, 4, 1f);
+                    AudioManager.instance.PlaySFXRandom("EnemyDie", enemiesToRemoveQueue.Peek().gameObject.transform.position, 4);
                     //remove this line for a damage-focused economy system
                     playerStats.AddMoney(enemiesToRemoveQueue.Peek().reward);
                     EnemySpawner.RemoveEnemy(enemiesToRemoveQueue.Dequeue());
