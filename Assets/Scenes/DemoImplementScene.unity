@@ -22932,7 +22932,7 @@ MonoBehaviour:
   towerCost: 0
   health: 1
   maxHealth: 1
-  shield: 200
+  shield: 1000
   damage: 0
   firerate: 0
   range: 1
