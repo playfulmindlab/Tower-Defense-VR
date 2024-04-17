@@ -131,6 +131,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 3382279352490335333}
   canFire: 1
+  attackSFXName: 
   towerCost: 400
   health: 10
   maxHealth: 10
@@ -142,6 +143,7 @@ MonoBehaviour:
   shieldBar: {fileID: 70979792664552238}
   outline: {fileID: 0}
   upgradedTower: {fileID: 3673039398630169798, guid: 6ac720a892139db42a520777ee82ad42, type: 3}
+  aliveOnSceneStart: 0
   rotateSpeed: 30
 --- !u!65 &5874515159302801773
 BoxCollider:
@@ -603,7 +605,7 @@ RectTransform:
   m_GameObject: {fileID: 4235771840243885937}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.049999997, y: 0.099999994, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5030345474762920336}
@@ -613,7 +615,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.5499998}
+  m_AnchoredPosition: {x: 0, y: 2}
   m_SizeDelta: {x: 20, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8195088622006817159
@@ -935,6 +937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseClass: {fileID: 8604441984204306420}
   effectTime: 5
+  streamNum: 0
 --- !u!1 &7186534487262856987
 GameObject:
   m_ObjectHideFlags: 0

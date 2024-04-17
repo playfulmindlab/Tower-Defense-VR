@@ -119,7 +119,7 @@ RectTransform:
   m_GameObject: {fileID: 776850980393554542}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.049999997, y: 0.099999994, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3433435973238661360}
@@ -129,7 +129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.5499998}
+  m_AnchoredPosition: {x: 0, y: 2}
   m_SizeDelta: {x: 20, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4556585573121232132
@@ -318,6 +318,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 2389372701864717615}
   canFire: 1
+  attackSFXName: 
   towerCost: 800
   health: 10
   maxHealth: 20
@@ -329,6 +330,7 @@ MonoBehaviour:
   shieldBar: {fileID: 5571909631037118141}
   outline: {fileID: 0}
   upgradedTower: {fileID: 7179862029848007442, guid: 2a9a3195306070243bc2bbbf09b96df4, type: 3}
+  aliveOnSceneStart: 0
   rotateSpeed: 30
 --- !u!65 &1154899532457875847
 BoxCollider:

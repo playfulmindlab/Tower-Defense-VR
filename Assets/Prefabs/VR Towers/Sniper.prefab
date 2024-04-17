@@ -62,7 +62,7 @@ RectTransform:
   m_GameObject: {fileID: 1782260517153051268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.049999997, y: 0.099999994, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 984055140127253727}
@@ -71,7 +71,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.55}
+  m_AnchoredPosition: {x: 0, y: 2}
   m_SizeDelta: {x: 20, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1314503167853737435
@@ -295,6 +295,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 2585447481753820550}
   canFire: 1
+  attackSFXName: 
   towerCost: 350
   health: 10
   maxHealth: 10
@@ -306,6 +307,7 @@ MonoBehaviour:
   shieldBar: {fileID: 5126995975077313770}
   outline: {fileID: 0}
   upgradedTower: {fileID: 0}
+  aliveOnSceneStart: 0
 --- !u!65 &793246411881218053
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -347,6 +349,7 @@ MonoBehaviour:
   missileSystem: {fileID: 2234148018128964330}
   towerHead: {fileID: 3658155709638867241}
   projectileSpeed: 80
+  firingSFXName: TowerBasicShot
 --- !u!54 &416518242097231159
 Rigidbody:
   m_ObjectHideFlags: 0
