@@ -23,6 +23,7 @@ public class TowerDefenseManager : MonoBehaviour
     private static Queue<AppliedEffect> effectsQueue;
 
     public Transform nodeParent;
+    [SerializeField] int numEnemiesPerWave = 10;
     public int wavesTilWin = 3;
 
     [SerializeField] GameObject colliderObject;
@@ -43,6 +44,7 @@ public class TowerDefenseManager : MonoBehaviour
     bool gamePaused = false;
     public bool IsGamePaused { get { return gamePaused; } set { } }
     Phase prePausePhase = Phase.None;
+
 
     // Start is called before the first frame update
     void Start()
@@ -102,24 +104,24 @@ public class TowerDefenseManager : MonoBehaviour
         {
             case Phase.Build:
                 spawnEnemies = false;
-                phaseText.text = "PHASE: Build";
+                phaseText.text = "Build";
                 break;
 
             case Phase.Defend_ChooseJump:
                 spawnEnemies = true;
-                phaseText.text = "PHASE: Defend (Choose Jump Target)";
+                phaseText.text = "Defend (Choose Jump Target)";
                 break;
 
             case Phase.Defend:
                 spawnEnemies = true;
-                phaseText.text = "PHASE: Defend";
+                phaseText.text = "Defend";
                 if (currPhase != Phase.Pause)
                     UpdateWaveCount(1);
                 break;
 
             case Phase.Repair:
                 spawnEnemies = false;
-                phaseText.text = "PHASE: Repair";
+                phaseText.text = "Repair";
                 break;
 
             case Phase.Pause:
@@ -177,7 +179,7 @@ public class TowerDefenseManager : MonoBehaviour
 
             if (waveCount <= wavesTilWin)
             {
-                enemyRemovedCount = (waveCount * 5);
+                enemyRemovedCount = (waveCount * numEnemiesPerWave);
                 currEnemyKillCount = 0;
                 spawnedEnemiesCount = 0;
 
@@ -356,7 +358,7 @@ public class TowerDefenseManager : MonoBehaviour
                 Debug.Log("REMOVE QUEUE COUNT: " + enemiesToRemoveQueue.Count + " @ " + Time.time);
                 for (int i = 0; i < enemiesToRemoveQueue.Count; i++)
                 {
-                    AudioManager.instance.PlaySFXRandom("EnemyDie", enemiesToRemoveQueue.Peek().gameObject.transform.position, 4, 1f);
+                    AudioManager.instance.PlaySFXRandom("EnemyDie", enemiesToRemoveQueue.Peek().gameObject.transform.position, 4);
                     //remove this line for a damage-focused economy system
                     playerStats.AddMoney(enemiesToRemoveQueue.Peek().reward);
                     EnemySpawner.RemoveEnemy(enemiesToRemoveQueue.Dequeue());

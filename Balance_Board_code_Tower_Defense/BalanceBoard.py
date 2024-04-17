@@ -14,7 +14,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import customtkinter
 import keyboard
 
-board_height, board_width = 40, 60 # cms
+board_height, board_width = 40, 90 # cms
 open_stream = True # keep true if you need LSL
 plot = True # keep true to start GUI and plot
 test_duration = 10 # seconds

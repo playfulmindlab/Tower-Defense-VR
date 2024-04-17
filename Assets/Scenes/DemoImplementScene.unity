@@ -3450,7 +3450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8306,7 +8306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 44.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -9521,7 +9521,6 @@ GameObject:
   - component: {fileID: 888595132}
   - component: {fileID: 888595131}
   - component: {fileID: 888595130}
-  - component: {fileID: 888595129}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -9529,102 +9528,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &888595129
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888595128}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.685
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!82 &888595130
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9737,71 +9640,104 @@ MonoBehaviour:
   musicArray:
   - name: GameplayMusic
     clip: {fileID: 8300000, guid: 8c74732a7c876a2458e32be3637da8b8, type: 3}
+    volume: 1
   - name: MainMenuMusic
     clip: {fileID: 8300000, guid: 519a059a23d3fb3448dede5d3aab95b4, type: 3}
+    volume: 1
   sfxArray:
   - name: Cannon1
     clip: {fileID: 8300000, guid: f9eb44b85c96be5429737d4dcadbfa3b, type: 3}
+    volume: 1
   - name: DestroyTower
     clip: {fileID: 8300000, guid: 7b69beceabbd8f24e8bc62d77ac7ca1c, type: 3}
+    volume: 1
   - name: EnemyAttack1
     clip: {fileID: 8300000, guid: 7d3723b48f2bc0849a11a1695ecbcb35, type: 3}
+    volume: 1
   - name: EnemyAttack2
     clip: {fileID: 8300000, guid: f5a21cd2eba28b842bc69ae72824e28d, type: 3}
+    volume: 1
   - name: EnemyAttack3
     clip: {fileID: 8300000, guid: 83f910a196e1fe74980432a8230792d2, type: 3}
+    volume: 1
   - name: EnemyDie1
     clip: {fileID: 8300000, guid: c0f50fb3f1a69184999f0c9cd858a6ac, type: 3}
+    volume: 1
   - name: EnemyDie2
     clip: {fileID: 8300000, guid: 0154cc22f230cef44a28ddc5617030ab, type: 3}
+    volume: 1
   - name: EnemyDie3
     clip: {fileID: 8300000, guid: 7c24c7d0efc91ea45820a23d8d9264f3, type: 3}
+    volume: 1
   - name: EnemyDie4
     clip: {fileID: 8300000, guid: 453f7b720257928489e63274c1fb9356, type: 3}
+    volume: 1
   - name: Explosion
     clip: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
+    volume: 1
   - name: Flamethrower
     clip: {fileID: 8300000, guid: c80986506b349714caaff5cf4d787b6e, type: 3}
+    volume: 1
   - name: GameOver
     clip: {fileID: 8300000, guid: 08861b87987c236499a025f9a2f313ea, type: 3}
+    volume: 1
   - name: Gun1
     clip: {fileID: 8300000, guid: 87aee449115102842993b9ba1323dab1, type: 3}
+    volume: 1
   - name: Gun2
     clip: {fileID: 8300000, guid: 07c70f36d61ecb04080cf1bc8bee2dc5, type: 3}
+    volume: 1
   - name: IceAttack
     clip: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
+    volume: 1
   - name: LightningAttack
     clip: {fileID: 8300000, guid: f1cb5d83282f2904a85f73111d068616, type: 3}
+    volume: 1
   - name: NewWaveSound
     clip: {fileID: 8300000, guid: 7cc9ae703d204834fbe2658a4b60a681, type: 3}
+    volume: 1
   - name: PoolFormation
     clip: {fileID: 8300000, guid: 2e071f5b8b8467d45a5e6e24c23c6ad4, type: 3}
+    volume: 1
   - name: StatusShocked
     clip: {fileID: 8300000, guid: f2255e24b59987b4197cee2223b89ad9, type: 3}
+    volume: 1
   - name: TowerBasicShot1
     clip: {fileID: 8300000, guid: 7f4c7c107c5512346ac85534a2c0a482, type: 3}
+    volume: 0.1
   - name: TowerBasicShot2
     clip: {fileID: 8300000, guid: a93ea965d15dc6a4ab0618bb5ad39902, type: 3}
+    volume: 0.1
   - name: TowerBasicShot3
     clip: {fileID: 8300000, guid: 22ef2b7da877f1b4aa69e7b85e5ec3c1, type: 3}
+    volume: 0.1
   - name: TowerBasicShot4
     clip: {fileID: 8300000, guid: 065914db72cf37846801b3c570876b7f, type: 3}
+    volume: 0.1
   - name: TowerBasicShot5
     clip: {fileID: 8300000, guid: 7304cb49e344c994d8ebe8c1d18ce4fb, type: 3}
+    volume: 0.1
   - name: TowerJump
     clip: {fileID: 8300000, guid: 8eee3b5d89b5d2046a7d00b54e518e4f, type: 3}
+    volume: 1
   - name: TowerPlaced1
     clip: {fileID: 8300000, guid: bc0e3f5a9f8bc234bb942c0de59914a5, type: 3}
+    volume: 1
   - name: TowerPlaced2
     clip: {fileID: 8300000, guid: 934fdd06c4501b54bb7360058ad78ca2, type: 3}
+    volume: 1
   - name: TowerPlaced3
     clip: {fileID: 8300000, guid: 07b655793e21cd74f859b267fb3603aa, type: 3}
+    volume: 1
   - name: TowerUnjump
     clip: {fileID: 8300000, guid: 4b17f96f296aa1e4d8c0114d4cc29699, type: 3}
+    volume: 1
   - name: TowerUpgrade1
     clip: {fileID: 8300000, guid: 71fecde1f9c87e745b4c8ed82927dd9a, type: 3}
+    volume: 1
   - name: TowerUpgrade2
     clip: {fileID: 8300000, guid: 38748d66192b0484ebf841d621077779, type: 3}
+    volume: 1
   musicSource: {fileID: 888595130}
 --- !u!4 &888595132
 Transform:
@@ -10148,6 +10084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeParent: {fileID: 1733667118}
+  numEnemiesPerWave: 10
   wavesTilWin: 100
   colliderObject: {fileID: 0}
   gameOverScreen: {fileID: 1053519138}
@@ -11204,7 +11141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11601,7 +11538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 44.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -12171,7 +12108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -12341,7 +12278,7 @@ MonoBehaviour:
   towerSpawnCanvas: {fileID: 764792394}
   towerViewCanvas: {fileID: 1951020948}
   jumpedTowerControls: {fileID: 0}
-  cameraDamping: 5
+  cameraDamping: 1
   attackButton:
     m_UseReference: 1
     m_Action:
@@ -12990,7 +12927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7832750318883099538, guid: 6b7fd54c3a17f4648b7c8cd4c322eb1c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.67507535
       objectReference: {fileID: 0}
     - target: {fileID: 7832750318883099538, guid: 6b7fd54c3a17f4648b7c8cd4c322eb1c, type: 3}
       propertyPath: m_LocalRotation.x
@@ -12998,7 +12935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7832750318883099538, guid: 6b7fd54c3a17f4648b7c8cd4c322eb1c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7377488
       objectReference: {fileID: 0}
     - target: {fileID: 7832750318883099538, guid: 6b7fd54c3a17f4648b7c8cd4c322eb1c, type: 3}
       propertyPath: m_LocalRotation.z
@@ -13010,7 +12947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7832750318883099538, guid: 6b7fd54c3a17f4648b7c8cd4c322eb1c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -95.08
       objectReference: {fileID: 0}
     - target: {fileID: 7832750318883099538, guid: 6b7fd54c3a17f4648b7c8cd4c322eb1c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -18083,7 +18020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -18673,13 +18610,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742044861}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1951020951}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -20835,7 +20772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4704240698125147210, guid: 048249d9a15aa3c459399751e860bde7, type: 3}
       propertyPath: m_AnchoredPosition.y

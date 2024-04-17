@@ -60,6 +60,8 @@ public class GameControlManager : MonoBehaviour
         {
             case ControlsSetting.Main:
                 moveControls.SetActive(true);
+                firing = false;
+                jumpedTowerControls.SetGunFire(false);
                 towerViewCanvas.gameObject.SetActive(false);
                 jumpedTowerControls.ToggleAutoShoot();
                 jumpedTowerControls.SetCamera(false);

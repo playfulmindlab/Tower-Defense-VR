@@ -96,7 +96,7 @@ namespace LSL4Unity.Samples.SimpleInlet
                 {
                     float[] coordValues = ConvertStringToFloat(data_buffer[0]);
 
-                    rotationValues = new Vector2(coordValues[0], coordValues[1]);
+                    rotationValues = new Vector2((-coordValues[0] * 1.5f), (coordValues[1]));
 
                     //[0] = X, [1] = Y, [2] = Magnitude
                 }
@@ -108,7 +108,7 @@ namespace LSL4Unity.Samples.SimpleInlet
             else
             {
                 float sinValue = Mathf.PingPong(Time.time *  15f, 90f) - 45 ;
-                rotationValues = new Vector2(sinValue, 0f);
+                rotationValues = new Vector2(-sinValue, 0f);
             }
         }
 

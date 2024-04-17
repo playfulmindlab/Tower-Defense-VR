@@ -9,6 +9,8 @@ public class JumpedTowerControls : MonoBehaviour
     Transform towerHead;
     MissileDamage missileDamage;
 
+    private float towerRotation = 0f;
+
     public void Awake()
     {
         towerHead = towerBehaviour.towerPivot;
@@ -23,7 +25,10 @@ public class JumpedTowerControls : MonoBehaviour
     public void SetJumpedTower()
     {
         if (TowerDefenseManager.CurrPhase == Phase.Defend || TowerDefenseManager.CurrPhase == Phase.Defend_ChooseJump)
+        {
+            towerRotation = towerBehaviour.gameObject.transform.localEulerAngles.x;
             GameControlManager.instance.SwapToJumpedControls(this);
+        }
     }
 
     public void ToggleAutoShoot()
@@ -38,10 +43,10 @@ public class JumpedTowerControls : MonoBehaviour
 
     public void RotateGun(Vector2 balanceBoardCoords, float dampVal = 5f)
     {
-        Quaternion rot = Quaternion.Euler(new Vector3(-balanceBoardCoords.y * 2f, -balanceBoardCoords.x * 2, 0f));
+        Quaternion rot = Quaternion.Euler(new Vector3((balanceBoardCoords.y - towerRotation) * 2f, -balanceBoardCoords.x * 2, 0f));
 
         //towerHead.localEulerAngles = new Vector3(-balanceBoardCoords.y * 2f, -balanceBoardCoords.x * 2, 0f);
-        towerHead.rotation = Quaternion.Slerp(towerHead.transform.rotation, rot, Time.deltaTime * dampVal);
+        towerHead.localRotation = Quaternion.Slerp(towerHead.localRotation, rot, Time.deltaTime * dampVal);
     }
 
     public void RotateGun(float balanceX, float balanceY, float magnitude)
