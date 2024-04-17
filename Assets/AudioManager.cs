@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [System.Serializable]
-public class Sound
+public class Music
 {
     public string name;
     public AudioClip clip;
@@ -12,17 +12,34 @@ public class Sound
     public float volume = 1.0f;
 }
 
+[System.Serializable]
+public class SoundClip
+{
+    public AudioClip clip;
+    [Range(0.0f, 1.0f)]
+    public float volume = 1.0f;
+}
+
+[System.Serializable]
+public class Sounds
+{
+    public string name;
+    public SoundClip[] clips;
+}
+
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
     [SerializeField] GameObject sfxPrefab;
-    [SerializeField] Sound[] musicArray, sfxArray;
+    [SerializeField] Music[] musicArray;
+    [SerializeField] Sounds[] sfxArray;
 
     [SerializeField] AudioSource musicSource;//, sfxSource;
 
-    
-    Sound musicSound, sfxSound;
+    Music musicSound;
+    Sounds sound;
+    SoundClip sfxSound;
 
     private void Awake()
     {
@@ -49,20 +66,42 @@ public class AudioManager : MonoBehaviour
         else Debug.LogError("Sound '" + musicName + "' not present in AudioManager: MusicArray!");
     }
 
-    public void PlaySFX(string sfxName, Vector3 sfxPosition)
+   /* public void PlaySFX(string sfxName, Vector3 sfxPosition)
     {
         sfxSound = Array.Find(sfxArray, x => x.name == sfxName);
 
         if (sfxSound != null)
         {
+            AudioClip clip = sfxSound.clips[]
             GameObject tempSFXObject = Instantiate(sfxPrefab, sfxPosition, Quaternion.identity);
             AudioSource newSFX = tempSFXObject.GetComponent<AudioSource>();
             newSFX.PlayOneShot(sfxSound.clip, sfxSound.volume);
             Destroy(tempSFXObject, sfxSound.clip.length);
         }
         else Debug.LogError("Sound '" + sfxName + "' not present in AudioManager: SFXArray!");
+    }*/
+
+    public void PlaySFXArray(string sfxName, Vector3 sfxPosition)
+    {
+        sound = Array.Find(sfxArray, x => x.name == sfxName);
+
+        if (sfxSound != null)
+        {
+            if (sound.clips.Length > 0) {
+                int clipNum = UnityEngine.Random.Range(0, sound.clips.Length);
+                SoundClip sfxClip = sound.clips[clipNum];
+            
+                GameObject tempSFXObject = Instantiate(sfxPrefab, sfxPosition, Quaternion.identity);
+                AudioSource newSFX = tempSFXObject.GetComponent<AudioSource>();
+                newSFX.PlayOneShot(sfxClip.clip, sfxClip.volume);
+                Destroy(tempSFXObject, sfxClip.clip.length); 
+            }
+            else Debug.LogError("Sound '" + sfxName + "' has an empty array!");
+        }
+        else Debug.LogError("Sound '" + sfxName + "' not present in AudioManager: SFXArray!");
     }
 
+    /*
     public void PlaySFXPitched(string sfxName, Vector3 sfxPosition)//, float volume = 1f)
     {
         sfxSound = Array.Find(sfxArray, x => x.name == sfxName);
@@ -83,7 +122,7 @@ public class AudioManager : MonoBehaviour
         int sfxNum = UnityEngine.Random.Range(1, maxRandom + 1);
         string newSFXName = sfxName + sfxNum;
         PlaySFX(newSFXName, sfxPosition);//, volume);
-    }
+    }*/
 
     /*public void PlaySFX(string sfxName)
     {

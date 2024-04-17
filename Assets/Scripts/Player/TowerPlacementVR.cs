@@ -89,7 +89,7 @@ public class TowerPlacementVR : MonoBehaviour
                         {
                             child.gameObject.layer = 9;
                         }
-                        AudioManager.instance.PlaySFXRandom("TowerPlaced", currentPlacingTower.transform.position, 3);
+                        AudioManager.instance.PlaySFXArray("TowerPlaced", currentPlacingTower.transform.position);
                         towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
                         currentPlacingTower = null;
 
@@ -136,9 +136,9 @@ public class TowerPlacementVR : MonoBehaviour
         }
 
         if (playTowerPlacedSFX == true)
-            AudioManager.instance.PlaySFXRandom("TowerPlaced", tower.transform.position, 3);
+            AudioManager.instance.PlaySFXArray("TowerPlaced", tower.transform.position);
 
-        towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; ;
+        towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
 
     void RotateTowerTowardsPath(GameObject newTower)
@@ -204,7 +204,7 @@ public class TowerPlacementVR : MonoBehaviour
                 CreateNewTower(newTower, towerCollider, false);
                 Destroy(oldTower);
 
-                AudioManager.instance.PlaySFXRandom("TowerUpgrade", newTower.transform.position, 2);
+                AudioManager.instance.PlaySFXArray("TowerUpgrade", newTower.transform.position);
 
                 upgradeConfetti.transform.position = newTower.transform.position;
                 upgradeConfetti.Play();

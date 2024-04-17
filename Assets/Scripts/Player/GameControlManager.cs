@@ -66,7 +66,7 @@ public class GameControlManager : MonoBehaviour
                 jumpedTowerControls.ToggleAutoShoot();
                 jumpedTowerControls.SetCamera(false);
                 jumpedTowerControls = null;
-                AudioManager.instance.PlaySFX("TowerUnjump", towerViewCanvas.transform.position);
+                AudioManager.instance.PlaySFXArray("TowerUnjump", towerViewCanvas.transform.position);
                 break;
 
             case ControlsSetting.Jumped:
@@ -75,7 +75,7 @@ public class GameControlManager : MonoBehaviour
                 jumpedTowerControls.ToggleAutoShoot();
                 jumpedTowerControls.SetCamera(true);
                 firing = false;
-                AudioManager.instance.PlaySFX("TowerJump", towerViewCanvas.transform.position);
+                AudioManager.instance.PlaySFXArray("TowerJump", towerViewCanvas.transform.position);
                 break;
         }
     }

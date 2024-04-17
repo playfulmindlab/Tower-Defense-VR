@@ -58,7 +58,7 @@ public class MissileDamage : Damage, IDamageMethod
             //missileSystemMain.startRotationY = towerHead.forward.y;
             //missileSystemMain.startRotationZ = towerHead.forward.z;
 
-            AudioManager.instance.PlaySFXRandom(firingSFXName, transform.position, 5);
+            AudioManager.instance.PlaySFXArray(firingSFXName, transform.position);
             missileSystem.Play();
 
             delay = 1f / firerate;

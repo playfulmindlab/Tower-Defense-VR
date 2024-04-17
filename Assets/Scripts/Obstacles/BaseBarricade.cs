@@ -18,8 +18,35 @@ public class BaseBarricade : TowerBehaviour
         }
     }
 
+    public virtual void Damage(int damage)
+    {
+        if (shield > 0)
+        {
+            if (shield - damage < 0)
+            {
+                damage -= shield;
+                shield = 0;
+            }
+            else
+            {
+                shield -= damage;
+                damage = 0;
+            }
+        }
+
+        health -= damage;
+        AudioManager.instance.PlaySFXArray("BaseAttacked", transform.position);
+
+        if (health <= 0 && this.gameObject.activeSelf)
+        {
+            this.gameObject.SetActive(false);
+            TowerDie();
+        }
+    }
+
     public override void TowerDie()
     {
+        AudioManager.instance.PlaySFXArray("BaseDestroyed", transform.position);
         TowerDefenseManager.BeginGameOverSequence();
         base.TowerDie();
     }

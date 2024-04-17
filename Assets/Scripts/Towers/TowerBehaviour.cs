@@ -12,7 +12,7 @@ public class TowerBehaviour : MonoBehaviour
     public Enemy target;
     public Transform towerPivot;
     public bool canFire = true;
-    [SerializeField] string attackSFXName = "";
+
 
     public int towerCost = 100;
     [SerializeField] protected int health = 10;
@@ -122,7 +122,7 @@ public class TowerBehaviour : MonoBehaviour
         towerPlacement.UpgradeTower(this.gameObject, upgradedTower);
     }
 
-    public void Damage(int damage)
+    public virtual void Damage(int damage)
     {
         if (shield > 0)
         {
@@ -139,6 +139,7 @@ public class TowerBehaviour : MonoBehaviour
         }
 
         health -= damage;
+        AudioManager.instance.PlaySFXArray("TowerAttacked", transform.position);
 
         if (health <= 0 && this.gameObject.activeSelf)
         {
@@ -158,6 +159,7 @@ public class TowerBehaviour : MonoBehaviour
     public virtual void TowerDie()
     {
         //TODO: wirte code for what happens when tower dies here
+        AudioManager.instance.PlaySFXArray("TowerDestroyed", transform.position);
         this.gameObject.SetActive(false);
         canFire = false;
         TowerDefenseManager.EnqueueTowerToRemove(this);
@@ -169,7 +171,9 @@ public class TowerBehaviour : MonoBehaviour
     {
         health += healing;
 
-        if (health > maxHealth)
+        if (health < maxHealth)
+            AudioManager.instance.PlaySFXArray("TowerHeal", transform.position);
+        else if (health > maxHealth)
             health = maxHealth;
 
         if (health >= maxHealth * 0.3f)
