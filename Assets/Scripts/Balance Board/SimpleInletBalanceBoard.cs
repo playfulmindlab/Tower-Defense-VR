@@ -96,7 +96,7 @@ namespace LSL4Unity.Samples.SimpleInlet
                 {
                     float[] coordValues = ConvertStringToFloat(data_buffer[0]);
 
-                    rotationValues = new Vector2((-coordValues[0] * 1.5f) + 45, (coordValues[1]));
+                    rotationValues = new Vector2((-coordValues[0] * 1.5f), (coordValues[1]));
 
                     //[0] = X, [1] = Y, [2] = Magnitude
                 }
