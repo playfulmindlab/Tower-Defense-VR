@@ -18,7 +18,7 @@ public class BaseBarricade : TowerBehaviour
         }
     }
 
-    public virtual void Damage(int damage)
+    public override void Damage(int damage)
     {
         if (shield > 0)
         {

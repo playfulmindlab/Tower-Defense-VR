@@ -95,6 +95,7 @@ public class EnemySpawner : MonoBehaviour
     {
         enemyObjectPools[enemyToRemove.id].Enqueue(enemyToRemove);
         enemyToRemove.gameObject.SetActive(false);
+        enemyToRemove.ChangeTowerTarget(null);
         enemiesInGameTransform.Remove(enemyToRemove.transform);
         enemyTransformPairs.Remove(enemyToRemove.transform);
 
