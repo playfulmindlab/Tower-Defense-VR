@@ -779,7 +779,6 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 5734786658272153313}
   canFire: 1
-  attackSFXName: 
   towerCost: 800
   health: 10
   maxHealth: 10
@@ -833,7 +832,7 @@ MonoBehaviour:
   missileSystem: {fileID: 148443820328064262}
   towerHead: {fileID: 9113754174083036006}
   projectileSpeed: 30
-  firingSFXName: TowerBasicShot
+  firingSFXName: TowerFreezeShot
 --- !u!54 &2615713003484352149
 Rigidbody:
   m_ObjectHideFlags: 0

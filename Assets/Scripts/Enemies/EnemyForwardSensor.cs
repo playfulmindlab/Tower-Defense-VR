@@ -22,10 +22,10 @@ public class EnemyForwardSensor : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Removed At YYY // Collider: " + other + " / " + other.gameObject + " / " + other.gameObject.tag.ToString());
+        //Debug.Log("Removed At YYY // Collider: " + other + " / " + other.gameObject + " / " + other.gameObject.tag.ToString());
         if (other.gameObject.CompareTag("AttackObstacle") || other.gameObject.CompareTag("BaseObstacle"))// && obstacleObject != null)
         {
-            Debug.Log("Removed At XXX");
+            //Debug.Log("Removed At XXX");
             enemyBase.ChangeTowerTarget(null);
         }
     }

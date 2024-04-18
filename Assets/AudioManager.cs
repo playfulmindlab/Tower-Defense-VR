@@ -81,11 +81,12 @@ public class AudioManager : MonoBehaviour
         else Debug.LogError("Sound '" + sfxName + "' not present in AudioManager: SFXArray!");
     }*/
 
+
     public void PlaySFXArray(string sfxName, Vector3 sfxPosition)
     {
         sound = Array.Find(sfxArray, x => x.name == sfxName);
 
-        if (sfxSound != null)
+        if (sound != null)
         {
             if (sound.clips.Length > 0) {
                 int clipNum = UnityEngine.Random.Range(0, sound.clips.Length);
@@ -122,16 +123,5 @@ public class AudioManager : MonoBehaviour
         int sfxNum = UnityEngine.Random.Range(1, maxRandom + 1);
         string newSFXName = sfxName + sfxNum;
         PlaySFX(newSFXName, sfxPosition);//, volume);
-    }*/
-
-    /*public void PlaySFX(string sfxName)
-    {
-        sfxSound = Array.Find(sfxArray, x => x.name == sfxName);
-
-        if (sfxSound != null)
-        {
-            //sfxSource.PlayOneShot(sfxSound.clip);
-        }
-        else Debug.LogError("Sound '" + sfxName + "' not present in AudioManager: SFXArray!");
     }*/
 }

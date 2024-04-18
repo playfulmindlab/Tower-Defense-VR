@@ -13,15 +13,15 @@ public class FreezeBombItem : ItemScript
         for (int i = 0; i < enemiesInRadius.Length; i++)
         {
             Enemy enemy = EnemySpawner.enemyTransformPairs[enemiesInRadius[i].transform];
-            Debug.Log("Orig Speed: " + enemy.Speed + " // " + slowAmount);
+            //Debug.Log("Orig Speed: " + enemy.Speed + " // " + slowAmount);
             Effect slowEffect = new Effect(gameObject.name + " - Slow", slowAmount, enemy.Speed, 3f);
             AppliedEffect effect = new AppliedEffect(enemy, slowEffect);
+            AudioManager.instance.PlaySFXArray("StatusFrozen", enemy.transform.position);
             TowerDefenseManager.EnqueueEffectToApply(effect);
 
             base.OnItemUse();
         }
     }
-
 
     private void OnDrawGizmos()
     {

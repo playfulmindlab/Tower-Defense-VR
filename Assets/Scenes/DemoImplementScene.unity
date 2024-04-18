@@ -9681,7 +9681,11 @@ MonoBehaviour:
     clips:
     - clip: {fileID: 8300000, guid: 7cc9ae703d204834fbe2658a4b60a681, type: 3}
       volume: 1
-  - name: ShockStatus
+  - name: StatusFrozen
+    clips:
+    - clip: {fileID: 8300000, guid: 293288b0d648ce2499c0bddc17f2e9ab, type: 3}
+      volume: 1
+  - name: StatusShocked
     clips:
     - clip: {fileID: 8300000, guid: f2255e24b59987b4197cee2223b89ad9, type: 3}
       volume: 1
@@ -9708,6 +9712,10 @@ MonoBehaviour:
   - name: TowerDestroyed
     clips:
     - clip: {fileID: 8300000, guid: fb217128ed4b4ea4ab461cf6eea58834, type: 3}
+      volume: 1
+  - name: TowerFreezeShot
+    clips:
+    - clip: {fileID: 8300000, guid: 9454bf84c11212a42b37795b5fc22e79, type: 3}
       volume: 1
   - name: TowerHeal
     clips:

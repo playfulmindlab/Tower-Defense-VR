@@ -66,6 +66,7 @@ public class Enemy : MonoBehaviour
     Animator anim;
     float origSpeed;
     float attackDelay = 1f;
+    bool speedAffected = false;
 
     public void Init()
     {
@@ -158,9 +159,10 @@ public class Enemy : MonoBehaviour
                 attackDelay = 1 / attackRate;
             }
         }
-        else if (speed == 0 && attackingTower == null)
+        else if (speed == 0 && speedAffected == false && attackingTower == null)
         {
             ChangeTowerTarget(null);
+            //Speed = origSpeed;
         }
 
         //Effects Activate
@@ -189,11 +191,13 @@ public class Enemy : MonoBehaviour
                 {
                     Speed = activeEffects[i].origSpeed * activeEffects[i].slowAmount;
                     Debug.Log("Step 1: " + speed + " // " + activeEffects[i].origSpeed + " x " + activeEffects[i].slowAmount);
+                    speedAffected = false;
                 }
                 else
                 {
                     Speed = activeEffects[i].origSpeed;
                     Debug.Log("Step 2: " + speed);
+                    speedAffected = true;
                 }
             }
             else if (activeEffects[i].GetEffectType() == EffectType.Shock)
@@ -202,6 +206,7 @@ public class Enemy : MonoBehaviour
                 activeEffects[i].stopExpireTime -= Time.deltaTime;
 
                 if (activeEffects[i].expireTime > 0) {
+                    //Speed = 0f;
                     if (activeEffects[i].stopExpireTime <= 0f)
                     {
                         Effect shockEffect = activeEffects[i];
@@ -209,12 +214,15 @@ public class Enemy : MonoBehaviour
                         if (Speed == 0) //if speed = 0, switch to moving
                         {
                             Speed = shockEffect.origSpeed;
-                            shockEffect.stopExpireTime = shockEffect.stopIntervalTime; 
+                            shockEffect.stopExpireTime = shockEffect.stopIntervalTime;
+                            speedAffected = false;
                         }
                         else //otherwise, enemy has NOT stopped and needs to be!
+                        
                         {
                             Speed = 0f;
                             shockEffect.stopExpireTime = shockEffect.resumeIntervalTime ;
+                            speedAffected = true;
                         }
                     }
                 }
