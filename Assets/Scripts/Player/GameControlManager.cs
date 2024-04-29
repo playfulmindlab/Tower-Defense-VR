@@ -59,7 +59,7 @@ public class GameControlManager : MonoBehaviour
         switch (newControlSetting)
         {
             case ControlsSetting.Main:
-                moveControls.SetActive(true);
+                //moveControls.SetActive(true);
                 firing = false;
                 jumpedTowerControls.SetGunFire(false);
                 towerViewCanvas.gameObject.SetActive(false);
@@ -70,7 +70,7 @@ public class GameControlManager : MonoBehaviour
                 break;
 
             case ControlsSetting.Jumped:
-                moveControls.SetActive(false);
+                //moveControls.SetActive(false);
                 towerViewCanvas.gameObject.SetActive(true);
                 jumpedTowerControls.ToggleAutoShoot();
                 jumpedTowerControls.SetCamera(true);

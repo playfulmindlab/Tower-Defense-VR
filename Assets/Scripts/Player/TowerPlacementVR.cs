@@ -105,7 +105,7 @@ public class TowerPlacementVR : MonoBehaviour
             {
                 Debug.Log("ButtonPressed");
                 TowerBehaviour deletingTower = placementPointer.collision.GetComponent<TowerBehaviour>();
-                if (deletingTower != null && deletingTower.gameObject.CompareTag("BaseObstacle"))
+                if (deletingTower != null && (deletingTower.gameObject.CompareTag("Tower") || deletingTower.gameObject.CompareTag("Obstacle") || deletingTower.gameObject.CompareTag("AttackObstacle")))
                 {
                     Debug.Log("DeletingTower");
                     playerStats.AddMoney(deletingTower.towerCost);

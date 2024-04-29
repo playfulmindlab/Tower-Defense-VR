@@ -34,6 +34,7 @@ public class VRPointer : MonoBehaviour
         Vector3 endPosition = DefaultEnd(pointerLength);
 
         if (hit.collider) { endPosition = hit.point; collision = hit.collider.gameObject; }
+        else { collision = null; }
 
         return endPosition;
     }

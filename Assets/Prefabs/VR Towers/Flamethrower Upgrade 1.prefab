@@ -318,7 +318,6 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 2389372701864717615}
   canFire: 1
-  attackSFXName: 
   towerCost: 800
   health: 10
   maxHealth: 20
@@ -1507,7 +1506,7 @@ PrefabInstance:
     - target: {fileID: 3793221153750384484, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 8306428187704172982, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
