@@ -27,7 +27,7 @@ public class GameControlManager : MonoBehaviour
     [SerializeField] Canvas towerViewCanvas;
     [SerializeField] JumpedTowerControls jumpedTowerControls;
     [SerializeField] float cameraDamping = 5f;
-    [SerializeField] public InputActionProperty /*rotateJoystick,*/ attackButton;
+    [SerializeField] public InputActionProperty attackButton, unjumpButton;
 
     SimpleInletBalanceBoard bbInlet;
 
@@ -62,6 +62,11 @@ public class GameControlManager : MonoBehaviour
             {
                 firing = !firing;
                 jumpedTowerControls.SetGunFire(firing);
+            }
+
+            if (unjumpButton.action.WasPerformedThisFrame())
+            {
+                SwapControls(ControlsSetting.Main);
             }
         }
     }
