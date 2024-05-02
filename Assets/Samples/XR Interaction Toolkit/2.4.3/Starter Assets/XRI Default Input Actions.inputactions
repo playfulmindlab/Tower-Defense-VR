@@ -1682,6 +1682,28 @@
                     "action": "Delete Tower",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f280dc43-a0ad-48df-b5cf-9f34e44ee98c",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "940140c0-e06a-47df-9687-e80a5f60b6e5",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Place Tower",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

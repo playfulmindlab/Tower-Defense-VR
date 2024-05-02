@@ -101,7 +101,7 @@ public class TowerPlacementVR : MonoBehaviour
 
         else
         {
-            if (deleteTowerButton.action.WasPerformedThisFrame())
+            if (deleteTowerButton.action.WasPerformedThisFrame() && placementPointer.collision != null)
             {
                 Debug.Log("ButtonPressed");
                 TowerBehaviour deletingTower = placementPointer.collision.GetComponent<TowerBehaviour>();

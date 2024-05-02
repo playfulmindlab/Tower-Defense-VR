@@ -3949,6 +3949,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3132039078198094925, guid: fcfb50e207326fd4db768bbfbe4f374f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132039078198094925, guid: fcfb50e207326fd4db768bbfbe4f374f, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
       value: 0
       objectReference: {fileID: 0}
@@ -12283,6 +12287,7 @@ MonoBehaviour:
   turnControls: {fileID: 0}
   mainCamera: {fileID: 0}
   towerSpawnCanvas: {fileID: 764792394}
+  rightController: {fileID: 248236453}
   towerViewCanvas: {fileID: 1951020948}
   jumpedTowerControls: {fileID: 0}
   cameraDamping: 1
@@ -21899,7 +21904,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128752339}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
