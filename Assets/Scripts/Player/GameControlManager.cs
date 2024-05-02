@@ -13,9 +13,14 @@ public class GameControlManager : MonoBehaviour
     public ControlsSetting controlSetting;
     public static GameControlManager instance;
 
+    InputActionManager inputActionManager;
+    InputActionAsset normalInputAsset;
+    InputActionAsset jumpedInputAsset;
+
     [Header("Main Game Controls")]
     [SerializeField] GameObject moveControls;
     [SerializeField] GameObject turnControls;
+    [SerializeField] Camera mainCamera;
     [SerializeField] Canvas towerSpawnCanvas;
 
     [Header("Jumping Controls")]
@@ -36,7 +41,14 @@ public class GameControlManager : MonoBehaviour
         else
             Destroy(this.gameObject);
 
+        mainCamera = Camera.main;
         bbInlet = GetComponent<SimpleInletBalanceBoard>();
+
+        inputActionManager = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InputActionManager>();
+        normalInputAsset = inputActionManager.actionAssets[0];
+        jumpedInputAsset = inputActionManager.actionAssets[1];
+        inputActionManager.actionAssets = new List<InputActionAsset> { normalInputAsset };
+
     }
 
     private void Update()
@@ -54,27 +66,41 @@ public class GameControlManager : MonoBehaviour
         }
     }
 
+    void TogglePlayerCamera(bool cameraSetting)
+    {
+        mainCamera.enabled = cameraSetting;
+        mainCamera.GetComponent<AudioListener>().enabled = cameraSetting;
+    }
+
     public void SwapControls(ControlsSetting newControlSetting)
     {
+        firing = false;
+
         switch (newControlSetting)
         {
             case ControlsSetting.Main:
                 //moveControls.SetActive(true);
-                firing = false;
                 jumpedTowerControls.SetGunFire(false);
-                towerViewCanvas.gameObject.SetActive(false);
+                //towerViewCanvas.gameObject.SetActive(false);
                 jumpedTowerControls.ToggleAutoShoot();
+
                 jumpedTowerControls.SetCamera(false);
+                TogglePlayerCamera(true);
+                //inputActionManager
+
                 jumpedTowerControls = null;
+                //mainCamera.is
                 AudioManager.instance.PlaySFXArray("TowerUnjump", towerViewCanvas.transform.position);
                 break;
 
             case ControlsSetting.Jumped:
                 //moveControls.SetActive(false);
-                towerViewCanvas.gameObject.SetActive(true);
+                //towerViewCanvas.gameObject.SetActive(true);
                 jumpedTowerControls.ToggleAutoShoot();
+
+                TogglePlayerCamera(false);
                 jumpedTowerControls.SetCamera(true);
-                firing = false;
+
                 AudioManager.instance.PlaySFXArray("TowerJump", towerViewCanvas.transform.position);
                 break;
         }

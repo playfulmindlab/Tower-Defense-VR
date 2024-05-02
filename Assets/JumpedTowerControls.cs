@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.XR;
+using Unity.XR.CoreUtils;
 
 public class JumpedTowerControls : MonoBehaviour
 {
     [SerializeField] TowerBehaviour towerBehaviour;
+
     [SerializeField] Camera towerCamera;
+    AudioListener cameraListener;
+
+    //[SerializeField] GameObject playerParentHolder;
     Transform towerHead;
     MissileDamage missileDamage;
 
@@ -14,17 +20,22 @@ public class JumpedTowerControls : MonoBehaviour
     public void Awake()
     {
         towerHead = towerBehaviour.towerPivot;
+
+        cameraListener = towerCamera.GetComponent<AudioListener>();
+        if (cameraListener.enabled) cameraListener.enabled = false;
+
         missileDamage = GetComponent<MissileDamage>();
     }
 
     public void SetCamera(bool camActive)
     {
         towerCamera.transform.gameObject.SetActive(camActive);
+        cameraListener.enabled = camActive;
     }
 
     public void SetJumpedTower()
     {
-        if (TowerDefenseManager.CurrPhase == Phase.Defend || TowerDefenseManager.CurrPhase == Phase.Defend_ChooseJump)
+        //if (TowerDefenseManager.CurrPhase == Phase.Defend || TowerDefenseManager.CurrPhase == Phase.Defend_ChooseJump)
         {
             towerRotation = towerBehaviour.gameObject.transform.localEulerAngles.x;
             GameControlManager.instance.SwapToJumpedControls(this);
