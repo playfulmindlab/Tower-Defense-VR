@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BaseBarricade : TowerBehaviour
 {
+    [SerializeField] Slider baseSlider;
+    [SerializeField] Animator anim;
+
     protected override void Start()
     {
         base.Start();
+        //anim = GetComponent<Animator>();
+        baseSlider.maxValue = shield;
     }
 
     public override void Tick()
@@ -15,6 +21,8 @@ public class BaseBarricade : TowerBehaviour
         {
             healthBar.value = health;
             shieldBar.value = shield;
+
+            baseSlider.value = shield;
         }
     }
 
@@ -22,6 +30,7 @@ public class BaseBarricade : TowerBehaviour
     {
         if (shield > 0)
         {
+            anim.SetTrigger("Reset");
             if (shield - damage < 0)
             {
                 damage -= shield;

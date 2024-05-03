@@ -17,6 +17,8 @@ public class GameControlManager : MonoBehaviour
     InputActionAsset normalInputAsset;
     InputActionAsset jumpedInputAsset;
 
+    Canvas baseOverlayWarning;
+
     [Header("Main Game Controls")]
     [SerializeField] GameObject moveControls;
     [SerializeField] GameObject turnControls;
@@ -45,6 +47,7 @@ public class GameControlManager : MonoBehaviour
             Destroy(this.gameObject);
 
         mainCamera = Camera.main;
+        baseOverlayWarning = GetComponentInChildren<Canvas>();
         rayLine = rightController.transform.Find("Ray Interactor").gameObject.GetComponent<LineRenderer>();
         pointerLine = rightController.transform.Find("PhysicsPointer").GetComponent<LineRenderer>();
         bbInlet = GetComponent<SimpleInletBalanceBoard>();
@@ -101,6 +104,7 @@ public class GameControlManager : MonoBehaviour
 
                 jumpedTowerControls = null;
                 AudioManager.instance.PlaySFXArray("TowerUnjump", towerViewCanvas.transform.position);
+                baseOverlayWarning.worldCamera = mainCamera;
                 break;
 
             case ControlsSetting.Jumped:
@@ -114,6 +118,7 @@ public class GameControlManager : MonoBehaviour
                 pointerLine.enabled = false;
 
                 AudioManager.instance.PlaySFXArray("TowerJump", towerViewCanvas.transform.position);
+                baseOverlayWarning.worldCamera = jumpedTowerControls.TowerCamera;
                 break;
         }
     }

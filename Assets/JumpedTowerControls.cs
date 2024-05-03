@@ -9,6 +9,8 @@ public class JumpedTowerControls : MonoBehaviour
     [SerializeField] TowerBehaviour towerBehaviour;
 
     [SerializeField] Camera towerCamera;
+    public Camera TowerCamera { get { return towerCamera; } set { } }
+
     AudioListener cameraListener;
 
     //[SerializeField] GameObject playerParentHolder;
