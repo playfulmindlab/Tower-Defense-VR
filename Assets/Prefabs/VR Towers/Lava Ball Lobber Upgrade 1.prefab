@@ -734,7 +734,6 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 4756223661353730859}
   canFire: 1
-  attackSFXName: 
   towerCost: 700
   health: 10
   maxHealth: 10
