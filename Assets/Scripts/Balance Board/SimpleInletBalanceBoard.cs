@@ -20,6 +20,8 @@ namespace LSL4Unity.Samples.SimpleInlet
         // We need to find the stream somehow. You must provide a StreamName in editor or before this object is Started.
         public string StreamName;
         ContinuousResolver resolver;
+        float[] coordValues = new float[3];
+        public Vector2 CoordValues { get { return new Vector2(coordValues[0], coordValues[1]); } set { } }
         public Vector2 rotationValues = Vector2.zero;
 
         double max_chunk_duration = 0.2;  // Duration, in seconds, of buffer passed to pull_chunk. This must be > than average frame interval.

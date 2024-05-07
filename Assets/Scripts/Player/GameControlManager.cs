@@ -17,11 +17,12 @@ public class GameControlManager : MonoBehaviour
     InputActionAsset normalInputAsset;
     InputActionAsset jumpedInputAsset;
 
-    Canvas baseOverlayWarning;
+    [SerializeField] Canvas jumpedOverlayWarning;
+    [SerializeField] Canvas attackedBaseWarning;
 
     [Header("Main Game Controls")]
-    [SerializeField] GameObject moveControls;
-    [SerializeField] GameObject turnControls;
+    //[SerializeField] GameObject moveControls;
+    //[SerializeField] GameObject turnControls;
     [SerializeField] Camera mainCamera;
     [SerializeField] Canvas towerSpawnCanvas;
     [SerializeField] GameObject rightController;
@@ -47,7 +48,7 @@ public class GameControlManager : MonoBehaviour
             Destroy(this.gameObject);
 
         mainCamera = Camera.main;
-        baseOverlayWarning = GetComponentInChildren<Canvas>();
+       // overlayWarning = GetComponentInChildren<Canvas>();
         rayLine = rightController.transform.Find("Ray Interactor").gameObject.GetComponent<LineRenderer>();
         pointerLine = rightController.transform.Find("PhysicsPointer").GetComponent<LineRenderer>();
         bbInlet = GetComponent<SimpleInletBalanceBoard>();
@@ -104,7 +105,8 @@ public class GameControlManager : MonoBehaviour
 
                 jumpedTowerControls = null;
                 AudioManager.instance.PlaySFXArray("TowerUnjump", towerViewCanvas.transform.position);
-                baseOverlayWarning.worldCamera = mainCamera;
+                attackedBaseWarning.worldCamera = mainCamera;
+                jumpedOverlayWarning.enabled = false;
                 break;
 
             case ControlsSetting.Jumped:
@@ -118,7 +120,9 @@ public class GameControlManager : MonoBehaviour
                 pointerLine.enabled = false;
 
                 AudioManager.instance.PlaySFXArray("TowerJump", towerViewCanvas.transform.position);
-                baseOverlayWarning.worldCamera = jumpedTowerControls.TowerCamera;
+                attackedBaseWarning.worldCamera = jumpedTowerControls.TowerCamera;
+                jumpedOverlayWarning.worldCamera = jumpedTowerControls.TowerCamera;
+                jumpedOverlayWarning.enabled = true;
                 break;
         }
     }
