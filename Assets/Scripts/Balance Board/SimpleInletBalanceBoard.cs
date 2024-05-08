@@ -96,7 +96,7 @@ namespace LSL4Unity.Samples.SimpleInlet
 
                 if (data_buffer[0] != null)
                 {
-                    float[] coordValues = ConvertStringToFloat(data_buffer[0]);
+                    /*float[] */coordValues = ConvertStringToFloat(data_buffer[0]);
 
                     rotationValues = new Vector2((-coordValues[0] * 1.5f), (coordValues[1]));
 
