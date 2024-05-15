@@ -8,16 +8,16 @@ public class JumpedTowerControls : MonoBehaviour
 {
     [SerializeField] TowerBehaviour towerBehaviour;
 
-    [SerializeField] Camera towerCamera;
+    [SerializeField] protected Camera towerCamera;
     public Camera TowerCamera { get { return towerCamera; } set { } }
 
     AudioListener cameraListener;
 
     //[SerializeField] GameObject playerParentHolder;
-    Transform towerHead;
+    protected Transform towerHead;
     MissileDamage missileDamage;
 
-    private float towerRotation = 0f;
+    protected float towerRotation = 0f;
 
     public void Awake()
     {
@@ -49,12 +49,12 @@ public class JumpedTowerControls : MonoBehaviour
         towerBehaviour.canFire = !towerBehaviour.canFire;
     }
 
-    public void RotateGun(Quaternion rot)
-    {
-        towerHead.rotation = rot;// * Quaternion.Euler(0, 270, 0);
-    }
+    //public void RotateGun(Quaternion rot)
+    //{
+    //    towerHead.rotation = rot;// * Quaternion.Euler(0, 270, 0);
+    //}
 
-    public void RotateGun(Vector2 balanceBoardCoords, float dampVal = 5f)
+    public virtual void RotateGun(Vector2 balanceBoardCoords, float dampVal = 5f)
     {
         Quaternion rot = Quaternion.Euler(new Vector3((balanceBoardCoords.y - towerRotation) * 2f, -balanceBoardCoords.x * 2, 0f));
 
@@ -62,7 +62,12 @@ public class JumpedTowerControls : MonoBehaviour
         towerHead.localRotation = Quaternion.Slerp(towerHead.localRotation, rot, Time.deltaTime * dampVal);
     }
 
-    public void RotateGun(float balanceX, float balanceY, float magnitude)
+    public virtual void EndTowerJump()
+    {
+
+    }
+
+    /*public void RotateGun(float balanceX, float balanceY, float magnitude)
     {
         Quaternion rot;
 
@@ -70,7 +75,7 @@ public class JumpedTowerControls : MonoBehaviour
         rot = Quaternion.Euler(new Vector3(balanceX * 2f, balanceY * 2f, 0f));
 
         towerHead.rotation = rot;
-    }
+    }*/
 
     public void SetGunFire(bool firing)
     {

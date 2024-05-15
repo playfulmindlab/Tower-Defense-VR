@@ -9,6 +9,8 @@ public class JumpedTowerUI : MonoBehaviour
     SimpleInletBalanceBoard balanceBoardInput;
     [SerializeField] Image gravityCenter;
 
+    //[SerializeField]
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,7 @@ public class JumpedTowerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gravityCenter.transform.localPosition = balanceBoardInput.CoordValues / 2f;
+        gravityCenter.transform.localPosition = Vector3.Slerp(gravityCenter.transform.localPosition, balanceBoardInput.CoordValues / 2f, Time.deltaTime);
         //gravityCenter.transform.localPosition = balanceBoardInput.rotationValues / 2f;
     }
 }

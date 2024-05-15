@@ -152,7 +152,6 @@ public class TowerBehaviour : MonoBehaviour
             healthDamageMod = 0.5f;
             //Debug.Log("Damage Pre " + GetComponent<Damage>().DamageValue + " // " + (this.damage * healthDamageMod));
             currentDamageMethodClass.UpdateDamage(this.damage * healthDamageMod);
-            //Debug.Log("Damage Post " + GetComponent<Damage>().DamageValue);
         }
     }
 

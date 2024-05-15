@@ -12,7 +12,7 @@ public class MissileDamage : Damage, IDamageMethod
     [SerializeField] string firingSFXName = "TowerBasicShot";
 
     protected ParticleSystem.MainModule missileSystemMain;
-    AudioSource audioSource;
+    protected AudioSource audioSource;
 
     public override void Init(float damage, float firerate)
     {
@@ -22,7 +22,7 @@ public class MissileDamage : Damage, IDamageMethod
         base.Init(damage, firerate);
     }
 
-    public void ActivateGun(bool activeState)
+    public virtual void ActivateGun(bool activeState)
     {
         if (activeState == true)
         {

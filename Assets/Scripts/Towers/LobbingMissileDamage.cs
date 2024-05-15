@@ -28,4 +28,26 @@ public class LobbingMissileDamage : MissileDamage
             return;
         }
     }
+
+    public override void ActivateGun(bool activeState)
+    {
+        if (activeState == true)
+        {
+            audioSource.loop = true;
+            missileSystemMain.loop = true;
+            missileSystemMain.maxParticles = 1000;
+            var emission = missileSystem.emission;
+            emission.rateOverTimeMultiplier = missileSystemMain.startSpeedMultiplier / 5f;
+            missileSystem.Play();
+        }
+        else
+        {
+            missileSystem.Stop();
+            audioSource.loop = false;
+            missileSystemMain.loop = false;
+            missileSystemMain.maxParticles = 10;
+            var emission = missileSystem.emission;
+            emission.rateOverTimeMultiplier = 0f;
+        }
+    }
 }

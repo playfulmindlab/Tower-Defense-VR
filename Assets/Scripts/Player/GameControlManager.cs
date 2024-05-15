@@ -100,6 +100,7 @@ public class GameControlManager : MonoBehaviour
 
                 jumpedTowerControls.SetCamera(false);
                 TogglePlayerCamera(true);
+                jumpedTowerControls.EndTowerJump();
                 rayLine.enabled = true;
                 pointerLine.enabled = true;
 
