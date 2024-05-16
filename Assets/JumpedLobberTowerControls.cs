@@ -6,19 +6,17 @@ public class JumpedLobberTowerControls : JumpedTowerControls
 {
     [SerializeField] LineRenderer trajectoryLine;
     [SerializeField] ParticleSystem missileSystem;
-    [SerializeField] ParticleSystem.MainModule missileSystemMain;
     [SerializeField, Min(3)] int lineSegments = 20;
-
-    [SerializeField] Transform headTransform;
     [SerializeField] Transform tipTransform;
-
-    float flightTime = 3f;
 
     GameObject targetDecal;
     Vector3 targetPoint = Vector3.zero;
     RaycastHit hit;
     float attackRange = 60f;
+    ParticleSystem.MainModule missileSystemMain;
 
+    float projectileSpeed = 0f;
+    public float ProjectileSpeed { get { return projectileSpeed; } }
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +35,6 @@ public class JumpedLobberTowerControls : JumpedTowerControls
 
             RenderTrajectory();
         }
-
     }
 
     void ChangeCameraRotation(Vector3 newCoords, float dampVal)
@@ -55,19 +52,17 @@ public class JumpedLobberTowerControls : JumpedTowerControls
 
     void RenderTrajectory()
     {
-        Debug.Log("RenderTrajectory Gothru");
         Vector3 startPoint = tipTransform.position;
         Vector3 endPoint = targetPoint;
         Vector3[] positions = new Vector3[lineSegments + 1];
         trajectoryLine.positionCount = lineSegments;
 
         Debug.Log("Start: " + startPoint + " / End: " + endPoint);
-        //Debug.Log("Seg Count: " + positions.Length);
 
         float distance = Vector3.Distance(endPoint, startPoint);
         float gravity = missileSystemMain.gravityModifierMultiplier * 9.81f;
 
-        float projectileSpeed = Mathf.Sqrt(distance * gravity);
+        projectileSpeed = Mathf.Sqrt(distance * gravity);
         missileSystemMain.startSpeed = projectileSpeed;
 
         float xVal = 0;
@@ -76,7 +71,7 @@ public class JumpedLobberTowerControls : JumpedTowerControls
         {
             float arcPart = (float)i / lineSegments;
             xVal = arcPart * distance;
-            Debug.Log("ArcPart: " + arcPart + " / Distance: " + distance + " / XValue: " + xVal + " / Loop: " + i + " / Distance: " + distance);
+            //Debug.Log("ArcPart: " + arcPart + " / Distance: " + distance + " / XValue: " + xVal + " / Loop: " + i + " / Distance: " + distance);
 
             float yVal = xVal - ((gravity * xVal * xVal) / (projectileSpeed * projectileSpeed));
 

@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class LobbingMissileDamage : MissileDamage
 {
+    JumpedLobberTowerControls jumpedLobberTowerControls;
+
+    public override void Init(float damage, float firerate)
+    {
+        audioSource = GetComponent<AudioSource>();
+        missileSystemMain = missileSystem.main;
+        jumpedLobberTowerControls = GetComponent<JumpedLobberTowerControls>();
+        base.Init(damage, firerate);
+    }
     public override void DamageTick(Enemy target)
     {
         if (target)
@@ -19,8 +28,7 @@ public class LobbingMissileDamage : MissileDamage
             missileSystemMain.startRotationZ = towerHead.forward.z;
 
             float dist = Vector3.Distance(target.transform.position, towerHead.transform.position);
-            projectileSpeed = Mathf.Sqrt(dist * missileSystemMain.gravityModifierMultiplier * 9.81f);
-            missileSystemMain.startSpeed = projectileSpeed;
+            missileSystemMain.startSpeed = Mathf.Sqrt(dist * missileSystemMain.gravityModifierMultiplier * 9.81f);
 
             missileSystem.Play();
 
@@ -34,10 +42,11 @@ public class LobbingMissileDamage : MissileDamage
         if (activeState == true)
         {
             audioSource.loop = true;
-            missileSystemMain.loop = true;
-            missileSystemMain.maxParticles = 1000;
+            //missileSystemMain.loop = true;
+            missileSystemMain.startSpeedMultiplier = jumpedLobberTowerControls.ProjectileSpeed;
+            missileSystemMain.maxParticles = 1;
             var emission = missileSystem.emission;
-            emission.rateOverTimeMultiplier = missileSystemMain.startSpeedMultiplier / 5f;
+            emission.rateOverTimeMultiplier = missileSystemMain.startSpeedMultiplier;// / 5f;
             missileSystem.Play();
         }
         else

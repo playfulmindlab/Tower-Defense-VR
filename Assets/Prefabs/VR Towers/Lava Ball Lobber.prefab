@@ -1639,7 +1639,7 @@ Transform:
   m_GameObject: {fileID: 8050379940650521217}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.821214, y: 0, z: 2.785043}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1717,7 +1717,6 @@ MonoBehaviour:
   trajectoryLine: {fileID: 6322282515549910048}
   missileSystem: {fileID: 551657988418458377}
   lineSegments: 20
-  headTransform: {fileID: 8237625633963232348}
   tipTransform: {fileID: 4307604015720730800}
 --- !u!114 &6161767442420987691
 MonoBehaviour:
@@ -1738,7 +1737,6 @@ MonoBehaviour:
     m_Bits: 1
   missileSystem: {fileID: 551657988418458377}
   towerHead: {fileID: 4307604015720730800}
-  projectileSpeed: 30
   firingSFXName: TowerBasicShot
 --- !u!54 &1796001710538861243
 Rigidbody:
@@ -2019,7 +2017,7 @@ Transform:
   m_GameObject: {fileID: 8104740153184062587}
   serializedVersion: 2
   m_LocalRotation: {x: 1.110223e-16, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6820341, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2310,7 +2308,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 20, z: 0}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
