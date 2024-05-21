@@ -13,7 +13,6 @@ public class TowerBehaviour : MonoBehaviour
     public Transform towerPivot;
     public bool canFire = true;
 
-
     public int towerCost = 100;
     [SerializeField] protected int health = 10;
     public int maxHealth = 10;
