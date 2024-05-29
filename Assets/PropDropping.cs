@@ -40,18 +40,11 @@ public class PropDropping : MonoBehaviour
                 Vector3 hitPoint = hit.point;
 
                 Debug.Log("Hit Object: " + hit.collider.gameObject);
-                Debug.Log("World 1: " + this.transform.position + " // Local 1: " + this.transform.localPosition);
-                //Un-comment this out later
-                //Make this a child of "Minimap", not "Baseplate"
-                //this.transform.parent = hit.collider.transform.parent;
-                //this.transform.rotation = Quaternion.Euler(Vector3.zero);
-                //this.transform.position = hitPoint;
+                //Debug.Log("World 1: " + this.transform.position + " // Local 1: " + this.transform.localPosition);
 
                 miniMapScript.DropNewProp(this.gameObject, towerSpawn, hit.point);
 
-                //this.transform.parent.GetComponent<TransferTowerPositionToBigMap>().DropNewProp(hitPoint, towerSpawn);
-
-                Debug.Log("World 2: " + this.transform.position + " // Local 2: " + this.transform.localPosition);
+                //Debug.Log("World 2: " + this.transform.position + " // Local 2: " + this.transform.localPosition);
                 //Instantiate(towerSpawn, hit.point, Quaternion.identity);
             }
 
