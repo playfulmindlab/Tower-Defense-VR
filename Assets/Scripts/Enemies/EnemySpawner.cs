@@ -51,7 +51,6 @@ public class EnemySpawner : MonoBehaviour
                 enemyPrefabs.Add(enemy.enemyID, enemy.enemyPrefab);
                 enemyObjectPools.Add(enemy.enemyID, new Queue<Enemy>());
             }
-
         }
     }
 

@@ -6,16 +6,17 @@ public class MiniMapTowerPlacement : MonoBehaviour
 {
     [SerializeField] GameObject mainMap;
     [SerializeField] private PlayerStats playerStats;
-    PropDropping newProp;
+    PropManager newProp;
 
     private void Start()
     {
         playerStats = FindObjectOfType<PlayerStats>();
     }
 
-    public void DropNewProp(GameObject newProp, GameObject newMainMapTower, Vector3 localDropPoint)
+    public GameObject DropNewProp(GameObject newProp, GameObject newMainMapTower, Vector3 localDropPoint)
     {
-        TowerBehaviour towerToDrop = newProp.GetComponent<PropDropping>().towerSpawn.GetComponent<TowerBehaviour>();
+        TowerBehaviour towerToDrop = newProp.GetComponent<PropManager>().towerSpawn.GetComponent<TowerBehaviour>();
+        GameObject spawnedTower = null;
 
         if (playerStats.CurrentMoney >= towerToDrop.towerCost)
         {
@@ -31,9 +32,13 @@ public class MiniMapTowerPlacement : MonoBehaviour
             GameObject newTower = Instantiate(newMainMapTower, Vector3.zero, newProp.transform.rotation);
             newTower.transform.parent = mainMap.transform;
             newTower.transform.localPosition = newProp.transform.localPosition;
+            //newTower.transform.localScale = Vector3.one;
 
             PlaceNewTower(newTower, newTower.GetComponent<BoxCollider>());
+
+            spawnedTower = newTower;
         }
+        return spawnedTower;
     }
 
     void PlaceNewTower(GameObject tower, Collider towerCollider, bool playTowerPlacedSFX = true)
@@ -48,6 +53,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
         towerCollider.isTrigger = false;
         towerCollider.gameObject.layer = 6;
+
 
         foreach (Transform child in towerCollider.transform)
         {
@@ -70,7 +76,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
         RaycastHit hit;
         for (int d = 0; d < 360; d += 90)
         {
-            if (Physics.Raycast(newTower.transform.position + (Vector3.up * 0.05f), new Vector3(Mathf.Sin(d * Mathf.Deg2Rad), 0, Mathf.Cos(d * Mathf.Deg2Rad)), out hit, Mathf.Infinity, layerMask))
+            if (Physics.Raycast(newTower.transform.position + (Vector3.up * 0.005f), new Vector3(Mathf.Sin(d * Mathf.Deg2Rad), 0, Mathf.Cos(d * Mathf.Deg2Rad)), out hit, Mathf.Infinity, layerMask))
             {
                 if (hit.distance < closestPathDistance)
                 {
@@ -80,6 +86,59 @@ public class MiniMapTowerPlacement : MonoBehaviour
             }
         }
     }
+
+    public void UpgradeTower(GameObject oldTower, PropManager oldProp, GameObject upgradedTower)
+    {
+        if (TowerDefenseManager.CurrPhase == Phase.Build ||
+            TowerDefenseManager.CurrPhase == Phase.Repair)
+        {
+            int newTowerCost = upgradedTower.GetComponent<TowerBehaviour>().towerCost;
+
+            Debug.Log("PlayerStats: " + playerStats.gameObject.name);
+            Debug.Log("Money: " + playerStats.CurrentMoney + " vs. " + newTowerCost);
+
+            if (playerStats.CurrentMoney >= newTowerCost)
+            {
+                GameObject newTower = Instantiate(upgradedTower, oldTower.transform.position, oldTower.transform.rotation);
+                BoxCollider towerCollider = newTower.GetComponent<BoxCollider>();
+
+                TowerDefenseManager.towersInGame.Remove(oldTower.GetComponent<TowerBehaviour>());
+
+                PlaceNewTower(newTower, towerCollider, false);
+                Destroy(oldTower);
+
+                AudioManager.instance.PlaySFXArray("TowerUpgrade", newTower.transform.position);
+
+                //upgradeConfetti.transform.position = newTower.transform.position;
+                //upgradeConfetti.Play();
+
+                //------------------------------------------
+                //------------------------------------------
+
+                GameObject newProp = Instantiate(oldProp.upgradedProp, oldProp.transform.position, oldProp.transform.rotation);
+                if (newProp.GetComponent<PropManager>() != null)
+                {
+                    newProp.GetComponent<PropManager>().SpawnUpgradedProp(newTower.GetComponent<TowerBehaviour>());
+                }
+                newProp.transform.parent = this.transform;
+                newProp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+                Destroy(oldProp.gameObject);
+            }
+            else
+            {
+                Debug.Log("UPGRADE_ERROR: You do not have the appropriate funds to upgrade this tower!");
+            }
+        }
+        else { Debug.LogError("ERROR: You are not currently in the Build or Repair phase!"); }
+    }
+
+    public void DeleteTower(PropManager propScript, TowerBehaviour towerScript)
+    {
+        playerStats.AddMoney(towerScript.towerCost);
+        TowerDefenseManager.EnqueueTowerToRemove(towerScript);
+        Destroy(propScript.gameObject);
+    }
+
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

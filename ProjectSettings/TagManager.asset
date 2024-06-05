@@ -13,6 +13,7 @@ TagManager:
   - AttackObstacle
   - BaseObstacle
   - MinimapBaseplate
+  - RGestures
   layers:
   - Default
   - TransparentFX

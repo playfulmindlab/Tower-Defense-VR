@@ -114,11 +114,13 @@ public class TowerBehaviour : MonoBehaviour
         }
     }
 
-    public void UpgradeTower()
+    public void UpgradeTower(MiniMapTowerPlacement towerPlacement, PropManager oldProp)
     {
-        TowerPlacementVR towerPlacement = GameObject.FindWithTag("Player").GetComponent<TowerPlacementVR>();
+        //TowerPlacementVR towerPlacement = GameObject.FindWithTag("Player").GetComponent<TowerPlacementVR>();
 
-        towerPlacement.UpgradeTower(this.gameObject, upgradedTower);
+        Debug.Log(this.gameObject.name + " /// " + upgradedTower.name);
+
+        towerPlacement.UpgradeTower(this.gameObject, oldProp, upgradedTower);
     }
 
     public virtual void Damage(int damage)

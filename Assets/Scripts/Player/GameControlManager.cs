@@ -114,6 +114,7 @@ public class GameControlManager : MonoBehaviour
                 //moveControls.SetActive(false);
                 //towerViewCanvas.gameObject.SetActive(true);
                 jumpedTowerControls.ToggleAutoShoot();
+                jumpedTowerControls.SetJumpedTower();
 
                 TogglePlayerCamera(false);
                 jumpedTowerControls.SetCamera(true);

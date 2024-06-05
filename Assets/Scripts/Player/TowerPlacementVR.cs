@@ -194,6 +194,9 @@ public class TowerPlacementVR : MonoBehaviour
         {
             int newTowerCost = upgradedTower.GetComponent<TowerBehaviour>().towerCost;
 
+            Debug.Log("PlayerStats: " + playerStats.gameObject.name);
+            Debug.Log("Money: " + playerStats.CurrentMoney + " vs. " + newTowerCost);
+
             if (playerStats.CurrentMoney >= newTowerCost)
             {
                 GameObject newTower = Instantiate(upgradedTower, oldTower.transform.position, oldTower.transform.rotation);

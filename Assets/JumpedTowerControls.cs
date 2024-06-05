@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //using UnityEngine.XR;
 using Unity.XR.CoreUtils;
+using UnityEngine.XR.Hands.Samples.GestureSample;
 
 public class JumpedTowerControls : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class JumpedTowerControls : MonoBehaviour
     MissileDamage missileDamage;
 
     protected float towerRotation = 0f;
+    StaticHandGesturesTowerJump[] gestureScripts;
 
     public void Awake()
     {
@@ -25,6 +27,13 @@ public class JumpedTowerControls : MonoBehaviour
 
         cameraListener = towerCamera.GetComponent<AudioListener>();
         if (cameraListener.enabled) cameraListener.enabled = false;
+
+        gestureScripts = GetComponents<StaticHandGesturesTowerJump>();
+        Debug.Log("GESTURES: " + gestureScripts.Length);
+        foreach (StaticHandGesturesTowerJump s in gestureScripts)
+        {
+            s.enabled = false;
+        }
 
         missileDamage = GetComponent<MissileDamage>();
     }
@@ -39,8 +48,13 @@ public class JumpedTowerControls : MonoBehaviour
     {
         //if (TowerDefenseManager.CurrPhase == Phase.Defend || TowerDefenseManager.CurrPhase == Phase.Defend_ChooseJump)
         {
-            towerRotation = towerBehaviour.gameObject.transform.localEulerAngles.x;
-            GameControlManager.instance.SwapToJumpedControls(this);
+            foreach(StaticHandGesturesTowerJump s in gestureScripts)
+            {
+                s.enabled = true;
+            }
+
+            //towerRotation = towerBehaviour.gameObject.transform.localEulerAngles.x;
+            //GameControlManager.instance.SwapToJumpedControls(this);
         }
     }
 
@@ -64,7 +78,11 @@ public class JumpedTowerControls : MonoBehaviour
 
     public virtual void EndTowerJump()
     {
-
+        foreach (StaticHandGesturesTowerJump s in gestureScripts)
+        {
+            s.enabled = false;
+        }
+        GameControlManager.instance.SwapControls("Main");
     }
 
     /*public void RotateGun(float balanceX, float balanceY, float magnitude)
