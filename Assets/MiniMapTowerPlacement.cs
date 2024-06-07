@@ -6,7 +6,8 @@ public class MiniMapTowerPlacement : MonoBehaviour
 {
     [SerializeField] GameObject mainMap;
     [SerializeField] private PlayerStats playerStats;
-    PropManager newProp;
+
+    PropManager lastPropMenuActivated = null;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
             newProp.transform.rotation = Quaternion.Euler(Vector3.zero);
             newProp.transform.position = localDropPoint;
             newProp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            newProp.GetComponent<PropManager>().LockPropPosition();
 
             RotateTowerTowardsPath(newProp);
 
@@ -35,6 +37,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
             //newTower.transform.localScale = Vector3.one;
 
             PlaceNewTower(newTower, newTower.GetComponent<BoxCollider>());
+            newTower.transform.rotation = newProp.transform.rotation;
 
             spawnedTower = newTower;
         }
@@ -137,6 +140,21 @@ public class MiniMapTowerPlacement : MonoBehaviour
         playerStats.AddMoney(towerScript.towerCost);
         TowerDefenseManager.EnqueueTowerToRemove(towerScript);
         Destroy(propScript.gameObject);
+    }
+
+    public void SwapActivatedPropMenu(PropManager newPropManager)
+    {
+        if (lastPropMenuActivated != null)
+        {
+            lastPropMenuActivated.ToggleRadialMenu(false);
+        }
+
+        if (lastPropMenuActivated == newPropManager)
+        {
+            lastPropMenuActivated.ToggleRadialMenu(false);
+            lastPropMenuActivated = null;
+        }
+        else lastPropMenuActivated = newPropManager;
     }
 
 }

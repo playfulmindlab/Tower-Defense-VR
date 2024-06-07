@@ -11,10 +11,14 @@ public class PropManager : MonoBehaviour
 
     public GameObject upgradedProp;
 
+    [SerializeField] Canvas radialMenuCanvas;
+    UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable xrGrab;
     TowerBehaviour towerScript;
     JumpedTowerControls jumpedTowerScript;
 
     LayerMask baseLayer; //= LayerMask.GetMask("Baseplate");
+
+    bool isPropDropped = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,45 +26,71 @@ public class PropManager : MonoBehaviour
         baseLayer = LayerMask.GetMask("Baseplate");
 
         miniMapScript = GameObject.FindGameObjectWithTag("MinimapBaseplate").GetComponentInParent<MiniMapTowerPlacement>();
+
+        xrGrab = GetComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>();
+
+        //radialMenuCanvas = GetComponentInChildren<Canvas>();
+        radialMenuCanvas.enabled = false;
     }
 
     public void TowerDropped()
     {
-        Vector3 dir = (line.GetPosition(1) - line.GetPosition(0)).normalized;
-
-        RaycastHit hit;
-        Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer);
-
-        if (Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer)) 
-            Debug.Log("Detect Layer: " + hit.collider.gameObject.layer);
-
-        //Check to see if it intersects Baseplate & ONLY baseplate
-        if (Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer))
+        if (isPropDropped == false)
         {
-            print("READING");
+            Vector3 dir = (line.GetPosition(1) - line.GetPosition(0)).normalized;
 
+            RaycastHit hit;
             //Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer);
-            if (hit.collider != null)
+
+            //if (Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer)) 
+            //    Debug.Log("Detect Layer: " + hit.collider.gameObject.layer);
+
+            //Check to see if it intersects Baseplate & ONLY baseplate
+            if (Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer))
             {
-                Vector3 hitPoint = hit.point;
+                print("READING");
 
-                Debug.Log("Hit Object: " + hit.collider.gameObject);
-                //Debug.Log("World 1: " + this.transform.position + " // Local 1: " + this.transform.localPosition);
+                //Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer);
+                if (hit.collider != null)
+                {
+                    Vector3 hitPoint = hit.point;
 
-                towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, hit.point);
+                    //Debug.Log("Hit Object: " + hit.collider.gameObject);
+                    //Debug.Log("World 1: " + this.transform.position + " // Local 1: " + this.transform.localPosition);
 
-                towerScript = towerSpawn.GetComponent<TowerBehaviour>();
-                jumpedTowerScript = towerSpawn.GetComponent<JumpedTowerControls>();
+                    towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, hit.point);
 
-                //Debug.Log("World 2: " + this.transform.position + " // Local 2: " + this.transform.localPosition);
+                    towerScript = towerSpawn.GetComponent<TowerBehaviour>();
+                    jumpedTowerScript = towerSpawn.GetComponent<JumpedTowerControls>();
+
+                    isPropDropped = true;
+
+                    //xrGrab.enabled = false;
+                    //xrGrab.enabled = true;
+                    //Debug.Log("World 2: " + this.transform.position + " // Local 2: " + this.transform.localPosition);
+                }
+            }
+            else
+            {
+                Destroy(gameObject);
+                print("NOTHING");
             }
         }
-        else
-        {
-            Destroy(gameObject);
-            print("NOTHING");
-        }
     }
+
+    public void LockPropPosition()
+    {
+        xrGrab.trackPosition = false;
+        xrGrab.trackRotation = false;
+    }
+
+    public void ToggleRadialMenu(bool toggleState)
+    {
+        radialMenuCanvas.enabled = toggleState;
+        if (toggleState == true)
+            miniMapScript.SwapActivatedPropMenu(this);
+    }
+
 
     public void SpawnUpgradedProp(TowerBehaviour upgradedTowerScript)
     {

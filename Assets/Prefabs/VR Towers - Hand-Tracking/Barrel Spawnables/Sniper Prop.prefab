@@ -405,6 +405,7 @@ MonoBehaviour:
   towerSpawn: {fileID: 694480364299055864, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
   miniMapScript: {fileID: 0}
   upgradedProp: {fileID: 0}
+  radialMenuCanvas: {fileID: 0}
 --- !u!1 &935009938892069763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,7 +1253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5596832724685355607}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1607,6 +1608,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1600892266664762322, guid: e28c7c3a5188cb04cbeceb93bcd98700, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2472777265469780231, guid: e28c7c3a5188cb04cbeceb93bcd98700, type: 3}
       propertyPath: m_Interactable
       value: 0
@@ -1705,7 +1710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7657716666960655766, guid: e28c7c3a5188cb04cbeceb93bcd98700, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.4
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7657716666960655766, guid: e28c7c3a5188cb04cbeceb93bcd98700, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1758,9 +1763,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7832750318883099538}
     m_Modifications:
+    - target: {fileID: 100000, guid: 9d25894dedbc3a547b268d9a0e54e5b3, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 9d25894dedbc3a547b268d9a0e54e5b3, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 9d25894dedbc3a547b268d9a0e54e5b3, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: 9d25894dedbc3a547b268d9a0e54e5b3, type: 3}
       propertyPath: m_Name
       value: turret_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 9d25894dedbc3a547b268d9a0e54e5b3, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 9d25894dedbc3a547b268d9a0e54e5b3, type: 3}
       propertyPath: m_LocalScale.x

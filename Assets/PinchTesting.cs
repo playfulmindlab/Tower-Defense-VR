@@ -72,8 +72,10 @@ public class PinchTesting : MonoBehaviour
         GameObject newObject = Instantiate(newSpawn, transform.position, transform.rotation);
         XRGrabInteractable objectGrab = newObject.GetComponent<XRGrabInteractable>();
 
-        xrManager.SelectEnter(lastInteractor, objectGrab);
+        xrManager.SelectEnter((IXRSelectInteractor)lastInteractor, objectGrab);
+        //xrManager.RegisterInteractable((IXRSelectInteractable)objectGrab);
 
+        Debug.Log("EXECUTION POINT!!");
     }
 
     public void ChangeOnWorking()

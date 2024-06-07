@@ -51,13 +51,13 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.05, y: 0.05, z: 0.05}
@@ -85,7 +85,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 4294967295
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -239,7 +239,19 @@ MonoBehaviour:
       m_Calls: []
   m_HoverEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4084206580370057064}
+        m_TargetAssemblyTypeName: PinchTesting, Assembly-CSharp
+        m_MethodName: ChangeToGreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_HoverExited:
     m_PersistentCalls:
       m_Calls: []
@@ -264,6 +276,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -6964803643684184143}
+        m_TargetAssemblyTypeName: PropManager, Assembly-CSharp
+        m_MethodName: ToggleRadialMenu
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -280,7 +304,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: -6964803643684184143}
-        m_TargetAssemblyTypeName: PropDropping, Assembly-CSharp
+        m_TargetAssemblyTypeName: PropManager, Assembly-CSharp
         m_MethodName: TowerDropped
         m_Mode: 1
         m_Arguments:
@@ -341,7 +365,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 3637913227264682718}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -360,11 +384,11 @@ MonoBehaviour:
   m_SmoothRotation: 0
   m_SmoothRotationAmount: 8
   m_TightenRotation: 0.1
-  m_TrackScale: 1
+  m_TrackScale: 0
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
-  m_ThrowOnDetach: 1
+  m_ThrowOnDetach: 0
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
     serializedVersion: 2
@@ -405,6 +429,7 @@ MonoBehaviour:
   towerSpawn: {fileID: 694480364299055864, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
   miniMapScript: {fileID: 0}
   upgradedProp: {fileID: 694480364299055864, guid: d1fa2fa34c62ccb4d9ee6a573c164fa9, type: 3}
+  radialMenuCanvas: {fileID: 3320727375964341562}
 --- !u!1 &935009938892069763
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +678,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2124233296637705184}
-  m_Layer: 2
+  m_Layer: 13
   m_Name: Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1581,23 +1606,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       propertyPath: m_Name
@@ -1605,7 +1630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       propertyPath: m_LocalScale.x
@@ -1685,6 +1710,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100010, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8740818714407036071}
+    - targetCorrespondingSourceObject: {fileID: 100010, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4740176709079020248}
   m_SourcePrefab: {fileID: 100100000, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
 --- !u!1 &3637913227264390898 stripped
 GameObject:
@@ -1709,6 +1737,27 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!65 &4740176709079020248
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637913227264390898}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!4 &3637913227264682706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
@@ -1754,6 +1803,10 @@ PrefabInstance:
     - target: {fileID: 1450884982340950070, guid: e28c7c3a5188cb04cbeceb93bcd98700, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600892266664762322, guid: e28c7c3a5188cb04cbeceb93bcd98700, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2472777265469780231, guid: e28c7c3a5188cb04cbeceb93bcd98700, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1861,7 +1914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7657716666960655766, guid: e28c7c3a5188cb04cbeceb93bcd98700, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.4
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7657716666960655766, guid: e28c7c3a5188cb04cbeceb93bcd98700, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1901,6 +1954,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e28c7c3a5188cb04cbeceb93bcd98700, type: 3}
+--- !u!223 &3320727375964341562 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 1600892266664762322, guid: e28c7c3a5188cb04cbeceb93bcd98700, type: 3}
+  m_PrefabInstance: {fileID: 4044818490152722152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5937917222935276414 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7657716666960655766, guid: e28c7c3a5188cb04cbeceb93bcd98700, type: 3}
