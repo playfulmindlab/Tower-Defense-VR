@@ -87,7 +87,7 @@ public class PropManager : MonoBehaviour
     public void ToggleRadialMenu(bool toggleState)
     {
         radialMenuCanvas.enabled = toggleState;
-        if (toggleState == true)
+        if (miniMapScript != null && toggleState == true)
             miniMapScript.SwapActivatedPropMenu(this);
     }
 

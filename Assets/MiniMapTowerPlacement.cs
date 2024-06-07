@@ -27,12 +27,12 @@ public class MiniMapTowerPlacement : MonoBehaviour
             newProp.transform.rotation = Quaternion.Euler(Vector3.zero);
             newProp.transform.position = localDropPoint;
             newProp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
-            newProp.GetComponent<PropManager>().LockPropPosition();
 
             RotateTowerTowardsPath(newProp);
 
             GameObject newTower = Instantiate(newMainMapTower, Vector3.zero, newProp.transform.rotation);
             newTower.transform.parent = mainMap.transform;
+            newTower.transform.localEulerAngles = newProp.transform.localEulerAngles;
             //newTower.transform.rotation = newProp.transform.rotation;
             newTower.transform.localPosition = newProp.transform.localPosition;
             //newTower.transform.localScale = Vector3.one;
@@ -40,6 +40,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
             PlaceNewTower(newTower, newTower.GetComponent<BoxCollider>());
             //RotateTowerTowardsPath(newTower);
 
+            newProp.GetComponent<PropManager>().LockPropPosition();
             spawnedTower = newTower;
         }
         return spawnedTower;
@@ -80,7 +81,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
         RaycastHit hit;
         for (int d = 0; d < 360; d += 90)
         {
-            if (Physics.Raycast(newTower.transform.position + (Vector3.up * 0.005f), new Vector3(Mathf.Sin(d * Mathf.Deg2Rad), 0, Mathf.Cos(d * Mathf.Deg2Rad)), out hit, Mathf.Infinity, layerMask))
+            if (Physics.Raycast(newTower.transform.position + (Vector3.up * 0.01f), new Vector3(Mathf.Sin(d * Mathf.Deg2Rad), 0, Mathf.Cos(d * Mathf.Deg2Rad)), out hit, Mathf.Infinity, layerMask))
             {
                 if (hit.distance < closestPathDistance)
                 {
