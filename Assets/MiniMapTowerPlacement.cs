@@ -33,11 +33,12 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
             GameObject newTower = Instantiate(newMainMapTower, Vector3.zero, newProp.transform.rotation);
             newTower.transform.parent = mainMap.transform;
+            //newTower.transform.rotation = newProp.transform.rotation;
             newTower.transform.localPosition = newProp.transform.localPosition;
             //newTower.transform.localScale = Vector3.one;
 
             PlaceNewTower(newTower, newTower.GetComponent<BoxCollider>());
-            newTower.transform.rotation = newProp.transform.rotation;
+            //RotateTowerTowardsPath(newTower);
 
             spawnedTower = newTower;
         }
