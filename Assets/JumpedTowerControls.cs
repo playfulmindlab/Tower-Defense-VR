@@ -38,7 +38,7 @@ public class JumpedTowerControls : MonoBehaviour
         missileDamage = GetComponent<MissileDamage>();
     }
 
-    public void SetCamera(bool camActive)
+    public virtual void SetCamera(bool camActive)
     {
         towerCamera.transform.gameObject.SetActive(camActive);
         cameraListener.enabled = camActive;

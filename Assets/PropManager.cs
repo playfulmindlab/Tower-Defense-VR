@@ -96,6 +96,7 @@ public class PropManager : MonoBehaviour
     {
         towerScript = upgradedTowerScript.GetComponent<TowerBehaviour>();
         jumpedTowerScript = upgradedTowerScript.GetComponent<JumpedTowerControls>();
+        isPropDropped = true;
     }
 
     public void JumpTower()

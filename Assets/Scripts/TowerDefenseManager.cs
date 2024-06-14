@@ -13,6 +13,8 @@ public class TowerDefenseManager : MonoBehaviour
     public static List<TowerBehaviour> towersInGame;
     private static Queue<TowerBehaviour> towersToRemoveQueue;
     public static Vector3[] nodePositions = null;
+    public Node startingNode;
+    public static Dictionary<int, Node[]> enemyPathing = null;
     public static float[] nodeDistances = null;
     public static int waveCount = 1;
     [SerializeField] public static bool isGameOver = false;
@@ -92,6 +94,27 @@ public class TowerDefenseManager : MonoBehaviour
         //InvokeRepeating("SpawnTest", 0f, 1f);
         //InvokeRepeating("RemoveTest", 0f, 2f);
     }
+
+    /*
+    public Node[] CreateNewEnemyPath()
+    {
+        List<Node> newPathList = new List<Node>();
+
+        newPathList.Add(startingNode);
+
+        while (true)
+        {
+            Node currNode = newPathList[newPathList.Count - 1];
+            Node newNode = currNode.GetNextNode(newPathList);
+            newPathList.Add(newNode);
+
+            if (newNode.isEnd)
+                break;
+        }
+
+        return newPathList.ToArray();
+    }
+    */
 
     public void ChangePhase(Phase newPhase)
     {

@@ -23,6 +23,8 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     {
         missileSystemMain = missileSystem.main;
         targetDecal = GameObject.Find("LobberTargetDecal");
+        if (trajectoryLine.enabled)
+            trajectoryLine.enabled = false;
     }
 
     // Update is called once per frame
@@ -81,8 +83,16 @@ public class JumpedLobberTowerControls : JumpedTowerControls
         trajectoryLine.SetPositions(positions);
     }
 
+    public override void SetCamera(bool camActive)
+    {
+        base.SetCamera(camActive);
+        trajectoryLine.enabled = true;
+    }
+
     public override void EndTowerJump()
     {
+        trajectoryLine.enabled = true;
+        base.EndTowerJump();
         //Quaternion rot = Quaternion.Euler(Vector3.zero);
         //towerHead.localEulerAngles = 
     }
