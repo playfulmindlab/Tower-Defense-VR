@@ -222,7 +222,7 @@ public class TowerDefenseManager : MonoBehaviour
             }
             else
             {
-                StartCoroutine(VictorySequence());
+                StartCoroutine(LevelVictorySequence());
                 continueLoop = false;
             }
         }
@@ -416,9 +416,12 @@ public class TowerDefenseManager : MonoBehaviour
         }
     }
 
-    IEnumerator VictorySequence()
+    IEnumerator LevelVictorySequence()
     {
         victoryScreen.SetActive(true);
+        DataEvent newEvent = new DataEvent("Level Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        EventManager.instance.RecordNewEvent(newEvent);
+
         yield return new WaitForSeconds(4f);
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuVR", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
@@ -469,6 +472,8 @@ public class TowerDefenseManager : MonoBehaviour
 
     void RemoveTower(TowerBehaviour towerToRemove)
     {
+        DataEvent newEvent = new DataEvent("PPO Destroyed", towerToRemove.gameObject, towerToRemove.gameObject.transform.position, GameControlManager.instance.IsJumped);
+        EventManager.instance.RecordNewEvent(newEvent);
         towersInGame.Remove(towerToRemove);
 
         Destroy(towerToRemove.gameObject);

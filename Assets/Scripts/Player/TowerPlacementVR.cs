@@ -93,6 +93,9 @@ public class TowerPlacementVR : MonoBehaviour
                         towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
                         currentPlacingTower = null;
 
+                        DataEvent newEvent = new DataEvent("PPO Placed", currentPlacingTower, currentPlacingTower.transform.position, GameControlManager.instance.IsJumped);
+                        EventManager.instance.RecordNewEvent(newEvent);
+
                         radiusDecalObject.transform.position = new Vector3(0f, -1000f, 0f);
                     }
                 }
@@ -134,6 +137,9 @@ public class TowerPlacementVR : MonoBehaviour
         {
             child.gameObject.layer = 6;
         }
+
+        DataEvent newEvent = new DataEvent("PPO Placed", tower, tower.transform.position, GameControlManager.instance.IsJumped);
+        EventManager.instance.RecordNewEvent(newEvent);
 
         if (playTowerPlacedSFX == true)
             AudioManager.instance.PlaySFXArray("TowerPlaced", tower.transform.position);

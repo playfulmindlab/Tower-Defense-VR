@@ -75,6 +75,9 @@ public class TowerBehaviour : MonoBehaviour
         {
             StartCoroutine(AddAliveTowerToTowerManager());
         }
+
+        DataEvent newEvent = new DataEvent("Level Start", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        EventManager.instance.RecordNewEvent(newEvent);
     }
 
     IEnumerator AddAliveTowerToTowerManager()
@@ -165,8 +168,6 @@ public class TowerBehaviour : MonoBehaviour
         this.gameObject.SetActive(false);
         canFire = false;
 
-        DataEvent newEvent = new DataEvent("PPO Destroyed", this.gameObject, this.gameObject.transform.position, GameControlManager.instance.IsJumped);
-        EventManager.instance.RecordNewEvent(newEvent);
         TowerDefenseManager.EnqueueTowerToRemove(this);
 
         //Destroy(gameObject);
