@@ -30,6 +30,7 @@ public class MissileDamage : Damage, IDamageMethod
             missileSystemMain.maxParticles = 1000;
             var emission = missileSystem.emission;
             emission.rateOverTimeMultiplier = missileSystemMain.startSpeedMultiplier / 5f;
+            UpdateDamage(damage * 2);
             missileSystem.Play();
         }
         else
@@ -39,6 +40,7 @@ public class MissileDamage : Damage, IDamageMethod
             missileSystemMain.loop = false;
             missileSystemMain.maxParticles = 10;
             var emission = missileSystem.emission;
+            UpdateDamage(damage / 2);
             emission.rateOverTimeMultiplier = 0f;
         }
     }

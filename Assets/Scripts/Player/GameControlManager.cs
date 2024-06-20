@@ -39,6 +39,9 @@ public class GameControlManager : MonoBehaviour
 
     bool firing = false;
 
+    bool isJumped = false;
+    public bool IsJumped { get { return isJumped; } set { } }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,9 +96,7 @@ public class GameControlManager : MonoBehaviour
         switch (newControlSetting)
         {
             case ControlsSetting.Main:
-                //moveControls.SetActive(true);
                 jumpedTowerControls.SetGunFire(false);
-                //towerViewCanvas.gameObject.SetActive(false);
                 jumpedTowerControls.ToggleAutoShoot();
 
                 jumpedTowerControls.SetCamera(false);
@@ -104,15 +105,18 @@ public class GameControlManager : MonoBehaviour
                 rayLine.enabled = true;
                 pointerLine.enabled = true;
 
-                jumpedTowerControls = null;
                 AudioManager.instance.PlaySFXArray("TowerUnjump", towerViewCanvas.transform.position);
                 attackedBaseWarning.worldCamera = mainCamera;
                 jumpedOverlayWarning.enabled = false;
+
+                isJumped = false;
+                DataEvent newEvent = new DataEvent("Tower Jump End", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
+                EventManager.instance.RecordNewEvent(newEvent);
+                jumpedTowerControls = null;
+
                 break;
 
             case ControlsSetting.Jumped:
-                //moveControls.SetActive(false);
-                //towerViewCanvas.gameObject.SetActive(true);
                 jumpedTowerControls.ToggleAutoShoot();
                 jumpedTowerControls.SetJumpedTower();
 
@@ -125,6 +129,11 @@ public class GameControlManager : MonoBehaviour
                 attackedBaseWarning.worldCamera = jumpedTowerControls.TowerCamera;
                 jumpedOverlayWarning.worldCamera = jumpedTowerControls.TowerCamera;
                 jumpedOverlayWarning.enabled = true;
+
+                isJumped = true;
+                DataEvent newEvent2 = new DataEvent("Tower Jumped", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
+                EventManager.instance.RecordNewEvent(newEvent2);
+
                 break;
         }
     }

@@ -216,6 +216,9 @@ public class TowerDefenseManager : MonoBehaviour
 
                 AudioManager.instance.PlaySFXArray("NewWaveSound", new Vector3(20, 10, 0));
                 InvokeRepeating("SpawnTest", 0f, 1f);
+
+                DataEvent newEvent = new DataEvent("Wave Start", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+                EventManager.instance.RecordNewEvent(newEvent);
             }
             else
             {
@@ -389,6 +392,9 @@ public class TowerDefenseManager : MonoBehaviour
                     UpdateEnemyCount();
                     if (currEnemyKillCount >= enemyRemovedCount)
                     {
+                        DataEvent newEvent = new DataEvent("Wave End", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+                        EventManager.instance.RecordNewEvent(newEvent);
+
                         enemiesToRemoveQueue.Clear();
                         damageData.Clear();
                         UpdateWaveCount();
@@ -419,6 +425,9 @@ public class TowerDefenseManager : MonoBehaviour
 
     IEnumerator GameOverSequence()
     {
+        DataEvent newEvent = new DataEvent("Player Death", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        EventManager.instance.RecordNewEvent(newEvent);
+
         gameOverScreen.SetActive(true);
         AudioManager.instance.PlaySFXArray("GameOver", Camera.main.transform.position);
         yield return new WaitForSeconds(4f);
@@ -447,6 +456,8 @@ public class TowerDefenseManager : MonoBehaviour
 
     public static void EnqueueEnemyToRemove(Enemy enemyToRemove)
     {
+        DataEvent newEvent = new DataEvent("Enemy Death", enemyToRemove.gameObject, enemyToRemove.gameObject.transform.position, GameControlManager.instance.IsJumped);
+        EventManager.instance.RecordNewEvent(newEvent);
         enemiesToRemoveQueue.Enqueue(enemyToRemove);
     }
 

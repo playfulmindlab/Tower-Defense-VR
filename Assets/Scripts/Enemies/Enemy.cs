@@ -99,6 +99,9 @@ public class Enemy : MonoBehaviour
         {
             obstacleSensor = transform.GetComponentsInChildren<EnemyForwardSensor>()[0];
         }
+
+        DataEvent newEvent = new DataEvent("Enemy Spawn", gameObject, transform.position, GameControlManager.instance.IsJumped);
+        EventManager.instance.RecordNewEvent(newEvent);
     }
 
     public float GetResistanceModifier(ElementType attackType)

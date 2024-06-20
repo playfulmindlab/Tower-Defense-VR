@@ -87,6 +87,7 @@ public class EnemySpawner : MonoBehaviour
         if (!enemyTransformPairs.ContainsKey(newEnemy.transform)) enemyTransformPairs.Add(newEnemy.transform, newEnemy);
 
         newEnemy.id = newEnemyID;
+
         return newEnemy;
     }
 

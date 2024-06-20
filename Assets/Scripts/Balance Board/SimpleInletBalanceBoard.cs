@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LSL;
 using System;
+using System.IO;
 
 namespace LSL4Unity.Samples.SimpleInlet
 {
@@ -34,11 +35,13 @@ namespace LSL4Unity.Samples.SimpleInlet
         private double timestamp_buffer;
 
         private bool isReady = false;
-        public bool IsReady
-        {
-            get { return isReady; }
-            set { }
-        }
+        //public bool IsReady
+        //{
+        //    get { return isReady; }
+        //    set { }
+        //}
+
+        string fileLocation = "";
 
         void Start()
         {
@@ -50,12 +53,14 @@ namespace LSL4Unity.Samples.SimpleInlet
                 this.enabled = false;
                 return;
             }
+            CreateNewFile("BalanceBoardTestValues");
             StartCoroutine(ResolveExpectedStream());
         }
 
         IEnumerator ResolveExpectedStream()
         {
             var results = resolver.results();
+            //isReady = true;
             while (results.Length == 0)
             {
                 Debug.Log("Detecting results");
@@ -110,9 +115,14 @@ namespace LSL4Unity.Samples.SimpleInlet
             else
             {
                 float sinValue = Mathf.PingPong(Time.time *  15f, 90f) - 45 ;
-                rotationValues = new Vector2(-sinValue, -sinValue);
+                rotationValues = new Vector2(-sinValue * 1.5f, -sinValue);
                 coordValues[0] = -sinValue;
                 coordValues[1] = -sinValue;
+            }
+
+            if (isReady)
+            {
+                RecordNewBalanceBoardValues(new Vector3(coordValues[0], coordValues[1], coordValues[2]), rotationValues);
             }
         }
 
@@ -135,6 +145,62 @@ namespace LSL4Unity.Samples.SimpleInlet
             }
 
             return values;
+        }
+
+        public void CreateNewFile(string newLocation = "N/A")
+        {
+            string newFileLocation = "";
+            Debug.Log(Application.dataPath);
+
+            if (newLocation == "N/A")
+            {
+                SaveData playerData = GameManager.instance.PlayerData;
+                newFileLocation = Application.dataPath + "/Balance Board/" + playerData.PlayerID + "/";
+            }
+            else
+            {
+                newFileLocation = Application.dataPath + "/Balance Board/" + newLocation + "/";
+            }
+
+            if (!File.Exists(newFileLocation))
+            {
+                Directory.CreateDirectory(newFileLocation);
+            }
+
+            newFileLocation += GameManager.instance.SessionStartTime.ToString("MM-yy - HH.mm.ss") + ".csv";
+            File.WriteAllText(newFileLocation, "Timestamp,Participant,Session Number,Raw X,Raw Y,RawZ,Mod X,Mod Y, Mod Z\n");
+            fileLocation = newFileLocation;
+
+            Debug.Log("Swapped Files - Balance Board.");
+        }
+
+        void RecordNewBalanceBoardValues(Vector3 newBBValues, Vector3 moddedBBValues)
+        {
+            Debug.Log("Balance Board...");
+            string newReadingsString = "";
+
+            GameManager gm = GameManager.instance;
+            SaveData playerData = gm.PlayerData;
+
+            newReadingsString = DateTime.Now.ToString("HH.mm.ss.fff") + ",";
+            newReadingsString += playerData.PlayerID + ",";
+            newReadingsString += playerData.TimesFileOpened.ToString() + ",";
+
+            newReadingsString += newBBValues.x.ToString() + ",";
+            newReadingsString += newBBValues.y.ToString() + ",";
+            newReadingsString += newBBValues.z.ToString() + ",";
+            newReadingsString += moddedBBValues.x.ToString() + ",";
+            newReadingsString += moddedBBValues.y.ToString() + ",";
+            newReadingsString += moddedBBValues.z.ToString();
+
+            StreamWriter writer;
+            writer = new StreamWriter(fileLocation, true);
+
+            writer.WriteLine(newReadingsString);
+
+            writer.Close();
+
+            Debug.Log("Balance Board Recorded!");
         }
     }
 }

@@ -117,6 +117,8 @@ public class TowerBehaviour : MonoBehaviour
     public void UpgradeTower(MiniMapTowerPlacement towerPlacement, PropManager oldProp)
     {
         //TowerPlacementVR towerPlacement = GameObject.FindWithTag("Player").GetComponent<TowerPlacementVR>();
+        DataEvent newEvent = new DataEvent("PPO Upgrade", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
+        EventManager.instance.RecordNewEvent(newEvent);
 
         Debug.Log(this.gameObject.name + " /// " + upgradedTower.name);
 
@@ -162,6 +164,9 @@ public class TowerBehaviour : MonoBehaviour
         AudioManager.instance.PlaySFXArray("TowerDestroyed", transform.position);
         this.gameObject.SetActive(false);
         canFire = false;
+
+        DataEvent newEvent = new DataEvent("PPO Destroyed", this.gameObject, this.gameObject.transform.position, GameControlManager.instance.IsJumped);
+        EventManager.instance.RecordNewEvent(newEvent);
         TowerDefenseManager.EnqueueTowerToRemove(this);
 
         //Destroy(gameObject);
