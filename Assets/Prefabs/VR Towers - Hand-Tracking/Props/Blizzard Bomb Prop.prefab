@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   line: {fileID: 6749676951516562129}
-  towerSpawn: {fileID: 2367362426244018729, guid: 161089f3b75439a45a180987ca8cb3c9, type: 3}
+  towerSpawn: {fileID: 859423888049345578, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
   miniMapScript: {fileID: 0}
   upgradedProp: {fileID: 8420288085664455352, guid: 286e8062c9d40594e8a85acbaece6583, type: 3}
   radialMenuCanvas: {fileID: 954607575115506354}

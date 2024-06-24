@@ -403,9 +403,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   line: {fileID: 4790170721971151381}
-  towerSpawn: {fileID: 1258430823430036975, guid: beccf3140a0c7ed42a9cae0cd207760a, type: 3}
+  towerSpawn: {fileID: 103829713136085280, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
   miniMapScript: {fileID: 0}
-  upgradedProp: {fileID: 8327912285526189389, guid: 64e8ee1d8d8170146a2820efbb4f5f59, type: 3}
+  upgradedProp: {fileID: 5753604013522648029, guid: 9aee2445b511ef04ab3ed846fe1bc12f, type: 3}
   radialMenuCanvas: {fileID: 9173473666342950160}
 --- !u!1 &1132423038138859994
 GameObject:

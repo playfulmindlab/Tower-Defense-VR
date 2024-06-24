@@ -118,7 +118,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 4165551539841049710}
   m_OnClick:
     m_PersistentCalls:
@@ -1806,7 +1806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   line: {fileID: 8616616446581670305}
-  towerSpawn: {fileID: 621513110596281247, guid: 8f7aecc5b132f1f4f8920adeeb99acf1, type: 3}
+  towerSpawn: {fileID: 158333357990693065, guid: 4c165b84ae62c0948a4dd815a3a1ac75, type: 3}
   miniMapScript: {fileID: 0}
   upgradedProp: {fileID: 0}
   radialMenuCanvas: {fileID: 2855192250221489790}

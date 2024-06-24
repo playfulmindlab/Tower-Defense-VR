@@ -34679,6 +34679,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fe95322f8587a4b82169e491c6169a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currMapName: 
+  currPathNum: 0
+  currWaveNum: 0
 --- !u!4 &1593437115
 Transform:
   m_ObjectHideFlags: 0
@@ -52260,63 +52263,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &8368533399205656153
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 254416875692177179, guid: 1d2db72d875c6b2468ed74b7be2585fe, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 254416875692177179, guid: 1d2db72d875c6b2468ed74b7be2585fe, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 254416875692177179, guid: 1d2db72d875c6b2468ed74b7be2585fe, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 254416875692177179, guid: 1d2db72d875c6b2468ed74b7be2585fe, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 254416875692177179, guid: 1d2db72d875c6b2468ed74b7be2585fe, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 254416875692177179, guid: 1d2db72d875c6b2468ed74b7be2585fe, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 254416875692177179, guid: 1d2db72d875c6b2468ed74b7be2585fe, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 254416875692177179, guid: 1d2db72d875c6b2468ed74b7be2585fe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 254416875692177179, guid: 1d2db72d875c6b2468ed74b7be2585fe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 254416875692177179, guid: 1d2db72d875c6b2468ed74b7be2585fe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2380829991866646196, guid: 1d2db72d875c6b2468ed74b7be2585fe, type: 3}
-      propertyPath: m_Name
-      value: Lava Lobber Upgrade 2 Prop
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1d2db72d875c6b2468ed74b7be2585fe, type: 3}
 --- !u!224 &8398751259968058281
 RectTransform:
   m_ObjectHideFlags: 0
@@ -52880,4 +52826,3 @@ SceneRoots:
   - {fileID: 1582509868}
   - {fileID: 599974497}
   - {fileID: 1394042147}
-  - {fileID: 8368533399205656153}

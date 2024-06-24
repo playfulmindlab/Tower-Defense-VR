@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
-    [SerializeField] GameObject optionsCanvas;
-
+    [SerializeField] GameObject newGamePanel;
+    [SerializeField] GameObject fileSelectPanel;
+    [SerializeField] GameObject optionsPanel;
     [SerializeField] GameObject quitGamePanel;
 
     public void NewGame()
@@ -21,7 +22,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void ToggleOptionsMenu(bool toggle)
     {
-        optionsCanvas.SetActive(toggle);
+        //optionsCanvas.SetActive(toggle);
     }
 
     public void QuitGamePanel(bool screenActive)
@@ -32,5 +33,15 @@ public class MainMenuScript : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void OpenCurrentPanel(GameObject panelToOpen)
+    {
+        panelToOpen.SetActive(true);
+    }
+
+    public void CloseCurrentPanel(GameObject openPanel)
+    {
+        openPanel.SetActive(false);
     }
 }

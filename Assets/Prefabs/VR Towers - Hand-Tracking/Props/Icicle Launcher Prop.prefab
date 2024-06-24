@@ -709,9 +709,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   line: {fileID: 8874212363300882330}
-  towerSpawn: {fileID: 6841574946867306588, guid: 20dcc7e0dd7b6a547979b4751197be25, type: 3}
+  towerSpawn: {fileID: 3438446854484223292, guid: 1fb05c3d396190f4a9217c7756b99323, type: 3}
   miniMapScript: {fileID: 0}
-  upgradedProp: {fileID: 3522828171775004304, guid: f6d6f268baa6d6349b374c4abcdfdd12, type: 3}
+  upgradedProp: {fileID: 5591534998685803407, guid: e80e920f5a145aa40a48bcafd0439fe6, type: 3}
   radialMenuCanvas: {fileID: 7003875491624142160}
 --- !u!1 &3819445796056017935
 GameObject:
