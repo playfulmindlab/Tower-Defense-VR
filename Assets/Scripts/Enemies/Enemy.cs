@@ -43,7 +43,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] float initialSpeed = 1f;
     [SerializeField] float speedIncreasePerWave = 0.5f;
 
-
     public int attack = 3;
     public float attackRate = 1f;
     EnemyForwardSensor obstacleSensor;

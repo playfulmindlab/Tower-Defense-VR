@@ -69,6 +69,11 @@ public class GameManager : MonoBehaviour
         playerData = newSaveData;
     }
 
+    public void ChangeScene(string newSceneName)
+    {
+        ChangeScene(newSceneName, LoadSceneMode.Single);
+    }
+
 
     public void ChangeScene(string newSceneName, LoadSceneMode loadMode = LoadSceneMode.Single)
     {
