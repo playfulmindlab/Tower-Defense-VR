@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Saboteur : Enemy
 {
+    [SerializeField] float empRadius = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,26 @@ public class Saboteur : Enemy
     void Update()
     {
         
+    }
+
+    public override void Attack(TowerBehaviour attackedObject)
+    {
+        Collider[] towerColliders = Physics.OverlapSphere(transform.position, empRadius);
+
+        foreach (Collider t in towerColliders)
+        {
+            //Freeze the towers here
+        }
+        /*if (attackedObject != null)
+        {
+            if (anim != null)
+            {
+                anim.SetInteger("AttackIndex", Random.Range(0, 3));
+                anim.SetTrigger("Attack");
+            }
+
+            //AudioManager.instance.PlaySFXRandom("EnemyAttack", transform.position, 3);
+            attackedObject.Damage(attack);
+        }*/
     }
 }

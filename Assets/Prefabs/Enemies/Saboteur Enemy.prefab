@@ -1228,6 +1228,7 @@ GameObject:
   - component: {fileID: 3767155620825152210}
   - component: {fileID: 5524625792329433672}
   - component: {fileID: 6999850662413490035}
+  - component: {fileID: 4245056200023428235}
   m_Layer: 0
   m_Name: Saboteur Enemy
   m_TagString: Untagged
@@ -1301,6 +1302,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4245056200023428235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4543130091535097960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0198002c95ff54da0e002c1604c884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 0}
+  maxHealth: 10
+  health: 10
+  speed: 10
+  initialSpeed: 10
+  speedIncreasePerWave: 1
+  attack: 0
+  attackRate: 2
+  attackingTower: {fileID: 0}
+  damageResistance: 1
+  damageResistances: []
+  activeEffects: []
+  reward: 30
+  id: 3
+  nodeIndex: 0
+  deathSound: {fileID: 8300000, guid: c0f50fb3f1a69184999f0c9cd858a6ac, type: 3}
+  healthBar: {fileID: 8363240014654416058}
+  speedText: {fileID: 6301843975211349707}
 --- !u!1 &4570528776290537617
 GameObject:
   m_ObjectHideFlags: 0

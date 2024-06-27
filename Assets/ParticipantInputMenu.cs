@@ -36,8 +36,14 @@ public class ParticipantInputMenu : MonoBehaviour
 
         if (SceneManager.GetSceneByName(startWorldField.text).IsValid())
         {
-            gm.LogNewMainMenuEvent("Session Start!");
+            gm.LogNewMainMenuEvent("Session Start");
             gm.ChangeScene(startWorldField.text);
         }
+    }
+
+    public void EndSessionButton()
+    {
+        gm.LogNewMainMenuEvent("Session End");
+        Application.Quit();
     }
 }

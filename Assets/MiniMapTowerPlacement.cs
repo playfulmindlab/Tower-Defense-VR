@@ -81,7 +81,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
         RaycastHit hit;
         for (int d = 0; d < 360; d += 90)
         {
-            if (Physics.Raycast(newTower.transform.position + (Vector3.up * 0.01f), new Vector3(Mathf.Sin(d * Mathf.Deg2Rad), 0, Mathf.Cos(d * Mathf.Deg2Rad)), out hit, Mathf.Infinity, layerMask))
+            if (Physics.Raycast(newTower.transform.position + (Vector3.up * 0.003f), new Vector3(Mathf.Sin(d * Mathf.Deg2Rad), 0, Mathf.Cos(d * Mathf.Deg2Rad)), out hit, Mathf.Infinity, layerMask))
             {
                 if (hit.distance < closestPathDistance)
                 {

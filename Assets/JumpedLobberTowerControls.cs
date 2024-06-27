@@ -59,7 +59,7 @@ public class JumpedLobberTowerControls : JumpedTowerControls
         Vector3[] positions = new Vector3[lineSegments + 1];
         trajectoryLine.positionCount = lineSegments;
 
-        Debug.Log("Start: " + startPoint + " / End: " + endPoint);
+        //Debug.Log("Start: " + startPoint + " / End: " + endPoint);
 
         float distance = Vector3.Distance(endPoint, startPoint);
         float gravity = missileSystemMain.gravityModifierMultiplier * 9.81f;

@@ -75,9 +75,6 @@ public class TowerBehaviour : MonoBehaviour
         {
             StartCoroutine(AddAliveTowerToTowerManager());
         }
-
-        DataEvent newEvent = new DataEvent("Level Start", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
-        EventManager.instance.RecordNewEvent(newEvent);
     }
 
     IEnumerator AddAliveTowerToTowerManager()
@@ -120,8 +117,9 @@ public class TowerBehaviour : MonoBehaviour
     public void UpgradeTower(MiniMapTowerPlacement towerPlacement, PropManager oldProp)
     {
         //TowerPlacementVR towerPlacement = GameObject.FindWithTag("Player").GetComponent<TowerPlacementVR>();
-        DataEvent newEvent = new DataEvent("PPO Upgrade", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
-        EventManager.instance.RecordNewEvent(newEvent);
+        GameManager.instance.LogNewEvent("PPO Upgrade", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
+        //DataEvent newEvent = new DataEvent("PPO Upgrade", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
+        //EventManager.instance.RecordNewEvent(newEvent);
 
         Debug.Log(this.gameObject.name + " /// " + upgradedTower.name);
 

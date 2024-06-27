@@ -42,14 +42,17 @@ public class GameControlManager : MonoBehaviour
     bool isJumped = false;
     public bool IsJumped { get { return isJumped; } set { } }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         if (instance == null)
             instance = this;
         else
             Destroy(this.gameObject);
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         mainCamera = Camera.main;
        // overlayWarning = GetComponentInChildren<Canvas>();
         rayLine = rightController.transform.Find("Ray Interactor").gameObject.GetComponent<LineRenderer>();
@@ -110,8 +113,9 @@ public class GameControlManager : MonoBehaviour
                 jumpedOverlayWarning.enabled = false;
 
                 isJumped = false;
-                DataEvent newEvent = new DataEvent("Tower Jump End", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
-                EventManager.instance.RecordNewEvent(newEvent);
+                GameManager.instance.LogNewEvent("Tower Jump End", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
+                //DataEvent newEvent = new DataEvent("Tower Jump End", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
+                //EventManager.instance.RecordNewEvent(newEvent);
                 jumpedTowerControls = null;
 
                 break;
@@ -131,8 +135,9 @@ public class GameControlManager : MonoBehaviour
                 jumpedOverlayWarning.enabled = true;
 
                 isJumped = true;
-                DataEvent newEvent2 = new DataEvent("Tower Jumped", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
-                EventManager.instance.RecordNewEvent(newEvent2);
+                GameManager.instance.LogNewEvent("Tower Jumped", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
+                //DataEvent newEvent2 = new DataEvent("Tower Jumped", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
+                //EventManager.instance.RecordNewEvent(newEvent2);
 
                 break;
         }

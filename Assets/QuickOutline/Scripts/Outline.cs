@@ -153,7 +153,7 @@ public class Outline : MonoBehaviour {
     {
        OutlineWidth = newWidth;
 
-       RadiusSizeEditor.instance.ChangeRadiusSize(this.GetComponentInParent<TowerBehaviour>());
+       //RadiusSizeEditor.instance.ChangeRadiusSize(this.GetComponentInParent<TowerBehaviour>());
 
         if (newWidth == 0)
         {

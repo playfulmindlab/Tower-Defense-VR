@@ -14,9 +14,10 @@ public class TowerDefenseManager : MonoBehaviour
     private static Queue<TowerBehaviour> towersToRemoveQueue;
     public static Vector3[] nodePositions = null;
     public Node startingNode;
-    public static Dictionary<int, Node[]> enemyPathing = null;
+    //public static Dictionary<int, Node[]> enemyPathing = null;
     public static float[] nodeDistances = null;
     public static int waveCount = 1;
+    int levelCount = 1;
     [SerializeField] public static bool isGameOver = false;
 
     private static Queue<int> enemyIDsToSpawnQueue;
@@ -25,8 +26,10 @@ public class TowerDefenseManager : MonoBehaviour
     private static Queue<AppliedEffect> effectsQueue;
 
     public Transform nodeParent;
-    [SerializeField] int numEnemiesPerWave = 10;
-    public int wavesTilWin = 3;
+    //[SerializeField] int numEnemiesPerWave = 10;
+    public int wavesTilLevelWin = 5;
+    public int levelsTilMapWin = 3;
+    int waveMult;
 
     [SerializeField] GameObject colliderObject;
     [SerializeField] GameObject gameOverScreen;
@@ -53,6 +56,12 @@ public class TowerDefenseManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         else { Debug.Log("SpareFound"); Destroy(this); }
+
+        if (EventManager.instance != null)
+        {
+            DataEvent newEvent = new DataEvent("Map Start", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+            EventManager.instance.RecordNewEvent(newEvent);
+        }
 
         ChangePhase(Phase.Build);
         towersInGame = new List<TowerBehaviour>();
@@ -83,6 +92,7 @@ public class TowerDefenseManager : MonoBehaviour
 
         Debug.Log(nodePositions.Length + " // " + nodeDistances.Length);
 
+        waveMult = wavesTilLevelWin;
         spawnEnemies = false;
 
         ResetGameStatistics();
@@ -139,7 +149,7 @@ public class TowerDefenseManager : MonoBehaviour
                 spawnEnemies = true;
                 phaseText.text = "Defend";
                 if (currPhase != Phase.Pause)
-                    UpdateWaveCount(1);
+                    UpdateWaveCount(waveCount);
                 break;
 
             case Phase.Repair:
@@ -175,7 +185,11 @@ public class TowerDefenseManager : MonoBehaviour
         effectsQueue.Clear();
     }
 
-    void SpawnTest() { EnqueueEnemyIDToSummon(1); }
+    void SpawnEnemies() 
+    {
+        int newID = EnemySpawner.GetValidIDToSpawn();
+        EnqueueEnemyIDToSummon(newID); 
+    }
 
     void RemoveTest()
     {
@@ -191,41 +205,78 @@ public class TowerDefenseManager : MonoBehaviour
         ChangePhase((Phase)phaseInt);
     }
 
-    public void UpdateWaveCount(int newWaveNum = -1)
+    void NewPath()
     {
-        if (gamePaused == false)
+        //pathCount++;
+
+
+    }
+
+    void UpdateWaveCount(int newWaveNum = -1)
+    {
+        if (gamePaused != false)
         {
-            if (newWaveNum < 0)
-                waveCount++;
-            else
-                waveCount = newWaveNum;
-
-            if (waveCount <= wavesTilWin)
-            {
-                enemyRemovedCount = (waveCount * numEnemiesPerWave);
-                currEnemyKillCount = 0;
-                spawnedEnemiesCount = 0;
-
-                playerStats.DisplayWaveCount(waveCount);
-                playerStats.DisplayEnemyCount(enemyRemovedCount);
-
-                spawnEnemies = true;
-                //Debug.Log("Fake Round Setup: WaveCount: " + waveCount + " // EnemyRemovedCount: " + enemyRemovedCount + 
-                //    "// SpawnedEnemiesCount: " + spawnedEnemiesCount + //"// EnemiesInGameCount: " + enemyRemovedCount + 
-                //    " // SpawnEnemies: " + spawnEnemies);
-
-                AudioManager.instance.PlaySFXArray("NewWaveSound", new Vector3(20, 10, 0));
-                InvokeRepeating("SpawnTest", 0f, 1f);
-
-                DataEvent newEvent = new DataEvent("Wave Start", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
-                EventManager.instance.RecordNewEvent(newEvent);
-            }
-            else
-            {
-                StartCoroutine(LevelVictorySequence());
-                continueLoop = false;
-            }
+            return;
         }
+
+        Debug.Log("Wave part 1");
+
+        if (newWaveNum < 0)
+            waveCount++;
+        else
+            waveCount = newWaveNum;
+
+        Debug.Log("Wave part 2");
+
+        if (waveCount > wavesTilLevelWin)
+        {
+            UpdateLevelCount();
+            return;
+        }
+
+        Debug.Log("Wave part 3");
+
+        if (waveCount <= EnemySpawner.numEnemiesInWaves.Length)
+        {
+            enemyRemovedCount = EnemySpawner.numEnemiesInWaves[waveCount - 1];// (waveCount * numEnemiesPerWave);
+            currEnemyKillCount = 0;
+            spawnedEnemiesCount = 0;
+
+            playerStats.DisplayWaveCount(waveCount);
+            playerStats.DisplayEnemyCount(enemyRemovedCount);
+
+            spawnEnemies = true;
+
+            AudioManager.instance.PlaySFXArray("NewWaveSound", new Vector3(20, 10, 0));
+            InvokeRepeating("SpawnEnemies", 0f, 1f);
+
+            //GameManager.instance.LogNewMainMenuEvent("Wave Start");
+            DataEvent newEvent = new DataEvent("Wave Start", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+            EventManager.instance.RecordNewEvent(newEvent);
+        }
+    }
+
+    void UpdateLevelCount()
+    {
+        if (gamePaused != false)
+        {
+            return;
+        }
+
+        DataEvent newEvent = new DataEvent("Level End", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        EventManager.instance.RecordNewEvent(newEvent);
+
+        if (levelCount >= levelsTilMapWin)
+        {
+            StartCoroutine(LevelVictorySequence());
+            continueLoop = false;
+            return;
+        }
+
+        levelCount++;
+        wavesTilLevelWin += waveMult;
+
+        ChangePhase(Phase.Build);
     }
 
     public void UpdateEnemyCount()
@@ -252,15 +303,18 @@ public class TowerDefenseManager : MonoBehaviour
             {
                 for (int i = 0; i < enemyIDsToSpawnQueue.Count; i++)
                 {
-                    Debug.Log("Spawning " + enemyIDsToSpawnQueue.Peek());
+                    Debug.Log("Spawning " + enemyIDsToSpawnQueue.Peek() + " out of " + enemyIDsToSpawnQueue.Count);
+
                     EnemySpawner.SummonEnemy(enemyIDsToSpawnQueue.Dequeue());
+                    //EnemySpawner.SummonRandomEnemy();
 
                     spawnedEnemiesCount++;
-                    if (spawnedEnemiesCount >= enemyRemovedCount)
+                    Debug.Log("KEEP SPAWNING ENEMIES??? " + spawnedEnemiesCount + " / " + EnemySpawner.numEnemiesInWaves[waveCount - 1]);
+                    if (spawnedEnemiesCount >= EnemySpawner.numEnemiesInWaves[waveCount - 1])
                     {
                         spawnEnemies = false;
                         enemyIDsToSpawnQueue.Clear();
-                        CancelInvoke("SpawnTest");
+                        CancelInvoke("SpawnEnemies");
                     }
                 }
             }
@@ -390,7 +444,8 @@ public class TowerDefenseManager : MonoBehaviour
                     EnemySpawner.RemoveEnemy(enemiesToRemoveQueue.Dequeue());
 
                     UpdateEnemyCount();
-                    if (currEnemyKillCount >= enemyRemovedCount)
+                    Debug.Log("Curr Wave Progress: " + currEnemyKillCount + " out of " + EnemySpawner.numEnemiesInWaves[waveCount - 1]);
+                    if (currEnemyKillCount >= EnemySpawner.numEnemiesInWaves[waveCount - 1])
                     {
                         DataEvent newEvent = new DataEvent("Wave End", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
                         EventManager.instance.RecordNewEvent(newEvent);
@@ -419,11 +474,13 @@ public class TowerDefenseManager : MonoBehaviour
     IEnumerator LevelVictorySequence()
     {
         victoryScreen.SetActive(true);
-        DataEvent newEvent = new DataEvent("Level Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        DataEvent newEvent = new DataEvent("Map Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent);
 
+        TogglePause();
         yield return new WaitForSeconds(4f);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuVR", UnityEngine.SceneManagement.LoadSceneMode.Single);
+        TogglePause();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
     IEnumerator GameOverSequence()
@@ -434,6 +491,9 @@ public class TowerDefenseManager : MonoBehaviour
         gameOverScreen.SetActive(true);
         AudioManager.instance.PlaySFXArray("GameOver", Camera.main.transform.position);
         yield return new WaitForSeconds(4f);
+
+        DataEvent newEvent2 = new DataEvent("Game Quit", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        EventManager.instance.RecordNewEvent(newEvent2);
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuVR", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
@@ -459,8 +519,9 @@ public class TowerDefenseManager : MonoBehaviour
 
     public static void EnqueueEnemyToRemove(Enemy enemyToRemove)
     {
-        DataEvent newEvent = new DataEvent("Enemy Death", enemyToRemove.gameObject, enemyToRemove.gameObject.transform.position, GameControlManager.instance.IsJumped);
-        EventManager.instance.RecordNewEvent(newEvent);
+        GameManager.instance.LogNewEvent("Enemy Death", enemyToRemove.gameObject, enemyToRemove.gameObject.transform.position, GameControlManager.instance.IsJumped);
+        //DataEvent newEvent = new DataEvent("Enemy Death", enemyToRemove.gameObject, enemyToRemove.gameObject.transform.position, GameControlManager.instance.IsJumped);
+        //EventManager.instance.RecordNewEvent(newEvent);
         enemiesToRemoveQueue.Enqueue(enemyToRemove);
     }
 
@@ -472,8 +533,9 @@ public class TowerDefenseManager : MonoBehaviour
 
     void RemoveTower(TowerBehaviour towerToRemove)
     {
-        DataEvent newEvent = new DataEvent("PPO Destroyed", towerToRemove.gameObject, towerToRemove.gameObject.transform.position, GameControlManager.instance.IsJumped);
-        EventManager.instance.RecordNewEvent(newEvent);
+        GameManager.instance.LogNewEvent("PPO Destroyed", towerToRemove.gameObject, towerToRemove.gameObject.transform.position, GameControlManager.instance.IsJumped);
+        //DataEvent newEvent = new DataEvent("PPO Destroyed", towerToRemove.gameObject, towerToRemove.gameObject.transform.position, GameControlManager.instance.IsJumped);
+        //EventManager.instance.RecordNewEvent(newEvent);
         towersInGame.Remove(towerToRemove);
 
         Destroy(towerToRemove.gameObject);
