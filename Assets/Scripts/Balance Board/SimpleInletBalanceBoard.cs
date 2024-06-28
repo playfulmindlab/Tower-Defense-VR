@@ -43,6 +43,8 @@ namespace LSL4Unity.Samples.SimpleInlet
 
         string fileLocation = "";
 
+        int timer = 0;
+
         void Start()
         {
             if (!StreamName.Equals(""))
@@ -61,11 +63,19 @@ namespace LSL4Unity.Samples.SimpleInlet
         {
             var results = resolver.results();
             //isReady = true;
-            while (results.Length == 0)
+            while (results.Length == 0 && timer < 30)
             {
                 Debug.Log("Detecting results");
-                yield return new WaitForSeconds(.1f);
+                yield return new WaitForSeconds(1f);
+                timer++;
                 results = resolver.results();
+            }
+
+            if (results.Length <= 0)
+            {
+                Debug.LogError("ERROR: Could not find Balance Board. Ending search for StreamInlet.");
+                StopCoroutine("ResolveExpectedStream");
+                yield break;
             }
 
             isReady = true;

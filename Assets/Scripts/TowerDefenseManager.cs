@@ -4,6 +4,7 @@ using Unity.Collections;
 using UnityEngine;
 using Unity.Jobs;
 using UnityEngine.Jobs;
+using System;
 
 public enum Phase{ None = 0, Build = 1, Defend_ChooseJump = 2, Defend = 3, Repair = 4, Pause = 100 }
 
@@ -26,6 +27,7 @@ public class TowerDefenseManager : MonoBehaviour
     private static Queue<AppliedEffect> effectsQueue;
 
     public Transform nodeParent;
+    [SerializeField] System.Tuple<GameObject, GameObject>[] pathNodePairings;
     //[SerializeField] int numEnemiesPerWave = 10;
     public int wavesTilLevelWin = 5;
     public int levelsTilMapWin = 3;
@@ -149,7 +151,12 @@ public class TowerDefenseManager : MonoBehaviour
                 spawnEnemies = true;
                 phaseText.text = "Defend";
                 if (currPhase != Phase.Pause)
+                {
+                    DataEvent newEvent = new DataEvent("Level Start", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+                    EventManager.instance.RecordNewEvent(newEvent);
+
                     UpdateWaveCount(waveCount);
+                }
                 break;
 
             case Phase.Repair:
@@ -195,7 +202,7 @@ public class TowerDefenseManager : MonoBehaviour
     {
         if (EnemySpawner.enemiesInGame.Count > 0)
         {
-            EnemySpawner.RemoveEnemy(EnemySpawner.enemiesInGame[Random.Range(0, EnemySpawner.enemiesInGame.Count)]);
+            EnemySpawner.RemoveEnemy(EnemySpawner.enemiesInGame[UnityEngine.Random.Range(0, EnemySpawner.enemiesInGame.Count)]);
         }
     }
 
@@ -205,10 +212,10 @@ public class TowerDefenseManager : MonoBehaviour
         ChangePhase((Phase)phaseInt);
     }
 
-    void NewPath()
+    void UpdateNewNodePath()
     {
         //pathCount++;
-
+        startingNode = pathNodePairings[0].Item1.GetComponent<Node>();
 
     }
 
@@ -219,22 +226,16 @@ public class TowerDefenseManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("Wave part 1");
-
         if (newWaveNum < 0)
             waveCount++;
         else
             waveCount = newWaveNum;
-
-        Debug.Log("Wave part 2 - " + waveCount + " / " + wavesTilLevelWin);
 
         if (waveCount > wavesTilLevelWin)
         {
             UpdateLevelCount();
             return;
         }
-
-        Debug.Log("Wave part 3");
 
         if (waveCount <= EnemySpawner.numEnemiesInWaves.Length)
         {
@@ -263,7 +264,7 @@ public class TowerDefenseManager : MonoBehaviour
             return;
         }
 
-        DataEvent newEvent = new DataEvent("Level End", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        DataEvent newEvent = new DataEvent("Level Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent);
 
         if (levelCount >= levelsTilMapWin)
