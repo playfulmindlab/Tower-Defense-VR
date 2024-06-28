@@ -2347,7 +2347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodesToGo:
-  - {fileID: 586292279}
+  - {fileID: 368997218}
   isStart: 0
   isEnd: 0
 --- !u!23 &139701600
@@ -3250,7 +3250,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextNodesToGo:
   - {fileID: 122957375}
-  - {fileID: 139701599}
   isStart: 0
   isEnd: 0
 --- !u!23 &220430619
@@ -7125,6 +7124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextNodesToGo:
   - {fileID: 712368153}
+  - {fileID: 122957375}
   isStart: 0
   isEnd: 0
 --- !u!23 &368997219
@@ -23564,7 +23564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodesToGo:
-  - {fileID: 2081215003}
+  - {fileID: 185631491}
   isStart: 0
   isEnd: 0
 --- !u!23 &842921947
@@ -46269,6 +46269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextNodesToGo:
   - {fileID: 220430618}
+  - {fileID: 139701599}
   isStart: 0
   isEnd: 0
 --- !u!23 &1797297842
@@ -49644,7 +49645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodesToGo:
-  - {fileID: 586292279}
+  - {fileID: 1887146164}
   isStart: 0
   isEnd: 0
 --- !u!23 &2051064784
@@ -52804,6 +52805,7 @@ MonoBehaviour:
   damageResistances: []
   activeEffects: []
   currNodePath: []
+  currNodeIndices: 
   reward: 30
   id: 3
   nodeIndex: 0
