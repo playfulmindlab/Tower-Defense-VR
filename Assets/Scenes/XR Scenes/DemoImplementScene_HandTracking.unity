@@ -26595,7 +26595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingNode: {fileID: 1624011040}
   nodeParent: {fileID: 1733667118}
-  wavesTilLevelWin: 1
+  wavesTilLevelWin: 5
   levelsTilMapWin: 3
   colliderObject: {fileID: 0}
   gameOverScreen: {fileID: 1053519138}

@@ -226,7 +226,7 @@ public class TowerDefenseManager : MonoBehaviour
         else
             waveCount = newWaveNum;
 
-        Debug.Log("Wave part 2");
+        Debug.Log("Wave part 2 - " + waveCount + " / " + wavesTilLevelWin);
 
         if (waveCount > wavesTilLevelWin)
         {
