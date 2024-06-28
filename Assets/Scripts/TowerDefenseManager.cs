@@ -27,7 +27,9 @@ public class TowerDefenseManager : MonoBehaviour
     private static Queue<AppliedEffect> effectsQueue;
 
     public Transform nodeParent;
-    [SerializeField] System.Tuple<GameObject, GameObject>[] pathNodePairings;
+    [SerializeField] PathAndNodesPair[] pathAndNodesPairings;
+    [SerializeField] Node[] currNodePath;
+    public static Vector3[] nodePositions2 = null;
     //[SerializeField] int numEnemiesPerWave = 10;
     public int wavesTilLevelWin = 5;
     public int levelsTilMapWin = 3;
@@ -97,6 +99,12 @@ public class TowerDefenseManager : MonoBehaviour
         waveMult = wavesTilLevelWin;
         spawnEnemies = false;
 
+        UpdateNewNodePath(0);
+        UpdateNewNodePath(1);
+        UpdateNewNodePath(2);
+
+        nodePositions2 = NodePathPositions();
+
         ResetGameStatistics();
         EnemySpawner.Init();
         //UpdateWaveCount(1);
@@ -127,6 +135,8 @@ public class TowerDefenseManager : MonoBehaviour
         return newPathList.ToArray();
     }
     */
+
+    
 
     public void ChangePhase(Phase newPhase)
     {
@@ -212,11 +222,73 @@ public class TowerDefenseManager : MonoBehaviour
         ChangePhase((Phase)phaseInt);
     }
 
-    void UpdateNewNodePath()
+    void UpdateNewNodePath(int newPath)
     {
-        //pathCount++;
-        startingNode = pathNodePairings[0].Item1.GetComponent<Node>();
+        //enable path, make it visible - the patch is technically aesthetic
+        pathAndNodesPairings[newPath].path.SetActive(true);
 
+        //change Node path
+        if (newPath > 0)
+        {
+            pathAndNodesPairings[newPath - 1].nodeHolder.SetActive(false);
+        }
+        pathAndNodesPairings[newPath].nodeHolder.SetActive(true);
+        currNodePath = pathAndNodesPairings[newPath].Nodes;
+
+        if (currNodePath == null || currNodePath.Length <= 0)
+        {
+            Debug.LogError("Error getting the nodes for the new path!");
+            return;
+        }
+
+        //safety check to make sure that the first node on the node array IS the starting node
+        if (!currNodePath[0].isStart)
+        {
+            for(int n = 0; n < currNodePath.Length; n++)
+            {
+                if (currNodePath[n].isStart)
+                {
+                    currNodePath[n] = currNodePath[0];
+                    break;
+                }
+            }
+
+            currNodePath[0] = pathAndNodesPairings[newPath].FirstNode;
+        }
+    }
+
+    void GetEnemysNewPath(Enemy newEnemy)
+    {
+        List<Node> newNodePath = new List<Node>();
+        List<int> newIndexPath = new List<int>();
+
+        newNodePath.Add(currNodePath[0]);
+        newIndexPath.Add(0);
+
+        while (newNodePath[newNodePath.Count - 1].CanGetNextNode())
+        {
+            newNodePath.Add(newNodePath[newNodePath.Count - 1].GetNextNode(newNodePath));
+            newIndexPath.Add(System.Array.IndexOf(currNodePath, newNodePath[newNodePath.Count - 1]));
+        }
+
+        newEnemy.currNodePath = newNodePath.ToArray();
+        newEnemy.currNodeIndices = newIndexPath.ToArray();
+
+        //-----------------------
+
+        string outputPath = newEnemy.gameObject.name + "'s New Path: ";
+        for (int i = 0; i < newEnemy.currNodePath.Length; i++)
+        {
+            outputPath += newEnemy.currNodePath[i].gameObject.name + " > ";
+        }
+        Debug.Log(outputPath);
+
+        outputPath = newEnemy.gameObject.name + "'s New Int Path: ";
+        for (int i = 0; i < newEnemy.currNodeIndices.Length; i++)
+        {
+            outputPath += newEnemy.currNodeIndices[i] + " > ";
+        }
+        Debug.Log(outputPath);
     }
 
     void UpdateWaveCount(int newWaveNum = -1)
@@ -286,6 +358,18 @@ public class TowerDefenseManager : MonoBehaviour
         playerStats.DisplayEnemyCount(enemyRemovedCount - currEnemyKillCount);
     }
 
+    Vector3[] NodePathPositions()
+    {
+        List<Vector3> newNodePositionList = new List<Vector3>();
+
+        for (int n = 0; n < currNodePath.Length; n++)
+        {
+            newNodePositionList.Add(currNodePath[n].gameObject.transform.position);
+        }
+
+        return newNodePositionList.ToArray();
+    }
+
     IEnumerator GameplayLoop()
     {
         while (continueLoop == true)
@@ -306,7 +390,9 @@ public class TowerDefenseManager : MonoBehaviour
                 {
                     Debug.Log("Spawning " + enemyIDsToSpawnQueue.Peek() + " out of " + enemyIDsToSpawnQueue.Count);
 
-                    EnemySpawner.SummonEnemy(enemyIDsToSpawnQueue.Dequeue());
+                    Enemy newEnemy = EnemySpawner.SummonEnemy(enemyIDsToSpawnQueue.Dequeue());
+                    newEnemy.gameObject.name += spawnedEnemiesCount;
+                    GetEnemysNewPath(newEnemy);
                     //EnemySpawner.SummonRandomEnemy();
 
                     spawnedEnemiesCount++;
@@ -323,9 +409,51 @@ public class TowerDefenseManager : MonoBehaviour
             //Spawn Towers
 
             //Move Enemies
+            /*
+             if (!gamePaused)
+             {
+                 //nodePositions;
+                 NativeArray<Vector3> nodesToUse = new NativeArray<Vector3>(nodePositions, Allocator.TempJob);
+                 NativeArray<float> enemySpeeds = new NativeArray<float>(EnemySpawner.enemiesInGame.Count, Allocator.TempJob);
+                 NativeArray<int> nodeIndices = new NativeArray<int>(EnemySpawner.enemiesInGame.Count, Allocator.TempJob);
+                 TransformAccessArray enemyAccess = new TransformAccessArray(EnemySpawner.enemiesInGameTransform.ToArray(), 2);
+
+                 for (int i = 0; i < EnemySpawner.enemiesInGame.Count; i++)
+                 {
+                     enemySpeeds[i] = EnemySpawner.enemiesInGame[i].speed;
+                     nodeIndices[i] = EnemySpawner.enemiesInGame[i].nodeIndex;
+                 }
+
+                 MoveEnemiesJob moveJob = new MoveEnemiesJob
+                 {
+                     nodePositions = nodesToUse,
+                     enemySpeed = enemySpeeds,
+                     nodeIndex = nodeIndices,
+                     deltaTime = Time.deltaTime //can't access Time.deltaTime while multithreading, so grab it here!
+                 };
+
+                 JobHandle moveJobHandle = moveJob.Schedule(enemyAccess);
+                 moveJobHandle.Complete();
+
+                 for (int i = 0; i < EnemySpawner.enemiesInGame.Count; i++)
+                 {
+                     EnemySpawner.enemiesInGame[i].nodeIndex = nodeIndices[i];
+
+                     if (EnemySpawner.enemiesInGame[i].nodeIndex == EnemySpawner.enemiesInGame[i].currNodePath.Length)
+                     {
+                         EnqueueEnemyToRemove(EnemySpawner.enemiesInGame[i]);
+                     }
+                 }
+
+                 enemySpeeds.Dispose();
+                 nodeIndices.Dispose();
+                 enemyAccess.Dispose();
+                 nodesToUse.Dispose();
+             }*/
+            
             if (!gamePaused)
             {
-                NativeArray<Vector3> nodesToUse = new NativeArray<Vector3>(nodePositions, Allocator.TempJob);
+                NativeArray<Vector3> nodesToUse = new NativeArray<Vector3>(nodePositions2, Allocator.TempJob);
                 NativeArray<float> enemySpeeds = new NativeArray<float>(EnemySpawner.enemiesInGame.Count, Allocator.TempJob);
                 NativeArray<int> nodeIndices = new NativeArray<int>(EnemySpawner.enemiesInGame.Count, Allocator.TempJob);
                 TransformAccessArray enemyAccess = new TransformAccessArray(EnemySpawner.enemiesInGameTransform.ToArray(), 2);
@@ -347,11 +475,13 @@ public class TowerDefenseManager : MonoBehaviour
                 JobHandle moveJobHandle = moveJob.Schedule(enemyAccess);
                 moveJobHandle.Complete();
 
+                //Debug.Log("ENEMY MOVE - CHECK");
+
                 for (int i = 0; i < EnemySpawner.enemiesInGame.Count; i++)
                 {
                     EnemySpawner.enemiesInGame[i].nodeIndex = nodeIndices[i];
 
-                    if (EnemySpawner.enemiesInGame[i].nodeIndex == nodePositions.Length)
+                    if (EnemySpawner.enemiesInGame[i].nodeIndex == nodePositions2.Length)
                     {
                         EnqueueEnemyToRemove(EnemySpawner.enemiesInGame[i]);
                     }
@@ -572,6 +702,16 @@ public struct EnemyDamage
     }
 }
 
+[System.Serializable]
+public class PathAndNodesPair
+{
+    public GameObject path;
+    public GameObject nodeHolder;
+
+    public Node FirstNode { get { return nodeHolder.transform.GetChild(0).GetComponent<Node>(); } }
+    public Node[] Nodes { get { return nodeHolder.GetComponentsInChildren<Node>(); } }
+}
+
 public enum EffectType { Damage, Slow, Shock}
 
 [System.Serializable]
@@ -671,7 +811,8 @@ public struct MoveEnemiesJob : IJobParallelForTransform
 
             if (transform.position == positionToMoveTo)
             {
-                nodeIndex[index]++;
+                //nodeIndex[index]++;             
+                nodeIndex[index] = EnemySpawner.enemiesInGame[index].GetNextIndex(index);
 
                 Vector3 positionToRotateTowards = nodePositions[nodeIndex[index]];
                 Vector3 newDir = transform.position - positionToRotateTowards;

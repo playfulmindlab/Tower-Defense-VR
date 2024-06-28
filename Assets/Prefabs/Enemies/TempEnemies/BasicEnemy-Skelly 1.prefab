@@ -74,7 +74,7 @@ MonoBehaviour:
   maxHealth: 20
   health: 20
   speed: 8
-  initialSpeed: 1
+  initialSpeed: 1.5
   speedIncreasePerWave: 0.5
   attack: 3
   attackRate: 1
@@ -86,6 +86,8 @@ MonoBehaviour:
   - resistanceType: 3
     resistanceModifier: 1.7
   activeEffects: []
+  currNodePath: []
+  currNodeIndices: 
   reward: 10
   id: 1
   nodeIndex: 0

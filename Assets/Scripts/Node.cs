@@ -6,6 +6,8 @@ using System;
 public class Node : MonoBehaviour
 {
     public Node[] nextNodesToGo;
+
+    public bool isStart = false;
     public bool isEnd = false;
 
     public Node GetNextNode(List<Node> currPath)
@@ -20,6 +22,14 @@ public class Node : MonoBehaviour
                 return nextNodesToGo[nodeNum];
         }
         return null;
+    }
+
+    public bool CanGetNextNode()
+    {
+        if (isEnd == false && nextNodesToGo.Length > 0)
+            return true;
+
+        return false;
     }
 
     Node GetOtherNode(Node firstNode)

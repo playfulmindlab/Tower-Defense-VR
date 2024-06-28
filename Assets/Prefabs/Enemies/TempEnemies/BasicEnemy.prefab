@@ -560,6 +560,8 @@ MonoBehaviour:
   maxHealth: 20
   health: 20
   speed: 8
+  initialSpeed: 2
+  speedIncreasePerWave: 0.5
   attack: 3
   attackRate: 1
   attackingTower: {fileID: 0}
@@ -570,12 +572,13 @@ MonoBehaviour:
   - resistanceType: 3
     resistanceModifier: 1.7
   activeEffects: []
+  currNodePath: []
   reward: 10
   id: 1
   nodeIndex: 0
+  deathSound: {fileID: 0}
   healthBar: {fileID: 5573631458049861443}
   speedText: {fileID: 3051123839813206527}
-  origSpeed: 0
 --- !u!54 &7121118778861733903
 Rigidbody:
   m_ObjectHideFlags: 0

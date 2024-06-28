@@ -52,9 +52,12 @@ public class Enemy : MonoBehaviour
     public DamageResistance[] damageResistances = new DamageResistance[0];
     public List<Effect> activeEffects;
 
+    public Node[] currNodePath;
+    public int[] currNodeIndices;
     public int reward = 10;
     public int id;
     public int nodeIndex;
+    int indexIndex;
 
     Dictionary<ElementType, float> damResistancesDict = new Dictionary<ElementType, float>();
 
@@ -81,6 +84,7 @@ public class Enemy : MonoBehaviour
         transform.position = TowerDefenseManager.nodePositions[0];
         Speed = initialSpeed + ((TowerDefenseManager.waveCount - 1) * speedIncreasePerWave);
         nodeIndex = 0;
+        indexIndex = 0;
 
         origSpeed = Speed;
 
@@ -237,5 +241,24 @@ public class Enemy : MonoBehaviour
         }
 
         activeEffects.RemoveAll(x => x.expireTime <= 0f);
+    }
+
+    public Node GetNextNode()
+    {
+        nodeIndex++;
+        return currNodePath[nodeIndex];
+    }
+
+    public int GetNextIndex(int g)
+    {
+        //Debug.Log("ENEMY: " + EnemySpawner.enemiesInGame[g].gameObject.name + " VS " + gameObject.name);
+        indexIndex++;
+        nodeIndex = currNodeIndices[indexIndex];
+        return currNodeIndices[indexIndex];
+    }
+
+    public void UpdateNodeIndex()
+    {
+
     }
 }
