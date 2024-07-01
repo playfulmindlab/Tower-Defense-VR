@@ -100,8 +100,8 @@ public class TowerDefenseManager : MonoBehaviour
         spawnEnemies = false;
 
         UpdateNewNodePath(0);
-        UpdateNewNodePath(1);
-        UpdateNewNodePath(2);
+        //UpdateNewNodePath(1);
+        //UpdateNewNodePath(2);
 
         nodePositions2 = NodePathPositions();
 
@@ -227,7 +227,7 @@ public class TowerDefenseManager : MonoBehaviour
         //enable path, make it visible - the patch is technically aesthetic
         pathAndNodesPairings[newPath].path.SetActive(true);
 
-        //change Node path
+        //Safety Check - if "newPath" is 0, this makes sure the game doesn't break
         if (newPath > 0)
         {
             pathAndNodesPairings[newPath - 1].nodeHolder.SetActive(false);
@@ -305,6 +305,9 @@ public class TowerDefenseManager : MonoBehaviour
 
         if (waveCount > wavesTilLevelWin)
         {
+            DataEvent newEvent = new DataEvent("Level Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+            EventManager.instance.RecordNewEvent(newEvent);
+
             UpdateLevelCount();
             return;
         }
@@ -336,9 +339,6 @@ public class TowerDefenseManager : MonoBehaviour
             return;
         }
 
-        DataEvent newEvent = new DataEvent("Level Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
-        EventManager.instance.RecordNewEvent(newEvent);
-
         if (levelCount >= levelsTilMapWin)
         {
             StartCoroutine(LevelVictorySequence());
@@ -349,6 +349,7 @@ public class TowerDefenseManager : MonoBehaviour
         levelCount++;
         wavesTilLevelWin += waveMult;
 
+        UpdateNewNodePath(levelCount - 1);
         ChangePhase(Phase.Build);
     }
 
