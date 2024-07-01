@@ -27,10 +27,24 @@ public class GameManager : MonoBehaviour
 
         sessionStartTime = DateTime.Now;
 
+        SceneManager.sceneLoaded += GetSceneName;
+
         playerData = new SaveData("TempPlayer", new TimeSpan(0, 0, 0).ToString(), 1, "DemoImplementScene_HandTracking", 0);
     }
 
+    public void ChangePathWave(int pathNum, int waveNum)
+    {
+        currPathNum = pathNum;
+        currWaveNum = waveNum;
+    }
 
+    void GetSceneName(Scene scene, LoadSceneMode mode)
+    {
+        currMapName = scene.name;
+        Debug.Log("LOADED MAP " + currMapName);
+    }
+
+/*
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
@@ -58,6 +72,7 @@ public class GameManager : MonoBehaviour
             Debug.Log(loadString);
         }
     }
+*/
 
     public void SetPlayerData(SaveData newData)
     {
@@ -73,7 +88,6 @@ public class GameManager : MonoBehaviour
     {
         ChangeScene(newSceneName, LoadSceneMode.Single);
     }
-
 
     public void ChangeScene(string newSceneName, LoadSceneMode loadMode = LoadSceneMode.Single)
     {

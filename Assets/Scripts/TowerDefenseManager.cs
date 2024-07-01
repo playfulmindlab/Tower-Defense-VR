@@ -15,7 +15,6 @@ public class TowerDefenseManager : MonoBehaviour
     private static Queue<TowerBehaviour> towersToRemoveQueue;
     public static Vector3[] nodePositions = null;
     public Node startingNode;
-    //public static Dictionary<int, Node[]> enemyPathing = null;
     public static float[] nodeDistances = null;
     public static int waveCount = 1;
     int levelCount = 1;
@@ -30,7 +29,6 @@ public class TowerDefenseManager : MonoBehaviour
     [SerializeField] PathAndNodesPair[] pathAndNodesPairings;
     [SerializeField] Node[] currNodePath;
     public static Vector3[] nodePositions2 = null;
-    //[SerializeField] int numEnemiesPerWave = 10;
     public int wavesTilLevelWin = 5;
     public int levelsTilMapWin = 3;
     int waveMult;
@@ -107,36 +105,9 @@ public class TowerDefenseManager : MonoBehaviour
 
         ResetGameStatistics();
         EnemySpawner.Init();
-        //UpdateWaveCount(1);
 
         StartCoroutine(GameplayLoop());
-
-        //InvokeRepeating("SpawnTest", 0f, 1f);
-        //InvokeRepeating("RemoveTest", 0f, 2f);
     }
-
-    /*
-    public Node[] CreateNewEnemyPath()
-    {
-        List<Node> newPathList = new List<Node>();
-
-        newPathList.Add(startingNode);
-
-        while (true)
-        {
-            Node currNode = newPathList[newPathList.Count - 1];
-            Node newNode = currNode.GetNextNode(newPathList);
-            newPathList.Add(newNode);
-
-            if (newNode.isEnd)
-                break;
-        }
-
-        return newPathList.ToArray();
-    }
-    */
-
-    
 
     public void ChangePhase(Phase newPhase)
     {
@@ -312,6 +283,8 @@ public class TowerDefenseManager : MonoBehaviour
             return;
         }
 
+        UpdateGameManagerStats();
+
         if (waveCount <= EnemySpawner.numEnemiesInWaves.Length)
         {
             enemyRemovedCount = EnemySpawner.numEnemiesInWaves[waveCount - 1];// (waveCount * numEnemiesPerWave);
@@ -326,7 +299,6 @@ public class TowerDefenseManager : MonoBehaviour
             AudioManager.instance.PlaySFXArray("NewWaveSound", new Vector3(20, 10, 0));
             InvokeRepeating("SpawnEnemies", 0f, 1f);
 
-            //GameManager.instance.LogNewMainMenuEvent("Wave Start");
             DataEvent newEvent = new DataEvent("Wave Start", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
             EventManager.instance.RecordNewEvent(newEvent);
         }
@@ -349,8 +321,10 @@ public class TowerDefenseManager : MonoBehaviour
         levelCount++;
         wavesTilLevelWin += waveMult;
 
+        UpdateGameManagerStats();
         UpdateNewNodePath(levelCount - 1);
         ChangePhase(Phase.Build);
+
     }
 
     public void UpdateEnemyCount()
@@ -389,7 +363,7 @@ public class TowerDefenseManager : MonoBehaviour
             {
                 for (int i = 0; i < enemyIDsToSpawnQueue.Count; i++)
                 {
-                    Debug.Log("Spawning " + enemyIDsToSpawnQueue.Peek() + " out of " + enemyIDsToSpawnQueue.Count);
+                    //Debug.Log("Spawning " + enemyIDsToSpawnQueue.Peek() + " out of " + enemyIDsToSpawnQueue.Count);
 
                     Enemy newEnemy = EnemySpawner.SummonEnemy(enemyIDsToSpawnQueue.Dequeue());
                     newEnemy.gameObject.name += spawnedEnemiesCount;
@@ -397,7 +371,7 @@ public class TowerDefenseManager : MonoBehaviour
                     //EnemySpawner.SummonRandomEnemy();
 
                     spawnedEnemiesCount++;
-                    Debug.Log("KEEP SPAWNING ENEMIES??? " + spawnedEnemiesCount + " / " + EnemySpawner.numEnemiesInWaves[waveCount - 1]);
+                    //Debug.Log("KEEP SPAWNING ENEMIES??? " + spawnedEnemiesCount + " / " + EnemySpawner.numEnemiesInWaves[waveCount - 1]);
                     if (spawnedEnemiesCount >= EnemySpawner.numEnemiesInWaves[waveCount - 1])
                     {
                         spawnEnemies = false;
@@ -685,6 +659,11 @@ public class TowerDefenseManager : MonoBehaviour
         {
             ChangePhase(prePausePhase);
         }
+    }
+
+    void UpdateGameManagerStats()
+    {
+        GameManager.instance.ChangePathWave(levelCount, waveCount);
     }
 }
 

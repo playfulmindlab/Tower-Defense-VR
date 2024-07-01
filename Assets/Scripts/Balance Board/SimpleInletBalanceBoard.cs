@@ -63,10 +63,10 @@ namespace LSL4Unity.Samples.SimpleInlet
         {
             var results = resolver.results();
             //isReady = true;
-            while (results.Length == 0 && timer < 30)
+            while (results.Length == 0 && timer < 300)
             {
                 Debug.Log("Detecting results");
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.1f);
                 timer++;
                 results = resolver.results();
             }
@@ -147,7 +147,7 @@ namespace LSL4Unity.Samples.SimpleInlet
             if (splitData.Length > 3)// && float.TryParse(splitData[1], out float result1) && float.TryParse(splitData[2], out float result2))
             {
                 //NOTE: splitData[0] is only "", and is ignored when recording values
-                //Debug.Log("Split Data: " + splitData[1] + " | " + splitData[2] + " | " + splitData[3] + " | " + splitData.Length);
+                Debug.Log("Split Data: " + splitData[1] + " | " + splitData[2] + " | " + splitData[3] + " | " + splitData.Length);
 
                 values[0] = float.Parse(splitData[1]);
                 values[1] = float.Parse(splitData[2]);

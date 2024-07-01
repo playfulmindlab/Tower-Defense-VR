@@ -4375,7 +4375,7 @@ MonoBehaviour:
       volume: 1
     - clip: {fileID: 8300000, guid: bcdaa2c0c816e0b4bbd9c4b088e598a4, type: 3}
       volume: 1
-  musicSource: {fileID: 0}
+  musicSource: {fileID: 882404467}
 --- !u!4 &882404469
 Transform:
   m_ObjectHideFlags: 0
@@ -6812,7 +6812,7 @@ GameObject:
   - component: {fileID: 1466326921}
   - component: {fileID: 1466326920}
   m_Layer: 5
-  m_Name: Panel (1)
+  m_Name: EndSessionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6835,7 +6835,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -260, y: 91}
+  m_AnchoredPosition: {x: -225, y: 100}
   m_SizeDelta: {x: 100, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1466326920
@@ -7730,7 +7730,7 @@ GameObject:
   - component: {fileID: 1709570850}
   - component: {fileID: 1709570849}
   m_Layer: 0
-  m_Name: Directional Light (1)
+  m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8800,7 +8800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -9072,7 +9072,7 @@ GameObject:
   - component: {fileID: 2092217350}
   - component: {fileID: 2092217349}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: ParticipantInfoPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

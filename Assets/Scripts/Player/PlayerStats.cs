@@ -18,7 +18,8 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         currentMoney = startingMoney;
-        UpdateMoneyText();
+        if (moneyText != null)
+            UpdateMoneyText();
     }
 
     public void AddMoney(int newFunds)
