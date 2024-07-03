@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcc2c6022bf31f644bd4dbd5b7eb3d0f, type: 3}
-  m_Name: SkellyEnemy 1
+  m_Name: LobberBeholder
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 265340451732183431, guid: 63cf10f0bb1b1ec4b8cb89ec23568b70, type: 3}
-  enemyID: 1
+  enemyPrefab: {fileID: 6832201459843661038, guid: b7fe1bc8d07fba74299c5d8d7f8ec772, type: 3}
+  enemyID: 2

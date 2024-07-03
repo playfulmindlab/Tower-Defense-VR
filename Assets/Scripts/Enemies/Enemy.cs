@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
 
     public int attack = 3;
     public float attackRate = 1f;
-    EnemyForwardSensor obstacleSensor;
+    EnemySensor towerSensor;
     [SerializeField] TowerBehaviour attackingTower;
 
     public float damageResistance = 1f;
@@ -98,10 +98,14 @@ public class Enemy : MonoBehaviour
 
         anim = transform.GetComponentInChildren<Animator>();
 
-        if (transform.GetComponentsInChildren<EnemyForwardSensor>().Length > 0)
+        if (transform.GetComponentsInChildren<EnemySensor>().Length > 0)
         {
-            obstacleSensor = transform.GetComponentsInChildren<EnemyForwardSensor>()[0];
+            towerSensor = transform.GetComponentsInChildren<EnemySensor>()[0];
         }
+
+        gameObject.name = gameObject.name.Replace("(Clone)", " ");
+        int randID = Random.Range(0, 10000);
+        gameObject.name += randID.ToString("D4"); ;
 
         GameManager.instance.LogNewEvent("Enemy Spawn", gameObject, transform.position, GameControlManager.instance.IsJumped);
         //DataEvent newEvent = new DataEvent("Enemy Spawn", gameObject, transform.position, GameControlManager.instance.IsJumped);
@@ -252,8 +256,11 @@ public class Enemy : MonoBehaviour
     public int GetNextIndex(int g)
     {
         //Debug.Log("ENEMY: " + EnemySpawner.enemiesInGame[g].gameObject.name + " VS " + gameObject.name);
-        indexIndex++;
-        nodeIndex = currNodeIndices[indexIndex];
+        if (indexIndex < currNodeIndices.Length)
+        {
+            indexIndex++;
+            nodeIndex = currNodeIndices[indexIndex];
+        }
         return currNodeIndices[indexIndex];
     }
 

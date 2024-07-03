@@ -366,7 +366,7 @@ public class TowerDefenseManager : MonoBehaviour
                     //Debug.Log("Spawning " + enemyIDsToSpawnQueue.Peek() + " out of " + enemyIDsToSpawnQueue.Count);
 
                     Enemy newEnemy = EnemySpawner.SummonEnemy(enemyIDsToSpawnQueue.Dequeue());
-                    newEnemy.gameObject.name += spawnedEnemiesCount;
+                    //newEnemy.gameObject.name += spawnedEnemiesCount;
                     GetEnemysNewPath(newEnemy);
                     //EnemySpawner.SummonRandomEnemy();
 

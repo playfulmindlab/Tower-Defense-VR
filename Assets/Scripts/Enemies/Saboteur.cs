@@ -19,11 +19,12 @@ public class Saboteur : Enemy
 
     public override void Attack(TowerBehaviour attackedObject)
     {
-        Collider[] towerColliders = Physics.OverlapSphere(transform.position, empRadius);
+        Collider[] towerColliders = Physics.OverlapSphere(transform.position, empRadius, 1 << LayerMask.NameToLayer("Tower"));
 
         foreach (Collider t in towerColliders)
         {
             //Freeze the towers here
+            t.GetComponent<TowerBehaviour>().TowerDie();
         }
         /*if (attackedObject != null)
         {

@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 5673386930330568355}
   - component: {fileID: 198786178775803198}
   - component: {fileID: 5828627237935847197}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Machine Gun XR
   m_TagString: Tower
   m_Icon: {fileID: 0}

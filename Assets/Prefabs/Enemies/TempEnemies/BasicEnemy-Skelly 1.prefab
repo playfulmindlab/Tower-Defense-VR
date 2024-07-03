@@ -74,8 +74,8 @@ MonoBehaviour:
   maxHealth: 20
   health: 20
   speed: 8
-  initialSpeed: 1.5
-  speedIncreasePerWave: 0.5
+  initialSpeed: 0.1
+  speedIncreasePerWave: 0.3
   attack: 3
   attackRate: 1
   attackingTower: {fileID: 0}
@@ -640,6 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBase: {fileID: 0}
+  attackOnlyObstacles: 1
 --- !u!1 &8392033153119428094
 GameObject:
   m_ObjectHideFlags: 0
