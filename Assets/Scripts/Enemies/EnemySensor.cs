@@ -8,11 +8,13 @@ public class EnemySensor : MonoBehaviour
     [SerializeField] bool attackOnlyObstacles;
     [SerializeField] float atkRadius;
 
+    public SphereCollider sC;
+
     private void Start()
     {
         enemyBase = transform.parent.GetComponent<Enemy>();
 
-        GetComponent<SphereCollider>().radius = atkRadius;
+            sC.radius = atkRadius;
     }
 
     private void OnTriggerEnter(Collider other)

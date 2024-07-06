@@ -32,7 +32,10 @@ public class TowerBehaviour : MonoBehaviour
     protected float delay;
     private float healthDamageMod = 1;
 
+    public List<Effect> activeEffects;
+
     public bool aliveOnSceneStart = false;
+
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -71,6 +74,8 @@ public class TowerBehaviour : MonoBehaviour
 
         delay = 1 / firerate;
 
+        activeEffects = new List<Effect>();
+
         if (aliveOnSceneStart)
         {
             StartCoroutine(AddAliveTowerToTowerManager());
@@ -83,12 +88,13 @@ public class TowerBehaviour : MonoBehaviour
 
         TowerDefenseManager.towersInGame.Add(this);
         gameObject.layer = 9;
+
         foreach (Transform child in gameObject.transform)
         {
             child.gameObject.layer = 9;
         }
-        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
 
+        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
     }
 
     // Update is called once per frame
@@ -112,6 +118,8 @@ public class TowerBehaviour : MonoBehaviour
                     towerPivot.transform.rotation = Quaternion.LookRotation(posDifference, Vector3.up);
             }
         }
+
+        ActivateStatusEffects();
     }
 
     public void UpgradeTower(MiniMapTowerPlacement towerPlacement, PropManager oldProp)
@@ -185,6 +193,47 @@ public class TowerBehaviour : MonoBehaviour
             healthDamageMod = 1.0f;
             currentDamageMethodClass.UpdateDamage(damage * healthDamageMod);
         }
+    }
+
+    protected void ActivateStatusEffects()
+    {
+        for (int i = 0; i < activeEffects.Count; i++)
+        {
+            if (activeEffects[i].GetEffectType() == EffectType.Stun)
+            {
+                activeEffects[i].expireTime -= Time.deltaTime;
+
+                if (activeEffects[i].expireTime > 0)
+                {
+                    canFire = false;
+                    //Speed = 0f;
+                    /*if (activeEffects[i].stopExpireTime <= 0f)
+                    {
+                        Effect stunEffect = activeEffects[i];
+
+                        if (Speed == 0) //if speed = 0, switch to moving
+                        {
+                            Speed = shockEffect.origSpeed;
+                            shockEffect.stopExpireTime = shockEffect.stopIntervalTime;
+                            speedAffected = false;
+                        }
+                        else //otherwise, enemy has NOT stopped and needs to be!
+
+                        {
+                            Speed = 0f;
+                            shockEffect.stopExpireTime = shockEffect.resumeIntervalTime;
+                            speedAffected = true;
+                        }
+                    }*/
+                }
+                else
+                {
+                    canFire = true;
+                }
+            }
+        }
+
+        activeEffects.RemoveAll(x => x.expireTime <= 0f);
     }
 
     private void OnDrawGizmos()

@@ -126,14 +126,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4273998719391437424}
   - component: {fileID: 3601150150775203320}
-  - component: {fileID: 6812392129613079144}
+  - component: {fileID: 3167138267479765680}
+  - component: {fileID: 8675860580399111251}
   m_Layer: 0
   m_Name: SensorRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4273998719391437424
 Transform:
   m_ObjectHideFlags: 0
@@ -166,18 +167,18 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6812392129613079144
+--- !u!114 &3167138267479765680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2519788516338364268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f661cc9f69a12a04bb050954c112a401, type: 3}
   m_Name: 
@@ -185,6 +186,34 @@ MonoBehaviour:
   enemyBase: {fileID: 8993786847900788011}
   attackOnlyObstacles: 0
   atkRadius: 6
+  sC: {fileID: 3601150150775203320}
+--- !u!54 &8675860580399111251
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2519788516338364268}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4543130091535097960
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +226,6 @@ GameObject:
   - component: {fileID: 5524625792329433672}
   - component: {fileID: 6999850662413490035}
   - component: {fileID: 8993786847900788011}
-  - component: {fileID: 3944106599005674833}
   m_Layer: 7
   m_Name: Saboteur Enemy
   m_TagString: Enemy
@@ -288,7 +316,7 @@ MonoBehaviour:
   maxHealth: 10
   health: 10
   speed: 10
-  initialSpeed: 2
+  initialSpeed: 3
   speedIncreasePerWave: 0.4
   attack: 3
   attackRate: 0.5
@@ -305,39 +333,7 @@ MonoBehaviour:
   healthBar: {fileID: 8363240014654416058}
   speedText: {fileID: 6301843975211349707}
   empRadius: 6
---- !u!114 &3944106599005674833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4543130091535097960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41400f6826b33154c8dee3bdfa4e4ce2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  root: {fileID: 0}
-  maxHealth: 10
-  health: 10
-  speed: 10
-  initialSpeed: 10
-  speedIncreasePerWave: 1
-  attack: 0
-  attackRate: 2
-  attackingTower: {fileID: 0}
-  damageResistance: 1
-  damageResistances: []
-  activeEffects: []
-  currNodePath: []
-  currNodeIndices: 
-  reward: 30
-  id: 3
-  nodeIndex: 0
-  deathSound: {fileID: 8300000, guid: c0f50fb3f1a69184999f0c9cd858a6ac, type: 3}
-  healthBar: {fileID: 8363240014654416058}
-  speedText: {fileID: 6301843975211349707}
-  empRadius: 5
+  stopTowersTime: 15
 --- !u!1 &4887923794376787374
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,8 +646,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.4, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 12, y: 12, z: 12}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3767155620825152210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

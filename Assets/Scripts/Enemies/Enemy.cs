@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
 
     Animator anim;
     float origSpeed;
-    float attackDelay = 1f;
+    protected float attackDelay = 1f;
     bool speedAffected = false;
 
     public void Init()
@@ -114,7 +114,7 @@ public class Enemy : MonoBehaviour
 
     public float GetResistanceModifier(ElementType attackType)
     {
-        Debug.Log("COUNT: " + damResistancesDict.Count + " // CONTAINED?: " + damResistancesDict.ContainsKey(attackType));
+        //Debug.Log("COUNT: " + damResistancesDict.Count + " // CONTAINED?: " + damResistancesDict.ContainsKey(attackType));
         if (damResistancesDict.Count > 0 && damResistancesDict.ContainsKey(attackType))
             return damResistancesDict[attackType];
 
@@ -146,6 +146,15 @@ public class Enemy : MonoBehaviour
             {
                 anim.SetBool("Stopped", true);
             }
+            Vector3 positionToRotateTowards = newTower.transform.position;
+            positionToRotateTowards.y = transform.position.y;
+            Vector3 newDir = transform.position - positionToRotateTowards;
+            transform.rotation = Quaternion.LookRotation(newDir, Vector3.up);
+
+            //Vector3 targetPos = newTower.transform.position;
+            //targetPos.y = transform.position.y;
+            //transform.LookAt(targetPos, Vector3.up);
+
             Speed = 0f;
         }
         else
@@ -154,11 +163,15 @@ public class Enemy : MonoBehaviour
             {
                 anim.SetBool("Stopped", false);
             }
+            Vector3 positionToRotateTowards = currNodePath[indexIndex].transform.position;
+            Vector3 newDir = transform.position - positionToRotateTowards;
+            transform.rotation = Quaternion.LookRotation(newDir, Vector3.up);
+
             Speed = origSpeed;
         }
     }
 
-    public void Tick()
+    public virtual void Tick()
     {
         //Attack Obstacle
         if (attackingTower != null)
@@ -256,11 +269,21 @@ public class Enemy : MonoBehaviour
     public int GetNextIndex(int g)
     {
         //Debug.Log("ENEMY: " + EnemySpawner.enemiesInGame[g].gameObject.name + " VS " + gameObject.name);
-        if (indexIndex < currNodeIndices.Length)
+        Debug.Log("Node Count: " + nodeIndex + " IndexCount: " + indexIndex + " G: " + g + " Curr Node: " + currNodeIndices[indexIndex] + " out of " + currNodeIndices.Length);
+
+        //if the NodeIndex is equal to the total length of the current node indices, it means the enemy has reached
+        //the end of the path, and itshould be removed
+        if (nodeIndex < currNodeIndices.Length - 1)
         {
             indexIndex++;
             nodeIndex = currNodeIndices[indexIndex];
         }
+        else
+        {
+            GameManager.instance.LogNewEvent("Enemy Finished", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
+            TowerDefenseManager.EnqueueEnemyToRemove(this);
+        }
+
         return currNodeIndices[indexIndex];
     }
 

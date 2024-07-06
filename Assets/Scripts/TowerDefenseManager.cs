@@ -24,6 +24,7 @@ public class TowerDefenseManager : MonoBehaviour
     private static Queue<Enemy> enemiesToRemoveQueue;
     private static Queue<EnemyDamage> damageData;
     private static Queue<AppliedEffect> effectsQueue;
+    private static Queue<AppliedTowerEffect> towerEffectsQueue;
 
     public Transform nodeParent;
     [SerializeField] PathAndNodesPair[] pathAndNodesPairings;
@@ -72,6 +73,7 @@ public class TowerDefenseManager : MonoBehaviour
         enemiesToRemoveQueue = new Queue<Enemy>();
         damageData = new Queue<EnemyDamage>();
         effectsQueue = new Queue<AppliedEffect>();
+        towerEffectsQueue = new Queue<AppliedTowerEffect>();
         playerStats = FindObjectOfType<PlayerStats>();
 
         if (nodePositions == null)
@@ -171,6 +173,7 @@ public class TowerDefenseManager : MonoBehaviour
         towersToRemoveQueue.Clear();
         damageData.Clear();
         effectsQueue.Clear();
+        towerEffectsQueue.Clear();
     }
 
     void SpawnEnemies() 
@@ -247,6 +250,7 @@ public class TowerDefenseManager : MonoBehaviour
 
         //-----------------------
 
+        /*
         string outputPath = newEnemy.gameObject.name + "'s New Path: ";
         for (int i = 0; i < newEnemy.currNodePath.Length; i++)
         {
@@ -260,6 +264,7 @@ public class TowerDefenseManager : MonoBehaviour
             outputPath += newEnemy.currNodeIndices[i] + " > ";
         }
         Debug.Log(outputPath);
+        */
     }
 
     void UpdateWaveCount(int newWaveNum = -1)
@@ -383,49 +388,7 @@ public class TowerDefenseManager : MonoBehaviour
 
             //Spawn Towers
 
-            //Move Enemies
-            /*
-             if (!gamePaused)
-             {
-                 //nodePositions;
-                 NativeArray<Vector3> nodesToUse = new NativeArray<Vector3>(nodePositions, Allocator.TempJob);
-                 NativeArray<float> enemySpeeds = new NativeArray<float>(EnemySpawner.enemiesInGame.Count, Allocator.TempJob);
-                 NativeArray<int> nodeIndices = new NativeArray<int>(EnemySpawner.enemiesInGame.Count, Allocator.TempJob);
-                 TransformAccessArray enemyAccess = new TransformAccessArray(EnemySpawner.enemiesInGameTransform.ToArray(), 2);
-
-                 for (int i = 0; i < EnemySpawner.enemiesInGame.Count; i++)
-                 {
-                     enemySpeeds[i] = EnemySpawner.enemiesInGame[i].speed;
-                     nodeIndices[i] = EnemySpawner.enemiesInGame[i].nodeIndex;
-                 }
-
-                 MoveEnemiesJob moveJob = new MoveEnemiesJob
-                 {
-                     nodePositions = nodesToUse,
-                     enemySpeed = enemySpeeds,
-                     nodeIndex = nodeIndices,
-                     deltaTime = Time.deltaTime //can't access Time.deltaTime while multithreading, so grab it here!
-                 };
-
-                 JobHandle moveJobHandle = moveJob.Schedule(enemyAccess);
-                 moveJobHandle.Complete();
-
-                 for (int i = 0; i < EnemySpawner.enemiesInGame.Count; i++)
-                 {
-                     EnemySpawner.enemiesInGame[i].nodeIndex = nodeIndices[i];
-
-                     if (EnemySpawner.enemiesInGame[i].nodeIndex == EnemySpawner.enemiesInGame[i].currNodePath.Length)
-                     {
-                         EnqueueEnemyToRemove(EnemySpawner.enemiesInGame[i]);
-                     }
-                 }
-
-                 enemySpeeds.Dispose();
-                 nodeIndices.Dispose();
-                 enemyAccess.Dispose();
-                 nodesToUse.Dispose();
-             }*/
-            
+            //Move Enemies        
             if (!gamePaused)
             {
                 NativeArray<Vector3> nodesToUse = new NativeArray<Vector3>(nodePositions2, Allocator.TempJob);
@@ -506,6 +469,29 @@ public class TowerDefenseManager : MonoBehaviour
                 }
             }
 
+            //Apply Tower Effects
+            if (!gamePaused)
+            {
+                if (towerEffectsQueue.Count > 0)
+                {
+                    for (int i = 0; i < towerEffectsQueue.Count; i++)
+                    {
+                        AppliedTowerEffect currentEffect = towerEffectsQueue.Dequeue();
+
+                        //if the enemy doesn't have the effect, then it is added to the enemy; if not, reset its expireTime
+                        Effect existingEffectOnTower = currentEffect.towerToAffect.activeEffects.Find(x => x.effectName == currentEffect.effectToApply.effectName);
+                        if (existingEffectOnTower == null)
+                        {
+                            currentEffect.towerToAffect.activeEffects.Add(currentEffect.effectToApply);
+                        }
+                        else
+                        {
+                            existingEffectOnTower.expireTime = currentEffect.effectToApply.expireTime;
+                        }
+                    }
+                }
+            }
+
             //Tick Enemies
             if (!gamePaused)
             {
@@ -532,6 +518,7 @@ public class TowerDefenseManager : MonoBehaviour
 
                         if (currentDamage.target.Health <= 0 && !enemiesToRemoveQueue.Contains(currentDamage.target))
                         {
+                            GameManager.instance.LogNewEvent("Enemy Death", currentDamage.target.gameObject, currentDamage.target.gameObject.transform.position, GameControlManager.instance.IsJumped);
                             EnqueueEnemyToRemove(currentDamage.target);
                         }
                     }
@@ -623,9 +610,13 @@ public class TowerDefenseManager : MonoBehaviour
         effectsQueue.Enqueue(appliedEffect);
     }
 
+    public static void EnqueueTowerEffectToApply(AppliedTowerEffect appliedEffect)
+    {
+        towerEffectsQueue.Enqueue(appliedEffect);
+    }
+
     public static void EnqueueEnemyToRemove(Enemy enemyToRemove)
     {
-        GameManager.instance.LogNewEvent("Enemy Death", enemyToRemove.gameObject, enemyToRemove.gameObject.transform.position, GameControlManager.instance.IsJumped);
         //DataEvent newEvent = new DataEvent("Enemy Death", enemyToRemove.gameObject, enemyToRemove.gameObject.transform.position, GameControlManager.instance.IsJumped);
         //EventManager.instance.RecordNewEvent(newEvent);
         enemiesToRemoveQueue.Enqueue(enemyToRemove);
@@ -692,7 +683,7 @@ public class PathAndNodesPair
     public Node[] Nodes { get { return nodeHolder.GetComponentsInChildren<Node>(); } }
 }
 
-public enum EffectType { Damage, Slow, Shock}
+public enum EffectType { Damage, Slow, Shock, Stun }
 
 [System.Serializable]
 public class Effect
@@ -749,7 +740,16 @@ public class Effect
         expireTime = newExpireTime;
         stopExpireTime = stopIntervalTime;
 
-        effectType = EffectType.Shock;
+        effectType = EffectType.Stun;
+    }
+
+    //Stun Effect (towers)
+    public Effect(string newEffectName, float newExpireTime)
+    {
+        effectName = newEffectName;
+        expireTime = newExpireTime;
+
+        effectType = EffectType.Stun;
     }
 
 
@@ -771,6 +771,21 @@ public struct AppliedEffect
 
         if (sfxName != null)
             AudioManager.instance.PlaySFXArray(sfxName, newEnemy.transform.position);
+    }
+}
+
+public struct AppliedTowerEffect
+{
+    public TowerBehaviour towerToAffect;
+    public Effect effectToApply;
+
+    public AppliedTowerEffect(TowerBehaviour newTower, Effect newEffect, string sfxName = null)
+    {
+        towerToAffect = newTower;
+        effectToApply = newEffect;
+
+        if (sfxName != null)
+            AudioManager.instance.PlaySFXArray(sfxName, newTower.transform.position);
     }
 }
 

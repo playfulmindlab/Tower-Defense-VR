@@ -23,7 +23,12 @@ public class LobberEnemy : Enemy
             //missileSystemMain.startRotationY = towerHead.forward.y;
             //missileSystemMain.startRotationZ = towerHead.forward.z;
 
-            float dist = Vector3.Distance(target.transform.position, tip.transform.position);
+            /*Vector3 end = target.transform.position;
+            Vector3 start = tip.transform.position;
+            float xDiff = end.x - start.x;
+            float zDiff = end.z - start.z;*/
+
+            float dist = Vector3.Distance(target.transform.position, tip.transform.position) - tip.transform.position.y;
             missileSystemMain.startSpeed = Mathf.Sqrt(dist * missileSystemMain.gravityModifierMultiplier * 9.81f);
 
             missileSystem.Play();

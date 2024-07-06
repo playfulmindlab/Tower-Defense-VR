@@ -145,7 +145,7 @@ public class EnemySpawner : MonoBehaviour
         int currWave = TowerDefenseManager.waveCount - 1;
         int newEnemyID = Random.Range(0, 4);
 
-        Debug.Log("SafetyTest: " + currWave + "/" + newEnemyID + " = " + enemyNumbers[currWave][newEnemyID]);
+        //Debug.Log("SafetyTest: " + currWave + "/" + newEnemyID + " = " + enemyNumbers[currWave][newEnemyID]);
 
         if (randEnemyLoopCap >= 12)
         {

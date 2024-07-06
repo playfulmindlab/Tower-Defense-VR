@@ -16,7 +16,7 @@ public class ElectricVolumeManager : MonoBehaviour
             //public Effect(string newEffectName, float newStopIntervalTime, float newResumeIntervalTime, float newOrigSpeed, float newExpireTime)
             Effect shockEffect = new Effect("Shock", 2.0f, 0.5f, enemy.Speed, effectTime);
 
-            AppliedEffect effect = new AppliedEffect(enemy, shockEffect, "StatusShocked");
+            AppliedEffect effect = new AppliedEffect(enemy, shockEffect, "ShockStatus");
             TowerDefenseManager.EnqueueEffectToApply(effect);
         }
     }
