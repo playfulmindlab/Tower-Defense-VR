@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SaboteurMimic
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 4543130091535097960, guid: 08cd318a6db6b364b955a4ed88a5d52c, type: 3}
-  enemyID: 3
+  enemyID: 1

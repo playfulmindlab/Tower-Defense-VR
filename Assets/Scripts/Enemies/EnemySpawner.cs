@@ -15,9 +15,12 @@ public class EnemySpawner : MonoBehaviour
     private static bool isInitialized;
 
     [SerializeField] string enemyNumbersLoc;
-    [SerializeField] private static int[][] enemyNumbers; //Order is Standard, Tank, Lobber, Saboteur
+    [SerializeField] private static int[][] enemyNumbers; //new order is Lobber, Saboteur, Standard, Tank                                                //Order is Standard, Tank, Lobber, Saboteur
+    private static int[][] waveAndEnemyIDOrder;//[wave][currentEnemyID]
     public static int[] numEnemiesInWaves;
     static int randEnemyLoopCap = 0;
+
+    static int currEnemySpawned = 0;
 
     public void Start()
     {
@@ -45,11 +48,17 @@ public class EnemySpawner : MonoBehaviour
             numHolder.Add(dataValues);
 
             enemyCount = 0;
-            foreach (int num in dataValues)
+            for (int i = 0; i < 4; i++)
+            {
+                enemyCount += dataValues[i];
+            }
+
+            enemyCount *= dataValues[4];
+            /*foreach (int num in dataValues)
             {
                 enemyCount += num;
                 //Debug.Log("ENEMY COUNTING: " + enemyCount);
-            }
+            }*/
 
             waveCountHolder.Add(enemyCount);
         }
@@ -60,6 +69,29 @@ public class EnemySpawner : MonoBehaviour
         numEnemiesInWaves = waveCountHolder.ToArray();
 
         //Debug.Log("ENEMIES: " + enemyNumbers[12][3]);
+
+        Debug.Log("INITIALIZING ENEMY LIST...");
+        List<int[]> newOrder = new List<int[]>();
+        for (int i = 0; i < enemyNumbers.Length; i++)
+        {
+            newOrder.Add(GetWaveSpawnOrder(enemyNumbers[i]));
+        }
+        waveAndEnemyIDOrder = newOrder.ToArray();
+         
+        
+        string debugString = "";
+        for (int z = 0; z < 15; z++)
+        {
+            foreach (var x in waveAndEnemyIDOrder[z])
+            {
+                debugString += x.ToString() + " > ";
+            }
+            debugString += waveAndEnemyIDOrder[z].Length;
+
+            Debug.Log("WAVE #" + z + " ORDER: " + debugString);
+            debugString = "";
+        }
+        
     }
 
     public static void Init()
@@ -140,6 +172,63 @@ public class EnemySpawner : MonoBehaviour
         return newEnemy;
     }
 
+    static int[] GetWaveSpawnOrder(int[] waveEnemyNums)
+    {
+        if (waveEnemyNums.Length != 5)
+            return null;
+
+        List<int> newEnemyOrder = new List<int>();
+
+        if (waveEnemyNums[4] == 1)
+        {
+            for (int id = 0; id < waveEnemyNums.Length - 1; id++)
+            {
+                for (int numToSpawn = 0; numToSpawn < waveEnemyNums[id]; numToSpawn++)
+                {
+                    newEnemyOrder.Add(id);
+                }
+            }
+        }
+        else
+        {
+            for (int h = 0; h < waveEnemyNums[4]; h++)
+            {
+                for (int id = 0; id < waveEnemyNums.Length - 1; id++)
+                {
+                    for (int numToSpawn = 0; numToSpawn < waveEnemyNums[id]; numToSpawn++)
+                    {
+                        newEnemyOrder.Add(id);
+                    }
+                }
+            }
+        }
+
+        return newEnemyOrder.ToArray();
+    }
+
+    public static int GetNextIDToSpawn()
+    {
+        int currWave = TowerDefenseManager.waveCount - 1;
+
+        //if (currEnemySpawned < waveAndEnemyIDOrder[currWave].Length)
+        //{
+            int newID = waveAndEnemyIDOrder[currWave][currEnemySpawned];
+
+            currEnemySpawned++;
+
+
+        //}
+
+        if (currEnemySpawned >= waveAndEnemyIDOrder[currWave].Length)
+        {
+            currEnemySpawned = 0;
+        }
+        return newID;
+        
+    }
+
+    /*
+    //uncomment this section to get random enemies spawn order
     public static int GetValidIDToSpawn()
     {
         int currWave = TowerDefenseManager.waveCount - 1;
@@ -171,73 +260,7 @@ public class EnemySpawner : MonoBehaviour
 
         return newEnemyID;
     }
-
-    /*public static Enemy SummonRandomEnemy()
-    {
-        int currWave = GameManager.instance.currWaveNum;
-        int newEnemyID = Random.Range(0, 4);
-
-        Enemy newEnemy = null;
-        Debug.Log("SafetyTest: " + currWave + "/" + newEnemyID + " = " + enemyNumbers[currWave][newEnemyID]);
-
-        if (!enemyPrefabs.ContainsKey(newEnemyID))
-        {
-            Debug.Log("There is no enemy with ID " + newEnemyID + "!");
-            return null;
-        }
-
-        if (randEnemyLoopCap >= 20)
-        {
-            Debug.LogError("Too many tries! Enemy will not be spawned!");
-            randEnemyLoopCap = 0;
-            return null;
-        }
-
-
-        if (enemyNumbers[currWave][newEnemyID] >= 1)
-        {
-            enemyNumbers[currWave][newEnemyID]--;
-            Debug.Log("Enemy ID " + newEnemyID + " is OK! Can spawn " + enemyNumbers[currWave][newEnemyID] + " more enemies with ID " + newEnemyID + " // Attempt #" + randEnemyLoopCap);
-        }
-        else
-        {
-            randEnemyLoopCap++;
-            Debug.Log("Can't spawn any more enemies with ID " + newEnemyID + " - Trying Again! Attempt #" + randEnemyLoopCap);
-
-            SummonRandomEnemy();
-            return null;
-        }
-
-        randEnemyLoopCap = 0;
-
-
-
-        Queue<Enemy> referencedQueue = enemyObjectPools[newEnemyID];
-
-        if (referencedQueue.Count > 0)
-        {
-            //dequeue enemy & initialize
-            newEnemy = referencedQueue.Dequeue();
-            newEnemy.Init();
-
-            newEnemy.gameObject.SetActive(true);
-        }
-        else
-        {
-            //instantiate new instance of enemy & initialize
-            GameObject newEnemyObject = Instantiate(enemyPrefabs[newEnemyID], TowerDefenseManager.nodePositions[0], Quaternion.identity);
-            newEnemy = newEnemyObject.GetComponent<Enemy>();
-            newEnemy.Init();
-        }
-
-        if (!enemiesInGame.Contains(newEnemy)) enemiesInGame.Add(newEnemy);
-        if (!enemiesInGameTransform.Contains(newEnemy.transform)) enemiesInGameTransform.Add(newEnemy.transform);
-        if (!enemyTransformPairs.ContainsKey(newEnemy.transform)) enemyTransformPairs.Add(newEnemy.transform, newEnemy);
-
-        newEnemy.id = newEnemyID;
-
-        return newEnemy;
-    }*/
+    */
 
     public static void RemoveEnemy(Enemy enemyToRemove)
     {

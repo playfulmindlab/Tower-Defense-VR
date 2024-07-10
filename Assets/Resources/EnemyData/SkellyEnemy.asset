@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SkellyEnemy
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 265340451732183431, guid: fa8e75c51b7a2074ab905a79c61cbcff, type: 3}
-  enemyID: 0
+  enemyID: 2

@@ -198,7 +198,8 @@ public class TowerDefenseManager : MonoBehaviour
 
     void SpawnEnemies() 
     {
-        int newID = EnemySpawner.GetValidIDToSpawn();
+        //int newID = EnemySpawner.GetValidIDToSpawn();
+        int newID = EnemySpawner.GetNextIDToSpawn();
         EnqueueEnemyIDToSummon(newID); 
     }
 
