@@ -26,7 +26,6 @@ public class EventManager : MonoBehaviour//Singleton<Analytics>
     public void SwitchFileLocations(string newLocation = "N/A")
     {
         string newFileLocation = "";
-        Debug.Log(Application.dataPath);
 
         if (newLocation == "N/A")
         {
@@ -43,7 +42,7 @@ public class EventManager : MonoBehaviour//Singleton<Analytics>
             Directory.CreateDirectory(newFileLocation);
         }
 
-        newFileLocation += GameManager.instance.SessionStartTime.ToString("MM-yy - HH.mm.ss") + ".csv";
+        newFileLocation += GameManager.instance.SessionStartTime.ToString("dd-MM-yy - HH.mm.ss") + ".csv";
         File.WriteAllText(newFileLocation, "Timestamp,Participant,Game,Total Time Played,Session Number,Session Time Played,Map Number,Level Number,Wave Number,Event,Gameobject,Gameobject Coordinates,Jump Status\n");
         fileLocation = newFileLocation;
 
@@ -105,7 +104,7 @@ public class DataEvent
 
         eventName = newEventName;
         gameObjectName = newGO.name;
-        eventCoordinates = new string ("X: " + newEventCoords.x + "Y: " + newEventCoords.y + "Z: " + newEventCoords.z);
+        eventCoordinates = new string ("X: " + newEventCoords.x + " Y: " + newEventCoords.y + " Z: " + newEventCoords.z);
         jumpStatus = isJumped.ToString() ;
     }
 

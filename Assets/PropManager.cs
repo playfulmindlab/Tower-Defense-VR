@@ -24,12 +24,9 @@ public class PropManager : MonoBehaviour
     void Start()
     {
         baseLayer = LayerMask.GetMask("Baseplate");
-
         miniMapScript = GameObject.FindGameObjectWithTag("MinimapBaseplate").GetComponentInParent<MiniMapTowerPlacement>();
-
         xrGrab = GetComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>();
 
-        //radialMenuCanvas = GetComponentInChildren<Canvas>();
         radialMenuCanvas.enabled = false;
     }
 
@@ -53,20 +50,12 @@ public class PropManager : MonoBehaviour
                 //Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer);
                 if (hit.collider != null)
                 {
-                    Vector3 hitPoint = hit.point;
-
-                    //Debug.Log("Hit Object: " + hit.collider.gameObject);
-                    //Debug.Log("World 1: " + this.transform.position + " // Local 1: " + this.transform.localPosition);
-
                     towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, hit.point);
 
                     towerScript = towerSpawn.GetComponent<TowerBehaviour>();
                     jumpedTowerScript = towerSpawn.GetComponent<JumpedTowerControls>();
 
                     isPropDropped = true;
-
-                    //xrGrab.enabled = false;
-                    //xrGrab.enabled = true;
                     //Debug.Log("World 2: " + this.transform.position + " // Local 2: " + this.transform.localPosition);
                 }
             }
@@ -80,6 +69,8 @@ public class PropManager : MonoBehaviour
 
     public void LockPropPosition()
     {
+        if (xrGrab == null) Start();
+
         xrGrab.trackPosition = false;
         xrGrab.trackRotation = false;
     }
@@ -90,7 +81,6 @@ public class PropManager : MonoBehaviour
         if (miniMapScript != null && toggleState == true)
             miniMapScript.SwapActivatedPropMenu(this);
     }
-
 
     public void SpawnUpgradedProp(TowerBehaviour upgradedTowerScript)
     {

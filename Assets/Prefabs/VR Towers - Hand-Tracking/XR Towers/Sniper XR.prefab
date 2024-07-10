@@ -5398,6 +5398,7 @@ MonoBehaviour:
   shieldBar: {fileID: 2513688882811752984}
   outline: {fileID: 0}
   upgradedTower: {fileID: 0}
+  activeEffects: []
   aliveOnSceneStart: 0
 --- !u!65 &1095114777964344025
 BoxCollider:
@@ -5488,7 +5489,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6299893838535822105}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 

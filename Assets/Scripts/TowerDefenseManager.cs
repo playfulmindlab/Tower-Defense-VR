@@ -14,7 +14,7 @@ public class TowerDefenseManager : MonoBehaviour
     public static List<TowerBehaviour> towersInGame;
     private static Queue<TowerBehaviour> towersToRemoveQueue;
     public static Vector3[] nodePositions = null;
-    public Node startingNode;
+    //public Node startingNode;
     public static float[] nodeDistances = null;
     public static int waveCount = 1;
     int levelCount = 1;
@@ -109,6 +109,26 @@ public class TowerDefenseManager : MonoBehaviour
         EnemySpawner.Init();
 
         StartCoroutine(GameplayLoop());
+    }
+
+    //Note: Update here is ONLY meant to be used for keycode entry for testing. All other functions
+    //will update in the GameplayLoop() IEnumerator
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            ChangePhase(Phase.Build);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            ChangePhase(Phase.Defend);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
     }
 
     public void ChangePhase(Phase newPhase)

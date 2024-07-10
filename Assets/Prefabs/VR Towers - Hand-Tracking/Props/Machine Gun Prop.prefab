@@ -852,6 +852,10 @@ PrefabInstance:
       value: RadialXRCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 5547291442601913107, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547291442601913107, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: -6964803643684184143}
@@ -859,6 +863,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: -6964803643684184143}
+    - target: {fileID: 8691211671426564550, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8829436584320598562, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

@@ -121,13 +121,18 @@ public class MiniMapTowerPlacement : MonoBehaviour
                 //------------------------------------------
 
                 GameObject newProp = Instantiate(oldProp.upgradedProp, oldProp.transform.position, oldProp.transform.rotation);
+
                 if (newProp.GetComponent<PropManager>() != null)
                 {
                     newProp.GetComponent<PropManager>().SpawnUpgradedProp(newTower.GetComponent<TowerBehaviour>());
                 }
+
                 newProp.transform.parent = this.transform;
-                newProp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+
                 Destroy(oldProp.gameObject);
+
+                newProp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+                newProp.GetComponent<PropManager>().LockPropPosition();
             }
             else
             {

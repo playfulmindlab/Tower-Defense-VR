@@ -71,7 +71,8 @@ MonoBehaviour:
   healthBar: {fileID: 4954414263717563422}
   shieldBar: {fileID: 4161821923480518399}
   outline: {fileID: 0}
-  upgradedTower: {fileID: 3673039398630169798, guid: 6ac720a892139db42a520777ee82ad42, type: 3}
+  upgradedTower: {fileID: 5753604013522648029, guid: 9aee2445b511ef04ab3ed846fe1bc12f, type: 3}
+  activeEffects: []
   aliveOnSceneStart: 0
   rotateSpeed: 30
 --- !u!65 &6906001508041510724

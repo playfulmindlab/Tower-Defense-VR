@@ -503,7 +503,8 @@ MonoBehaviour:
   healthBar: {fileID: 2776789719445505967}
   shieldBar: {fileID: 4195555236192268083}
   outline: {fileID: 0}
-  upgradedTower: {fileID: 797117038911625959, guid: 0542128d4c843a948ac5b241b7ded19b, type: 3}
+  upgradedTower: {fileID: 6344123033429765809, guid: 96d27f4e0ad5c474294fbd3c04026565, type: 3}
+  activeEffects: []
   aliveOnSceneStart: 0
 --- !u!65 &3955825980288991390
 BoxCollider:

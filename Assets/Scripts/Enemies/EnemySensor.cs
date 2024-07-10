@@ -13,7 +13,7 @@ public class EnemySensor : MonoBehaviour
     private void Start()
     {
         enemyBase = transform.parent.GetComponent<Enemy>();
-
+        if (sC != null)
             sC.radius = atkRadius;
     }
 

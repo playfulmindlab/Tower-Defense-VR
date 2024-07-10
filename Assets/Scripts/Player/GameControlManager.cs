@@ -104,7 +104,7 @@ public class GameControlManager : MonoBehaviour
 
                 jumpedTowerControls.SetCamera(false);
                 TogglePlayerCamera(true);
-                jumpedTowerControls.EndTowerJump();
+
                 rayLine.enabled = true;
                 pointerLine.enabled = true;
 
@@ -114,14 +114,12 @@ public class GameControlManager : MonoBehaviour
 
                 isJumped = false;
                 GameManager.instance.LogNewEvent("Tower Jump End", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
-                //DataEvent newEvent = new DataEvent("Tower Jump End", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
-                //EventManager.instance.RecordNewEvent(newEvent);
                 jumpedTowerControls = null;
 
                 break;
 
             case ControlsSetting.Jumped:
-                jumpedTowerControls.ToggleAutoShoot();
+                //jumpedTowerControls.ToggleAutoShoot();
                 jumpedTowerControls.SetJumpedTower();
 
                 TogglePlayerCamera(false);
