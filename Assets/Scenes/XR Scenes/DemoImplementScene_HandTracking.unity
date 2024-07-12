@@ -8332,17 +8332,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle Launcher XR
       objectReference: {fileID: 0}
+    - target: {fileID: 3438446854484223292, guid: 1fb05c3d396190f4a9217c7756b99323, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3730726678554609060, guid: 1fb05c3d396190f4a9217c7756b99323, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3730726678554609060, guid: 1fb05c3d396190f4a9217c7756b99323, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3730726678554609060, guid: 1fb05c3d396190f4a9217c7756b99323, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.555
       objectReference: {fileID: 0}
     - target: {fileID: 3759597437208236053, guid: 1fb05c3d396190f4a9217c7756b99323, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8386,15 +8390,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6911883844934500261, guid: 1fb05c3d396190f4a9217c7756b99323, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6911883844934500261, guid: 1fb05c3d396190f4a9217c7756b99323, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6911883844934500261, guid: 1fb05c3d396190f4a9217c7756b99323, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.464
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19088,6 +19092,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4899362333596808627}
+  - {fileID: 1876722231}
   - {fileID: 7001346726445749446}
   - {fileID: 2121967905}
   - {fileID: 8478000348228873477}
@@ -35678,29 +35683,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Machine Gun XR
       objectReference: {fileID: 0}
+    - target: {fileID: 694480364299055864, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3288674850498683768, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3288674850498683768, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3288674850498683768, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.555
       objectReference: {fileID: 0}
     - target: {fileID: 5627515686144566370, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5627515686144566370, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5627515686144566370, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.464
       objectReference: {fileID: 0}
     - target: {fileID: 7832750318883099538, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46931,6 +46940,91 @@ MonoBehaviour:
   - {fileID: 586292279}
   isStart: 0
   isEnd: 0
+--- !u!1001 &1837148034
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1210714282584105382, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210714282584105382, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210714282584105382, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.555
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565751871533538187, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_Name
+      value: Icicle Launcher - Upgrade 2 XR
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565751871533538187, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161025538859791777, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.5072517
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161025538859791777, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161025538859791777, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.817507
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161025538859791777, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161025538859791777, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161025538859791777, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161025538859791777, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161025538859791777, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161025538859791777, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161025538859791777, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8059545888001828802, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8059545888001828802, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8059545888001828802, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.464
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
 --- !u!1 &1846420913
 GameObject:
   m_ObjectHideFlags: 0
@@ -47351,6 +47445,76 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867584452}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1876722230
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 638360530}
+    m_Modifications:
+    - target: {fileID: 1980392116344603756, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: xrManager
+      value: 
+      objectReference: {fileID: 1023057732}
+    - target: {fileID: 3192946626383054539, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: newSpawn
+      value: 
+      objectReference: {fileID: 2567590900362179096, guid: e445f54d1607c12449415563996cd3f8, type: 3}
+    - target: {fileID: 4692302170794590873, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692302170794590873, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5000019
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692302170794590873, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692302170794590873, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8681989
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692302170794590873, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692302170794590873, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49621648
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692302170794590873, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692302170794590873, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692302170794590873, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -59.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692302170794590873, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015066615769744483, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: m_Name
+      value: Icicle Launcher Respawnables (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+--- !u!4 &1876722231 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4692302170794590873, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+  m_PrefabInstance: {fileID: 1876722230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1881481819
 GameObject:
   m_ObjectHideFlags: 0
@@ -52286,6 +52450,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle Launcher Respawnables
       objectReference: {fileID: 0}
+    - target: {fileID: 6015066615769744483, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -56580,3 +56748,4 @@ SceneRoots:
   - {fileID: 1394042147}
   - {fileID: 462471484}
   - {fileID: 1528321098}
+  - {fileID: 1837148034}

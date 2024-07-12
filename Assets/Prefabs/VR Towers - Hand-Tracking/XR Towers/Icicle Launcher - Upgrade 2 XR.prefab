@@ -602,6 +602,7 @@ MonoBehaviour:
   shieldBar: {fileID: 7453070508360385150}
   outline: {fileID: 0}
   upgradedTower: {fileID: 0}
+  activeEffects: []
   aliveOnSceneStart: 0
 --- !u!65 &5788191543829187548
 BoxCollider:
@@ -1971,12 +1972,16 @@ PrefabInstance:
       value: Icicle
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: lengthInSec
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: autoRandomSeed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: ShapeModule.type
@@ -1984,11 +1989,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: ShapeModule.angle
-      value: 30
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: moveWithTransform
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: ShapeModule.arc.mode
@@ -1996,7 +2001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: ShapeModule.arc.value
-      value: 30
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: ShapeModule.m_Scale.x
@@ -2008,7 +2013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: ShapeModule.arc.spread
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: ShapeModule.m_Rotation.x
@@ -2040,11 +2045,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 3
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: ShapeModule.randomDirectionAmount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.size
@@ -2052,7 +2057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
@@ -2088,7 +2093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].time
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount

@@ -17,6 +17,7 @@ public class MissileDamage : Damage, IDamageMethod
     {
         audioSource = GetComponent<AudioSource>();
         missileSystemMain = missileSystem.main;
+        missileSystemMain.duration = firerate;
         //missileSystemMain.startSpeed = projectileSpeed;
         base.Init(damage, firerate);
     }
@@ -26,10 +27,10 @@ public class MissileDamage : Damage, IDamageMethod
         if (activeState == true)
         {
             audioSource.loop = true;
-            //missileSystemMain.loop = true;
-            missileSystemMain.maxParticles = 1000;
-            var emission = missileSystem.emission;
-            emission.rateOverTimeMultiplier = missileSystemMain.startSpeedMultiplier / 5f;
+            missileSystemMain.loop = true;
+            missileSystemMain.maxParticles = 100;
+            //var emission = missileSystem.emission;
+            //emission.rateOverTimeMultiplier = missileSystemMain.startSpeedMultiplier / 5f;
             UpdateDamage(damage * 2);
             missileSystem.Play();
         }
@@ -39,9 +40,9 @@ public class MissileDamage : Damage, IDamageMethod
             audioSource.loop = false;
             missileSystemMain.loop = false;
             missileSystemMain.maxParticles = 10;
-            var emission = missileSystem.emission;
+            var emission = missileSystem.emission;         
             UpdateDamage(damage / 2);
-            emission.rateOverTimeMultiplier = 0f;
+            //emission.rateOverTimeMultiplier = 0f;
         }
     }
 

@@ -1235,7 +1235,7 @@ MonoBehaviour:
   line: {fileID: 4398037081875156276}
   towerSpawn: {fileID: 5591534998685803407, guid: e80e920f5a145aa40a48bcafd0439fe6, type: 3}
   miniMapScript: {fileID: 0}
-  upgradedProp: {fileID: 1565751871533538187, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+  upgradedProp: {fileID: 2567590900362179096, guid: e445f54d1607c12449415563996cd3f8, type: 3}
   radialMenuCanvas: {fileID: 7203725776284671508}
 --- !u!1 &4928221167030438941
 GameObject:
