@@ -163,7 +163,7 @@ public class Enemy : MonoBehaviour
             {
                 anim.SetBool("Stopped", false);
             }
-            Vector3 positionToRotateTowards = currNodePath[indexIndex].transform.position;
+            Vector3 positionToRotateTowards = currNodePath[nodeIndex].transform.position;
             Vector3 newDir = transform.position - positionToRotateTowards;
             transform.rotation = Quaternion.LookRotation(newDir, Vector3.up);
 
@@ -260,31 +260,36 @@ public class Enemy : MonoBehaviour
         activeEffects.RemoveAll(x => x.expireTime <= 0f);
     }
 
-    public Node GetNextNode()
-    {
-        nodeIndex++;
-        return currNodePath[nodeIndex];
-    }
+    //public Node GetNextNode()
+    //    nodeIndex++;
+    //    return currNodePath[nodeIndex];
+    //}
 
-    public int GetNextIndex(int g)
+    public int GetNextIndex()
     {
         //Debug.Log("ENEMY: " + EnemySpawner.enemiesInGame[g].gameObject.name + " VS " + gameObject.name);
-        Debug.Log("Node Count: " + nodeIndex + " IndexCount: " + indexIndex + " G: " + g + " Curr Node: " + currNodeIndices[indexIndex] + " out of " + currNodeIndices.Length);
+        Debug.Log("Node Count: " + nodeIndex + " IndexCount: " + indexIndex + " Curr Node: " + currNodeIndices[indexIndex] + " out of " + currNodeIndices.Length);
 
         //if the NodeIndex is equal to the total length of the current node indices, it means the enemy has reached
         //the end of the path, and itshould be removed
-        if (nodeIndex < currNodeIndices.Length - 1)
+        if (indexIndex < currNodeIndices.Length - 1)
         {
             indexIndex++;
             nodeIndex = currNodeIndices[indexIndex];
         }
-        else
-        {
-            GameManager.instance.LogNewEvent("Enemy Finished", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
-            TowerDefenseManager.EnqueueEnemyToRemove(this);
-        }
+        //else
+        //{
+        //    GameManager.instance.LogNewEvent("Enemy Finished", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
+        //    TowerDefenseManager.EnqueueEnemyToRemove(this);
+        //}
 
-        return currNodeIndices[indexIndex];
+        return nodeIndex;
+    }
+
+    public void RemoveFromGame()
+    {
+        GameManager.instance.LogNewEvent("Enemy Finished", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
+        TowerDefenseManager.EnqueueDamageData(new EnemyDamage(this, maxHealth, 1));
     }
 
     public void UpdateNodeIndex()

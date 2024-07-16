@@ -53,7 +53,8 @@ public class TowerDefenseManager : MonoBehaviour
     public bool IsGamePaused { get { return gamePaused; } set { } }
     Phase prePausePhase = Phase.None;
 
-
+    [SerializeField] bool fastToWave = true;
+    [SerializeField] int setWave = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -107,6 +108,12 @@ public class TowerDefenseManager : MonoBehaviour
 
         ResetGameStatistics();
         EnemySpawner.Init();
+
+        if (fastToWave == true)
+        {
+            waveCount = setWave;
+            levelCount = setWave / 5;
+        }
 
         StartCoroutine(GameplayLoop());
     }
@@ -219,7 +226,8 @@ public class TowerDefenseManager : MonoBehaviour
 
     void UpdateNewNodePath(int newPath)
     {
-        //enable path, make it visible - the patch is technically aesthetic
+        Debug.Log("NEW PATH: " + newPath);
+        //enable path, make it visible - the path is technically aesthetic
         pathAndNodesPairings[newPath].path.SetActive(true);
 
         //Safety Check - if "newPath" is 0, this makes sure the game doesn't break
@@ -349,6 +357,9 @@ public class TowerDefenseManager : MonoBehaviour
 
         UpdateGameManagerStats();
         UpdateNewNodePath(levelCount - 1);
+
+        nodePositions2 = NodePathPositions();
+
         ChangePhase(Phase.Build);
 
     }
@@ -434,14 +445,14 @@ public class TowerDefenseManager : MonoBehaviour
                 JobHandle moveJobHandle = moveJob.Schedule(enemyAccess);
                 moveJobHandle.Complete();
 
-                //Debug.Log("ENEMY MOVE - CHECK");
-
                 for (int i = 0; i < EnemySpawner.enemiesInGame.Count; i++)
                 {
                     EnemySpawner.enemiesInGame[i].nodeIndex = nodeIndices[i];
 
-                    if (EnemySpawner.enemiesInGame[i].nodeIndex == nodePositions2.Length)
+                    Debug.Log("INDEX COMP: " + EnemySpawner.enemiesInGame[i].nodeIndex + " vs " + nodePositions2.Length);
+                    if (EnemySpawner.enemiesInGame[i].nodeIndex >= nodePositions2.Length)
                     {
+                        GameManager.instance.LogNewEvent("Enemy Finished", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
                         EnqueueEnemyToRemove(EnemySpawner.enemiesInGame[i]);
                     }
                 }
@@ -822,18 +833,35 @@ public struct MoveEnemiesJob : IJobParallelForTransform
     {
         if (nodeIndex[index] < nodePositions.Length)
         {
+            string debugString = "";
+
+            foreach (var x in nodeIndex)
+            {
+                debugString += x.ToString() + " > ";
+            }
+            
+           // Debug.Log
             Vector3 positionToMoveTo = nodePositions[nodeIndex[index]];
             transform.position = Vector3.MoveTowards(transform.position, positionToMoveTo, enemySpeed[index] * deltaTime);
 
-            if (transform.position == positionToMoveTo)
+            if (transform.position == positionToMoveTo && index < nodeIndex.Length)
             {
                 //nodeIndex[index]++;             
-                nodeIndex[index] = EnemySpawner.enemiesInGame[index].GetNextIndex(index);
+                nodeIndex[index] = EnemySpawner.enemiesInGame[index].GetNextIndex();
 
                 Vector3 positionToRotateTowards = nodePositions[nodeIndex[index]];
-                Vector3 newDir = transform.position - positionToRotateTowards;
-                transform.rotation = Quaternion.LookRotation(newDir, Vector3.up);
+
+                if (positionToMoveTo != positionToRotateTowards)
+                {
+                    Vector3 newDir = transform.position - positionToRotateTowards;
+                    transform.rotation = Quaternion.LookRotation(newDir, Vector3.up);
+                }
+                else
+                {
+                    EnemySpawner.enemiesInGame[index].RemoveFromGame();
+                }
             }
+
         }
     }
 }
