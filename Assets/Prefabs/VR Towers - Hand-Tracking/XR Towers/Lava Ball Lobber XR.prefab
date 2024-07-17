@@ -2582,7 +2582,7 @@ MonoBehaviour:
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8978175906035924796}
+      - m_Target: {fileID: 7906986638935673965}
         m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
         m_MethodName: SetGunFire
         m_Mode: 6
@@ -2597,7 +2597,7 @@ MonoBehaviour:
   m_GestureEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8978175906035924796}
+      - m_Target: {fileID: 7906986638935673965}
         m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
         m_MethodName: SetGunFire
         m_Mode: 6
@@ -2629,8 +2629,8 @@ MonoBehaviour:
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8978175906035924796}
-        m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
+      - m_Target: {fileID: 7906986638935673965}
+        m_TargetAssemblyTypeName: JumpedLobberTowerControls, Assembly-CSharp
         m_MethodName: EndTowerJump
         m_Mode: 1
         m_Arguments:

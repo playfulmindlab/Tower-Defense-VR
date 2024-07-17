@@ -300,6 +300,7 @@ MonoBehaviour:
   shieldBar: {fileID: 6081177905782535348}
   outline: {fileID: 0}
   upgradedTower: {fileID: 4042648489196593970, guid: e5e8fdce0d0dc6d43b3e2343dfaf5227, type: 3}
+  activeEffects: []
   aliveOnSceneStart: 0
 --- !u!114 &4050970522703880095
 MonoBehaviour:
@@ -2767,11 +2768,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: looping
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: lengthInSec
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: emitterVelocityMode
@@ -2779,7 +2780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: InitialModule.startSize.scalar

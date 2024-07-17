@@ -46,28 +46,39 @@ public class EyeTrackingRecorder : MonoBehaviour
         else Destroy(gameObject);
 
         //folderID = System.DateTime.Now.ToString("MM-dd/hh:mm:ss");
-        Debug.Log(Application.dataPath + "/Resources/EyeTrackingTempData.csv");
+        Debug.Log(Application.dataPath + "/Eye Tracking/EyeTrackingTempData.csv");
+
+        string folderID = System.DateTime.Now.ToString("MM-dd - hh.mm.ss");
+        string newFileLocation = Application.dataPath + "/Eye Tracking/";
+
+        if (!File.Exists(newFileLocation))
+        {
+            Directory.CreateDirectory(newFileLocation);
+        }
 
         //playerSaveData = GameManager.instance.PlayerData();
+        newFileLocation += "TDEyeData_" + folderID + ".csv";
 
         //if we're running the program in the Eeditor, delete the contents of the EyeTrackingTempData file
         //otherwise, create a new folder based on the time & date
 #if UNITY_EDITOR
-        StreamWriter writer = new StreamWriter(Application.dataPath + "/Resources/EyeTrackingTempData.csv", false);
+        //string folderID = System.DateTime.Now.ToString("MM-dd/hh:mm:ss");
+        StreamWriter writer = new StreamWriter(newFileLocation, false);
+        //StreamWriter writer = new StreamWriter(Application.dataPath + "/Eye Tracking/EyeTrackingTempData.csv", false);
         //writer.WriteLine("Timestamp,Participant,Game,Total Time Played,Session Number,Session Time Played,Map Number,Level Number,Wave Number,Event,Object,X Coordinates,Y Coordinates,Jump Status");
-        writer.WriteLine("Timestamp,Seen GameObject,Seen Object Coordinates");
+        writer.WriteLine("Timestamp,Seen GameObject,GameObject X,GameObject Y,GameObject Z");
         writer.Close();
 #else
-        string folderID = System.DateTime.Now.ToString("MM-dd/hh:mm:ss");
-        StreamWriter writer = new StreamWriter(Application.dataPath + "/TDEyeData_" + folderID + ".csv", false);
+        //string folderID = System.DateTime.Now.ToString("MM-dd/hh:mm:ss");
+        StreamWriter writer = new StreamWriter(newFileLocation, false);
         //writer.Write("First Line,Use this for Headers");
-        writer.WriteLine("Timestamp,Seen GameObject,Seen Object Coordinates");
+        writer.WriteLine("Timestamp,Seen GameObject,GameObject X,GameObject Y,GameObject Z");
         writer.Close();
 
 #endif
 
         if (sendToCustomFile ) { filePath = customFilePath; }
-        else { filePath = Application.dataPath + "/Resources/EyeTrackingTempData.csv"; }
+        else { filePath = newFileLocation; }
     }
 
     // Update is called once per frame
@@ -87,7 +98,7 @@ public class EyeTrackingRecorder : MonoBehaviour
             {
                 Vector3 pos = seenObjectL.transform.position;
                 //seenPosFormatted = string.Format("{0,3:f3};{1,3:f3};{2,3:f3}", pos.x, pos.y, pos.z);
-                seenPosFormatted = pos.x + " | " + pos.y + " | " + pos.z;
+                seenPosFormatted = pos.x + "," + pos.y + "," + pos.z;
                 newDataLine += "," + seenObjectL.name + "," + seenPosFormatted;
             }
 
@@ -95,13 +106,13 @@ public class EyeTrackingRecorder : MonoBehaviour
             {
                 Vector3 pos = seenObjectR.transform.position;
                 //seenPosFormatted = string.Format("{0,3:f3};{1,3:f3};{2,3:f3}", pos.x, pos.y, pos.z);
-                seenPosFormatted = pos.x + " | " + pos.y + " | " + pos.z;
+                seenPosFormatted = pos.x + "," + pos.y + "," + pos.z;
                 newDataLine += "," + seenObjectR.name + "," + seenPosFormatted;
             }
 
             else if (seenObjectL == null && seenObjectR == null)
             {
-                newDataLine += ",N/A,N/A";
+                newDataLine += ",N/A,N/A,N/A,N/A";
             }
 
             writer.WriteLine(newDataLine);

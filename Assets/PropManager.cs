@@ -50,6 +50,9 @@ public class PropManager : MonoBehaviour
                 //Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer);
                 if (hit.collider != null)
                 {
+                    Debug.Log(this.gameObject);
+                    Debug.Log(towerSpawn);
+                    Debug.Log(hit.point);
                     towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, hit.point);
 
                     towerScript = towerSpawn.GetComponent<TowerBehaviour>();

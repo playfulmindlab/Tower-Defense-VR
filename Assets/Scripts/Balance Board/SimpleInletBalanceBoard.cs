@@ -89,7 +89,7 @@ namespace LSL4Unity.Samples.SimpleInlet
             Debug.Log("Allocating buffers to receive " + buf_samples + " samples.");
 
             data_buffer = new string[1];
-            timestamp_buffer = 0.0;
+            timestamp_buffer = 0.2;
         }
 
         private void OnApplicationQuit()
@@ -103,6 +103,7 @@ namespace LSL4Unity.Samples.SimpleInlet
         // Update is called once per frame
         void Update()
         {
+
             if (inlet != null)
             {
                 inlet.pull_sample(data_buffer, timestamp_buffer);
@@ -178,7 +179,7 @@ namespace LSL4Unity.Samples.SimpleInlet
             }
 
             newFileLocation += GameManager.instance.SessionStartTime.ToString("MM-yy - HH.mm.ss") + ".csv";
-            File.WriteAllText(newFileLocation, "Timestamp,Participant,Session Number,Raw X,Raw Y,RawZ,Mod X,Mod Y, Mod Z\n");
+            File.WriteAllText(newFileLocation, "Timestamp,Participant,Session Number,Raw X,Raw Y,Raw Z,Mod X,Mod Y, Mod Z\n");
             fileLocation = newFileLocation;
 
             Debug.Log("Swapped Files - Balance Board.");

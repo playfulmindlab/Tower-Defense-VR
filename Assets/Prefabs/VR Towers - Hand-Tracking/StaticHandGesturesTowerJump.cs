@@ -165,7 +165,7 @@ namespace UnityEngine.XR.Hands.Samples.GestureSample
                 {
                     m_GesturePerformed?.Invoke();
                     m_PerformedTriggered = true;
-                    m_Highlight.enabled = true;
+                    //m_Highlight.enabled = true;
                 }
             }
 

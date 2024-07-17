@@ -2194,6 +2194,7 @@ MonoBehaviour:
   shieldBar: {fileID: 1716783718342549826}
   outline: {fileID: 0}
   upgradedTower: {fileID: 0}
+  activeEffects: []
   aliveOnSceneStart: 0
 --- !u!65 &1563639665898168520
 BoxCollider:
@@ -2542,7 +2543,7 @@ MonoBehaviour:
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9011514413597896596}
+      - m_Target: {fileID: 6776728123850323854}
         m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
         m_MethodName: SetGunFire
         m_Mode: 6
@@ -2557,7 +2558,7 @@ MonoBehaviour:
   m_GestureEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9011514413597896596}
+      - m_Target: {fileID: 6776728123850323854}
         m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
         m_MethodName: SetGunFire
         m_Mode: 6
@@ -2589,8 +2590,8 @@ MonoBehaviour:
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9011514413597896596}
-        m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
+      - m_Target: {fileID: 6776728123850323854}
+        m_TargetAssemblyTypeName: JumpedLobberTowerControls, Assembly-CSharp
         m_MethodName: EndTowerJump
         m_Mode: 1
         m_Arguments:

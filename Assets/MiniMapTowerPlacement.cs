@@ -29,8 +29,11 @@ public class MiniMapTowerPlacement : MonoBehaviour
     {
         currTower = newProp;
 
-        RadiusSizeEditor radius = radiusDecal.GetComponent<RadiusSizeEditor>();
-        radius.ChangeRadiusSize(newProp.GetComponent<PropManager>().towerSpawn.GetComponent<TowerBehaviour>());
+        if (newProp != null)
+        {
+            RadiusSizeEditor radius = radiusDecal.GetComponent<RadiusSizeEditor>();
+            radius.ChangeRadiusSize(newProp.GetComponent<PropManager>().towerSpawn.GetComponent<TowerBehaviour>());
+        }
     }
 
     public GameObject DropNewProp(GameObject newProp, GameObject newMainMapTower, Vector3 localDropPoint)
@@ -40,7 +43,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
         if (playerStats.CurrentMoney >= towerToDrop.towerCost)
         {
-            Debug.Log("Go Thru TTPTBM // Point: " + localDropPoint);
+            //Debug.Log("Go Thru TTPTBM // Point: " + localDropPoint);
 
             newProp.transform.parent = this.transform;
             newProp.transform.rotation = Quaternion.Euler(Vector3.zero);

@@ -17,7 +17,7 @@ public class MissileDamage : Damage, IDamageMethod
     {
         audioSource = GetComponent<AudioSource>();
         missileSystemMain = missileSystem.main;
-        missileSystemMain.duration = firerate;
+        missileSystemMain.duration = 1 / firerate;
         //missileSystemMain.startSpeed = projectileSpeed;
         base.Init(damage, firerate);
     }

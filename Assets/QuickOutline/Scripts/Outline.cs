@@ -155,13 +155,14 @@ public class Outline : MonoBehaviour {
 
        //RadiusSizeEditor.instance.ChangeRadiusSize(this.GetComponentInParent<TowerBehaviour>());
 
+        //when mousing/hovering over a gun, use this code to teleport the radius object to it to measure the radius of the tower's range
         if (newWidth == 0)
         {
-            RadiusSizeEditor.instance.transform.position = new Vector3(0, -1000, 0);
+            //RadiusSizeEditor.instance.transform.position = new Vector3(0, -1000, 0);
         }
         else
         {
-            RadiusSizeEditor.instance.transform.position = transform.position;
+            //RadiusSizeEditor.instance.transform.position = transform.position;
         }
     }
 
