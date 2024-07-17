@@ -9,9 +9,28 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
     PropManager lastPropMenuActivated = null;
 
+    [SerializeField] GameObject currTower;
+    [SerializeField] GameObject radiusDecal;
+
     private void Start()
     {
         playerStats = FindObjectOfType<PlayerStats>();
+    }
+
+    private void Update()
+    {
+        if (currTower != null)
+        {
+            radiusDecal.transform.position = new Vector3(currTower.transform.position.x, transform.position.y, currTower.transform.position.z);
+        }
+    }
+
+    public void AssignCurrentTower(GameObject newProp)
+    {
+        currTower = newProp;
+
+        RadiusSizeEditor radius = radiusDecal.GetComponent<RadiusSizeEditor>();
+        radius.ChangeRadiusSize(newProp.GetComponent<PropManager>().towerSpawn.GetComponent<TowerBehaviour>());
     }
 
     public GameObject DropNewProp(GameObject newProp, GameObject newMainMapTower, Vector3 localDropPoint)
@@ -42,6 +61,8 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
             newProp.GetComponent<PropManager>().LockPropPosition();
             spawnedTower = newTower;
+            AssignCurrentTower(null);
+            radiusDecal.transform.position = new Vector3(0, -1000, 0);
         }
         return spawnedTower;
     }

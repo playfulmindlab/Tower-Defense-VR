@@ -17,6 +17,7 @@ public class PropManager : MonoBehaviour
     JumpedTowerControls jumpedTowerScript;
 
     LayerMask baseLayer; //= LayerMask.GetMask("Baseplate");
+    LayerMask pathLayer;
 
     bool isPropDropped = false;
 
@@ -24,6 +25,7 @@ public class PropManager : MonoBehaviour
     void Start()
     {
         baseLayer = LayerMask.GetMask("Baseplate");
+        pathLayer = LayerMask.GetMask("Path");
         miniMapScript = GameObject.FindGameObjectWithTag("MinimapBaseplate").GetComponentInParent<MiniMapTowerPlacement>();
         xrGrab = GetComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>();
 
@@ -43,10 +45,8 @@ public class PropManager : MonoBehaviour
             //    Debug.Log("Detect Layer: " + hit.collider.gameObject.layer);
 
             //Check to see if it intersects Baseplate & ONLY baseplate
-            if (Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer))
+            if (gameObject.tag == "Tower" && Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer))
             {
-                print("READING");
-
                 //Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer);
                 if (hit.collider != null)
                 {
@@ -59,10 +59,22 @@ public class PropManager : MonoBehaviour
                     //Debug.Log("World 2: " + this.transform.position + " // Local 2: " + this.transform.localPosition);
                 }
             }
+            else if ((gameObject.tag == "Obstacle" || gameObject.tag == "AttackObstacle") &&
+                      Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, pathLayer))
+            {
+                if (hit.collider != null)
+                {
+                    towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, hit.point);
+
+                    towerScript = towerSpawn.GetComponent<TowerBehaviour>();
+                    jumpedTowerScript = towerSpawn.GetComponent<JumpedTowerControls>();
+
+                    isPropDropped = true;
+                }
+            }
             else
             {
                 Destroy(gameObject);
-                print("NOTHING");
             }
         }
     }
@@ -97,7 +109,7 @@ public class PropManager : MonoBehaviour
 
     public void UpgradePropAndTower()
     {
-        Debug.Log("Went Thru Upgrade");
+        //Debug.Log("Went Thru Upgrade");
 
         //everything in this script just changes the BIG towers, not the prop towers!!!
         towerScript.UpgradeTower(miniMapScript, this);
@@ -105,7 +117,7 @@ public class PropManager : MonoBehaviour
 
     public void DeletePropAndTower()
     {
-        Debug.Log("DeletingTower");
+        //Debug.Log("DeletingTower");
         miniMapScript.DeleteTower(this, towerScript);
 
     }

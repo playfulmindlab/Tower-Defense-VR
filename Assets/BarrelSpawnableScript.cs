@@ -11,15 +11,17 @@ public class BarrelSpawnableScript : MonoBehaviour
     XRBaseInteractor lastInteractor;
     XRInteractionManager xrManager;
 
+    MiniMapTowerPlacement minimap;
+
     void Start()
     {
         grabInfo = GetComponent<XRGrabInteractable>();
         xrManager = GameObject.FindGameObjectWithTag("XRManager").GetComponent<XRInteractionManager>();
+        minimap = GameObject.FindGameObjectWithTag("MinimapBaseplate").GetComponentInParent<MiniMapTowerPlacement>();
     }
 
     public void OnHoverExitFunc()
     {
-
         if (grabInfo.isSelected)
         {
             lastInteractor = (XRBaseInteractor)grabInfo.interactorsSelecting[0];
@@ -34,5 +36,7 @@ public class BarrelSpawnableScript : MonoBehaviour
         XRGrabInteractable objectGrab = newObject.GetComponent<XRGrabInteractable>();
 
         xrManager.SelectEnter((IXRSelectInteractor)lastInteractor, objectGrab);
+
+        minimap.AssignCurrentTower(newObject);
     }
 }

@@ -253,7 +253,7 @@ Transform:
   m_GameObject: {fileID: 5158229214719353555}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1.4, y: 1, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -555,6 +555,8 @@ MonoBehaviour:
   shieldBar: {fileID: 2884155592055299455}
   outline: {fileID: 6049631168082168069}
   upgradedTower: {fileID: 6638514398489324706, guid: 54f5de8133340ad4382bdf8da091962b, type: 3}
+  activeEffects: []
+  aliveOnSceneStart: 0
 --- !u!114 &341810592635853270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,7 +617,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &9025790507391920904
 MonoBehaviour:
@@ -1094,7 +1096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5289182684458692540, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5289182684458692541, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_Pivot.x

@@ -7,14 +7,13 @@ public class RadiusSizeEditor : MonoBehaviour
 {
     public static RadiusSizeEditor instance;
 
-    [SerializeField] DecalProjector decalProj;
+    DecalProjector decalProj;
 
     // Start is called before the first frame update
     void Start()
     {
         if (instance == null) instance = this;
         else if (instance != this) Destroy(this.gameObject);
-
 
         decalProj = GetComponent<DecalProjector>();
     }

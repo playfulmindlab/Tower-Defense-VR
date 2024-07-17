@@ -159,6 +159,10 @@ public class Outline : MonoBehaviour {
         {
             RadiusSizeEditor.instance.transform.position = new Vector3(0, -1000, 0);
         }
+        else
+        {
+            RadiusSizeEditor.instance.transform.position = transform.position;
+        }
     }
 
   void OnDisable() {
