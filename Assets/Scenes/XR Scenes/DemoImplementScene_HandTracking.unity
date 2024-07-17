@@ -41255,13 +41255,13 @@ GameObject:
   - component: {fileID: 1657181474}
   - component: {fileID: 1657181473}
   - component: {fileID: 1657181472}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftEyeInteractor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1657181471
 Transform:
   m_ObjectHideFlags: 0
@@ -41312,8 +41312,8 @@ MonoBehaviour:
   layersToInclude:
     serializedVersion: 2
     m_Bits: 4294967295
-  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 0}
-  rayColorHoverState: {r: 0, g: 1, b: 0, a: 0}
+  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  rayColorHoverState: {r: 0, g: 1, b: 0, a: 1}
 --- !u!120 &1657181474
 LineRenderer:
   serializedVersion: 2
@@ -41446,7 +41446,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657181470}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -43153,13 +43153,13 @@ GameObject:
   - component: {fileID: 1741921218}
   - component: {fileID: 1741921217}
   - component: {fileID: 1741921216}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightEyeInteractor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1741921215
 Transform:
   m_ObjectHideFlags: 0
@@ -43210,8 +43210,8 @@ MonoBehaviour:
   layersToInclude:
     serializedVersion: 2
     m_Bits: 4294967295
-  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 0}
-  rayColorHoverState: {r: 0, g: 1, b: 0, a: 0}
+  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  rayColorHoverState: {r: 0, g: 1, b: 0, a: 1}
 --- !u!120 &1741921218
 LineRenderer:
   serializedVersion: 2
@@ -43344,7 +43344,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741921214}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
