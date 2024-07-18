@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private static int[][] enemyNumbers; //new order is Lobber, Saboteur, Standard, Tank                                                //Order is Standard, Tank, Lobber, Saboteur
     private static int[][] waveAndEnemyIDOrder;//[wave][currentEnemyID]
     public static int[] numEnemiesInWaves;
-    static int randEnemyLoopCap = 0;
+    //static int randEnemyLoopCap = 0;
 
     static int currEnemySpawned = 0;
 
@@ -80,7 +80,7 @@ public class EnemySpawner : MonoBehaviour
          
         
         string debugString = "";
-        for (int z = 0; z < 15; z++)
+        for (int z = 0; z < waveAndEnemyIDOrder.Length; z++)
         {
             foreach (var x in waveAndEnemyIDOrder[z])
             {

@@ -70,6 +70,13 @@ public class Enemy : MonoBehaviour
     protected float attackDelay = 1f;
     bool speedAffected = false;
 
+    private void Start()
+    {
+        gameObject.name = gameObject.name.Replace("(Clone)", " ");
+        int randID = Random.Range(0, 10000);
+        gameObject.name += randID.ToString("D4"); ;
+    }
+
     public void Init()
     {
         health = maxHealth;
@@ -102,10 +109,6 @@ public class Enemy : MonoBehaviour
         {
             towerSensor = transform.GetComponentsInChildren<EnemySensor>()[0];
         }
-
-        gameObject.name = gameObject.name.Replace("(Clone)", " ");
-        int randID = Random.Range(0, 10000);
-        gameObject.name += randID.ToString("D4"); ;
 
         GameManager.instance.LogNewEvent("Enemy Spawn", gameObject, transform.position, GameControlManager.instance.IsJumped);
         //DataEvent newEvent = new DataEvent("Enemy Spawn", gameObject, transform.position, GameControlManager.instance.IsJumped);

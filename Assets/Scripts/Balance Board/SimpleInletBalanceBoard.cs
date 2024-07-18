@@ -89,7 +89,7 @@ namespace LSL4Unity.Samples.SimpleInlet
             Debug.Log("Allocating buffers to receive " + buf_samples + " samples.");
 
             data_buffer = new string[1];
-            timestamp_buffer = 0.2;
+            timestamp_buffer = 0.0;
         }
 
         private void OnApplicationQuit()
@@ -103,7 +103,6 @@ namespace LSL4Unity.Samples.SimpleInlet
         // Update is called once per frame
         void Update()
         {
-
             if (inlet != null)
             {
                 inlet.pull_sample(data_buffer, timestamp_buffer);
@@ -144,6 +143,7 @@ namespace LSL4Unity.Samples.SimpleInlet
             string[] splitData = dataString.Split(delimiters, StringSplitOptions.None);
 
             float[] values = new float[3];
+            float b0, b1, b2;
 
             if (splitData.Length > 3)// && float.TryParse(splitData[1], out float result1) && float.TryParse(splitData[2], out float result2))
             {

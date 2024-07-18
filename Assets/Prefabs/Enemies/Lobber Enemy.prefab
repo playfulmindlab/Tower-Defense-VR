@@ -1435,7 +1435,7 @@ MonoBehaviour:
   maxHealth: 50
   health: 50
   speed: 5
-  initialSpeed: 2
+  initialSpeed: 1.5
   speedIncreasePerWave: 0.3
   attack: 10
   attackRate: 1

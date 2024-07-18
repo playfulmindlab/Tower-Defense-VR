@@ -49,6 +49,8 @@ public class MiniMapTowerPlacement : MonoBehaviour
             newProp.transform.rotation = Quaternion.Euler(Vector3.zero);
             newProp.transform.position = localDropPoint;
             newProp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            newProp.GetComponent<Rigidbody>().isKinematic = true;
+            newProp.layer = LayerMask.NameToLayer("Props");
 
             RotateTowerTowardsPath(newProp);
 
@@ -156,6 +158,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
                 Destroy(oldProp.gameObject);
 
                 newProp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+                newProp.GetComponent<Rigidbody>().isKinematic = true;
                 newProp.GetComponent<PropManager>().LockPropPosition();
             }
             else

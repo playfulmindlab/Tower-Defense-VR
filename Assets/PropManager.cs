@@ -24,8 +24,8 @@ public class PropManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        baseLayer = LayerMask.GetMask("Baseplate");
-        pathLayer = LayerMask.GetMask("Path");
+        baseLayer = LayerMask.NameToLayer("Baseplate");
+        pathLayer = LayerMask.NameToLayer("Path");
         miniMapScript = GameObject.FindGameObjectWithTag("MinimapBaseplate").GetComponentInParent<MiniMapTowerPlacement>();
         xrGrab = GetComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>();
 
@@ -39,41 +39,36 @@ public class PropManager : MonoBehaviour
             Vector3 dir = (line.GetPosition(1) - line.GetPosition(0)).normalized;
 
             RaycastHit hit;
-            //Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer);
 
-            //if (Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer)) 
-            //    Debug.Log("Detect Layer: " + hit.collider.gameObject.layer);
+            Physics.Raycast(line.GetPosition(0), dir, out hit, 40f);
+            if (hit.collider == null)
+            {
+                Destroy(gameObject);
+                return;
+            }
 
             //Check to see if it intersects Baseplate & ONLY baseplate
-            if (gameObject.tag == "Tower" && Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer))
+            if (gameObject.tag == "Tower" && hit.collider.gameObject.layer == baseLayer)
             {
-                //Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, baseLayer);
-                if (hit.collider != null)
-                {
-                    Debug.Log(this.gameObject);
-                    Debug.Log(towerSpawn);
-                    Debug.Log(hit.point);
-                    towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, hit.point);
+                //Debug.Log(this.gameObject);
+                //Debug.Log(towerSpawn);
+                //Debug.Log(hit.point);
+                towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, hit.point);
 
-                    towerScript = towerSpawn.GetComponent<TowerBehaviour>();
-                    jumpedTowerScript = towerSpawn.GetComponent<JumpedTowerControls>();
+                towerScript = towerSpawn.GetComponent<TowerBehaviour>();
+                jumpedTowerScript = towerSpawn.GetComponent<JumpedTowerControls>();
 
-                    isPropDropped = true;
-                    //Debug.Log("World 2: " + this.transform.position + " // Local 2: " + this.transform.localPosition);
-                }
+                isPropDropped = true;
             }
             else if ((gameObject.tag == "Obstacle" || gameObject.tag == "AttackObstacle") &&
-                      Physics.Raycast(line.GetPosition(0), dir, out hit, 40f, pathLayer))
+                        hit.collider.gameObject.layer == pathLayer)
             {
-                if (hit.collider != null)
-                {
-                    towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, hit.point);
+                towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, hit.point);
 
-                    towerScript = towerSpawn.GetComponent<TowerBehaviour>();
-                    jumpedTowerScript = towerSpawn.GetComponent<JumpedTowerControls>();
+                towerScript = towerSpawn.GetComponent<TowerBehaviour>();
+                jumpedTowerScript = towerSpawn.GetComponent<JumpedTowerControls>();
 
-                    isPropDropped = true;
-                }
+                isPropDropped = true;
             }
             else
             {
