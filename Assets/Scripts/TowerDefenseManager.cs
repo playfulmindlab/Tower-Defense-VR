@@ -274,6 +274,8 @@ public class TowerDefenseManager : MonoBehaviour
             newIndexPath.Add(System.Array.IndexOf(currNodePath, newNodePath[newNodePath.Count - 1]));
         }
 
+        Debug.Log(newEnemy.name);
+        Debug.Log(newNodePath);
         newEnemy.currNodePath = newNodePath.ToArray();
         newEnemy.currNodeIndices = newIndexPath.ToArray();
 
@@ -400,7 +402,7 @@ public class TowerDefenseManager : MonoBehaviour
             {
                 for (int i = 0; i < enemyIDsToSpawnQueue.Count; i++)
                 {
-                    //Debug.Log("Spawning " + enemyIDsToSpawnQueue.Peek() + " out of " + enemyIDsToSpawnQueue.Count);
+                    Debug.Log("Spawning " + enemyIDsToSpawnQueue.Peek() + " out of " + enemyIDsToSpawnQueue.Count);
 
                     Enemy newEnemy = EnemySpawner.SummonEnemy(enemyIDsToSpawnQueue.Dequeue());
                     //newEnemy.gameObject.name += spawnedEnemiesCount;
@@ -619,7 +621,7 @@ public class TowerDefenseManager : MonoBehaviour
 
         DataEvent newEvent2 = new DataEvent("Game Quit", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent2);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuVR", UnityEngine.SceneManagement.LoadSceneMode.Single);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
     public static void BeginGameOverSequence()

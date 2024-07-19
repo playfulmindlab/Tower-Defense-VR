@@ -130,7 +130,7 @@ public class Enemy : MonoBehaviour
         {
             if (anim != null)
             {
-                anim.SetInteger("AttackIndex", Random.Range(0, 3));
+                //anim.SetInteger("AttackIndex", Random.Range(0, 3));
                 anim.SetTrigger("Attack");
             }
 

@@ -41,7 +41,7 @@ public class EyeTrackingRay : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         RaycastHit hit;
         Vector3 raycastDir = transform.TransformDirection(Vector3.forward) * rayDistance;

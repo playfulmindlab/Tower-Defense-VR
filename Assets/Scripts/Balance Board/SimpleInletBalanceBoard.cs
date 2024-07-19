@@ -113,7 +113,7 @@ namespace LSL4Unity.Samples.SimpleInlet
                 {
                     /*float[] */coordValues = ConvertStringToFloat(data_buffer[0]);
 
-                    rotationValues = new Vector2((-coordValues[0] * 1.5f), (coordValues[1]));
+                    rotationValues = new Vector2((-coordValues[0] * 1.5f), (coordValues[1] + 30f));
 
                     //[0] = X, [1] = Y, [2] = Magnitude
                 }
@@ -143,7 +143,6 @@ namespace LSL4Unity.Samples.SimpleInlet
             string[] splitData = dataString.Split(delimiters, StringSplitOptions.None);
 
             float[] values = new float[3];
-            float b0, b1, b2;
 
             if (splitData.Length > 3)// && float.TryParse(splitData[1], out float result1) && float.TryParse(splitData[2], out float result2))
             {
