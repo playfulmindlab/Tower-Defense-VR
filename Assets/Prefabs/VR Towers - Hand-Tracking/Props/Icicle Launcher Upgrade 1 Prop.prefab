@@ -503,8 +503,8 @@ MonoBehaviour:
   m_SmoothingSpeed: 16
   m_ReturnToInitialPosition: 1
   m_ApplyIfChildIsTarget: 1
-  m_ClampToMaxDistance: 0
-  m_MaxDistance: 0
+  m_ClampToMaxDistance: 1
+  m_MaxDistance: 8
 --- !u!114 &1881010648248731214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,8 +675,8 @@ MonoBehaviour:
   m_SmoothingSpeed: 16
   m_ReturnToInitialPosition: 1
   m_ApplyIfChildIsTarget: 1
-  m_ClampToMaxDistance: 0
-  m_MaxDistance: 0
+  m_ClampToMaxDistance: 1
+  m_MaxDistance: 8
 --- !u!114 &4038974666893156254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,8 +1537,8 @@ MonoBehaviour:
   m_SmoothingSpeed: 16
   m_ReturnToInitialPosition: 1
   m_ApplyIfChildIsTarget: 1
-  m_ClampToMaxDistance: 0
-  m_MaxDistance: 0
+  m_ClampToMaxDistance: 1
+  m_MaxDistance: 8
 --- !u!114 &2607834188674151421
 MonoBehaviour:
   m_ObjectHideFlags: 0

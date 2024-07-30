@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4980372603547493659}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.07686269, y: 0.00000047683716, z: 7.330488}
+  m_LocalPosition: {x: 0, y: -0.25, z: 0}
   m_LocalScale: {x: 2.3, y: 0.1, z: 2.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -105,10 +105,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3621584208676328443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,10 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562f5c309128f72429c01cc2f41f821e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canFire: 1
   attackType: 1
   effectTime: 5
   damageOverTime: 5
   delayOnEachDamage: 1
+  lifeLength: 3
 --- !u!54 &99129985301345418
 Rigidbody:
   m_ObjectHideFlags: 0

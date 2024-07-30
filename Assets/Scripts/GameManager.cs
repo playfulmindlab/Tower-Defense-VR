@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
 
         sessionStartTime = DateTime.Now;
 
+        QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = 90;
+
         SceneManager.sceneLoaded += GetSceneName;
 
         playerData = new SaveData("TempPlayer", new TimeSpan(0, 0, 0).ToString(), 1, "DemoImplementScene_HandTracking", 0);

@@ -20,7 +20,7 @@ public class BarrelSpawnableScript : MonoBehaviour
         minimap = GameObject.FindGameObjectWithTag("MinimapBaseplate").GetComponentInParent<MiniMapTowerPlacement>();
     }
 
-    public void OnHoverExitFunc()
+    public void OnSelectFunc()
     {
         if (grabInfo.isSelected)
         {

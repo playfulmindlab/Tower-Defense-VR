@@ -120,8 +120,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
     public void UpgradeTower(GameObject oldTower, PropManager oldProp, GameObject upgradedTower)
     {
-        if (TowerDefenseManager.CurrPhase == Phase.Build ||
-            TowerDefenseManager.CurrPhase == Phase.Repair)
+        if (true) //TowerDefenseManager.CurrPhase == Phase.Build || TowerDefenseManager.CurrPhase == Phase.Repair)
         {
             int newTowerCost = upgradedTower.GetComponent<TowerBehaviour>().towerCost;
 
