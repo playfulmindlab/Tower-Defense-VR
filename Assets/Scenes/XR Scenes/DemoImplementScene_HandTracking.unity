@@ -33158,30 +33158,6 @@ MonoBehaviour:
   towerViewCanvas: {fileID: 1951020948}
   jumpedTowerControls: {fileID: 0}
   cameraDamping: 1
-  attackButton:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Attack Button
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 02143eeb-775d-4223-ac66-31de5fef27d7
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 3216185962826952238, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  unjumpButton:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Unjump Button
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 23fd4abc-6f7d-4222-ae57-044b2a6d6683
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 3452313015117529597, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!4 &1260315084
 Transform:
   m_ObjectHideFlags: 0

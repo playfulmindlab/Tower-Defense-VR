@@ -14,9 +14,8 @@ public class JumpedTowerControls : MonoBehaviour
 
     AudioListener cameraListener;
 
-    //[SerializeField] GameObject playerParentHolder;
     protected Transform towerHead;
-    MissileDamage missileDamage;
+    [SerializeField] MissileDamage missileDamage;
 
     protected float towerRotation = 0f;
     StaticHandGesturesTowerJump[] gestureScripts;
@@ -52,9 +51,6 @@ public class JumpedTowerControls : MonoBehaviour
             {
                 s.enabled = true;
             }
-
-            //towerRotation = towerBehaviour.gameObject.transform.localEulerAngles.x;
-            //GameControlManager.instance.SwapToJumpedControls(this);
         }
     }
 
@@ -62,11 +58,6 @@ public class JumpedTowerControls : MonoBehaviour
     {
         towerBehaviour.canFire = !towerBehaviour.canFire;
     }
-
-    //public void RotateGun(Quaternion rot)
-    //{
-    //    towerHead.rotation = rot;// * Quaternion.Euler(0, 270, 0);
-    //}
 
     public virtual void RotateGun(Vector2 balanceBoardCoords, float dampVal = 5f)
     {
@@ -85,17 +76,7 @@ public class JumpedTowerControls : MonoBehaviour
         GameControlManager.instance.SwapControls("Main");
     }
 
-    /*public void RotateGun(float balanceX, float balanceY, float magnitude)
-    {
-        Quaternion rot;
-
-        //magnitude += 1;
-        rot = Quaternion.Euler(new Vector3(balanceX * 2f, balanceY * 2f, 0f));
-
-        towerHead.rotation = rot;
-    }*/
-
-    public void SetGunFire(bool firing)
+    public virtual void SetGunFire(bool firing)
     {
         missileDamage.ActivateGun(firing);
     }
