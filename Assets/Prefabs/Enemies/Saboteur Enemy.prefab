@@ -233,8 +233,8 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: c0f50fb3f1a69184999f0c9cd858a6ac, type: 3}
   healthBar: {fileID: 8363240014654416058}
   speedText: {fileID: 6301843975211349707}
-  empRadius: 6
-  stopTowersTime: 15
+  empRadius: 8
+  stopTowersTime: 10
 --- !u!1 &4887923794376787374
 GameObject:
   m_ObjectHideFlags: 0

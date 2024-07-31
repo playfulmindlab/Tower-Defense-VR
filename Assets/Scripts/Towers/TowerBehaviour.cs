@@ -33,6 +33,7 @@ public class TowerBehaviour : MonoBehaviour
     private float healthDamageMod = 1;
 
     public List<Effect> activeEffects;
+    [SerializeField] RawImage stunnedImage;
 
     public bool aliveOnSceneStart = false;
 
@@ -75,6 +76,8 @@ public class TowerBehaviour : MonoBehaviour
         delay = 1 / firerate;
 
         activeEffects = new List<Effect>();
+
+        if (stunnedImage != null && stunnedImage.enabled == true) stunnedImage.enabled = false;
 
         if (aliveOnSceneStart)
         {
@@ -206,34 +209,23 @@ public class TowerBehaviour : MonoBehaviour
                 if (activeEffects[i].expireTime > 0)
                 {
                     canFire = false;
-                    //Speed = 0f;
-                    /*if (activeEffects[i].stopExpireTime <= 0f)
-                    {
-                        Effect stunEffect = activeEffects[i];
-
-                        if (Speed == 0) //if speed = 0, switch to moving
-                        {
-                            Speed = shockEffect.origSpeed;
-                            shockEffect.stopExpireTime = shockEffect.stopIntervalTime;
-                            speedAffected = false;
-                        }
-                        else //otherwise, enemy has NOT stopped and needs to be!
-
-                        {
-                            Speed = 0f;
-                            shockEffect.stopExpireTime = shockEffect.resumeIntervalTime;
-                            speedAffected = true;
-                        }
-                    }*/
+                    ToggleStunImage(!canFire);
                 }
                 else
                 {
                     canFire = true;
+                    ToggleStunImage(!canFire);
                 }
             }
         }
 
         activeEffects.RemoveAll(x => x.expireTime <= 0f);
+    }
+
+    void ToggleStunImage(bool toggle)
+    {
+        if (stunnedImage != null)
+            stunnedImage.enabled = toggle;
     }
 
     private void OnDrawGizmos()
