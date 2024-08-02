@@ -127,11 +127,7 @@ public class TowerBehaviour : MonoBehaviour
 
     public void UpgradeTower(MiniMapTowerPlacement towerPlacement, PropManager oldProp)
     {
-        //TowerPlacementVR towerPlacement = GameObject.FindWithTag("Player").GetComponent<TowerPlacementVR>();
         GameManager.instance.LogNewEvent("PPO Upgrade", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
-        //DataEvent newEvent = new DataEvent("PPO Upgrade", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
-        //EventManager.instance.RecordNewEvent(newEvent);
-
         Debug.Log(this.gameObject.name + " /// " + upgradedTower.name);
 
         towerPlacement.UpgradeTower(this.gameObject, oldProp, upgradedTower);
@@ -165,7 +161,6 @@ public class TowerBehaviour : MonoBehaviour
         if (health <= maxHealth * 0.3f)
         {
             healthDamageMod = 0.5f;
-            //Debug.Log("Damage Pre " + GetComponent<Damage>().DamageValue + " // " + (this.damage * healthDamageMod));
             currentDamageMethodClass.UpdateDamage(this.damage * healthDamageMod);
         }
     }

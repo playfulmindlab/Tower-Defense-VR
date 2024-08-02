@@ -44,7 +44,7 @@ public class MissileDamage : Damage, IDamageMethod
 
     public override void DamageTick(Enemy target)
     {
-        if (target && canFire == true)
+        if (target )//&& canFire == true)
         {
             if (delay > 0f)
             {

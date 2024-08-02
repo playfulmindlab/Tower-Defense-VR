@@ -90,6 +90,11 @@ public class GameControlManager : MonoBehaviour
     {
         mainCamera.enabled = cameraSetting;
         mainCamera.GetComponent<AudioListener>().enabled = cameraSetting;
+
+        if (cameraSetting)
+            mainCamera.tag = "MainCamera";
+        else
+            mainCamera.tag = "Untagged";
     }
 
     public void SwapControls(ControlsSetting newControlSetting)
@@ -119,7 +124,7 @@ public class GameControlManager : MonoBehaviour
                 break;
 
             case ControlsSetting.Jumped:
-                //jumpedTowerControls.ToggleAutoShoot();
+                jumpedTowerControls.ToggleAutoShoot();
                 jumpedTowerControls.SetJumpedTower();
 
                 TogglePlayerCamera(false);

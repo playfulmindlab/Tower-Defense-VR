@@ -11,6 +11,13 @@ public class JumpedFlamethrowerControls : JumpedTowerControls
         flamethrowerDamage = GetComponent<FlamethrowerDamage>();
     }
 
+    public override void ToggleAutoShoot()
+    {
+        base.ToggleAutoShoot();
+        flamethrowerDamage.ToggleIsJumped();
+    }
+
+
     public override void SetGunFire(bool firing)
     {
         flamethrowerDamage.ActivateGun(firing);

@@ -5,6 +5,7 @@ using UnityEngine;
 public class FacePlayer : MonoBehaviour
 {
     Camera cam;
+    float recheckCameraTime = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,13 @@ public class FacePlayer : MonoBehaviour
     void Update()
     {
         transform.LookAt(cam.transform.position, Vector3.up);
+
+        recheckCameraTime -= Time.deltaTime;
+        if (recheckCameraTime <= 0)
+        {
+            cam = Camera.main;
+            recheckCameraTime = 3f;
+        }
     }
 }
 

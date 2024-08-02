@@ -15,7 +15,7 @@ public class JumpedTowerControls : MonoBehaviour
     AudioListener cameraListener;
 
     protected Transform towerHead;
-    [SerializeField] MissileDamage missileDamage;
+    MissileDamage missileDamage;
 
     protected float towerRotation = 0f;
     StaticHandGesturesTowerJump[] gestureScripts;
@@ -41,6 +41,11 @@ public class JumpedTowerControls : MonoBehaviour
     {
         towerCamera.transform.gameObject.SetActive(camActive);
         cameraListener.enabled = camActive;
+
+        if (camActive) 
+            towerCamera.transform.gameObject.tag = "MainCamera";
+        else
+            towerCamera.transform.gameObject.tag = "Untagged";
     }
 
     public void SetJumpedTower()
@@ -54,14 +59,14 @@ public class JumpedTowerControls : MonoBehaviour
         }
     }
 
-    public void ToggleAutoShoot()
+    public virtual void ToggleAutoShoot()
     {
         towerBehaviour.canFire = !towerBehaviour.canFire;
     }
 
     public virtual void RotateGun(Vector2 balanceBoardCoords, float dampVal = 5f)
     {
-        Quaternion rot = Quaternion.Euler(new Vector3((balanceBoardCoords.y - towerRotation) * 2f, -balanceBoardCoords.x * 2, 0f));
+        Quaternion rot = Quaternion.Euler(new Vector3((balanceBoardCoords.y - towerRotation) * 2f, balanceBoardCoords.x * 2, 0f));
 
         //towerHead.localEulerAngles = new Vector3(-balanceBoardCoords.y * 2f, -balanceBoardCoords.x * 2, 0f);
         towerHead.localRotation = Quaternion.Slerp(towerHead.localRotation, rot, Time.deltaTime * dampVal);

@@ -6,6 +6,7 @@ public class FlamethrowerDamage : MissileDamage
 {
     //[SerializeField] private ParticleSystem fireEffect;
     [SerializeField] private Collider fireVolume;
+    bool isJumped = false;
 
     public override void Init(float damage, float firerate)
     {
@@ -17,8 +18,18 @@ public class FlamethrowerDamage : MissileDamage
         //delay = 1f / firerate;
     }
 
+    public void ToggleIsJumped()
+    {
+        isJumped = !isJumped;
+
+        if (isJumped == true)
+            missileSystem.Clear();
+    }
+
     public override void ActivateGun(bool activeState)
     {
+
+
         if (activeState == true)
         {
             audioSource.loop = true;
@@ -41,7 +52,7 @@ public class FlamethrowerDamage : MissileDamage
     {
         //fireVolume.enabled = target != null;
 
-        if (target)
+        if ((target && !isJumped) || (isJumped && fireVolume.enabled))
         {
             if (!missileSystem.isPlaying)
                 missileSystem.Play();

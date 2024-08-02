@@ -16,7 +16,7 @@ public class FlamethrowerTower : TowerBehaviour
 
         currentDamageMethodClass.DamageTick(target);
 
-        if (towerPivot != null)
+        if (canFire == true && towerPivot != null)
         {
             if (target != null)
             {

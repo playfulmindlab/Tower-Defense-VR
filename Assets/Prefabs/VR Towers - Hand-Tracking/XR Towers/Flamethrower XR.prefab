@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3534591670331426352}
   - component: {fileID: 3376248189171755333}
   - component: {fileID: 6906001508041510724}
-  - component: {fileID: 5313195159491146731}
+  - component: {fileID: 2211207732566838725}
   - component: {fileID: 3469367729420273854}
   - component: {fileID: 2940200251985091156}
   - component: {fileID: 4175263896159904412}
@@ -97,7 +97,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &5313195159491146731
+--- !u!114 &2211207732566838725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,12 +106,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 103829713136085280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb79bffaccef58141bfaa42839c821e8, type: 3}
+  m_Script: {fileID: 11500000, guid: abdfa5f1f80c370409100ba37e07bc55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 3376248189171755333}
   towerCamera: {fileID: 3693947498240966382}
-  missileDamage: {fileID: 0}
 --- !u!114 &3469367729420273854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +131,6 @@ MonoBehaviour:
   missileSystem: {fileID: 3596356659133858822}
   towerHead: {fileID: 911578496173011351}
   firingSFXName: TowerBasicShot
-  fireEffect: {fileID: 3596356659133858822}
   fireVolume: {fileID: 5597014529856977142}
 --- !u!54 &2940200251985091156
 Rigidbody:
@@ -422,8 +420,8 @@ MonoBehaviour:
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5313195159491146731}
-        m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
+      - m_Target: {fileID: 2211207732566838725}
+        m_TargetAssemblyTypeName: JumpedFlamethrowerControls, Assembly-CSharp
         m_MethodName: SetGunFire
         m_Mode: 6
         m_Arguments:
@@ -437,8 +435,8 @@ MonoBehaviour:
   m_GestureEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5313195159491146731}
-        m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
+      - m_Target: {fileID: 2211207732566838725}
+        m_TargetAssemblyTypeName: JumpedFlamethrowerControls, Assembly-CSharp
         m_MethodName: SetGunFire
         m_Mode: 6
         m_Arguments:
@@ -469,7 +467,7 @@ MonoBehaviour:
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5313195159491146731}
+      - m_Target: {fileID: 2211207732566838725}
         m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
         m_MethodName: EndTowerJump
         m_Mode: 1
@@ -2460,7 +2458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: moveWithTransform

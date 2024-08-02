@@ -125,7 +125,7 @@ namespace LSL4Unity.Samples.SimpleInlet
             else
             {
                 float sinValue = Mathf.PingPong(Time.time *  15f, 90f) - 45 ;
-                rotationValues = new Vector2(-sinValue * 1.5f, -sinValue);
+                rotationValues = new Vector2(-sinValue * 1.5f, sinValue);
                 coordValues[0] = -sinValue;
                 coordValues[1] = -sinValue;
             }
