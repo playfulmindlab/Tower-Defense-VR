@@ -20,6 +20,8 @@ public class JumpedTowerControls : MonoBehaviour
     protected float towerRotation = 0f;
     StaticHandGesturesTowerJump[] gestureScripts;
 
+    protected bool jumpStatus = false;
+
     public void Awake()
     {
         towerHead = towerBehaviour.towerPivot;
@@ -81,8 +83,15 @@ public class JumpedTowerControls : MonoBehaviour
         GameControlManager.instance.SwapControls("Main");
     }
 
-    public virtual void SetGunFire(bool firing)
+    public virtual void SetGunFire()
     {
-        missileDamage.ActivateGun(firing);
+        jumpStatus = !jumpStatus;
+        missileDamage.ActivateGun(jumpStatus);
+    }
+
+    public virtual void ForceGun(bool newState)
+    {
+        jumpStatus = newState;
+        missileDamage.ActivateGun(newState);
     }
 }

@@ -784,7 +784,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 6452599984991925594}
   towerCamera: {fileID: 7650774121648637247}
-  missileDamage: {fileID: 0}
 --- !u!114 &9208982388282321303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,7 +1095,7 @@ MonoBehaviour:
       - m_Target: {fileID: 8877621832343590044}
         m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
         m_MethodName: SetGunFire
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1107,19 +1106,7 @@ MonoBehaviour:
         m_CallState: 2
   m_GestureEnded:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8877621832343590044}
-        m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
-        m_MethodName: SetGunFire
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_MinimumHoldTime: 0.2
   m_GestureDetectionInterval: 0.1
   m_Highlight: {fileID: 0}

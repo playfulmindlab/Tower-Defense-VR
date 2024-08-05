@@ -107,7 +107,7 @@ def start_measurement(fixed_duration=False):
             plotter_.plot(cop, magnitude)
         if open_stream:
             outlet.push_sample(["COP Measurement -> X: " + str(cop[0]) + " Y: " + str(cop[1])])
-            time.sleep(0.02)   
+            time.sleep(0.1)   
         # print('{:.3f}, {:.3f}, {:.3f}, {:.3f}'.format(sensor_values[0], sensor_values[1], sensor_values[2], sensor_values[3]))
     print('Measurement Complete')
 
@@ -178,7 +178,7 @@ class GUI:
             if open_stream:
                 outlet.push_sample(["COP Measurement -> X: {:.3f} Y: {:.3f} Mag: {:.4f}".format(cop[0], cop[1], magnitude)])
             if not plot:
-                time.sleep(0.02)
+                time.sleep(0.1) # time.sleep(0.02)
             if keyboard.is_pressed(" "):
                 break
                 
@@ -215,7 +215,7 @@ def perform_streaming():
         if open_stream:
             outlet.push_sample(["COP Measurement -> X: {:.3f} Y: {:.3f} Mag: {:.4f}".format(cop[0], cop[1], magnitude)])
         if not plot:
-            time.sleep(0.02)
+            time.sleep(0.1) # time.sleep(0.02)
         if keyboard.is_pressed(" "):
             break
                 

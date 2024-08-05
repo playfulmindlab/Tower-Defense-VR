@@ -18,8 +18,9 @@ public class JumpedFlamethrowerControls : JumpedTowerControls
     }
 
 
-    public override void SetGunFire(bool firing)
+    public override void SetGunFire()
     {
-        flamethrowerDamage.ActivateGun(firing);
+        jumpStatus = !jumpStatus;
+        flamethrowerDamage.ActivateGun(jumpStatus);
     }
 }

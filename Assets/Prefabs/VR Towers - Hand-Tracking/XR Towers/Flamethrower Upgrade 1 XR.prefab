@@ -1620,7 +1620,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 1695510806410146470}
   towerCamera: {fileID: 2234919061475739257}
-  missileDamage: {fileID: 0}
 --- !u!114 &5206998583161917368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1641,7 +1640,6 @@ MonoBehaviour:
   missileSystem: {fileID: 5213507517262552224}
   towerHead: {fileID: 3073969819986924942}
   firingSFXName: TowerBasicShot
-  fireEffect: {fileID: 5213507517262552224}
   fireVolume: {fileID: 7491882773190930314}
 --- !u!54 &1137573521613292870
 Rigidbody:
@@ -1934,7 +1932,7 @@ MonoBehaviour:
       - m_Target: {fileID: 8073828428955901960}
         m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
         m_MethodName: SetGunFire
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1945,19 +1943,7 @@ MonoBehaviour:
         m_CallState: 2
   m_GestureEnded:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8073828428955901960}
-        m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
-        m_MethodName: SetGunFire
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_MinimumHoldTime: 0.2
   m_GestureDetectionInterval: 0.1
   m_Highlight: {fileID: 0}
@@ -2542,7 +2528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: moveWithTransform
@@ -2558,7 +2544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 3.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: ShapeModule.randomPositionAmount
@@ -2570,11 +2556,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.6
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: InitialModule.startColor.minColor.b
@@ -2591,7 +2577,7 @@ PrefabInstance:
     - target: {fileID: 3793221153750384484, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 8306428187704172982, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

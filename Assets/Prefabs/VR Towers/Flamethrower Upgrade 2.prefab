@@ -1352,6 +1352,7 @@ GameObject:
   - component: {fileID: 1938114963375996487}
   - component: {fileID: 8807094240888161948}
   - component: {fileID: 132343442263419935}
+  - component: {fileID: 6026318267665627894}
   - component: {fileID: 7304471801781137293}
   - component: {fileID: 772984181500304390}
   - component: {fileID: 1991235713931811930}
@@ -1409,6 +1410,8 @@ MonoBehaviour:
   shieldBar: {fileID: 5184797252606687542}
   outline: {fileID: 0}
   upgradedTower: {fileID: 0}
+  activeEffects: []
+  stunnedImage: {fileID: 0}
   aliveOnSceneStart: 0
   rotateSpeed: 30
   tower2Pivot: {fileID: 6394690397580293151}
@@ -1448,6 +1451,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 1938114963375996487}
   towerCamera: {fileID: 2542336315855624096}
+--- !u!114 &6026318267665627894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7179862029848007442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d219c045440659c47a1c78d77e3d25b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7304471801781137293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1462,7 +1477,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canFire: 1
   attackType: 1
-  fireEffect: {fileID: 4640235798197418930}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  missileSystem: {fileID: 0}
+  towerHead: {fileID: 0}
+  firingSFXName: TowerBasicShot
   fireVolume: {fileID: 3818559324193266871}
 --- !u!114 &772984181500304390
 MonoBehaviour:
@@ -1478,7 +1498,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canFire: 1
   attackType: 1
-  fireEffect: {fileID: 5992386144040020152}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  missileSystem: {fileID: 0}
+  towerHead: {fileID: 0}
+  firingSFXName: TowerBasicShot
   fireVolume: {fileID: 5731224885473494887}
 --- !u!54 &1991235713931811930
 Rigidbody:
@@ -3123,11 +3148,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8306428187704172982, guid: 25a7b1f4705342a499496755287546be, type: 3}
   m_PrefabInstance: {fileID: 4814123054585065327}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &4640235798197418930 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
-  m_PrefabInstance: {fileID: 4814123054585065327}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5873650231583603813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3260,11 +3280,6 @@ PrefabInstance:
 --- !u!4 &2505472167526292947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8306428187704172982, guid: 25a7b1f4705342a499496755287546be, type: 3}
-  m_PrefabInstance: {fileID: 5873650231583603813}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &5992386144040020152 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
   m_PrefabInstance: {fileID: 5873650231583603813}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8976598415422727098

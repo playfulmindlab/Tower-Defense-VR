@@ -6,7 +6,8 @@ public class Flamethrower2StreamTower : TowerBehaviour
 {
     [SerializeField] float rotateSpeed;
 
-    [SerializeField] Transform tower2Pivot;
+    [SerializeField] Transform stream1Pivot;
+    [SerializeField] Transform stream2Pivot;
     [SerializeField] float rotate2Speed;
 
     protected IDamageMethod secondDamageMethodClass;
@@ -39,10 +40,10 @@ public class Flamethrower2StreamTower : TowerBehaviour
                 posDifference.y = 0;
 
                 float pingpong = Mathf.PingPong(Time.time * rotateSpeed * 5f, 90) - 45;
-                towerPivot.transform.rotation = Quaternion.LookRotation(posDifference, Vector3.up) * Quaternion.Euler(0f, pingpong, 0f);
+                stream1Pivot.transform.rotation = Quaternion.LookRotation(posDifference, Vector3.up) * Quaternion.Euler(0f, pingpong, 0f);
 
                 float pingpong2 = Mathf.PingPong(Time.time * rotate2Speed * 5f, 90) - 45;
-                tower2Pivot.transform.rotation = Quaternion.LookRotation(posDifference, Vector3.up) * Quaternion.Euler(0f, pingpong2, 0f);
+                stream2Pivot.transform.rotation = Quaternion.LookRotation(posDifference, Vector3.up) * Quaternion.Euler(0f, pingpong2, 0f);
             }
         }
     }

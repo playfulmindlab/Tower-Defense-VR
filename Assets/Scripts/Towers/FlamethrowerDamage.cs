@@ -28,8 +28,6 @@ public class FlamethrowerDamage : MissileDamage
 
     public override void ActivateGun(bool activeState)
     {
-
-
         if (activeState == true)
         {
             audioSource.loop = true;

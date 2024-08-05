@@ -37,8 +37,6 @@ public class GameControlManager : MonoBehaviour
 
     SimpleInletBalanceBoard bbInlet;
 
-    bool firing = false;
-
     bool isJumped = false;
     public bool IsJumped { get { return isJumped; } set { } }
 
@@ -99,12 +97,12 @@ public class GameControlManager : MonoBehaviour
 
     public void SwapControls(ControlsSetting newControlSetting)
     {
-        firing = false;
+        //firing = false;
 
         switch (newControlSetting)
         {
             case ControlsSetting.Main:
-                jumpedTowerControls.SetGunFire(false);
+                jumpedTowerControls.ForceGun(false);
                 jumpedTowerControls.ToggleAutoShoot();
 
                 jumpedTowerControls.SetCamera(false);

@@ -96,7 +96,7 @@ Transform:
   m_GameObject: {fileID: 448643670067855563}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.26600003, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0039999783, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -104,7 +104,7 @@ Transform:
   - {fileID: 5887962584667374657}
   - {fileID: 5644269287124442415}
   - {fileID: 4764656509715533969}
-  m_Father: {fileID: 3344001662761005624}
+  m_Father: {fileID: 2859651392845906010}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8396659369166303862
 MeshFilter:
@@ -537,13 +537,13 @@ Transform:
   m_GameObject: {fileID: 2207488569948633481}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000000007450581, y: 0.062, z: 0.000000022351742}
+  m_LocalPosition: {x: 0, y: -0.208, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6089975944582250614}
   - {fileID: 8694000229142638845}
-  m_Father: {fileID: 3344001662761005624}
+  m_Father: {fileID: 2859651392845906010}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5959163302638309661
 MeshFilter:
@@ -836,9 +836,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 176317030760957313}
-  - {fileID: 5725384691318702232}
-  - {fileID: 8571277961383617593}
-  - {fileID: 7639834913156258849}
+  - {fileID: 2859651392845906010}
   - {fileID: 4128795684617896547}
   m_Father: {fileID: 1333086866762627149}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1074,7 +1072,7 @@ Transform:
   m_GameObject: {fileID: 4027924467709670542}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0.05}
+  m_LocalPosition: {x: 0, y: 0.33, z: 0.04999978}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1083,7 +1081,7 @@ Transform:
   - {fileID: 211384096466657287}
   - {fileID: 2395674291288240747}
   - {fileID: 5412111841500374871}
-  m_Father: {fileID: 3344001662761005624}
+  m_Father: {fileID: 2859651392845906010}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &2916528933405573657
 Camera:
@@ -1383,7 +1381,7 @@ GameObject:
   - component: {fileID: 1333086866762627149}
   - component: {fileID: 2075990925912388850}
   - component: {fileID: 7888261344634792852}
-  - component: {fileID: 5294978040271167744}
+  - component: {fileID: 8446867067139244487}
   - component: {fileID: 1681050569264282019}
   - component: {fileID: 1966474720907748190}
   - component: {fileID: 5388564504663921670}
@@ -1432,7 +1430,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   target: {fileID: 0}
-  towerPivot: {fileID: 5725384691318702232}
+  towerPivot: {fileID: 2859651392845906010}
   canFire: 1
   towerCost: 1200
   health: 30
@@ -1449,7 +1447,8 @@ MonoBehaviour:
   stunnedImage: {fileID: 2013744947335626969}
   aliveOnSceneStart: 0
   rotateSpeed: 30
-  tower2Pivot: {fileID: 7639834913156258849}
+  stream1Pivot: {fileID: 5725384691318702232}
+  stream2Pivot: {fileID: 7639834913156258849}
   rotate2Speed: 25
 --- !u!65 &7888261344634792852
 BoxCollider:
@@ -1472,7 +1471,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &5294978040271167744
+--- !u!114 &8446867067139244487
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1481,12 +1480,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4700677844370447432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb79bffaccef58141bfaa42839c821e8, type: 3}
+  m_Script: {fileID: 11500000, guid: d219c045440659c47a1c78d77e3d25b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 2075990925912388850}
   towerCamera: {fileID: 2916528933405573657}
-  missileDamage: {fileID: 0}
+  flamethrowerDamage1: {fileID: 1681050569264282019}
+  flamethrowerDamage2: {fileID: 1966474720907748190}
 --- !u!114 &1681050569264282019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1507,7 +1507,6 @@ MonoBehaviour:
   missileSystem: {fileID: 669710328543839638}
   towerHead: {fileID: 5725384691318702232}
   firingSFXName: TowerBasicShot
-  fireEffect: {fileID: 669710328543839638}
   fireVolume: {fileID: 5361246852879258427}
 --- !u!114 &1966474720907748190
 MonoBehaviour:
@@ -1529,7 +1528,6 @@ MonoBehaviour:
   missileSystem: {fileID: 2331241856556462378}
   towerHead: {fileID: 7639834913156258849}
   firingSFXName: TowerBasicShot
-  fireEffect: {fileID: 2331241856556462378}
   fireVolume: {fileID: 3386880315326574503}
 --- !u!54 &5388564504663921670
 Rigidbody:
@@ -1819,10 +1817,10 @@ MonoBehaviour:
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5294978040271167744}
-        m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
+      - m_Target: {fileID: 8446867067139244487}
+        m_TargetAssemblyTypeName: JumpedFlamethrowerUpgrade2, Assembly-CSharp
         m_MethodName: SetGunFire
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1833,19 +1831,7 @@ MonoBehaviour:
         m_CallState: 2
   m_GestureEnded:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5294978040271167744}
-        m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
-        m_MethodName: SetGunFire
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_MinimumHoldTime: 0.2
   m_GestureDetectionInterval: 0.1
   m_Highlight: {fileID: 0}
@@ -1866,7 +1852,7 @@ MonoBehaviour:
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5294978040271167744}
+      - m_Target: {fileID: 8446867067139244487}
         m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
         m_MethodName: EndTowerJump
         m_Mode: 1
@@ -3057,6 +3043,40 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
+--- !u!1 &8097047000565145992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2859651392845906010}
+  m_Layer: 0
+  m_Name: MainHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2859651392845906010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8097047000565145992}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8571277961383617593}
+  - {fileID: 5725384691318702232}
+  - {fileID: 7639834913156258849}
+  m_Father: {fileID: 3344001662761005624}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &855991002975965515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3071,7 +3091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: moveWithTransform
@@ -3083,11 +3103,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 3.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: ShapeModule.randomPositionAmount
@@ -3099,11 +3119,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.6
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: InitialModule.startColor.minColor.b
@@ -3123,15 +3143,15 @@ PrefabInstance:
       objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 8306428187704172982, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8306428187704172982, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8306428187704172982, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8306428187704172982, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3210,7 +3230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: moveWithTransform
@@ -3222,11 +3242,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 3.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: ShapeModule.randomPositionAmount
@@ -3238,11 +3258,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.6
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: InitialModule.startColor.minColor.b
