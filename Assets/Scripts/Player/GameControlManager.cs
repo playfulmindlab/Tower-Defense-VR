@@ -17,6 +17,7 @@ public class GameControlManager : MonoBehaviour
     InputActionAsset normalInputAsset;
     InputActionAsset jumpedInputAsset;
 
+    [SerializeField] Canvas jumpedTransitionCanvas;
     [SerializeField] Canvas jumpedOverlayWarning;
     [SerializeField] Canvas attackedBaseWarning;
 
@@ -36,6 +37,7 @@ public class GameControlManager : MonoBehaviour
     //[SerializeField] public InputActionProperty attackButton, unjumpButton;
 
     SimpleInletBalanceBoard bbInlet;
+    Animator jumpTransAnim;
 
     bool isJumped = false;
     public bool IsJumped { get { return isJumped; } set { } }
@@ -56,6 +58,7 @@ public class GameControlManager : MonoBehaviour
         rayLine = rightController.transform.Find("Ray Interactor").gameObject.GetComponent<LineRenderer>();
         pointerLine = rightController.transform.Find("PhysicsPointer").GetComponent<LineRenderer>();
         bbInlet = GetComponent<SimpleInletBalanceBoard>();
+        jumpTransAnim = jumpedTransitionCanvas.gameObject.GetComponent<Animator>();
 
         inputActionManager = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InputActionManager>();
         normalInputAsset = inputActionManager.actionAssets[0];
@@ -113,6 +116,7 @@ public class GameControlManager : MonoBehaviour
 
                 AudioManager.instance.PlaySFXArray("TowerUnjump", towerViewCanvas.transform.position);
                 attackedBaseWarning.worldCamera = mainCamera;
+                jumpedTransitionCanvas.worldCamera = mainCamera;
                 jumpedOverlayWarning.enabled = false;
 
                 isJumped = false;
@@ -127,12 +131,14 @@ public class GameControlManager : MonoBehaviour
 
                 TogglePlayerCamera(false);
                 jumpedTowerControls.SetCamera(true);
+
                 rayLine.enabled = false;
                 pointerLine.enabled = false;
 
                 AudioManager.instance.PlaySFXArray("TowerJump", towerViewCanvas.transform.position);
                 attackedBaseWarning.worldCamera = jumpedTowerControls.TowerCamera;
                 jumpedOverlayWarning.worldCamera = jumpedTowerControls.TowerCamera;
+                jumpedTransitionCanvas.worldCamera = jumpedTowerControls.TowerCamera;
                 jumpedOverlayWarning.enabled = true;
 
                 isJumped = true;
@@ -148,7 +154,12 @@ public class GameControlManager : MonoBehaviour
     {
         jumpedTowerControls = jumpedTower;
 
-        SwapControls(ControlsSetting.Jumped);
+        jumpTransAnim.SetTrigger("Jump");
+    }
+
+    public void SwapToUnjumpedControls()
+    {
+        jumpTransAnim.SetTrigger("Unjump");
     }
 
     public void SwapControls(string newControlString)

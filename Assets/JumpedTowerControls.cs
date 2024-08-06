@@ -80,7 +80,7 @@ public class JumpedTowerControls : MonoBehaviour
         {
             s.enabled = false;
         }
-        GameControlManager.instance.SwapControls("Main");
+        GameControlManager.instance.SwapToUnjumpedControls();
     }
 
     public virtual void SetGunFire()
