@@ -50308,7 +50308,7 @@ PrefabInstance:
     - target: {fileID: 3192946626383054539, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
       propertyPath: newSpawn
       value: 
-      objectReference: {fileID: 4579734139968354839, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      objectReference: {fileID: 8051434630462230016, guid: 0f3fff109639c1043ba461ef36762f03, type: 3}
     - target: {fileID: 4198737366389311318, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
       propertyPath: m_text
       value: Electric Beam
@@ -55173,63 +55173,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &51330236044447953
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 694480364299055864, guid: d1fa2fa34c62ccb4d9ee6a573c164fa9, type: 3}
-      propertyPath: m_Name
-      value: Electric Beam Prop
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832750318883099538, guid: d1fa2fa34c62ccb4d9ee6a573c164fa9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832750318883099538, guid: d1fa2fa34c62ccb4d9ee6a573c164fa9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832750318883099538, guid: d1fa2fa34c62ccb4d9ee6a573c164fa9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832750318883099538, guid: d1fa2fa34c62ccb4d9ee6a573c164fa9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832750318883099538, guid: d1fa2fa34c62ccb4d9ee6a573c164fa9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832750318883099538, guid: d1fa2fa34c62ccb4d9ee6a573c164fa9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832750318883099538, guid: d1fa2fa34c62ccb4d9ee6a573c164fa9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832750318883099538, guid: d1fa2fa34c62ccb4d9ee6a573c164fa9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832750318883099538, guid: d1fa2fa34c62ccb4d9ee6a573c164fa9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832750318883099538, guid: d1fa2fa34c62ccb4d9ee6a573c164fa9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d1fa2fa34c62ccb4d9ee6a573c164fa9, type: 3}
 --- !u!114 &69076764637206256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59342,6 +59285,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3326936331549414590}
   m_Mesh: {fileID: -2641858642512415246, guid: 38ca51ee87f02294798288cf658a8c13, type: 3}
+--- !u!1001 &7831640917493403180
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5249576756918186918, guid: 0f3fff109639c1043ba461ef36762f03, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249576756918186918, guid: 0f3fff109639c1043ba461ef36762f03, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249576756918186918, guid: 0f3fff109639c1043ba461ef36762f03, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249576756918186918, guid: 0f3fff109639c1043ba461ef36762f03, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249576756918186918, guid: 0f3fff109639c1043ba461ef36762f03, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249576756918186918, guid: 0f3fff109639c1043ba461ef36762f03, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249576756918186918, guid: 0f3fff109639c1043ba461ef36762f03, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249576756918186918, guid: 0f3fff109639c1043ba461ef36762f03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249576756918186918, guid: 0f3fff109639c1043ba461ef36762f03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249576756918186918, guid: 0f3fff109639c1043ba461ef36762f03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051434630462230016, guid: 0f3fff109639c1043ba461ef36762f03, type: 3}
+      propertyPath: m_Name
+      value: Electric Beam Prop
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0f3fff109639c1043ba461ef36762f03, type: 3}
 --- !u!4 &7876757930122348480
 Transform:
   m_ObjectHideFlags: 0
@@ -60166,4 +60166,4 @@ SceneRoots:
   - {fileID: 983796897}
   - {fileID: 75360219}
   - {fileID: 779357802}
-  - {fileID: 51330236044447953}
+  - {fileID: 7831640917493403180}
