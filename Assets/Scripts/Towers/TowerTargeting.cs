@@ -3,9 +3,10 @@ using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine.Jobs;
 
+public enum TargetType { First, Last, Closest, Strongest, Weakest, None }
 public class TowerTargeting
 {
-    public enum TargetType { First, Last, Closest, Strongest, Weakest }
+    //public enum TargetType { First, Last, Closest, Strongest, Weakest }
 
     public static Enemy GetTarget(TowerBehaviour currentTower, TargetType targetMethod)
     {
@@ -111,6 +112,9 @@ public class TowerTargeting
         {
             float currentEnemyDistanceToEnd = 0;
             float distanceToEnemy = 0;
+
+            if (targetingType == 5)
+                return;
 
             switch (targetingType)
             {

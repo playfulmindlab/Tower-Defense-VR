@@ -14,7 +14,6 @@ public class TowerDefenseManager : MonoBehaviour
     public static List<TowerBehaviour> towersInGame;
     private static Queue<TowerBehaviour> towersToRemoveQueue;
     public static Vector3[] nodePositions = null;
-    //public Node startingNode;
     public static float[] nodeDistances = null;
     public static int waveCount = 1;
     int levelCount = 1;
@@ -27,6 +26,7 @@ public class TowerDefenseManager : MonoBehaviour
     private static Queue<AppliedTowerEffect> towerEffectsQueue;
 
     public Transform nodeParent;
+    public TargetType currTargetType = TargetType.First;
     [SerializeField] PathAndNodesPair[] pathAndNodesPairings;
     [SerializeField] Node[] currNodePath;
     public static Vector3[] nodePositions2 = null;
@@ -475,7 +475,8 @@ public class TowerDefenseManager : MonoBehaviour
                         FlamethrowerTower flameTower = (FlamethrowerTower)tower;
                         flameTower.target2 = TowerTargeting.GetTarget(flameTower, TowerTargeting.TargetType.Last);
                     }*/
-                    tower.target = TowerTargeting.GetTarget(tower, TowerTargeting.TargetType.First);
+                    if (currTargetType != TargetType.None)
+                        tower.target = TowerTargeting.GetTarget(tower, currTargetType);
                     tower.Tick();
                 }
             }
@@ -684,6 +685,12 @@ public class TowerDefenseManager : MonoBehaviour
         {
             ChangePhase(prePausePhase);
         }
+    }
+
+    public void SwapTargetType(int newTargetTypeIndex)
+    {
+        TargetType newTargetType = (TargetType) newTargetTypeIndex;
+        currTargetType = newTargetType;
     }
 
     void UpdateGameManagerStats()

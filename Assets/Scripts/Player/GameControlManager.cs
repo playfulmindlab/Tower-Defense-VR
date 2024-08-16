@@ -7,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit.Inputs;
 using LSL4Unity.Samples.SimpleInlet;
 
 public enum ControlsSetting { Main, Jumped}
+public enum JumpedType { Normal, ReticleStatic, ReticleFollow}
 
 public class GameControlManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class GameControlManager : MonoBehaviour
     [SerializeField] Canvas jumpedTransitionCanvas;
     [SerializeField] Canvas jumpedOverlayWarning;
     [SerializeField] Canvas attackedBaseWarning;
+
+    JumpedTowerUI towerUI;
 
     [Header("Main Game Controls")]
     //[SerializeField] GameObject moveControls;
@@ -41,6 +44,10 @@ public class GameControlManager : MonoBehaviour
 
     bool isJumped = false;
     public bool IsJumped { get { return isJumped; } set { } }
+
+
+    public JumpedType jumpType = JumpedType.Normal;
+
 
     private void Awake()
     {
@@ -65,6 +72,7 @@ public class GameControlManager : MonoBehaviour
         jumpedInputAsset = inputActionManager.actionAssets[1];
         inputActionManager.actionAssets = new List<InputActionAsset> { normalInputAsset };
 
+        towerUI = jumpedOverlayWarning.GetComponent<JumpedTowerUI>();
     }
 
     private void Update()
@@ -72,7 +80,21 @@ public class GameControlManager : MonoBehaviour
         //TODO: try to move this to job system
         if (jumpedTowerControls != null)
         {
-            jumpedTowerControls.RotateGun(bbInlet.rotationValues, cameraDamping);
+            switch (jumpType)
+            {
+                case JumpedType.Normal:
+                    TowerDefenseManager.instance.currTargetType = TargetType.First;
+                    jumpedTowerControls.RotateGun(bbInlet.rotationValues, cameraDamping);
+                    break;
+                case JumpedType.ReticleStatic:
+                    TowerDefenseManager.instance.currTargetType = TargetType.First;
+                    jumpedTowerControls.MoveReticle(bbInlet.rotationValues, cameraDamping); 
+                    break;
+                case JumpedType.ReticleFollow:
+                    TowerDefenseManager.instance.currTargetType = TargetType.Closest;
+                    jumpedTowerControls.MoveReticle(bbInlet.rotationValues, cameraDamping);
+                    break;
+            }
 
             /*if (attackButton.action.WasPerformedThisFrame())
             {
@@ -128,6 +150,7 @@ public class GameControlManager : MonoBehaviour
             case ControlsSetting.Jumped:
                 jumpedTowerControls.ToggleAutoShoot();
                 jumpedTowerControls.SetJumpedTower();
+                jumpedTowerControls.AssignNewTowerUI(towerUI);
 
                 TogglePlayerCamera(false);
                 jumpedTowerControls.SetCamera(true);

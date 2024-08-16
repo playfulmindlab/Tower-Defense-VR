@@ -15,12 +15,15 @@ public class JumpedTowerControls : MonoBehaviour
     AudioListener cameraListener;
 
     protected Transform towerHead;
+    public Transform towerTip;
     MissileDamage missileDamage;
 
     protected float towerRotation = 0f;
     StaticHandGesturesTowerJump[] gestureScripts;
 
     protected bool jumpStatus = false;
+
+    JumpedTowerUI towerUI;
 
     public void Awake()
     {
@@ -31,12 +34,18 @@ public class JumpedTowerControls : MonoBehaviour
 
         gestureScripts = GetComponents<StaticHandGesturesTowerJump>();
         Debug.Log("GESTURES: " + gestureScripts.Length);
+
         foreach (StaticHandGesturesTowerJump s in gestureScripts)
         {
             s.enabled = false;
         }
 
         missileDamage = GetComponent<MissileDamage>();
+    }
+
+    public void AssignNewTowerUI(JumpedTowerUI newUI)
+    {
+        towerUI = newUI;
     }
 
     public virtual void SetCamera(bool camActive)
@@ -71,7 +80,23 @@ public class JumpedTowerControls : MonoBehaviour
         Quaternion rot = Quaternion.Euler(new Vector3((balanceBoardCoords.y - towerRotation) * 2f, balanceBoardCoords.x * 2, 0f));
 
         //towerHead.localEulerAngles = new Vector3(-balanceBoardCoords.y * 2f, -balanceBoardCoords.x * 2, 0f);
-        towerHead.localRotation = Quaternion.Slerp(towerHead.localRotation, rot, Time.deltaTime * dampVal);
+        towerHead.localRotation = rot;// Quaternion.Slerp(towerHead.localRotation, rot, Time.deltaTime * dampVal);
+    }
+
+    public virtual void MoveReticle(Vector2 balanceBoardCoords, float dampVal = 5f)
+    {
+        Debug.Log("Reticle Check");
+
+        RaycastHit hit;
+        if (Physics.Raycast(towerUI.transform.position, towerUI.transform.forward, out hit, 100f))
+        {
+            Debug.Log(hit.collider.gameObject.name);
+        }
+
+
+        //Quaternion rot = Quaternion.Euler(new Vector3((balanceBoardCoords.y - towerRotation) * 2f, balanceBoardCoords.x * 2, 0f));
+
+        //towerHead.localRotation = Quaternion.Slerp(towerHead.localRotation, rot, Time.deltaTime * dampVal);
     }
 
     public virtual void EndTowerJump()
