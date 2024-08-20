@@ -42,6 +42,9 @@ public class JumpedTowerUI : MonoBehaviour
     {
         // move the reticle to the screen point
         reticle.transform.localPosition = balanceBoardInput.CoordValues * 3;
-        Debug.DrawRay(reticle.transform.position, reticle.transform.forward, Color.green);
+        reticle.transform.rotation = Quaternion.LookRotation((Camera.main.transform.position - reticle.transform.position).normalized);
+
+        Debug.DrawRay(reticle.transform.position, reticle.transform.forward, Color.red);
+        Debug.DrawRay(reticle.transform.position, -reticle.transform.forward, Color.green);
     }
 }

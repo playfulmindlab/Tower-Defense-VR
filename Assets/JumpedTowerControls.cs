@@ -23,7 +23,8 @@ public class JumpedTowerControls : MonoBehaviour
 
     protected bool jumpStatus = false;
 
-    JumpedTowerUI towerUI;
+    public JumpedTowerUI towerUI;
+    public RectTransform towerUITransform;
 
     public void Awake()
     {
@@ -46,6 +47,7 @@ public class JumpedTowerControls : MonoBehaviour
     public void AssignNewTowerUI(JumpedTowerUI newUI)
     {
         towerUI = newUI;
+        towerUITransform = towerUI.GetComponent<RectTransform>();
     }
 
     public virtual void SetCamera(bool camActive)
@@ -80,24 +82,20 @@ public class JumpedTowerControls : MonoBehaviour
         Quaternion rot = Quaternion.Euler(new Vector3((balanceBoardCoords.y - towerRotation) * 2f, balanceBoardCoords.x * 2, dampVal));
 
         //towerHead.localEulerAngles = new Vector3(-balanceBoardCoords.y * 2f, -balanceBoardCoords.x * 2, 0f);
-        towerHead.localRotation = rot;// Quaternion.Slerp(towerHead.localRotation, rot, Time.deltaTime * dampVal);
+        towerHead.localRotation = Quaternion.Slerp(towerHead.localRotation, rot, Time.deltaTime * dampVal);
     }
 
-    public virtual void MoveReticle(Vector2 balanceBoardCoords, float dampVal = 5f)
+    public virtual void RotateMissiles()
     {
-        Debug.Log("Reticle Check");
-
-        RaycastHit hit;
-        if (Physics.Raycast(towerUI.transform.position, towerUI.transform.forward, out hit, 100f))
+        if (towerUI != null)
         {
-            Debug.Log(hit.collider.gameObject.name);
+            //towerUITransform.rotation = Quaternion.LookRotation((towerCamera.transform.position - towerUITransform.position).normalized);
+
+            Debug.Log("Reticle Check");
+            towerTip.LookAt(towerUI.ReticleTransform, Vector3.up);
         }
-
-
-        //Quaternion rot = Quaternion.Euler(new Vector3((balanceBoardCoords.y - towerRotation) * 2f, balanceBoardCoords.x * 2, 0f));
-
-        //towerHead.localRotation = Quaternion.Slerp(towerHead.localRotation, rot, Time.deltaTime * dampVal);
     }
+
 
     public virtual void EndTowerJump()
     {
@@ -112,6 +110,9 @@ public class JumpedTowerControls : MonoBehaviour
     {
         jumpStatus = !jumpStatus;
         missileDamage.ActivateGun(jumpStatus);
+
+        if (jumpStatus == false)
+            towerTip.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
     }
 
     public virtual void ForceGun(bool newState)
