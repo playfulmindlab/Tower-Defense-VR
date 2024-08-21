@@ -77,6 +77,11 @@ public class JumpedTowerControls : MonoBehaviour
         towerBehaviour.canFire = !towerBehaviour.canFire;
     }
 
+    public virtual void ToggleFollowEnemy(bool newFollow)
+    {
+        towerBehaviour.followEnemy = newFollow;
+    }
+
     public virtual void RotateGun(Vector2 balanceBoardCoords, float dampVal = 5f)
     {
         Quaternion rot = Quaternion.Euler(new Vector3((balanceBoardCoords.y - towerRotation) * 2f, balanceBoardCoords.x * 2, dampVal));

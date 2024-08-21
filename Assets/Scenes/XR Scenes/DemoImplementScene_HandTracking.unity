@@ -20861,7 +20861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
+  m_Color: {r: 0, g: 0.9813695, b: 1, a: 0.2}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -25759,6 +25759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeParent: {fileID: 1733667118}
+  currTargetType: 0
   pathAndNodesPairings:
   - path: {fileID: 312663827}
     nodeHolder: {fileID: 1733667117}
@@ -31819,6 +31820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityCenter: {fileID: 2056593764}
+  reticle: {fileID: 0}
 --- !u!114 &1254555708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32005,6 +32007,7 @@ MonoBehaviour:
   towerViewCanvas: {fileID: 1951020948}
   jumpedTowerControls: {fileID: 0}
   cameraDamping: 1
+  jumpType: 0
 --- !u!4 &1260315084
 Transform:
   m_ObjectHideFlags: 0
@@ -50036,7 +50039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2015243868
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50555,7 +50558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.5234003, g: 0, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

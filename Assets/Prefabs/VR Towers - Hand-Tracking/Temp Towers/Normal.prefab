@@ -890,6 +890,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 5697443094882481328}
   canFire: 1
+  followEnemy: 0
   towerCost: 350
   health: 10
   maxHealth: 100
@@ -918,6 +919,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 4122697914629683683}
   towerCamera: {fileID: 929245666897675630}
+  towerTip: {fileID: 3388786876971229739}
+  towerUI: {fileID: 0}
+  towerUITransform: {fileID: 0}
 --- !u!65 &9133278554509046689
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class TowerBehaviour : MonoBehaviour
     public Transform towerPivot;
     public bool canFire = true;
 
+    public bool followEnemy = true;
+
     public int towerCost = 100;
     [SerializeField] protected int health = 10;
     public int maxHealth = 10;
@@ -112,7 +114,9 @@ public class TowerBehaviour : MonoBehaviour
         if (canFire == true)
         {
             currentDamageMethodClass.DamageTick(target);
+        }
 
+        if (followEnemy == true) { 
             if (target != null)
             {
                 Vector3 posDifference = target.transform.position - transform.position;

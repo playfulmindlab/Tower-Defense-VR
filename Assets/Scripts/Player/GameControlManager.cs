@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit.Inputs;
 using LSL4Unity.Samples.SimpleInlet;
 
 public enum ControlsSetting { Main, Jumped}
-public enum JumpedType { Normal, ReticleStatic, ReticleFollow}
+public enum JumpedType { Normal = 0, ReticleStatic = 1, ReticleFollow = 2}
 
 public class GameControlManager : MonoBehaviour
 {
@@ -75,6 +75,11 @@ public class GameControlManager : MonoBehaviour
         towerUI = jumpedOverlayWarning.GetComponent<JumpedTowerUI>();
     }
 
+    public void SwitchJumpType(int newType)
+    {
+        jumpType = (JumpedType)newType;
+    }
+
     private void Update()
     {
         //TODO: try to move this to job system
@@ -84,15 +89,18 @@ public class GameControlManager : MonoBehaviour
             {
                 case JumpedType.Normal:
                     TowerDefenseManager.instance.currTargetType = TargetType.First;
+                    jumpedTowerControls.ToggleFollowEnemy(false);
                     jumpedTowerControls.RotateGun(bbInlet.rotationValues, cameraDamping);
                     break;
                 case JumpedType.ReticleStatic:
                     TowerDefenseManager.instance.currTargetType = TargetType.First;
-                    jumpedTowerControls.MoveReticle(bbInlet.rotationValues, cameraDamping); 
+                    jumpedTowerControls.ToggleFollowEnemy(false);
+                    jumpedTowerControls.RotateMissiles(); 
                     break;
                 case JumpedType.ReticleFollow:
                     TowerDefenseManager.instance.currTargetType = TargetType.Closest;
-                    jumpedTowerControls.MoveReticle(bbInlet.rotationValues, cameraDamping);
+                    jumpedTowerControls.ToggleFollowEnemy(true) ;
+                    jumpedTowerControls.RotateMissiles();
                     break;
             }
 
@@ -140,6 +148,8 @@ public class GameControlManager : MonoBehaviour
                 attackedBaseWarning.worldCamera = mainCamera;
                 jumpedTransitionCanvas.worldCamera = mainCamera;
                 jumpedOverlayWarning.enabled = false;
+
+                jumpedTowerControls.ToggleFollowEnemy(true);
 
                 isJumped = false;
                 GameManager.instance.LogNewEvent("Tower Jump End", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
