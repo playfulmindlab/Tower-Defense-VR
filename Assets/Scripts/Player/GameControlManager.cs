@@ -92,11 +92,13 @@ public class GameControlManager : MonoBehaviour
                     jumpedTowerControls.ToggleFollowEnemy(false);
                     jumpedTowerControls.RotateGun(bbInlet.rotationValues, cameraDamping);
                     break;
+
                 case JumpedType.ReticleStatic:
                     TowerDefenseManager.instance.currTargetType = TargetType.First;
                     jumpedTowerControls.ToggleFollowEnemy(false);
                     jumpedTowerControls.RotateMissiles(); 
                     break;
+
                 case JumpedType.ReticleFollow:
                     TowerDefenseManager.instance.currTargetType = TargetType.Closest;
                     jumpedTowerControls.ToggleFollowEnemy(true) ;
