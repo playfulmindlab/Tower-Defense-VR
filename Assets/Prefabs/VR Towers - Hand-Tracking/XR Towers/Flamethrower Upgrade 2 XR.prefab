@@ -1432,6 +1432,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 2859651392845906010}
   canFire: 1
+  followEnemy: 1
   towerCost: 1200
   health: 30
   maxHealth: 20
@@ -1485,6 +1486,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 2075990925912388850}
   towerCamera: {fileID: 2916528933405573657}
+  towerTip: {fileID: 0}
+  towerUI: {fileID: 0}
+  towerUITransform: {fileID: 0}
   flamethrowerDamage1: {fileID: 1681050569264282019}
   flamethrowerDamage2: {fileID: 1966474720907748190}
 --- !u!114 &1681050569264282019
@@ -1694,7 +1698,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1832,8 +1836,8 @@ MonoBehaviour:
   m_GestureEnded:
     m_PersistentCalls:
       m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
+  m_MinimumHoldTime: 0.08
+  m_GestureDetectionInterval: 0.04
   m_Highlight: {fileID: 0}
 --- !u!114 &1122460819300948634
 MonoBehaviour:

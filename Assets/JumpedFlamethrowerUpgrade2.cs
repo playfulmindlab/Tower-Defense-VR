@@ -7,11 +7,6 @@ public class JumpedFlamethrowerUpgrade2 : JumpedTowerControls
     [SerializeField] FlamethrowerDamage flamethrowerDamage1;
     [SerializeField] FlamethrowerDamage flamethrowerDamage2;
 
-    private void Start()
-    {
-        //flamethrowerDamage = GetComponent<FlamethrowerDamage>();
-    }
-
     public override void ToggleAutoShoot()
     {
         base.ToggleAutoShoot();

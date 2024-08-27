@@ -50,9 +50,6 @@ public class PropManager : MonoBehaviour
             //Check to see if it intersects Baseplate & ONLY baseplate
             if (gameObject.tag == "Tower" && hit.collider.gameObject.layer == baseLayer)
             {
-                //Debug.Log(this.gameObject);
-                //Debug.Log(towerSpawn);
-                //Debug.Log(hit.point);
                 towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, hit.point);
 
                 towerScript = towerSpawn.GetComponent<TowerBehaviour>();

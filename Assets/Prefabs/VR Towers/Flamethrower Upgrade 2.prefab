@@ -1399,6 +1399,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 2345631091880684805}
   canFire: 1
+  followEnemy: 1
   towerCost: 1200
   health: 30
   maxHealth: 20
@@ -1414,7 +1415,8 @@ MonoBehaviour:
   stunnedImage: {fileID: 0}
   aliveOnSceneStart: 0
   rotateSpeed: 30
-  tower2Pivot: {fileID: 6394690397580293151}
+  stream1Pivot: {fileID: 0}
+  stream2Pivot: {fileID: 0}
   rotate2Speed: 25
 --- !u!65 &8807094240888161948
 BoxCollider:
@@ -1451,6 +1453,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 1938114963375996487}
   towerCamera: {fileID: 2542336315855624096}
+  towerTip: {fileID: 0}
+  towerUI: {fileID: 0}
+  towerUITransform: {fileID: 0}
 --- !u!114 &6026318267665627894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1463,6 +1468,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d219c045440659c47a1c78d77e3d25b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerBehaviour: {fileID: 0}
+  towerCamera: {fileID: 0}
+  towerTip: {fileID: 0}
+  towerUI: {fileID: 0}
+  towerUITransform: {fileID: 0}
+  flamethrowerDamage1: {fileID: 0}
+  flamethrowerDamage2: {fileID: 0}
 --- !u!114 &7304471801781137293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3028,7 +3040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: moveWithTransform
@@ -3157,12 +3169,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 6394690397580293151}
     m_Modifications:
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: lengthInSec
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: moveWithTransform

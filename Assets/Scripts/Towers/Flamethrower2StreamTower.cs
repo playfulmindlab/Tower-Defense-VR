@@ -17,8 +17,18 @@ public class Flamethrower2StreamTower : TowerBehaviour
         base.Start();
 
         IDamageMethod[] damageMethodClasses = GetComponents<IDamageMethod>();
+
         currentDamageMethodClass = damageMethodClasses[0];
         secondDamageMethodClass = damageMethodClasses[1];
+
+        if (secondDamageMethodClass == null)
+        {
+            Debug.LogError("Tower " + this.gameObject.name + " has no SECOND damage class attached!");
+        }
+        else
+        {
+            secondDamageMethodClass.Init(damage, firerate);
+        }
     }
 
     public override void Tick()

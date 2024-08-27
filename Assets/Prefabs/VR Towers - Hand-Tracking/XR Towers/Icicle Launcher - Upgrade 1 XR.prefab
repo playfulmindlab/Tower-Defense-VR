@@ -735,6 +735,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 649884607440859841}
   canFire: 1
+  followEnemy: 1
   towerCost: 800
   health: 10
   maxHealth: 10
@@ -784,6 +785,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 6452599984991925594}
   towerCamera: {fileID: 7650774121648637247}
+  towerTip: {fileID: 0}
+  towerUI: {fileID: 0}
+  towerUITransform: {fileID: 0}
 --- !u!114 &9208982388282321303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,8 +1111,8 @@ MonoBehaviour:
   m_GestureEnded:
     m_PersistentCalls:
       m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
+  m_MinimumHoldTime: 0.08
+  m_GestureDetectionInterval: 0.04
   m_Highlight: {fileID: 0}
 --- !u!114 &9120730358255152912
 MonoBehaviour:

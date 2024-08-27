@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
             if (healthBar != null)
             {
                 healthBar.value = health;
+                healthText.text = health + "/" + maxHealth;
             }
         }
     }
@@ -63,6 +64,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] AudioClip deathSound;
     [SerializeField] Slider healthBar;
+    [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] TextMeshProUGUI speedText;
 
     Animator anim;

@@ -1052,6 +1052,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 2389372701864717615}
   canFire: 1
+  followEnemy: 1
   towerCost: 800
   health: 10
   maxHealth: 20
@@ -1063,6 +1064,8 @@ MonoBehaviour:
   shieldBar: {fileID: 5571909631037118141}
   outline: {fileID: 0}
   upgradedTower: {fileID: 7179862029848007442, guid: 2a9a3195306070243bc2bbbf09b96df4, type: 3}
+  activeEffects: []
+  stunnedImage: {fileID: 0}
   aliveOnSceneStart: 0
   rotateSpeed: 30
 --- !u!65 &1154899532457875847
@@ -1100,6 +1103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 2700201892234336405}
   towerCamera: {fileID: 2042471364830138453}
+  towerTip: {fileID: 0}
+  towerUI: {fileID: 0}
+  towerUITransform: {fileID: 0}
 --- !u!114 &1343267521918087104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,7 +1120,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canFire: 1
   attackType: 1
-  fireEffect: {fileID: 8705502247021938685}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  missileSystem: {fileID: 0}
+  towerHead: {fileID: 0}
+  firingSFXName: TowerBasicShot
   fireVolume: {fileID: 4171568121967010490}
 --- !u!54 &1344333874232364538
 Rigidbody:
@@ -2868,15 +2879,23 @@ PrefabInstance:
     m_TransformParent: {fileID: 2389372701864717615}
     m_Modifications:
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: lengthInSec
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
+      propertyPath: EmissionModule.enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
@@ -2991,10 +3010,5 @@ PrefabInstance:
 --- !u!4 &665454055717974678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8306428187704172982, guid: 25a7b1f4705342a499496755287546be, type: 3}
-  m_PrefabInstance: {fileID: 8825496838431806240}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &8705502247021938685 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
   m_PrefabInstance: {fileID: 8825496838431806240}
   m_PrefabAsset: {fileID: 0}

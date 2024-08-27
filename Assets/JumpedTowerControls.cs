@@ -116,7 +116,7 @@ public class JumpedTowerControls : MonoBehaviour
         jumpStatus = !jumpStatus;
         missileDamage.ActivateGun(jumpStatus);
 
-        if (jumpStatus == false)
+        if (jumpStatus == false && towerTip != null)
             towerTip.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
     }
 

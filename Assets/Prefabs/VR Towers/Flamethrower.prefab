@@ -163,6 +163,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 3382279352490335333}
   canFire: 1
+  followEnemy: 1
   towerCost: 400
   health: 10
   maxHealth: 10
@@ -174,6 +175,8 @@ MonoBehaviour:
   shieldBar: {fileID: 70979792664552238}
   outline: {fileID: 0}
   upgradedTower: {fileID: 3673039398630169798, guid: 6ac720a892139db42a520777ee82ad42, type: 3}
+  activeEffects: []
+  stunnedImage: {fileID: 0}
   aliveOnSceneStart: 0
   rotateSpeed: 30
 --- !u!65 &5874515159302801773
@@ -211,6 +214,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 638770660016363995}
   towerCamera: {fileID: 925441674530876677}
+  towerTip: {fileID: 0}
+  towerUI: {fileID: 0}
+  towerUITransform: {fileID: 0}
 --- !u!114 &8604441984204306420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +231,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canFire: 1
   attackType: 1
-  fireEffect: {fileID: 1183340217060245055}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  missileSystem: {fileID: 0}
+  towerHead: {fileID: 0}
+  firingSFXName: TowerBasicShot
   fireVolume: {fileID: 911385641881567468}
 --- !u!54 &1464527991977398517
 Rigidbody:
@@ -2059,7 +2070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: moveWithTransform
@@ -2174,11 +2185,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25a7b1f4705342a499496755287546be, type: 3}
---- !u!198 &1183340217060245055 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 192070073988682973, guid: 25a7b1f4705342a499496755287546be, type: 3}
-  m_PrefabInstance: {fileID: 1352855730794474210}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7025636807538445140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8306428187704172982, guid: 25a7b1f4705342a499496755287546be, type: 3}
