@@ -37143,6 +37143,7 @@ MonoBehaviour:
   damage: 0
   firerate: 0
   range: 1
+  readjustSpeed: 3
   healthBar: {fileID: 64581724}
   shieldBar: {fileID: 201506519}
   outline: {fileID: 897034007}
