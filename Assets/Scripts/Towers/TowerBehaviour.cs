@@ -24,6 +24,8 @@ public class TowerBehaviour : MonoBehaviour
     public float firerate;
     public float range;
 
+    public float readjustSpeed = 3f;
+
     public Slider healthBar;
     public Slider shieldBar;
     public Outline outline;
@@ -122,7 +124,8 @@ public class TowerBehaviour : MonoBehaviour
                 Vector3 posDifference = target.transform.position - transform.position;
                 posDifference.y = 0;
                 if (towerPivot != null)
-                    towerPivot.transform.rotation = Quaternion.LookRotation(posDifference, Vector3.up);
+                    towerPivot.transform.rotation = Quaternion.Slerp(towerPivot.transform.rotation, Quaternion.LookRotation(posDifference, Vector3.up), Time.deltaTime * readjustSpeed);
+                    //towerPivot.transform.rotation = Quaternion.LookRotation(posDifference, Vector3.up);
             }
         }
 

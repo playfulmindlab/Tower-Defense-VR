@@ -69,7 +69,8 @@ MonoBehaviour:
   shield: 10
   damage: 1
   firerate: 10
-  range: 5
+  range: 12
+  readjustSpeed: 3
   healthBar: {fileID: 7557131343831787845}
   shieldBar: {fileID: 3323579067883772854}
   outline: {fileID: 0}
@@ -463,8 +464,8 @@ MonoBehaviour:
   m_GestureEnded:
     m_PersistentCalls:
       m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
+  m_MinimumHoldTime: 0.08
+  m_GestureDetectionInterval: 0.04
   m_Highlight: {fileID: 0}
 --- !u!114 &3176720069456563568
 MonoBehaviour:
