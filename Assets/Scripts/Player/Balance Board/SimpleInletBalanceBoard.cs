@@ -4,26 +4,21 @@ using UnityEngine;
 using LSL;
 using System;
 using System.IO;
+using System.Linq;
+using Unity.Transforms;
+using Meta.WitAi.Data;
 
 namespace LSL4Unity.Samples.SimpleInlet
 {
-    // You probably don't need this namespace. We do it to avoid contaminating the global namespace of your project.
     public class SimpleInletBalanceBoard : MonoBehaviour
     {
-        /*
-         * This example shows the minimal code required to get an LSL inlet running
-         * without leveraging any of the helper scripts that come with the LSL package.
-         * This behaviour uses LSL.cs only. There is little-to-no error checking.
-         * See Resolver.cs and BaseInlet.cs for helper behaviours to make your implementation
-         * simpler and more robust.
-         */
-
         // We need to find the stream somehow. You must provide a StreamName in editor or before this object is Started.
         public string StreamName;
         ContinuousResolver resolver;
         float[] coordValues = new float[3];
-        public Vector2 CoordValues { get { return new Vector2(coordValues[0], coordValues[1]); } set { } }
-        public Vector2 rotationValues = Vector2.zero;
+        public Vector2 CoordValues { get { return new Vector2(coordValues[0], coordValues[1]); } }
+        public float MagValue { get { return coordValues[2] / 2f; } }
+        public Vector3 CoordValues3 { get { return new Vector3(coordValues[0], coordValues[1], coordValues[2]); } }
 
         double max_chunk_duration = 0.2;  // Duration, in seconds, of buffer passed to pull_chunk. This must be > than average frame interval.
 
@@ -31,19 +26,19 @@ namespace LSL4Unity.Samples.SimpleInlet
         private StreamInlet inlet;
 
         // We need buffers to pass to LSL when pulling data.
-        private string[] data_buffer;  // Note it's a 2D Array, not array of arrays. Each element has to be indexed specifically, no frames/columns.
+        //private string[] data_buffer;  // Note it's a 2D Array, not array of arrays. Each element has to be indexed specifically, no frames/columns.
+        private float[] new_data_buffer;
         private double timestamp_buffer;
 
         private bool isReady = false;
-        //public bool IsReady
-        //{
-        //    get { return isReady; }
-        //    set { }
-        //}
 
         string fileLocation = "";
 
-        int timer = 0;
+        float timer = 0;
+        float[] lastValues = new float[3] {0, 0, 0};
+        List<Vector2> mostRecentReadings = new List<Vector2>();
+        Vector2 avgReading = Vector2.zero;
+        int maxAverageReadingSample = 20;
 
         void Start()
         {
@@ -78,6 +73,7 @@ namespace LSL4Unity.Samples.SimpleInlet
                 yield break;
             }
 
+            timer = 0f;
             isReady = true;
             Debug.Log("Found results : " + results.Length);
             inlet = new StreamInlet(results[0]);
@@ -88,8 +84,8 @@ namespace LSL4Unity.Samples.SimpleInlet
             int buf_samples = (int)Mathf.Ceil((float)(inlet.info().nominal_srate() * max_chunk_duration));
             Debug.Log("Allocating buffers to receive " + buf_samples + " samples.");
 
-            data_buffer = new string[1];
-            timestamp_buffer = 0.0;
+            new_data_buffer = new float[3];
+            timestamp_buffer = 0.08;
         }
 
         private void OnApplicationQuit()
@@ -100,61 +96,40 @@ namespace LSL4Unity.Samples.SimpleInlet
                 Debug.LogError("No StreamInlet detected during gameplay.");
         }
 
+        public float[] coordHolder = new float[3] { 0, 0, 0 };
+
         // Update is called once per frame
         void Update()
         {
+
             if (inlet != null)
             {
-                inlet.pull_sample(data_buffer, timestamp_buffer);
+                inlet.pull_sample(new_data_buffer, timestamp_buffer);
 
-                //Debug.Log("Samples returned: " + data_buffer[0] + " // Data Buffer: " + data_buffer.Length + " // Timestamps: " + timestamp_buffer);
-
-                if (data_buffer[0] != null)
+                if (new_data_buffer != null)
                 {
-                    /*float[] */coordValues = ConvertStringToFloat(data_buffer[0]);
+                    AddNewReadingToRecentReadings(new_data_buffer);
 
-                    rotationValues = new Vector2((-coordValues[0] * 1.5f), (coordValues[1]));
-
-                    //[0] = X, [1] = Y, [2] = Magnitude
+                    //coordValues[0] = X, coordValues[1] = Y, coordValues[2] = Magnitude
                 }
-
             }
             //TODO: if you are in an environment where you CANNOT use a Balance Board,
             //simply cycle on sin()/cos() values. This should only be used for testing,
             //to make sure that rotations will adjust accordingly
             else
             {
-                float sinValue = Mathf.PingPong(Time.time *  15f, 90f) - 45 ;
-                rotationValues = new Vector2(-sinValue * 1.5f, sinValue);
-                coordValues[0] = -sinValue;
-                coordValues[1] = -sinValue;
+                float sinValue = Mathf.PingPong(Time.time * 15f, 90f) - 45;
+
+                AddNewReadingToRecentReadings(new float[] {sinValue, sinValue, 0f});
             }
+
+            avgReading = GetAverageReading();
+            coordValues = new float[] {avgReading.x, avgReading.y, avgReading.x};
 
             if (isReady)
             {
-                RecordNewBalanceBoardValues(new Vector3(coordValues[0], coordValues[1], coordValues[2]), rotationValues);
+                RecordNewBalanceBoardValues(mostRecentReadings[mostRecentReadings.Count - 1], avgReading);
             }
-        }
-
-        float[] ConvertStringToFloat(string str)
-        {
-            string dataString = str.ToString();
-            string[] delimiters = new string[] { "COP Measurement -> X: ", "Y: ", "Mag: " };
-            string[] splitData = dataString.Split(delimiters, StringSplitOptions.None);
-
-            float[] values = new float[3];
-
-            if (splitData.Length > 3)// && float.TryParse(splitData[1], out float result1) && float.TryParse(splitData[2], out float result2))
-            {
-                //NOTE: splitData[0] is only "", and is ignored when recording values
-                Debug.Log("Split Data: " + splitData[1] + " | " + splitData[2] + " | " + splitData[3] + " | " + splitData.Length);
-
-                values[0] = float.Parse(splitData[1]);
-                values[1] = float.Parse(splitData[2]);
-                values[2] = float.Parse(splitData[3]);
-            }
-
-            return values;
         }
 
         public void CreateNewFile(string newLocation = "N/A")
@@ -184,6 +159,34 @@ namespace LSL4Unity.Samples.SimpleInlet
             Debug.Log("Swapped Files - Balance Board.");
         }
 
+        void AddNewReadingToRecentReadings(float[] newCoordValues)
+        {
+            Vector3 newPosition = new Vector3(newCoordValues[0], newCoordValues[1], newCoordValues[2]);
+
+            mostRecentReadings.Add(newPosition);
+
+            if (mostRecentReadings.Count > maxAverageReadingSample)
+            {
+                mostRecentReadings.RemoveAt(0);
+            }
+        }
+
+        Vector3 GetAverageReading()
+        {
+            Vector2 newAverage = Vector3.zero;
+
+            int trim = Mathf.CeilToInt(mostRecentReadings.Count * .2f);
+            List<Vector2> trimmedList = mostRecentReadings.OrderBy(x => x.sqrMagnitude).Skip(trim).Take(mostRecentReadings.Count - trim * 2).ToList();
+
+            for (int i = 0; i < trimmedList.Count; i++)
+            {
+                newAverage += trimmedList[i];
+            }
+
+            newAverage /= trimmedList.Count;
+            return newAverage;
+        }
+
         void RecordNewBalanceBoardValues(Vector3 newBBValues, Vector3 moddedBBValues)
         {
             Debug.Log("Balance Board...");
@@ -211,6 +214,35 @@ namespace LSL4Unity.Samples.SimpleInlet
             writer.Close();
 
             Debug.Log("Balance Board Recorded!");
+        }
+
+        //------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------
+
+        //this function was used when we passed in a string from the balance board, and converted it
+        //into float values. Currently, we are now passing in floats through 3 channels, so this function
+        //is only here now as a reference - and in case somethign goes wrong with the floats
+        float[] ConvertStringToFloat(string str)
+        {
+            string dataString = str.ToString();
+            //string[] delimiters = new string[] { "COP Measurement -> X: ", "Y: ", "Mag: " };
+            string[] splitData = dataString.Split(" ->", StringSplitOptions.None);
+
+            float[] values = new float[3];
+            if (splitData.Length > 3)
+            {
+                //NOTE: splitData[0] is only "", and is ignored when recording values
+                Debug.Log("Split Data: " + splitData[1] + " | " + splitData[2] + " | " + splitData[3] + " | " + splitData.Length);
+
+                values[0] = float.Parse(splitData[1]);
+                values[1] = float.Parse(splitData[2]);
+                values[2] = float.Parse(splitData[3]);
+            }
+
+            if (float.IsNaN(values[0]) || float.IsNaN(values[1])) { return lastValues; }
+            else { lastValues = values; }
+
+            return values;
         }
     }
 }

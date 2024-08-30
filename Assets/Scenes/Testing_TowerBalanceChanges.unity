@@ -2297,7 +2297,7 @@ GameObject:
   - component: {fileID: 101682555}
   - component: {fileID: 101682554}
   - component: {fileID: 101682553}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: RightEyeInteractor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2350,12 +2350,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayDistance: 200
-  rayWidth: 0.05
+  rayWidth: 0.01
   layersToInclude:
     serializedVersion: 2
     m_Bits: 4294967295
-  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  rayColorHoverState: {r: 0, g: 1, b: 0, a: 1}
+  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 0.39215687}
+  rayColorHoverState: {r: 0, g: 1, b: 0, a: 0.39215687}
 --- !u!120 &101682555
 LineRenderer:
   serializedVersion: 2
@@ -6251,7 +6251,7 @@ GameObject:
   - component: {fileID: 348271461}
   - component: {fileID: 348271460}
   - component: {fileID: 348271459}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: LeftEyeInteractor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6308,8 +6308,8 @@ MonoBehaviour:
   layersToInclude:
     serializedVersion: 2
     m_Bits: 4294967295
-  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  rayColorHoverState: {r: 0, g: 1, b: 0, a: 1}
+  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 0.39215687}
+  rayColorHoverState: {r: 0, g: 1, b: 0, a: 0.39215687}
 --- !u!120 &348271461
 LineRenderer:
   serializedVersion: 2
@@ -32412,7 +32412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.5
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalRotation.w
@@ -46019,10 +46019,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1648803765}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 30, y: 30}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -9.5}
+  m_SizeDelta: {x: -994, y: -439}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1507456582
 MonoBehaviour:
@@ -49817,8 +49817,8 @@ MonoBehaviour:
   rightController: {fileID: 915633040}
   towerViewCanvas: {fileID: 1218619660}
   jumpedTowerControls: {fileID: 0}
-  cameraDamping: 1
-  jumpType: 0
+  cameraDamping: 5
+  jumpType: 2
 --- !u!4 &1728392943
 Transform:
   m_ObjectHideFlags: 0
@@ -49851,7 +49851,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StreamName: BalanceBoard
-  rotationValues: {x: 0, y: 0}
+  coordHolder:
+  - 0
+  - 0
+  - 0
 --- !u!1001 &1733980062
 PrefabInstance:
   m_ObjectHideFlags: 0

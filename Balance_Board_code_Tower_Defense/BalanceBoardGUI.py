@@ -63,8 +63,8 @@ def calibrate_phidgets(voltageRatioInputs):
 # Calculates the COP based on the 4 voltage values received
 def calcCOP(cal_dat):
     value_sum = cal_dat[0]+cal_dat[1]+cal_dat[2]+cal_dat[3]
-    cop_x = board_width/2*((cal_dat[0]+cal_dat[1]) - (cal_dat[2]+cal_dat[3])) / value_sum
-    cop_y = board_height/2*((cal_dat[0]+cal_dat[3]) - (cal_dat[1]+cal_dat[2])) / value_sum
+    cop_x = board_width/2*(cal_dat[0]+cal_dat[1] - (cal_dat[2]+cal_dat[3])) / value_sum
+    cop_y = board_height/2*(cal_dat[0]+cal_dat[3] - (cal_dat[1]+cal_dat[2])) / value_sum
     return [cop_x, cop_y], value_sum / 4
 
 
@@ -179,10 +179,9 @@ class GUI:
             if plot:
                 plotter_.plot(cop, magnitude)
             else:
-                time.sleep(0.05) # time.sleep(0.02)
+                time.sleep(0.1) # time.sleep(0.02)
             if open_stream:
-                outlet.push_sample([" ->{:.3f} ->{:.3f} ->{:.4f}".format(cop[0], cop[1], magnitude)])
-                #outlet.push_sample(["COP Measurement -> X: {:.3f} Y: {:.3f} Mag: {:.4f}".format(cop[0], cop[1], magnitude)])
+                outlet.push_sample(["COP Measurement -> X: {:.3f} Y: {:.3f} Mag: {:.4f}".format(cop[0], cop[1], magnitude)])
             #if not plot:
             #    time.sleep(0.1) # time.sleep(0.02)
             if keyboard.is_pressed(" "):
@@ -199,61 +198,17 @@ class GUI:
 
 
 
-def perform_streaming():
-    print('Starting stream. Press space bar to end.')
-    experiment_name = "Tower Defense"  
-    
-    #self.stop_bool = False
-    #if open_stream:
-    #    outlet.push_sample(["New Trial: " + experiment_name])
-
-    xcoordinates, ycoordinates = [], []
-    magnitudes = []
-    while 1:
-        sensor_values = np.array([voltageRatioInputs[i].getVoltageRatio() for i in range(4)])
-        sensor_values = sensor_values - calibration_offsets
-        #sensor_values = np.array([0 if v < 0 else v*1000 for v in sensor_values])
-        cop, magnitude = calcCOP(sensor_values)
-        magnitudes.append(magnitude)
-        #if magnitude > 0.008:
-         #   xcoordinates.append(cop[0])
-          #  ycoordinates.append(cop[1])
-        if open_stream:
-            outlet.push_sample([cop[0], cop[1], magnitude])
-        
-            #outlet.push_sample([" ->{:.3f} ->{:.3f} ->{:.4f}".format(cop[0], cop[1], magnitude)])
-            #outlet.push_sample(["COP Measurement -> X: {:.3f} Y: {:.3f} Mag: {:.4f}".format(cop[0], cop[1], magnitude)])
-        #if not plot:
-        #    time.sleep(0.1) # time.sleep(0.02)
-        if keyboard.is_pressed(" "):
-            break
-                
-    print('Measurement Complete')
-    x = np.array(xcoordinates)
-    y = np.array(ycoordinates)
-    dist_array = (x[:-1]-x[1:])**2 + (y[:-1]-y[1:])**2
-    sway = np.sum(np.sqrt(dist_array)) 
-    #outlet.push_sample(["Trial complete with Sway: " + str(sway)])
-    print("Measured sway is: "+str(sway))
-
-
-
-
 if __name__ == '__main__':
     try:
         voltageRatioInputs = init_phidgets()
         calibration_offsets = calibrate_phidgets(voltageRatioInputs)
         if open_stream:
-            #info = StreamInfo('BalanceBoard', 'EEG', channel_count=1, channel_format='string')
-            info = StreamInfo('BalanceBoard', 'EEG', channel_count=3, nominal_srate=60, channel_format='float32')
+            info = StreamInfo('BalanceBoard', 'EEG', channel_count=1, channel_format='string')
             outlet = StreamOutlet(info)
-            perform_streaming()
-        #if plot:
-         #   plotter_ = plotter()
-          #  fig = plotter_.get_fig()
-           # GUI()
-        #else:
-         #   perform_streaming()
+        if plot:
+            plotter_ = plotter()
+            fig = plotter_.get_fig()
+            GUI()
 
     except KeyboardInterrupt:
         pass

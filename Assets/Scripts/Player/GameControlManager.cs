@@ -36,7 +36,7 @@ public class GameControlManager : MonoBehaviour
     [Header("Jumping Controls")]
     [SerializeField] Canvas towerViewCanvas;
     [SerializeField] JumpedTowerControls jumpedTowerControls;
-    [SerializeField] float cameraDamping = 5f;
+    [SerializeField] public float cameraDamping = 5f;
     //[SerializeField] public InputActionProperty attackButton, unjumpButton;
 
     SimpleInletBalanceBoard bbInlet;
@@ -80,9 +80,8 @@ public class GameControlManager : MonoBehaviour
         jumpType = (JumpedType)newType;
     }
 
-    private void Update()
+    void ChangeTargetType()
     {
-        //TODO: try to move this to job system
         if (jumpedTowerControls != null)
         {
             switch (jumpType)
@@ -90,33 +89,42 @@ public class GameControlManager : MonoBehaviour
                 case JumpedType.Normal:
                     TowerDefenseManager.instance.currTargetType = TargetType.First;
                     jumpedTowerControls.ToggleFollowEnemy(false);
-                    jumpedTowerControls.RotateGun(bbInlet.rotationValues, cameraDamping);
                     break;
 
                 case JumpedType.ReticleStatic:
                     TowerDefenseManager.instance.currTargetType = TargetType.First;
                     jumpedTowerControls.ToggleFollowEnemy(false);
-                    jumpedTowerControls.RotateMissiles(); 
                     break;
 
                 case JumpedType.ReticleFollow:
                     TowerDefenseManager.instance.currTargetType = TargetType.Closest;
-                    jumpedTowerControls.ToggleFollowEnemy(true) ;
-                    jumpedTowerControls.RotateMissiles();
+                    jumpedTowerControls.ToggleFollowEnemy(true);
                     break;
             }
-
-            /*if (attackButton.action.WasPerformedThisFrame())
-            {
-                firing = !firing;
-                jumpedTowerControls.SetGunFire(firing);
-            }
-
-            if (unjumpButton.action.WasPerformedThisFrame())
-            {
-                SwapControls(ControlsSetting.Main);
-            }*/
         }
+    }
+
+    private void Update()
+    {
+        //TODO: try to move this to job system
+        if (jumpedTowerControls != null)
+        {
+            if (jumpType == JumpedType.Normal)
+                jumpedTowerControls.RotateGun(bbInlet.CoordValues3, cameraDamping);
+            else
+                jumpedTowerControls.RotateMissiles();
+        }
+
+        /*if (attackButton.action.WasPerformedThisFrame())
+        {
+            firing = !firing;
+            jumpedTowerControls.SetGunFire(firing);
+        }
+
+        if (unjumpButton.action.WasPerformedThisFrame())
+        {
+            SwapControls(ControlsSetting.Main);
+        }*/
     }
 
     void TogglePlayerCamera(bool cameraSetting)
@@ -177,6 +185,7 @@ public class GameControlManager : MonoBehaviour
                 jumpedOverlayWarning.enabled = true;
 
                 isJumped = true;
+                ChangeTargetType();
                 GameManager.instance.LogNewEvent("Tower Jumped", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
                 //DataEvent newEvent2 = new DataEvent("Tower Jumped", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
                 //EventManager.instance.RecordNewEvent(newEvent2);
