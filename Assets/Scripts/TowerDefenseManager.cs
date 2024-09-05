@@ -42,6 +42,8 @@ public class TowerDefenseManager : MonoBehaviour
     static Phase currPhase;
     public static Phase CurrPhase { get { return currPhase; } set { } }
 
+    SpawnablesEnabler spawnablesEnabler;
+
     PlayerStats playerStats;
     int enemyRemovedCount;
     int currEnemyKillCount;
@@ -59,7 +61,7 @@ public class TowerDefenseManager : MonoBehaviour
     void Start()
     {
         if (instance == null) instance = this;
-        else { Debug.Log("SpareFound"); Destroy(this); }
+        else { Debug.Log("Spare TowerDefenseManager Found"); Destroy(this); }
 
         if (EventManager.instance != null)
         {
@@ -76,6 +78,7 @@ public class TowerDefenseManager : MonoBehaviour
         effectsQueue = new Queue<AppliedEffect>();
         towerEffectsQueue = new Queue<AppliedTowerEffect>();
         playerStats = FindObjectOfType<PlayerStats>();
+        spawnablesEnabler = SpawnablesEnabler.instance;
 
         if (nodePositions == null)
         {
@@ -194,6 +197,7 @@ public class TowerDefenseManager : MonoBehaviour
         isGameOver = false;
         waveCount = 1;
         continueLoop = true;
+        spawnablesEnabler.WaveUpdate(waveCount);
 
         towersInGame.Clear();
         enemyIDsToSpawnQueue.Clear();
@@ -309,6 +313,8 @@ public class TowerDefenseManager : MonoBehaviour
             waveCount++;
         else
             waveCount = newWaveNum;
+
+        spawnablesEnabler.WaveUpdate(waveCount);
 
         if (waveCount > wavesTilLevelWin)
         {

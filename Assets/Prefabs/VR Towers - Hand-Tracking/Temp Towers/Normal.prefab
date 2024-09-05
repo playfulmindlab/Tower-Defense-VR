@@ -898,6 +898,7 @@ MonoBehaviour:
   damage: 1
   firerate: 10
   range: 5
+  readjustSpeed: 3
   healthBar: {fileID: 7129653480340378151}
   shieldBar: {fileID: 2802969953751823922}
   outline: {fileID: 0}
@@ -1093,7 +1094,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5838271774612388157}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
@@ -1291,8 +1292,8 @@ MonoBehaviour:
   m_GestureEnded:
     m_PersistentCalls:
       m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
+  m_MinimumHoldTime: 0.08
+  m_GestureDetectionInterval: 0.04
   m_Highlight: {fileID: 0}
 --- !u!114 &129556230380587896
 MonoBehaviour:

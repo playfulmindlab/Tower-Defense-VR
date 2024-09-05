@@ -160,6 +160,7 @@ public class GameControlManager : MonoBehaviour
                 jumpedOverlayWarning.enabled = false;
 
                 jumpedTowerControls.ToggleFollowEnemy(true);
+                towerUI.ResetReticle();
 
                 isJumped = false;
                 GameManager.instance.LogNewEvent("Tower Jump End", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
@@ -186,6 +187,7 @@ public class GameControlManager : MonoBehaviour
 
                 isJumped = true;
                 ChangeTargetType();
+                //towerUI.ResetReticle();
                 GameManager.instance.LogNewEvent("Tower Jumped", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
                 //DataEvent newEvent2 = new DataEvent("Tower Jumped", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
                 //EventManager.instance.RecordNewEvent(newEvent2);

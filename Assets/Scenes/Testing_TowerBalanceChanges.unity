@@ -2364,7 +2364,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101682551}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -6318,7 +6318,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348271457}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -32408,7 +32408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.298
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.z
@@ -46019,10 +46019,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1648803765}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -9.5}
-  m_SizeDelta: {x: -994, y: -439}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1507456582
 MonoBehaviour:
@@ -49818,7 +49818,7 @@ MonoBehaviour:
   towerViewCanvas: {fileID: 1218619660}
   jumpedTowerControls: {fileID: 0}
   cameraDamping: 5
-  jumpType: 2
+  jumpType: 0
 --- !u!4 &1728392943
 Transform:
   m_ObjectHideFlags: 0
@@ -49851,10 +49851,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StreamName: BalanceBoard
-  coordHolder:
-  - 0
-  - 0
-  - 0
 --- !u!1001 &1733980062
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -24,18 +24,21 @@ public class JumpedTowerUI : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {    
-        if (gm.jumpType == JumpedType.Normal)
+    {
+        if (gm.IsJumped)
         {
-            gravityCenter.transform.localPosition = Vector3.Lerp(gravityCenter.transform.localPosition, balanceBoardInput.CoordValues / 2f, Time.deltaTime);
-        }
+            if (gm.jumpType == JumpedType.Normal)
+            {
+                if (balanceBoardInput.CoordValues.x != float.NaN && balanceBoardInput.CoordValues.y != float.NaN)
+                    gravityCenter.transform.localPosition = Vector3.Lerp(gravityCenter.transform.localPosition, balanceBoardInput.CoordValues / 2f, Time.deltaTime);
+            }
 
-        else
-        {
-            ReticleRaycast(Camera.main);
-            //reticle.transform.position = Vector3.Lerp(reticle.transform.position, balanceBoardInput.CoordValues * 5f, Time.deltaTime);
+            else
+            {
+                ReticleRaycast(Camera.main);
+                //reticle.transform.position = Vector3.Lerp(reticle.transform.position, balanceBoardInput.CoordValues * 5f, Time.deltaTime);
+            }
         }
-        //gravityCenter.transform.localPosition = balanceBoardInput.rotationValues / 2f;
         
     }
 
@@ -47,5 +50,11 @@ public class JumpedTowerUI : MonoBehaviour
 
         //Debug.DrawRay(reticle.transform.position, reticle.transform.forward, Color.red);
         //Debug.DrawRay(reticle.transform.position, -reticle.transform.forward, Color.green);
+    }
+
+    public void ResetReticle()
+    {
+        reticle.transform.localPosition = Vector3.zero;
+        reticle.transform.rotation = Quaternion.Euler(Vector3.zero);
     }
 }

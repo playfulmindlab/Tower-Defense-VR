@@ -86,6 +86,7 @@ namespace LSL4Unity.Samples.SimpleInlet
 
             new_data_buffer = new float[3];
             timestamp_buffer = 0.08;
+
         }
 
         private void OnApplicationQuit()
@@ -96,7 +97,7 @@ namespace LSL4Unity.Samples.SimpleInlet
                 Debug.LogError("No StreamInlet detected during gameplay.");
         }
 
-        public float[] coordHolder = new float[3] { 0, 0, 0 };
+        //public float[] coordHolder = new float[3] { 0, 0, 0 };
 
         // Update is called once per frame
         void Update()

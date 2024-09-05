@@ -18,6 +18,9 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         currentMoney = startingMoney;
+
+        transform.position = new Vector3(0, 8.3f, -35f);
+
         if (moneyText != null)
             UpdateMoneyText();
     }
