@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpawnablesEnabler : MonoBehaviour
 {
     public static SpawnablesEnabler instance;
+
+    [SerializeField] bool activateUnlockableTowers;
     [SerializeField] SpawnablesToEnable[] spawnables;
 
     // Start is called before the first frame update
@@ -12,6 +14,22 @@ public class SpawnablesEnabler : MonoBehaviour
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        BarrelSpawnableScript[] allBSSs = GetComponentsInChildren<BarrelSpawnableScript>();
+        foreach (BarrelSpawnableScript bss in allBSSs)
+        {
+            if (activateUnlockableTowers == true)
+            {
+                bss.DisableSpawnable();
+            }
+            else
+            {
+                bss.EnableSpawnable();
+            }
+        }
     }
 
     public void WaveUpdate(int newWave)
@@ -24,6 +42,7 @@ public class SpawnablesEnabler : MonoBehaviour
             }
         }
     }
+    
 }
 
 [System.Serializable]

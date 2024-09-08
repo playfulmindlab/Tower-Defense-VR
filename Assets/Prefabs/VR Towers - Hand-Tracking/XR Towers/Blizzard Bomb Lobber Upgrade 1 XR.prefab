@@ -501,6 +501,7 @@ MonoBehaviour:
   damage: 6
   firerate: 0.5
   range: 6
+  readjustSpeed: 3
   healthBar: {fileID: 2776789719445505967}
   shieldBar: {fileID: 4195555236192268083}
   outline: {fileID: 0}

@@ -34,6 +34,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3095233874987378459}
   - {fileID: 5937917222935276414}
   - {fileID: 3637913227264682706}
   - {fileID: 1255414856088814316}
@@ -406,7 +407,7 @@ MonoBehaviour:
   towerSpawn: {fileID: 694480364299055864, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
   miniMapScript: {fileID: 0}
   upgradedProp: {fileID: 0}
-  radialMenuCanvas: {fileID: 3320727375964341562}
+  radialMenuCanvas: {fileID: 2937246871910494196}
 --- !u!1 &3386774100005428216
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,6 +760,161 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
   m_PrefabInstance: {fileID: 3637913227264290904}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5428153349130039829
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7832750318883099538}
+    m_Modifications:
+    - target: {fileID: 660289632757484149, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: -6964803643684184143}
+    - target: {fileID: 660289632757484149, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DeletePropAndTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427598657853115475, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_text
+      value: Upgrade - N/A
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781711700496151703, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781711700496151703, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: -6964803643684184143}
+    - target: {fileID: 1781711700496151703, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleRadialMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856445090972832545, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856445090972832545, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856445090972832545, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: -6964803643684184143}
+    - target: {fileID: 1856445090972832545, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradePropAndTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095091562932668349, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_Name
+      value: RadialXRCanvas_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.3500061
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7905931874166227604, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: -6964803643684184143}
+    - target: {fileID: 7905931874166227604, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: JumpTower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+--- !u!223 &2937246871910494196 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7176379086777097697, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+  m_PrefabInstance: {fileID: 5428153349130039829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3095233874987378459 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+  m_PrefabInstance: {fileID: 5428153349130039829}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6235503080806876412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -851,12 +1007,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: RadialXRCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1529548251470126401, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3353437758913201264, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}
       propertyPath: m_MaxDistance
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3353437758913201264, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}
       propertyPath: m_ClampToMaxDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948920213031394708, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}
+      propertyPath: m_text
+      value: Upgrade - $700
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948920213031394708, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}
+      propertyPath: m_fontSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948920213031394708, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}
+      propertyPath: m_fontSizeBase
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4625631668059576625, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}
@@ -900,11 +1072,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}
---- !u!223 &3320727375964341562 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 8691211671426564550, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}
-  m_PrefabInstance: {fileID: 6235503080806876412}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5937917222935276414 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 355587846647721858, guid: 2fe8665c5d2c3144a9a6b2369d6ee2af, type: 3}

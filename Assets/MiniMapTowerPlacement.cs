@@ -7,7 +7,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
     [SerializeField] GameObject mainMap;
     [SerializeField] private PlayerStats playerStats;
 
-    PropManager lastPropMenuActivated = null;
+    [SerializeField] PropManager lastPropMenuActivated = null;
 
     [SerializeField] GameObject currTower;
     [SerializeField] GameObject radiusDecal;
@@ -147,9 +147,12 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
                 GameObject newProp = Instantiate(oldProp.upgradedProp, oldProp.transform.position, oldProp.transform.rotation);
 
-                if (newProp.GetComponent<PropManager>() != null)
+                PropManager newPropManager = newProp.GetComponent<PropManager>();
+                if (newPropManager != null)
                 {
-                    newProp.GetComponent<PropManager>().SpawnUpgradedProp(newTower.GetComponent<TowerBehaviour>());
+                    newPropManager.SpawnUpgradedProp(newTower.GetComponent<TowerBehaviour>());
+                    newPropManager.ForceStart();
+                    newPropManager.ToggleRadialMenu(true);
                 }
 
                 newProp.transform.parent = this.transform;
@@ -158,7 +161,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
                 newProp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
                 newProp.GetComponent<Rigidbody>().isKinematic = true;
-                newProp.GetComponent<PropManager>().LockPropPosition();
+                newPropManager.LockPropPosition();
             }
             else
             {

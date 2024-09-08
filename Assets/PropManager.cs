@@ -20,17 +20,25 @@ public class PropManager : MonoBehaviour
     LayerMask pathLayer;
 
     bool isPropDropped = false;
+    bool hasStarted = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        baseLayer = LayerMask.NameToLayer("Baseplate");
-        pathLayer = LayerMask.NameToLayer("Path");
-        miniMapScript = GameObject.FindGameObjectWithTag("MinimapBaseplate").GetComponentInParent<MiniMapTowerPlacement>();
-        xrGrab = GetComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>();
+        if (hasStarted == false)
+        {
+            baseLayer = LayerMask.NameToLayer("Baseplate");
+            pathLayer = LayerMask.NameToLayer("Path");
+            miniMapScript = GameObject.FindGameObjectWithTag("MinimapBaseplate").GetComponentInParent<MiniMapTowerPlacement>();
+            xrGrab = GetComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>();
 
-        radialMenuCanvas.enabled = false;
+            radialMenuCanvas.enabled = false;
+
+            hasStarted = true;
+        }
     }
+
+    public void ForceStart() { Start(); }
 
     public void TowerDropped()
     {
@@ -99,21 +107,15 @@ public class PropManager : MonoBehaviour
     public void JumpTower()
     {
         GameControlManager.instance.SwapToJumpedControls(jumpedTowerScript);
-        //jumpedTowerScript.SetJumpedTower();
     }
 
     public void UpgradePropAndTower()
     {
-        //Debug.Log("Went Thru Upgrade");
-
-        //everything in this script just changes the BIG towers, not the prop towers!!!
         towerScript.UpgradeTower(miniMapScript, this);
     }
 
     public void DeletePropAndTower()
     {
-        //Debug.Log("DeletingTower");
         miniMapScript.DeleteTower(this, towerScript);
-
     }
 }

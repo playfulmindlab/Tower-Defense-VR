@@ -16,9 +16,9 @@ public class BarrelSpawnableScript : MonoBehaviour
     MeshRenderer[] renderers;
     Material[] baseMats;
 
-    [SerializeField] bool isInteractable = false;
+    [SerializeField] bool isInteractable = true;
 
-    void Start()
+    void Awake()
     {
         grabInfo = GetComponent<XRGrabInteractable>();
         xrManager = GameObject.FindGameObjectWithTag("XRManager").GetComponent<XRInteractionManager>();
@@ -29,9 +29,10 @@ public class BarrelSpawnableScript : MonoBehaviour
         foreach (Renderer renderer in renderers)
         {
             matHolder.Add(renderer.materials[0]);
-            renderer.material = disabledMat;
+            //renderer.material = disabledMat;
         }
         baseMats = matHolder.ToArray();
+
     }
 
     public void EnableSpawnable()
@@ -68,6 +69,7 @@ public class BarrelSpawnableScript : MonoBehaviour
     {
         GameObject newObject = Instantiate(newSpawn, transform.position, transform.rotation);
         XRGrabInteractable objectGrab = newObject.GetComponent<XRGrabInteractable>();
+        //newPropManager.ToggleRadialMenu(true)
 
         xrManager.SelectEnter((IXRSelectInteractor)lastInteractor, objectGrab);
 

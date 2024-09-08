@@ -18,13 +18,14 @@ public class FacePlayer : MonoBehaviour
     void Update()
     {
         transform.LookAt(cam.transform.position, Vector3.up);
-
-        recheckCameraTime -= Time.deltaTime;
-        if (recheckCameraTime <= 0)
-        {
-            cam = Camera.main;
-            recheckCameraTime = 3f;
-        }
+        /*
+                recheckCameraTime -= Time.deltaTime;
+                if (recheckCameraTime <= 0)
+                {
+                    cam = Camera.main;
+                    recheckCameraTime = 3f;
+                }
+        */
     }
 }
 
