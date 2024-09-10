@@ -16,6 +16,8 @@ public class PropManager : MonoBehaviour
     TowerBehaviour towerScript;
     JumpedTowerControls jumpedTowerScript;
 
+    public TowerBehaviour upgradedTowerRef;
+
     LayerMask baseLayer; //= LayerMask.GetMask("Baseplate");
     LayerMask pathLayer;
 
@@ -31,6 +33,11 @@ public class PropManager : MonoBehaviour
             pathLayer = LayerMask.NameToLayer("Path");
             miniMapScript = GameObject.FindGameObjectWithTag("MinimapBaseplate").GetComponentInParent<MiniMapTowerPlacement>();
             xrGrab = GetComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>();
+
+            if (upgradedProp != null && upgradedProp.GetComponent<PropManager>().towerSpawn != null)
+            {
+                upgradedTowerRef = upgradedProp.GetComponent<PropManager>().towerSpawn.GetComponent<TowerBehaviour>();
+            }
 
             radialMenuCanvas.enabled = false;
 

@@ -1235,9 +1235,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line: {fileID: 4398037081875156276}
   towerSpawn: {fileID: 5591534998685803407, guid: e80e920f5a145aa40a48bcafd0439fe6, type: 3}
+  propCost: 0
   miniMapScript: {fileID: 0}
   upgradedProp: {fileID: 2567590900362179096, guid: e445f54d1607c12449415563996cd3f8, type: 3}
   radialMenuCanvas: {fileID: 2920133975119481005}
+  upgradedTowerRef: {fileID: 0}
 --- !u!1 &4928221167030438941
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,7 +2161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1427598657853115475, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
       propertyPath: m_text
-      value: Upgrade - N/A
+      value: Upgrade
       objectReference: {fileID: 0}
     - target: {fileID: 1781711700496151703, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
