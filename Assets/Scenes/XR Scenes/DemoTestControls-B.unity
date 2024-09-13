@@ -51428,7 +51428,7 @@ PrefabInstance:
     - target: {fileID: 7007709402600719513, guid: a5fb5497d6b151a47bb0dacd4e4c4e5c, type: 3}
       propertyPath: newSpawn
       value: 
-      objectReference: {fileID: 1633978735049250797, guid: c25488e67897f86468692bae9d567cb0, type: 3}
+      objectReference: {fileID: 2046954714601466044, guid: 8947584efff5e044bae7135dadd2da3e, type: 3}
     - target: {fileID: 8607290597941021600, guid: a5fb5497d6b151a47bb0dacd4e4c4e5c, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
