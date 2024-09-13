@@ -29736,7 +29736,7 @@ MonoBehaviour:
   towerViewCanvas: {fileID: 1951020948}
   jumpedTowerControls: {fileID: 0}
   cameraDamping: 1
-  jumpType: 0
+  jumpType: 1
 --- !u!4 &1260315084
 Transform:
   m_ObjectHideFlags: 0
@@ -51425,6 +51425,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7007709402600719513, guid: a5fb5497d6b151a47bb0dacd4e4c4e5c, type: 3}
+      propertyPath: newSpawn
+      value: 
+      objectReference: {fileID: 1633978735049250797, guid: c25488e67897f86468692bae9d567cb0, type: 3}
     - target: {fileID: 8607290597941021600, guid: a5fb5497d6b151a47bb0dacd4e4c4e5c, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0

@@ -933,7 +933,8 @@ MonoBehaviour:
   towerSpawn: {fileID: 6638514398489324706, guid: 08b5ee06ea6757a4baf124b2752c5863, type: 3}
   miniMapScript: {fileID: 0}
   upgradedProp: {fileID: 9214723619645313981, guid: 8bafc7ffe7306574da91cd4d84722214, type: 3}
-  radialMenuCanvas: {fileID: 7077915094880523298}
+  radialMenuCanvas: {fileID: 7006448728079850712}
+  upgradedTowerRef: {fileID: 0}
 --- !u!1 &3146817092050271494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,7 +1034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6778352188392708822
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2039,11 +2040,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7905931874166227604, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+--- !u!223 &7006448728079850712 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7176379086777097697, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+  m_PrefabInstance: {fileID: 192662195405570361}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7137272231244403767 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}

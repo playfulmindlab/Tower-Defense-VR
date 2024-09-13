@@ -104,6 +104,8 @@ public class JumpedTowerControls : MonoBehaviour
 
     public virtual void EndTowerJump()
     {
+
+
         foreach (StaticHandGesturesTowerJump s in gestureScripts)
         {
             s.enabled = false;
@@ -118,6 +120,11 @@ public class JumpedTowerControls : MonoBehaviour
 
         if (jumpStatus == false && towerTip != null)
             towerTip.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+    }
+
+    public virtual void ResetHeadRotation()
+    {
+        towerHead.transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 
     public virtual void ForceGun(bool newState)

@@ -55,6 +55,6 @@ public class JumpedTowerUI : MonoBehaviour
     public void ResetReticle()
     {
         reticle.transform.localPosition = Vector3.zero;
-        reticle.transform.rotation = Quaternion.Euler(Vector3.zero);
+        reticle.transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 }

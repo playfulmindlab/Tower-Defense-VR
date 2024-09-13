@@ -72,6 +72,8 @@ public class Enemy : MonoBehaviour
     protected float attackDelay = 1f;
     bool speedAffected = false;
 
+    bool reachedEnd = false;
+
     private void Start()
     {
         gameObject.name = gameObject.name.Replace("(Clone)", " ");
@@ -178,6 +180,12 @@ public class Enemy : MonoBehaviour
 
     public virtual void Tick()
     {
+        //if it's reached the end, remove this enemy from the game
+        if (reachedEnd)
+        {
+            RemoveFromGame();
+        }
+
         //Attack Obstacle
         if (attackingTower != null)
         {
@@ -291,10 +299,15 @@ public class Enemy : MonoBehaviour
         return nodeIndex;
     }
 
+    public void ToggleEndOfPath()
+    {
+        reachedEnd = true;
+    }
+
     public void RemoveFromGame()
     {
         GameManager.instance.LogNewEvent("Enemy Finished", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
-        TowerDefenseManager.EnqueueDamageData(new EnemyDamage(this, maxHealth, 1));
+        TowerDefenseManager.EnqueueEnemyToRemove(this);
     }
 
     public void UpdateNodeIndex()

@@ -896,7 +896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8868250057373199497
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2144,10 +2144,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line: {fileID: 3707912355282248685}
   towerSpawn: {fileID: 6638514398489324706, guid: 54f5de8133340ad4382bdf8da091962b, type: 3}
-  propCost: 0
   miniMapScript: {fileID: 0}
   upgradedProp: {fileID: 1548162885466891544, guid: 8a9db2c0980eaf444beb3f3696a0bd3e, type: 3}
-  radialMenuCanvas: {fileID: 19879712664698202}
+  radialMenuCanvas: {fileID: 5494576042864276456}
   upgradedTowerRef: {fileID: 0}
 --- !u!1001 &3447286769025805833
 PrefabInstance:
@@ -2157,6 +2156,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8910079602185106502}
     m_Modifications:
+    - target: {fileID: 508920615863738323, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4095091562932668349, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
       propertyPath: m_Name
       value: RadialXRCanvas_4
@@ -2241,11 +2244,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7905931874166227604, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+--- !u!223 &5494576042864276456 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7176379086777097697, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+  m_PrefabInstance: {fileID: 3447286769025805833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5654251139570416391 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7034858435252245774, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}

@@ -15,18 +15,22 @@ public class EnemySpawner : MonoBehaviour
     private static bool isInitialized;
 
     [SerializeField] string enemyNumbersLoc;
-    [SerializeField] private static int[][] enemyNumbers; //new order is Lobber, Saboteur, Standard, Tank                                                //Order is Standard, Tank, Lobber, Saboteur
+    [SerializeField] private static int[][] enemyNumbers; //new order is Lobber, Saboteur, Standard, Tank
     private static int[][] waveAndEnemyIDOrder;//[wave][currentEnemyID]
     public static int[] numEnemiesInWaves;
+    public static char[] afterWaveStatus;
     //static int randEnemyLoopCap = 0;
 
     static int currEnemySpawned = 0;
+    public static int totalWaves = 5;
 
     public void Start()
     {
         List<int[]> numHolder = new List<int[]>();
         List<int> waveCountHolder = new List<int>();
         int enemyCount = 0;
+
+        List<char> afterStatusHolder = new List<char>();
 
         StreamReader reader = new StreamReader("Assets/Resources/Enemy Numbers/" + enemyNumbersLoc + ".csv");
         bool endOfFile = false;
@@ -43,6 +47,27 @@ public class EnemySpawner : MonoBehaviour
                 break;
             }
 
+            string[] dataValues = dataString.Split(',');
+
+            string[] tempData = new string[5];
+            System.Array.Copy(dataValues, tempData, 5);
+            int[] enemyValues = System.Array.ConvertAll(tempData, int.Parse);
+
+            enemyCount = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                enemyCount += enemyValues[i];
+            }
+
+            enemyCount *= enemyValues[4]; //enemyValues[4] = loop count
+
+            numHolder.Add(enemyValues);
+            waveCountHolder.Add(enemyCount);
+            afterStatusHolder.Add(System.Convert.ToChar(dataValues[dataValues.Length - 1]));
+
+            //string testString = "";
+
+            /*
             int[] dataValues = System.Array.ConvertAll(dataString.Split(','), int.Parse);
 
             numHolder.Add(dataValues);
@@ -54,19 +79,18 @@ public class EnemySpawner : MonoBehaviour
             }
 
             enemyCount *= dataValues[4];
-            /*foreach (int num in dataValues)
-            {
-                enemyCount += num;
-                //Debug.Log("ENEMY COUNTING: " + enemyCount);
-            }*/
+
+            breakHolder.Add(dataValues[5] == 0 ? false : true);
 
             waveCountHolder.Add(enemyCount);
+            */
         }
 
         reader.Close();
 
         enemyNumbers = numHolder.ToArray();
         numEnemiesInWaves = waveCountHolder.ToArray();
+        afterWaveStatus = afterStatusHolder.ToArray();
 
         //Debug.Log("ENEMIES: " + enemyNumbers[12][3]);
 
@@ -77,7 +101,7 @@ public class EnemySpawner : MonoBehaviour
             newOrder.Add(GetWaveSpawnOrder(enemyNumbers[i]));
         }
         waveAndEnemyIDOrder = newOrder.ToArray();
-         
+        totalWaves = waveAndEnemyIDOrder.Length;
         
         string debugString = "";
         for (int z = 0; z < waveAndEnemyIDOrder.Length; z++)
@@ -88,7 +112,7 @@ public class EnemySpawner : MonoBehaviour
             }
             debugString += waveAndEnemyIDOrder[z].Length;
 
-            Debug.Log("WAVE #" + z + " ORDER: " + debugString);
+            Debug.Log("WAVE #" + z + " ORDER: " + debugString + " // TOTAL: " + numEnemiesInWaves[z] + " NEXT: " + afterWaveStatus[z]);
             debugString = "";
         }
         
@@ -213,18 +237,14 @@ public class EnemySpawner : MonoBehaviour
         //if (currEnemySpawned < waveAndEnemyIDOrder[currWave].Length)
         //{
             int newID = waveAndEnemyIDOrder[currWave][currEnemySpawned];
-
             currEnemySpawned++;
-
-
         //}
 
         if (currEnemySpawned >= waveAndEnemyIDOrder[currWave].Length)
         {
             currEnemySpawned = 0;
         }
-        return newID;
-        
+        return newID;     
     }
 
     /*

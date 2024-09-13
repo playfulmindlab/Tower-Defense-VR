@@ -30,9 +30,10 @@ public class TowerDefenseManager : MonoBehaviour
     [SerializeField] PathAndNodesPair[] pathAndNodesPairings;
     [SerializeField] Node[] currNodePath;
     public static Vector3[] nodePositions2 = null;
-    public int wavesTilLevelWin = 5;
-    public int levelsTilMapWin = 3;
-    int waveMult;
+    //public int wavesTilLevelWin = 5;
+    //public int levelsTilMapWin = 3;
+    //int waveMult;
+    int wavesTilEndMap = 5;
 
     [SerializeField] GameObject colliderObject;
     [SerializeField] GameObject gameOverScreen;
@@ -47,6 +48,7 @@ public class TowerDefenseManager : MonoBehaviour
     PlayerStats playerStats;
     int enemyRemovedCount;
     int currEnemyKillCount;
+    int currEnemiesRemovedCount;
     int spawnedEnemiesCount = 0;
     [SerializeField] bool continueLoop = true;
     [SerializeField] bool spawnEnemies = true;
@@ -100,7 +102,7 @@ public class TowerDefenseManager : MonoBehaviour
 
         Debug.Log(nodePositions.Length + " // " + nodeDistances.Length);
 
-        waveMult = wavesTilLevelWin;
+        //waveMult = wavesTilLevelWin;
         spawnEnemies = false;
 
         UpdateNewNodePath(0);
@@ -111,6 +113,8 @@ public class TowerDefenseManager : MonoBehaviour
 
         ResetGameStatistics();
         EnemySpawner.Init();
+
+        wavesTilEndMap = EnemySpawner.totalWaves;
 
         if (fastToWave == true)
         {
@@ -196,6 +200,7 @@ public class TowerDefenseManager : MonoBehaviour
         victoryScreen.SetActive(false);
         isGameOver = false;
         waveCount = 1;
+        currEnemyKillCount = 0;
         continueLoop = true;
         spawnablesEnabler.WaveUpdate(waveCount);
 
@@ -309,13 +314,45 @@ public class TowerDefenseManager : MonoBehaviour
             return;
         }
 
+        char nextStep = EnemySpawner.afterWaveStatus[waveCount - 1];
+
         if (newWaveNum < 0)
             waveCount++;
         else
             waveCount = newWaveNum;
 
+        //tower unlock system
         spawnablesEnabler.WaveUpdate(waveCount);
 
+        UpdateGameManagerStats();
+
+        if (newWaveNum < 0)
+        {
+            //char nextStep = EnemySpawner.afterWaveStatus[waveCount - 1];
+
+            switch (nextStep)
+            {
+                case 'B': //Break: intermission
+                    DataEvent newEvent = new DataEvent("Intermission", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+                    EventManager.instance.RecordNewEvent(newEvent);
+
+                    ChangePhase(Phase.Build);
+                    return;
+                //break;
+
+                case 'L': // Level-up
+                    DataEvent newEvent2 = new DataEvent("Level Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+                    EventManager.instance.RecordNewEvent(newEvent2);
+
+                    UpdateLevelCount();
+                    return;
+                //break;
+
+                default: //all other cases: advance to next wave uninterrupted
+                    break;
+            }
+        }
+        /*
         if (waveCount > wavesTilLevelWin)
         {
             DataEvent newEvent = new DataEvent("Level Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
@@ -324,13 +361,12 @@ public class TowerDefenseManager : MonoBehaviour
             UpdateLevelCount();
             return;
         }
-
-        UpdateGameManagerStats();
+        */
 
         if (waveCount <= EnemySpawner.numEnemiesInWaves.Length)
         {
             enemyRemovedCount = EnemySpawner.numEnemiesInWaves[waveCount - 1];// (waveCount * numEnemiesPerWave);
-            currEnemyKillCount = 0;
+            currEnemiesRemovedCount = 0;
             spawnedEnemiesCount = 0;
 
             playerStats.DisplayWaveCount(waveCount);
@@ -353,7 +389,7 @@ public class TowerDefenseManager : MonoBehaviour
             return;
         }
 
-        if (levelCount >= levelsTilMapWin)
+        if (levelCount >= wavesTilEndMap)
         {
             StartCoroutine(LevelVictorySequence());
             continueLoop = false;
@@ -361,7 +397,7 @@ public class TowerDefenseManager : MonoBehaviour
         }
 
         levelCount++;
-        wavesTilLevelWin += waveMult;
+        //wavesTilLevelWin += waveMult;
 
         UpdateGameManagerStats();
         UpdateNewNodePath(levelCount - 1);
@@ -369,13 +405,12 @@ public class TowerDefenseManager : MonoBehaviour
         nodePositions2 = NodePathPositions();
 
         ChangePhase(Phase.Build);
-
     }
 
-    public void UpdateEnemyCount()
+    void UpdateEnemyCount()
     {
-        currEnemyKillCount++;
-        playerStats.DisplayEnemyCount(enemyRemovedCount - currEnemyKillCount);
+        currEnemiesRemovedCount++;
+        playerStats.DisplayEnemyCount(enemyRemovedCount - currEnemiesRemovedCount);
     }
 
     Vector3[] NodePathPositions()
@@ -559,6 +594,8 @@ public class TowerDefenseManager : MonoBehaviour
 
                         if (currentDamage.target.Health <= 0 && !enemiesToRemoveQueue.Contains(currentDamage.target))
                         {
+                            currEnemyKillCount++;
+                            playerStats.UpdateKillCountText(currEnemyKillCount);
                             GameManager.instance.LogNewEvent("Enemy Death", currentDamage.target.gameObject, currentDamage.target.gameObject.transform.position, GameControlManager.instance.IsJumped);
                             EnqueueEnemyToRemove(currentDamage.target);
                         }
@@ -578,8 +615,8 @@ public class TowerDefenseManager : MonoBehaviour
                     EnemySpawner.RemoveEnemy(enemiesToRemoveQueue.Dequeue());
 
                     UpdateEnemyCount();
-                    Debug.Log("Curr Wave Progress: " + currEnemyKillCount + " out of " + EnemySpawner.numEnemiesInWaves[waveCount - 1]);
-                    if (currEnemyKillCount >= EnemySpawner.numEnemiesInWaves[waveCount - 1])
+                    Debug.Log("Curr Wave Progress: " + currEnemiesRemovedCount + " out of " + EnemySpawner.numEnemiesInWaves[waveCount - 1]);
+                    if (currEnemiesRemovedCount >= EnemySpawner.numEnemiesInWaves[waveCount - 1])
                     {
                         DataEvent newEvent = new DataEvent("Wave End", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
                         EventManager.instance.RecordNewEvent(newEvent);
@@ -873,7 +910,7 @@ public struct MoveEnemiesJob : IJobParallelForTransform
                 }
                 else
                 {
-                    EnemySpawner.enemiesInGame[index].RemoveFromGame();
+                    EnemySpawner.enemiesInGame[index].ToggleEndOfPath();
                 }
             }
 

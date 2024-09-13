@@ -1,3 +1,3 @@
-Lobber,Saboteur,Standard,Tank,Loops
-0,0,20,0,1
-0,0,999,0,1
+Lobber,Saboteur,Standard,Tank,Loops,Break
+0,0,20,0,1,B
+0,0,999,0,1,L
