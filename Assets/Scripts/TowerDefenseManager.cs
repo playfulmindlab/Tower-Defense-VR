@@ -6,7 +6,7 @@ using Unity.Jobs;
 using UnityEngine.Jobs;
 using System;
 
-public enum Phase{ None = 0, Build = 1, Defend_ChooseJump = 2, Defend = 3, Repair = 4, Pause = 100 }
+public enum Phase{ None = 0, Build = 1, Defend_ChooseJump = 2, Defend = 3, Repair = 4, Intermission = 5, Pause = 100 }
 
 public class TowerDefenseManager : MonoBehaviour
 {
@@ -50,6 +50,7 @@ public class TowerDefenseManager : MonoBehaviour
     int currEnemyKillCount;
     int currEnemiesRemovedCount;
     int spawnedEnemiesCount = 0;
+    [SerializeField] float intermissionTime = 2f;
     [SerializeField] bool continueLoop = true;
     [SerializeField] bool spawnEnemies = true;
 
@@ -365,21 +366,30 @@ public class TowerDefenseManager : MonoBehaviour
 
         if (waveCount <= EnemySpawner.numEnemiesInWaves.Length)
         {
-            enemyRemovedCount = EnemySpawner.numEnemiesInWaves[waveCount - 1];// (waveCount * numEnemiesPerWave);
-            currEnemiesRemovedCount = 0;
-            spawnedEnemiesCount = 0;
+            StartCoroutine(WaitTime());
 
-            playerStats.DisplayWaveCount(waveCount);
-            playerStats.DisplayEnemyCount(enemyRemovedCount);
 
-            spawnEnemies = true;
-
-            AudioManager.instance.PlaySFXArray("NewWaveSound", new Vector3(20, 10, 0));
-            InvokeRepeating("SpawnEnemies", 0f, 1f);
-
-            DataEvent newEvent = new DataEvent("Wave Start", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
-            EventManager.instance.RecordNewEvent(newEvent);
         }
+    }
+
+    IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(intermissionTime);
+
+        enemyRemovedCount = EnemySpawner.numEnemiesInWaves[waveCount - 1];// (waveCount * numEnemiesPerWave);
+        currEnemiesRemovedCount = 0;
+        spawnedEnemiesCount = 0;
+
+        playerStats.DisplayWaveCount(waveCount);
+        playerStats.DisplayEnemyCount(enemyRemovedCount);
+
+        spawnEnemies = true;
+
+        AudioManager.instance.PlaySFXArray("NewWaveSound", new Vector3(20, 10, 0));
+        InvokeRepeating("SpawnEnemies", 0f, 1f);
+
+        DataEvent newEvent = new DataEvent("Wave Start", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        EventManager.instance.RecordNewEvent(newEvent);
     }
 
     void UpdateLevelCount()
