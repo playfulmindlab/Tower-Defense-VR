@@ -330,7 +330,7 @@ public class TowerDefenseManager : MonoBehaviour
         if (newWaveNum < 0)
         {
             //char nextStep = EnemySpawner.afterWaveStatus[waveCount - 1];
-
+            Debug.Log("NEXT STEP: " + nextStep.ToString());
             switch (nextStep)
             {
                 case 'B': //Break: intermission
@@ -364,11 +364,11 @@ public class TowerDefenseManager : MonoBehaviour
         }
         */
 
+        Debug.Log("WENT THRU ANYWAYS");
+
         if (waveCount <= EnemySpawner.numEnemiesInWaves.Length)
         {
             StartCoroutine(WaitTime());
-
-
         }
     }
 
@@ -616,7 +616,7 @@ public class TowerDefenseManager : MonoBehaviour
             //Remove Enemies
             if (enemiesToRemoveQueue.Count > 0)
             {
-                Debug.Log("REMOVE QUEUE COUNT: " + enemiesToRemoveQueue.Count + " @ " + Time.time);
+                //Debug.Log("REMOVE QUEUE COUNT: " + enemiesToRemoveQueue.Count + " @ " + Time.time);
                 for (int i = 0; i < enemiesToRemoveQueue.Count; i++)
                 {
                     AudioManager.instance.PlaySFXArray("EnemyDie", enemiesToRemoveQueue.Peek().gameObject.transform.position);
@@ -725,6 +725,8 @@ public class TowerDefenseManager : MonoBehaviour
 
         Destroy(towerToRemove.gameObject);
     }
+
+
 
     public void TogglePause()
     {

@@ -65,7 +65,9 @@ public class MiniMapTowerPlacement : MonoBehaviour
             //RotateTowerTowardsPath(newTower);
 
             newProp.GetComponent<PropManager>().LockPropPosition();
+            newTower.GetComponent<TowerBehaviour>().AssignPropParent(newProp.GetComponent<PropManager>());
             spawnedTower = newTower;
+
             AssignCurrentTower(null);
             radiusDecal.transform.position = new Vector3(0, -1000, 0);
         }

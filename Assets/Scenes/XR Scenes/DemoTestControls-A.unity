@@ -23978,6 +23978,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 1053519138}
   victoryScreen: {fileID: 246368092}
   phaseText: {fileID: 2096293901}
+  intermissionTime: 2
   continueLoop: 1
   spawnEnemies: 0
   fastToWave: 0
@@ -34200,15 +34201,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.298
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.69
+      value: -35.5
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalRotation.w

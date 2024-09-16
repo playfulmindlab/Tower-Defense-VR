@@ -24,6 +24,9 @@ public class PropManager : MonoBehaviour
     bool isPropDropped = false;
     bool hasStarted = false;
 
+    Outline propOutline;
+    public void TogglePropOutline(bool isActive) { propOutline.OutlineColor = Color.red; if (isActive) propOutline.ChangeOutlineWidth(3); else propOutline.ChangeOutlineWidth(0); }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,7 @@ public class PropManager : MonoBehaviour
             pathLayer = LayerMask.NameToLayer("Path");
             miniMapScript = GameObject.FindGameObjectWithTag("MinimapBaseplate").GetComponentInParent<MiniMapTowerPlacement>();
             xrGrab = GetComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>();
+            propOutline = GetComponentInChildren<Outline>();
 
             if (upgradedProp != null && upgradedProp.GetComponent<PropManager>().towerSpawn != null)
             {
@@ -100,8 +104,12 @@ public class PropManager : MonoBehaviour
     public void ToggleRadialMenu(bool toggleState)
     {
         radialMenuCanvas.enabled = toggleState;
+        towerScript.ToggleOutline(toggleState);
+        TogglePropOutline(toggleState);
         if (miniMapScript != null && toggleState == true)
+        {
             miniMapScript.SwapActivatedPropMenu(this);
+        }
     }
 
     public void SpawnUpgradedProp(TowerBehaviour upgradedTowerScript)
@@ -124,5 +132,11 @@ public class PropManager : MonoBehaviour
     public void DeletePropAndTower()
     {
         miniMapScript.DeleteTower(this, towerScript);
+    }
+
+    public void CheckIfTowerDestroyed()
+    {
+        if (towerScript == null)
+            DeletePropAndTower();
     }
 }

@@ -692,6 +692,7 @@ MonoBehaviour:
   miniMapScript: {fileID: 0}
   upgradedProp: {fileID: 2380829991866646196, guid: 1d2db72d875c6b2468ed74b7be2585fe, type: 3}
   radialMenuCanvas: {fileID: 6194633248447921558}
+  upgradedTowerRef: {fileID: 0}
 --- !u!1 &2725315242879764108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1182,7 @@ GameObject:
   - component: {fileID: 5234384249203184314}
   - component: {fileID: 4190647725206916958}
   - component: {fileID: 5020079508434833338}
+  - component: {fileID: 5262489250332250982}
   m_Layer: 0
   m_Name: turret_2
   m_TagString: Untagged
@@ -1248,6 +1250,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &5262489250332250982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4137541562123093987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4198463993344188778
 GameObject:
   m_ObjectHideFlags: 0

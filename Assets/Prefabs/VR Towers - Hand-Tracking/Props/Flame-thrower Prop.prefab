@@ -408,6 +408,7 @@ MonoBehaviour:
   miniMapScript: {fileID: 0}
   upgradedProp: {fileID: 8327912285526189389, guid: 64e8ee1d8d8170146a2820efbb4f5f59, type: 3}
   radialMenuCanvas: {fileID: 3891197679101131006}
+  upgradedTowerRef: {fileID: 0}
 --- !u!1 &1132423038138859994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,6 +1895,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100006, guid: c9b4f0b4197c0624e8dfcc44e866fe9b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4767237544747216148}
+    - targetCorrespondingSourceObject: {fileID: 100006, guid: c9b4f0b4197c0624e8dfcc44e866fe9b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8758582007595493428}
   m_SourcePrefab: {fileID: 100100000, guid: c9b4f0b4197c0624e8dfcc44e866fe9b, type: 3}
 --- !u!4 &3394626930987378635 stripped
 Transform:
@@ -1931,6 +1935,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &8758582007595493428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3394626930987613167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &6167628484366673183
 PrefabInstance:
   m_ObjectHideFlags: 0

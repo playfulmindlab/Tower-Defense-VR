@@ -31,6 +31,7 @@ public class TowerBehaviour : MonoBehaviour
     public Outline outline;
 
     public GameObject upgradedTower;
+    [SerializeField] PropManager propParent;
 
     protected IDamageMethod currentDamageMethodClass;
     protected float delay;
@@ -41,6 +42,8 @@ public class TowerBehaviour : MonoBehaviour
 
     public bool aliveOnSceneStart = false;
 
+    Outline towerOutline;
+    public void ToggleOutline(bool isActive) { towerOutline.OutlineColor = Color.red; if (isActive) towerOutline.ChangeOutlineWidth(3); else towerOutline.ChangeOutlineWidth(0); }
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -83,10 +86,18 @@ public class TowerBehaviour : MonoBehaviour
 
         if (stunnedImage != null && stunnedImage.enabled == true) stunnedImage.enabled = false;
 
+        towerOutline = GetComponentInChildren<Outline>();
+        towerOutline.ChangeOutlineWidth(0);
+
         if (aliveOnSceneStart)
         {
             StartCoroutine(AddAliveTowerToTowerManager());
         }
+    }
+
+    public void AssignPropParent(PropManager newPropParent)
+    {
+        propParent = newPropParent;
     }
 
     IEnumerator AddAliveTowerToTowerManager()
@@ -179,7 +190,8 @@ public class TowerBehaviour : MonoBehaviour
         this.gameObject.SetActive(false);
         canFire = false;
 
-        TowerDefenseManager.EnqueueTowerToRemove(this);
+        propParent.DeletePropAndTower();
+        //TowerDefenseManager.EnqueueTowerToRemove(this);
 
         //Destroy(gameObject);
     }
