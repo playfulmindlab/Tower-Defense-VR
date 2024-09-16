@@ -35817,19 +35817,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9f79c378999684f8debdfe718211e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateUnlockableTowers: 0
+  activateUnlockableTowers: 1
   spawnables:
   - wave: 1
     spawnables:
     - {fileID: 1210215374597092214}
-    - {fileID: 4899362334915069622}
   - wave: 4
     spawnables:
+    - {fileID: 4899362334915069622}
+  - wave: 7
+    spawnables:
     - {fileID: 4899362333596808629}
-  - wave: 6
+  - wave: 9
     spawnables:
     - {fileID: 7740388163749484304}
     - {fileID: 2884642047360790656}
+  - wave: 12
+    spawnables:
+    - {fileID: 1136957866704716056}
+  - wave: 14
+    spawnables:
+    - {fileID: 1711848728172961536}
+    - {fileID: 2121967906}
+  - wave: 17
+    spawnables:
+    - {fileID: 4648707536710769288}
 --- !u!1 &1471943151
 GameObject:
   m_ObjectHideFlags: 0
@@ -52409,6 +52421,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7516983956141875418, guid: a5df3cb3c39070d428d55f7ac5dae310, type: 3}
   m_PrefabInstance: {fileID: 2121967904}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2121967906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 717086623099769019, guid: a5df3cb3c39070d428d55f7ac5dae310, type: 3}
+  m_PrefabInstance: {fileID: 2121967904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299ebf284c63dc04cb9215dbadd93d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2128752339
 GameObject:
   m_ObjectHideFlags: 0
@@ -53956,6 +53979,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1c1d680875b408458e78c5ca604332b, type: 3}
+--- !u!114 &1136957866704716056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5069947501797148957, guid: b1c1d680875b408458e78c5ca604332b, type: 3}
+  m_PrefabInstance: {fileID: 1136957866704716055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299ebf284c63dc04cb9215dbadd93d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1210215374597092212 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4899362333379918187, guid: a5fb5497d6b151a47bb0dacd4e4c4e5c, type: 3}
@@ -54209,6 +54243,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f7ed448e70974048a8b0dee81fa0060, type: 3}
+--- !u!114 &1711848728172961536 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5173332656862010920, guid: 3f7ed448e70974048a8b0dee81fa0060, type: 3}
+  m_PrefabInstance: {fileID: 1711848728172961535}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299ebf284c63dc04cb9215dbadd93d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1758906301697450832
 GameObject:
   m_ObjectHideFlags: 0
@@ -55861,6 +55906,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7d7e743c2146554b945d19756297872, type: 3}
+--- !u!114 &4648707536710769288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3593478794975539341, guid: c7d7e743c2146554b945d19756297872, type: 3}
+  m_PrefabInstance: {fileID: 4648707536710769287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299ebf284c63dc04cb9215dbadd93d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &4677658678908086203
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58045,6 +58101,10 @@ PrefabInstance:
     - target: {fileID: 8185571206584719713, guid: 67159eba6f360b843ae7b27b16901290, type: 3}
       propertyPath: m_Name
       value: Cannon Respawnables
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185571206584719713, guid: 67159eba6f360b843ae7b27b16901290, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
