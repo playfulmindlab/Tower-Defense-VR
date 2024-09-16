@@ -71,3 +71,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Resources/EyeTrackingTempData.csv
+/Assets/Eye Tracking
+/Assets/Balance Board/BalanceBoardTestValues
+/Assets/Events/Main Menu Events
