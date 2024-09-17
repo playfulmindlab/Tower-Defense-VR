@@ -53,8 +53,29 @@ public class MissileCollision : MonoBehaviour
                 {
                     EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.GetResistanceModifier(baseClass.GetAttackType));
                     TowerDefenseManager.EnqueueDamageData(damageToApply);
+
+                    if (baseClass.GetAttackType != ElementType.None)
+                    {
+                        ApplyEffectBasedOnDamage(baseClass.GetAttackType, enemyToDamage);
+                    }
                 }
             }
+        }
+    }
+
+    void ApplyEffectBasedOnDamage(ElementType element, Enemy enemy)
+    {
+        switch (element)
+        {
+            case ElementType.Ice:
+                Effect slowEffect = new Effect(gameObject.name + " - Slow", 0.5f, enemy.Speed, 3f);
+                AppliedEffect effect = new AppliedEffect(enemy, slowEffect);
+                AudioManager.instance.PlaySFXArray("StatusFrozen", enemy.transform.position);
+                TowerDefenseManager.EnqueueEffectToApply(effect);
+                break;
+            default:
+                Debug.Log("Invalid Element Type Detected - No Effect Applied");
+                break;
         }
     }
 }

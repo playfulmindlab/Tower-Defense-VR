@@ -384,10 +384,12 @@ MonoBehaviour:
   damage: 8
   firerate: 1
   range: 5
+  readjustSpeed: 3
   healthBar: {fileID: 1296867385743402944}
   shieldBar: {fileID: 8539086834192553709}
   outline: {fileID: 0}
   upgradedTower: {fileID: 5591534998685803407, guid: e80e920f5a145aa40a48bcafd0439fe6, type: 3}
+  propParent: {fileID: 0}
   activeEffects: []
   stunnedImage: {fileID: 455002622925322783}
   aliveOnSceneStart: 0
@@ -432,6 +434,7 @@ MonoBehaviour:
   missileSystem: {fileID: 7820477337006080346}
   towerHead: {fileID: 4871807065404130535}
   firingSFXName: TowerFreezeShot
+  baseDamageValue: 0
 --- !u!114 &2979035311290291755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1572,6 +1575,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
+      propertyPath: TriggerModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: InitialModule.maxNumParticles
       value: 5
       objectReference: {fileID: 0}
@@ -1603,6 +1610,14 @@ PrefabInstance:
       propertyPath: InitialModule.startRotationY.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
+      propertyPath: TriggerModule.primitives.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
+      propertyPath: TriggerModule.primitives.Array.data[0]
+      value: 
+      objectReference: {fileID: 4871807065404130535}
     - target: {fileID: 4737002907422082392, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: m_Mesh
       value: 
