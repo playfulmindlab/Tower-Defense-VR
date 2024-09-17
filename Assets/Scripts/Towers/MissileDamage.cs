@@ -13,17 +13,22 @@ public class MissileDamage : Damage, IDamageMethod
     protected ParticleSystem.MainModule missileSystemMain;
     protected AudioSource audioSource;
 
+    [SerializeField] float baseDamageValue = 0;
+
     public override void Init(float damage, float firerate)
     {
         audioSource = GetComponent<AudioSource>();
         missileSystemMain = missileSystem.main;
         missileSystemMain.duration = 1 / firerate;
+
         //missileSystemMain.startSpeed = projectileSpeed;
         base.Init(damage, firerate);
+        baseDamageValue = damage;
     }
 
     public virtual void ActivateGun(bool activeState)
     {
+        //missileSystem.Stop();
         if (activeState == true)
         {
             audioSource.loop = true;
@@ -38,7 +43,7 @@ public class MissileDamage : Damage, IDamageMethod
             audioSource.loop = false;
             missileSystemMain.loop = false;
             missileSystemMain.maxParticles = 10;        
-            UpdateDamage(damage / 2);
+            UpdateDamage(baseDamageValue);
         }
     }
 

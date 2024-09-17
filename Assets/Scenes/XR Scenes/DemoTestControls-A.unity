@@ -8361,29 +8361,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Machine Gun XR
       objectReference: {fileID: 0}
+    - target: {fileID: 694480364299055864, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3288674850498683768, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3288674850498683768, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3288674850498683768, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.555
       objectReference: {fileID: 0}
     - target: {fileID: 5627515686144566370, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5627515686144566370, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5627515686144566370, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.464
       objectReference: {fileID: 0}
     - target: {fileID: 7832750318883099538, guid: 52ec69a8c3b9c994eb009791c8e0416f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28950,6 +28954,51 @@ Transform:
   - {fileID: 3845598862898651403}
   - {fileID: 5029044333785096435}
   m_Father: {fileID: 665267158309805333}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1217083212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1217083214}
+  - component: {fileID: 1217083213}
+  m_Layer: 0
+  m_Name: DamagePopupGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1217083213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217083212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2eb6ab96850004b912b3291538edd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupPrefab: {fileID: 675539144811773465, guid: 66cb63cd5b39bfb4b9281b85149ad152, type: 3}
+--- !u!4 &1217083214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217083212}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.6734438, y: 2.8692102, z: -5.8178096}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1217597440
 PrefabInstance:
@@ -51831,6 +51880,7 @@ MonoBehaviour:
   shieldBar: {fileID: 7383932133363289012}
   outline: {fileID: 2128778082154504142}
   upgradedTower: {fileID: 0}
+  propParent: {fileID: 0}
   activeEffects: []
   stunnedImage: {fileID: 0}
   aliveOnSceneStart: 1
@@ -52591,3 +52641,4 @@ SceneRoots:
   - {fileID: 599974497}
   - {fileID: 1394042147}
   - {fileID: 479864125}
+  - {fileID: 1217083214}

@@ -598,6 +598,8 @@ public class TowerDefenseManager : MonoBehaviour
                     {
                         currentDamage.target.Health -= currentDamage.totalDamage * currentDamage.resistance;
 
+                        DamagePopupGenerator.instance.SpawnNewPopup(currentDamage.target, currentDamage.totalDamage);
+
                         //currently, we only add money upon an enemy's death
                         //uncomment this to add more money based on damage dealt
                         //playerStats.AddMoney((int)currentDamage.totalDamage); 

@@ -104,8 +104,6 @@ public class JumpedTowerControls : MonoBehaviour
 
     public virtual void EndTowerJump()
     {
-
-
         foreach (StaticHandGesturesTowerJump s in gestureScripts)
         {
             s.enabled = false;
