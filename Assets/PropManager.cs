@@ -104,7 +104,7 @@ public class PropManager : MonoBehaviour
     public void ToggleRadialMenu(bool toggleState)
     {
         radialMenuCanvas.enabled = toggleState;
-        if (towerScript != null)
+        if (towerScript != null && propOutline != null && towerScript.outline != null)
         {
             towerScript.ToggleOutline(toggleState);
             TogglePropOutline(toggleState);
