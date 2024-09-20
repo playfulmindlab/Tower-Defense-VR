@@ -15,12 +15,15 @@ public class PlayerStats : MonoBehaviour
 
     public int CurrentMoney { get { return currentMoney; } }
 
+    private void Awake()
+    {
+        transform.position = new Vector3(0f, 8.3f, -35f);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         currentMoney = startingMoney;
-
-        transform.position = new Vector3(0, 8.3f, -35f);
 
         if (moneyText != null)
             UpdateMoneyText();

@@ -567,7 +567,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584584172082111273}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b27b43793ccd2a744a161b485782ed75, type: 3}
   m_Name: 
@@ -805,6 +805,7 @@ MonoBehaviour:
   miniMapScript: {fileID: 0}
   upgradedProp: {fileID: 2588137639564660863, guid: b3158d5f713f3ca4893a6ffaf18a0fa2, type: 3}
   radialMenuCanvas: {fileID: 5690887197432696331}
+  upgradedTowerRef: {fileID: 0}
 --- !u!1 &2541906584626386799
 GameObject:
   m_ObjectHideFlags: 0

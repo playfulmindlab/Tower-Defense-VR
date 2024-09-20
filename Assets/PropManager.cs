@@ -37,6 +37,7 @@ public class PropManager : MonoBehaviour
             miniMapScript = GameObject.FindGameObjectWithTag("MinimapBaseplate").GetComponentInParent<MiniMapTowerPlacement>();
             xrGrab = GetComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>();
             propOutline = GetComponentInChildren<Outline>();
+            TogglePropOutline(false);
 
             if (upgradedProp != null && upgradedProp.GetComponent<PropManager>().towerSpawn != null)
             {

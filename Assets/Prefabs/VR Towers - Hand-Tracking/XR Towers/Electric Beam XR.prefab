@@ -1106,10 +1106,12 @@ MonoBehaviour:
   damage: 2
   firerate: 1
   range: 3
+  readjustSpeed: 3
   healthBar: {fileID: 8621385811426813372}
   shieldBar: {fileID: 7369811176753943267}
   outline: {fileID: 0}
   upgradedTower: {fileID: 0}
+  propParent: {fileID: 0}
   activeEffects: []
   stunnedImage: {fileID: 6712663085623815570}
   aliveOnSceneStart: 0
@@ -1172,6 +1174,7 @@ MonoBehaviour:
   missileSystem: {fileID: 4209663492436355110}
   towerHead: {fileID: 3782075774115030605}
   firingSFXName: TowerBasicShot
+  baseDamageValue: 0
   fireVolume: {fileID: 4228694022233521048}
 --- !u!54 &7811126216672811184
 Rigidbody:
@@ -1461,8 +1464,8 @@ MonoBehaviour:
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4579734139968354839}
-        m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
+      - m_Target: {fileID: 1725599486677284940}
+        m_TargetAssemblyTypeName: JumpedFlamethrowerControls, Assembly-CSharp
         m_MethodName: SetGunFire
         m_Mode: 1
         m_Arguments:
@@ -1496,7 +1499,7 @@ MonoBehaviour:
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4579734139968354839}
+      - m_Target: {fileID: 1725599486677284940}
         m_TargetAssemblyTypeName: JumpedTowerControls, Assembly-CSharp
         m_MethodName: EndTowerJump
         m_Mode: 1
