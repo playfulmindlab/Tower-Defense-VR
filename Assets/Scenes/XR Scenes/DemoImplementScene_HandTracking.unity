@@ -28250,6 +28250,87 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086282888}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1089969525
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 103829713136085280, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_Name
+      value: Flamethrower XR
+      objectReference: {fileID: 0}
+    - target: {fileID: 476564871755257064, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476564871755257064, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476564871755257064, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534591670331426352, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.371528
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534591670331426352, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534591670331426352, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.2674692
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534591670331426352, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534591670331426352, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534591670331426352, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534591670331426352, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534591670331426352, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534591670331426352, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534591670331426352, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522312824001803650, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522312824001803650, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522312824001803650, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7372b8d13d71f1428e2ac04860aac97, type: 3}
 --- !u!1 &1114440160
 GameObject:
   m_ObjectHideFlags: 0
@@ -52462,6 +52543,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 638360530}
     m_Modifications:
+    - target: {fileID: 460693884668092796, guid: a5df3cb3c39070d428d55f7ac5dae310, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 797675915637042377, guid: a5df3cb3c39070d428d55f7ac5dae310, type: 3}
       propertyPath: m_Name
       value: Lava Lobbers Respawnables
@@ -53502,6 +53587,87 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &214030366727703654
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4579734139968354839, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_Name
+      value: Electric Beam XR
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928694586376238731, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928694586376238731, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928694586376238731, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761967719006011157, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761967719006011157, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761967719006011157, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653100506095879770, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.1198318
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653100506095879770, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653100506095879770, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -34.867756
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653100506095879770, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653100506095879770, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653100506095879770, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653100506095879770, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653100506095879770, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653100506095879770, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653100506095879770, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f7ef645f35c3d4a4bae0afc9713652cc, type: 3}
 --- !u!4 &231521394559093643
 Transform:
   m_ObjectHideFlags: 0
@@ -54302,6 +54468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blizzard Bombs Respawnables
       objectReference: {fileID: 0}
+    - target: {fileID: 6609831389444686597, guid: 3f7ed448e70974048a8b0dee81fa0060, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7529338310698140116, guid: 3f7ed448e70974048a8b0dee81fa0060, type: 3}
       propertyPath: xrManager
       value: 
@@ -54339,6 +54509,10 @@ PrefabInstance:
       propertyPath: xrManager
       value: 
       objectReference: {fileID: 1023057732}
+    - target: {fileID: 4036060490649844978, guid: ee70ca3e019c621438615e524e2dbbc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7116796340113986104, guid: ee70ca3e019c621438615e524e2dbbc9, type: 3}
       propertyPath: m_Name
       value: Healing Tower Respawnables
@@ -55906,6 +56080,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 638360530}
     m_Modifications:
+    - target: {fileID: 51964728102504615, guid: c7d7e743c2146554b945d19756297872, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1935728981026720552, guid: c7d7e743c2146554b945d19756297872, type: 3}
       propertyPath: m_SizeDelta.x
       value: 22
@@ -57458,6 +57636,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 8594621612305490495, guid: b8d47602027914f4094c20fbd5439666, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -58160,3 +58342,5 @@ SceneRoots:
   - {fileID: 783526907}
   - {fileID: 504820877}
   - {fileID: 339965314}
+  - {fileID: 1089969525}
+  - {fileID: 214030366727703654}
