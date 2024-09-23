@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: LobberBeholder
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6832201459843661038, guid: b7fe1bc8d07fba74299c5d8d7f8ec772, type: 3}
+  enemyImage: {fileID: 21300000, guid: 548f83033a7313742a23435b328875b6, type: 3}
   enemyID: 0

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Tank Skelly
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 265340451732183431, guid: 63cf10f0bb1b1ec4b8cb89ec23568b70, type: 3}
+  enemyImage: {fileID: 21300000, guid: 9093a166ef82c46489ebcc42c5e98570, type: 3}
   enemyID: 3

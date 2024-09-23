@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35248167649168841a166c85015bb5e0, type: 3}
+  m_Name: TestWaveComp
+  m_EditorClassIdentifier: 
+  waves:
+  - enemyOrder:
+    - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
+    - {fileID: 11400000, guid: 1f6f15e6e69fdf544a45b45d8051da07, type: 2}
+    - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
+    - {fileID: 11400000, guid: ea5beec1e7c9f0347a91276ba3a34295, type: 2}
+    loopEnemyOrder: 3
+    afterWaveStep: 0
+  - enemyOrder:
+    - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
+    loopEnemyOrder: 20
+    afterWaveStep: 1
+  - enemyOrder:
+    - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
+    loopEnemyOrder: 999
+    afterWaveStep: 2

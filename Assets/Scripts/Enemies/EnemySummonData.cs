@@ -6,5 +6,6 @@ using UnityEngine;
 public class EnemySummonData : ScriptableObject
 {
     public GameObject enemyPrefab;
+    public Sprite enemyImage;
     public int enemyID;
 }

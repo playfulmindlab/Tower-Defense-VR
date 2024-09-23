@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SkellyEnemy
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 265340451732183431, guid: ab38f8b877d0d5c42a7bf860b533e10a, type: 3}
+  enemyImage: {fileID: 21300000, guid: 29004b9e7d4753a45b88a000dbbd8890, type: 3}
   enemyID: 2
