@@ -315,7 +315,8 @@ public class TowerDefenseManager : MonoBehaviour
             return;
         }
 
-        char nextStep = EnemySpawner.afterWaveStatus[waveCount - 1];
+        //char nextStep = EnemySpawner.afterWaveStatus[waveCount - 1];
+        PostWaveStep nextStep = EnemySpawner.postWaveSteps[waveCount - 1];
 
         if (newWaveNum < 0)
             waveCount++;
@@ -329,11 +330,10 @@ public class TowerDefenseManager : MonoBehaviour
 
         if (newWaveNum < 0)
         {
-            //char nextStep = EnemySpawner.afterWaveStatus[waveCount - 1];
             Debug.Log("NEXT STEP: " + nextStep.ToString());
             switch (nextStep)
             {
-                case 'B': //Break: intermission
+                case PostWaveStep.Intermission: //Break: intermission
                     DataEvent newEvent = new DataEvent("Intermission", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
                     EventManager.instance.RecordNewEvent(newEvent);
 
@@ -341,7 +341,7 @@ public class TowerDefenseManager : MonoBehaviour
                     return;
                 //break;
 
-                case 'L': // Level-up
+                case PostWaveStep.LevelUp: // Level-up
                     DataEvent newEvent2 = new DataEvent("Level Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
                     EventManager.instance.RecordNewEvent(newEvent2);
 

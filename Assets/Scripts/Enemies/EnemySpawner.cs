@@ -14,24 +14,18 @@ public class EnemySpawner : MonoBehaviour
 
     private static bool isInitialized;
 
-    [SerializeField] string enemyNumbersLoc;
+    [SerializeField] MapWaveCompositions currMapWaveComp;
     [SerializeField] private static int[][] enemyNumbers; //new order is Lobber, Saboteur, Standard, Tank
     private static int[][] waveAndEnemyIDOrder;//[wave][currentEnemyID]
     public static int[] numEnemiesInWaves;
-    public static char[] afterWaveStatus;
-    //static int randEnemyLoopCap = 0;
+    public static PostWaveStep[] postWaveSteps;
 
     static int currEnemySpawned = 0;
     public static int totalWaves = 5;
 
     public void Start()
     {
-        List<int[]> numHolder = new List<int[]>();
-        List<int> waveCountHolder = new List<int>();
-        int enemyCount = 0;
-
-        List<char> afterStatusHolder = new List<char>();
-
+        /*
         StreamReader reader = new StreamReader("Assets/Resources/Enemy Numbers/" + enemyNumbersLoc + ".csv");
         bool endOfFile = false;
 
@@ -64,41 +58,30 @@ public class EnemySpawner : MonoBehaviour
             numHolder.Add(enemyValues);
             waveCountHolder.Add(enemyCount);
             afterStatusHolder.Add(System.Convert.ToChar(dataValues[dataValues.Length - 1]));
-
-            //string testString = "";
-
-            /*
-            int[] dataValues = System.Array.ConvertAll(dataString.Split(','), int.Parse);
-
-            numHolder.Add(dataValues);
-
-            enemyCount = 0;
-            for (int i = 0; i < 4; i++)
-            {
-                enemyCount += dataValues[i];
-            }
-
-            enemyCount *= dataValues[4];
-
-            breakHolder.Add(dataValues[5] == 0 ? false : true);
-
-            waveCountHolder.Add(enemyCount);
-            */
         }
 
         reader.Close();
+        */
 
-        enemyNumbers = numHolder.ToArray();
-        numEnemiesInWaves = waveCountHolder.ToArray();
-        afterWaveStatus = afterStatusHolder.ToArray();
+
+
+
+        //enemyNumbers = enemyIDHolder.ToArray();
+        //numEnemiesInWaves = waveCountHolder.ToArray();
+        //afterWaveStatus = afterStatusHolder.ToArray();
+
+        enemyNumbers = currMapWaveComp.GetAllWaveEnemyIDs();
+        numEnemiesInWaves = currMapWaveComp.GetAllEnemiesInEachWave();
+        postWaveSteps = currMapWaveComp.MapPostWaveSteps();
 
         //Debug.Log("ENEMIES: " + enemyNumbers[12][3]);
 
         Debug.Log("INITIALIZING ENEMY LIST...");
         List<int[]> newOrder = new List<int[]>();
+        Debug.Log("ENEMY LENGTH: " + enemyNumbers.Length);
         for (int i = 0; i < enemyNumbers.Length; i++)
         {
-            newOrder.Add(GetWaveSpawnOrder(enemyNumbers[i]));
+            newOrder.Add(enemyNumbers[i]);
         }
         waveAndEnemyIDOrder = newOrder.ToArray();
         totalWaves = waveAndEnemyIDOrder.Length;
@@ -112,7 +95,7 @@ public class EnemySpawner : MonoBehaviour
             }
             debugString += waveAndEnemyIDOrder[z].Length;
 
-            Debug.Log("WAVE #" + z + " ORDER: " + debugString + " // TOTAL: " + numEnemiesInWaves[z] + " NEXT: " + afterWaveStatus[z]);
+            Debug.Log("WAVE #" + z + " ORDER: " + debugString + " // TOTAL: " + numEnemiesInWaves[z] + " NEXT: " + postWaveSteps[z]);///afterWaveStatus[z]);
             debugString = "";
         }
         
@@ -195,7 +178,7 @@ public class EnemySpawner : MonoBehaviour
 
         return newEnemy;
     }
-
+    /*
     static int[] GetWaveSpawnOrder(int[] waveEnemyNums)
     {
         if (waveEnemyNums.Length != 5)
@@ -229,6 +212,7 @@ public class EnemySpawner : MonoBehaviour
 
         return newEnemyOrder.ToArray();
     }
+    */
 
     public static int GetNextIDToSpawn()
     {
