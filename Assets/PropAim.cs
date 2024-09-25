@@ -5,15 +5,16 @@ using UnityEngine;
 public class PropAim : MonoBehaviour
 {
     [SerializeField] LayerMask detectLayer;
+    [SerializeField] LayerMask ignoreLayers;
     LineRenderer line;
     int layerInt = 0;
-    Vector3 downCheck;
 
     // Start is called before the first frame update
     void Start()
     {
         line = GetComponent<LineRenderer>();
-        layerInt = detectLayer.value;
+        layerInt = (int) Mathf.Log(detectLayer.value, 2);
+        ignoreLayers = ~ignoreLayers;
     }
 
     // Update is called once per frame
@@ -22,10 +23,14 @@ public class PropAim : MonoBehaviour
         line.SetPosition(0, transform.position);
         line.SetPosition(1, transform.position + new Vector3(0, -40, 0));
 
-        if (Physics.Raycast(transform.position, Vector3.down, 40, layerInt))
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 40, ignoreLayers))
         {
-            //print("There is something in front of the object!");
-            SetLineColor(Color.green);
+            Debug.Log("DETECT LAYER: " + hit.transform.gameObject.layer + " VS " + layerInt);
+
+            if (hit.transform.gameObject.layer == layerInt)
+                SetLineColor(Color.green);
+            else SetLineColor(Color.red);
         }
         else SetLineColor(Color.red);
     }

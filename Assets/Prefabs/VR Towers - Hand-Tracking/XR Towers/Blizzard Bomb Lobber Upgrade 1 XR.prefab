@@ -506,6 +506,7 @@ MonoBehaviour:
   shieldBar: {fileID: 4195555236192268083}
   outline: {fileID: 0}
   upgradedTower: {fileID: 6344123033429765809, guid: 96d27f4e0ad5c474294fbd3c04026565, type: 3}
+  propParent: {fileID: 0}
   activeEffects: []
   stunnedImage: {fileID: 7635762059423606102}
   aliveOnSceneStart: 0
@@ -567,10 +568,11 @@ MonoBehaviour:
   attackType: 2
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 128
   missileSystem: {fileID: 7983738889265385462}
   towerHead: {fileID: 4595422328761283147}
   firingSFXName: TowerBasicShot
+  baseDamageValue: 0
 --- !u!54 &1489694696019691375
 Rigidbody:
   m_ObjectHideFlags: 0

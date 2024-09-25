@@ -266,7 +266,6 @@ GameObject:
   - component: {fileID: 5940399478216640096}
   - component: {fileID: 2458469078095506304}
   - component: {fileID: 955422169645496168}
-  - component: {fileID: 7775937604118507227}
   - component: {fileID: 9111763876821954473}
   - component: {fileID: 7280693338161246536}
   m_Layer: 2
@@ -418,22 +417,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7775937604118507227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852390990371745300}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b27b43793ccd2a744a161b485782ed75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectMaterials: []
-  newSpawn: {fileID: 0}
-  xrManager: {fileID: 0}
-  isPinched: 0
 --- !u!114 &9111763876821954473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +456,7 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7775937604118507227}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinchTesting, Assembly-CSharp
         m_MethodName: ChangeToGreen
         m_Mode: 1
@@ -497,7 +480,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7775937604118507227}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinchTesting, Assembly-CSharp
         m_MethodName: ChangeToRed
         m_Mode: 1
@@ -524,7 +507,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7775937604118507227}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinchTesting, Assembly-CSharp
         m_MethodName: ChangeToBlue
         m_Mode: 1
@@ -1354,6 +1337,9 @@ MonoBehaviour:
   detectLayer:
     serializedVersion: 2
     m_Bits: 4096
+  ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 1316
 --- !u!1 &4486475572566782627
 GameObject:
   m_ObjectHideFlags: 0

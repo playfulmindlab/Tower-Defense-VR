@@ -68,8 +68,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8257018798908387750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.464, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -206,7 +206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8787180103515981592
 RectTransform:
   m_ObjectHideFlags: 0
@@ -468,6 +468,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 0}
   canFire: 1
+  followEnemy: 1
   towerCost: 200
   health: 1
   maxHealth: 1
@@ -475,10 +476,12 @@ MonoBehaviour:
   damage: 2
   firerate: 2
   range: 1
+  readjustSpeed: 3
   healthBar: {fileID: 3099922711559783515}
   shieldBar: {fileID: 5925780290456127747}
   outline: {fileID: 617695853368776912}
   upgradedTower: {fileID: 819500926736259447, guid: c031657ebabf8784fa99537ad1311260, type: 3}
+  propParent: {fileID: 0}
   activeEffects: []
   stunnedImage: {fileID: 0}
   aliveOnSceneStart: 0
@@ -1054,7 +1057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5289182684458692540, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5289182684458692541, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_Pivot.x

@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class BarricadeTower : TowerBehaviour
 {
-    protected override void Start()
-    {
-        base.Start();
-    }
 
     public override void Tick()
     {

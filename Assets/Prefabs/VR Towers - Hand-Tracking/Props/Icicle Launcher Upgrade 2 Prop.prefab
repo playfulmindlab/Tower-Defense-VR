@@ -868,7 +868,6 @@ GameObject:
   - component: {fileID: 8324042410753449808}
   - component: {fileID: 6980939944125691346}
   - component: {fileID: 3107850310045909775}
-  - component: {fileID: 8929363347386388205}
   - component: {fileID: 3940925719434494317}
   - component: {fileID: 8725289600235594176}
   m_Layer: 2
@@ -1020,22 +1019,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8929363347386388205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2567590900362179096}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b27b43793ccd2a744a161b485782ed75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectMaterials: []
-  newSpawn: {fileID: 0}
-  xrManager: {fileID: 0}
-  isPinched: 0
 --- !u!114 &3940925719434494317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1075,7 +1058,7 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8929363347386388205}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinchTesting, Assembly-CSharp
         m_MethodName: ChangeToGreen
         m_Mode: 1
@@ -1099,7 +1082,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8929363347386388205}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinchTesting, Assembly-CSharp
         m_MethodName: ChangeToRed
         m_Mode: 1
@@ -1126,7 +1109,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8929363347386388205}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinchTesting, Assembly-CSharp
         m_MethodName: ChangeToBlue
         m_Mode: 1
@@ -2192,6 +2175,9 @@ MonoBehaviour:
   detectLayer:
     serializedVersion: 2
     m_Bits: 4096
+  ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 1316
 --- !u!1001 &6014122229655275331
 PrefabInstance:
   m_ObjectHideFlags: 0

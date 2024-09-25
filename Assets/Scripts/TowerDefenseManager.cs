@@ -60,6 +60,9 @@ public class TowerDefenseManager : MonoBehaviour
 
     [SerializeField] bool fastToWave = true;
     [SerializeField] int setWave = 1;
+
+    [SerializeField] PhaseControlUI phaseUIController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -230,6 +233,7 @@ public class TowerDefenseManager : MonoBehaviour
 
     public void ChangeCurrentPhaseButton(int phaseInt)
     {
+        //phaseUIController
         //currPhase = (Phase)phaseInt;
         ChangePhase((Phase)phaseInt);
     }
@@ -239,6 +243,11 @@ public class TowerDefenseManager : MonoBehaviour
         Debug.Log("NEW PATH: " + newPath);
         //enable path, make it visible - the path is technically aesthetic
         pathAndNodesPairings[newPath].path.SetActive(true);
+        foreach (Transform childPath in pathAndNodesPairings[newPath].path.transform)
+        {
+            //set children's layer from "LevelUpPath" to "Path"
+            childPath.gameObject.layer = 11;
+        }
 
         //Safety Check - if "newPath" is 0, this makes sure the game doesn't break
         if (newPath > 0)

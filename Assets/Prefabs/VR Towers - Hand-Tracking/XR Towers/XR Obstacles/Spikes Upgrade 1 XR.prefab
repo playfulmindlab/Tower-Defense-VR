@@ -91,6 +91,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 0}
   canFire: 1
+  followEnemy: 1
   towerCost: 200
   health: 1
   maxHealth: 1
@@ -98,10 +99,12 @@ MonoBehaviour:
   damage: 2
   firerate: 2
   range: 1
+  readjustSpeed: 3
   healthBar: {fileID: 6438041052752185983}
   shieldBar: {fileID: 6689535041708520854}
   outline: {fileID: 6897483993579367766}
   upgradedTower: {fileID: 885003659285066802, guid: f4ec80c305c0c914681c5377156c98ce, type: 3}
+  propParent: {fileID: 0}
   activeEffects: []
   stunnedImage: {fileID: 0}
   aliveOnSceneStart: 0
@@ -927,7 +930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5289182684458692540, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5289182684458692541, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_Pivot.x

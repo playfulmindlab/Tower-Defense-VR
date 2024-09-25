@@ -43,8 +43,6 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
         if (playerStats.CurrentMoney >= towerToDrop.towerCost)
         {
-            //Debug.Log("Go Thru TTPTBM // Point: " + localDropPoint);
-
             newProp.transform.parent = this.transform;
             newProp.transform.rotation = Quaternion.Euler(Vector3.zero);
             newProp.transform.position = localDropPoint;
@@ -57,12 +55,9 @@ public class MiniMapTowerPlacement : MonoBehaviour
             GameObject newTower = Instantiate(newMainMapTower, Vector3.zero, newProp.transform.rotation);
             newTower.transform.parent = mainMap.transform;
             newTower.transform.localEulerAngles = newProp.transform.localEulerAngles;
-            //newTower.transform.rotation = newProp.transform.rotation;
             newTower.transform.localPosition = newProp.transform.localPosition;
-            //newTower.transform.localScale = Vector3.one;
 
             PlaceNewTower(newTower, newTower.GetComponent<BoxCollider>());
-            //RotateTowerTowardsPath(newTower);
 
             newProp.GetComponent<PropManager>().LockPropPosition();
             newTower.GetComponent<TowerBehaviour>().AssignPropParent(newProp.GetComponent<PropManager>());
@@ -103,13 +98,16 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
     void RotateTowerTowardsPath(GameObject newTower)
     {
-        int layerMask = 1 << 11; //"Path" Layer
+        //int layerMask = 1 << 11; //"Path" Layer
+        string[] layerMasks = { "Path", "LevelUpPath" };
         float closestPathDistance = Mathf.Infinity;
 
         RaycastHit hit;
         for (int d = 0; d < 360; d += 90)
         {
-            if (Physics.Raycast(newTower.transform.position + (Vector3.up * 0.003f), new Vector3(Mathf.Sin(d * Mathf.Deg2Rad), 0, Mathf.Cos(d * Mathf.Deg2Rad)), out hit, Mathf.Infinity, layerMask))
+            if (Physics.Raycast(newTower.transform.position + (Vector3.up * 0.003f),
+                new Vector3(Mathf.Sin(d * Mathf.Deg2Rad), 0, Mathf.Cos(d * Mathf.Deg2Rad)),
+                out hit, Mathf.Infinity, LayerMask.GetMask(layerMasks)))
             {
                 if (hit.distance < closestPathDistance)
                 {

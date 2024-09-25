@@ -152,6 +152,9 @@ MonoBehaviour:
   detectLayer:
     serializedVersion: 2
     m_Bits: 4096
+  ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 1316
 --- !u!1 &2426327769209428589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,7 +1343,6 @@ GameObject:
   - component: {fileID: 1604211044559896181}
   - component: {fileID: 7580778546515151242}
   - component: {fileID: 7878185650747951186}
-  - component: {fileID: 2934652499197692450}
   - component: {fileID: 250793300879477960}
   - component: {fileID: 5616478823918668605}
   m_Layer: 2
@@ -1492,22 +1494,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2934652499197692450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8327912285526189389}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b27b43793ccd2a744a161b485782ed75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectMaterials: []
-  newSpawn: {fileID: 0}
-  xrManager: {fileID: 0}
-  isPinched: 0
 --- !u!114 &250793300879477960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1547,7 +1533,7 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2934652499197692450}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinchTesting, Assembly-CSharp
         m_MethodName: ChangeToGreen
         m_Mode: 1
@@ -1571,7 +1557,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2934652499197692450}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinchTesting, Assembly-CSharp
         m_MethodName: ChangeToRed
         m_Mode: 1
@@ -1598,7 +1584,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2934652499197692450}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinchTesting, Assembly-CSharp
         m_MethodName: ChangeToBlue
         m_Mode: 1

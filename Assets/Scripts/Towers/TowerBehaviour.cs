@@ -42,8 +42,14 @@ public class TowerBehaviour : MonoBehaviour
 
     public bool aliveOnSceneStart = false;
 
-    Outline towerOutline;
-    public void ToggleOutline(bool isActive) { towerOutline.OutlineColor = Color.red; if (isActive) towerOutline.ChangeOutlineWidth(3); else towerOutline.ChangeOutlineWidth(0); }
+    //Outline towerOutline;
+    public void ToggleOutline(bool isActive) 
+    { 
+        if (isActive) 
+            outline.ChangeOutlineWidth(3); 
+        else 
+            outline.ChangeOutlineWidth(0); 
+    }
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -73,7 +79,8 @@ public class TowerBehaviour : MonoBehaviour
         if (GetComponentInChildren<Outline>())
         {
             outline = GetComponentInChildren<Outline>();
-            outline.OutlineWidth = 0;
+            outline.OutlineColor = Color.red;
+            outline.ChangeOutlineWidth(0);
         }
 
         //Uncomment this if you want to test healing or damage to towers
@@ -85,9 +92,6 @@ public class TowerBehaviour : MonoBehaviour
         activeEffects = new List<Effect>();
 
         if (stunnedImage != null && stunnedImage.enabled == true) stunnedImage.enabled = false;
-
-        towerOutline = GetComponentInChildren<Outline>();
-        towerOutline.ChangeOutlineWidth(0);
 
         if (aliveOnSceneStart)
         {

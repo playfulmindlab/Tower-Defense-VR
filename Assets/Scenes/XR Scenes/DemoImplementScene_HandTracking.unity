@@ -8537,7 +8537,7 @@ GameObject:
   - component: {fileID: 408141081}
   - component: {fileID: 408141080}
   - component: {fileID: 408141079}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Path B - 2
   m_TagString: Path
   m_Icon: {fileID: 0}
@@ -17862,7 +17862,7 @@ GameObject:
   - component: {fileID: 570813714}
   - component: {fileID: 570813713}
   - component: {fileID: 570813712}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Path C - 1
   m_TagString: Path
   m_Icon: {fileID: 0}
@@ -23315,7 +23315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 819138920}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Path C
   m_TagString: Path
   m_Icon: {fileID: 0}
@@ -25910,6 +25910,7 @@ MonoBehaviour:
   spawnEnemies: 0
   fastToWave: 0
   setWave: 6
+  phaseUIController: {fileID: 0}
 --- !u!4 &936530110
 Transform:
   m_ObjectHideFlags: 0
@@ -34563,7 +34564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1385986122}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Path B
   m_TagString: Path
   m_Icon: {fileID: 0}
@@ -37498,7 +37499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.591
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.y
@@ -37506,7 +37507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.039
+      value: -34.31
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalRotation.w
@@ -38759,7 +38760,7 @@ GameObject:
   - component: {fileID: 1601999673}
   - component: {fileID: 1601999672}
   - component: {fileID: 1601999671}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Path B - 1
   m_TagString: Path
   m_Icon: {fileID: 0}
@@ -50435,7 +50436,7 @@ GameObject:
   - component: {fileID: 2047327731}
   - component: {fileID: 2047327730}
   - component: {fileID: 2047327729}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Path C - 2
   m_TagString: Path
   m_Icon: {fileID: 0}
