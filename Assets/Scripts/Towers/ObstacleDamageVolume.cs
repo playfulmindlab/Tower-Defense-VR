@@ -14,7 +14,7 @@ public class ObstacleDamageVolume : Damage
         volumeEffect = new Effect(gameObject.name + " - Spikes", DamageValue, FirerateValue, attackType, effectTime);
     }
 
-    protected void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {

@@ -1174,7 +1174,7 @@ MonoBehaviour:
   missileSystem: {fileID: 4209663492436355110}
   towerHead: {fileID: 3782075774115030605}
   firingSFXName: TowerBasicShot
-  baseDamageValue: 0
+  baseDamageValue: 2
   fireVolume: {fileID: 4228694022233521048}
 --- !u!54 &7811126216672811184
 Rigidbody:
