@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PropManager : MonoBehaviour
 {
+    //[SerializeField] bool aliveOnStartup = false;
     public LineRenderer line;
     public GameObject towerSpawn;
 
@@ -13,22 +14,22 @@ public class PropManager : MonoBehaviour
 
     [SerializeField] Canvas radialMenuCanvas;
     UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable xrGrab;
-    TowerBehaviour towerScript;
-    JumpedTowerControls jumpedTowerScript;
+    protected TowerBehaviour towerScript;
+    protected JumpedTowerControls jumpedTowerScript;
 
     public TowerBehaviour upgradedTowerRef;
 
     LayerMask baseLayer; //= LayerMask.GetMask("Baseplate");
     LayerMask pathLayer;
 
-    bool isPropDropped = false;
+    protected bool isPropDropped = false;
     bool hasStarted = false;
 
     Outline propOutline;
     public void TogglePropOutline(bool isActive) { propOutline.OutlineColor = Color.red; if (isActive) propOutline.ChangeOutlineWidth(3); else propOutline.ChangeOutlineWidth(0); }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         if (hasStarted == false)
         {

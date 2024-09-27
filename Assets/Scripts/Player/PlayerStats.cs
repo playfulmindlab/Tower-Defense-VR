@@ -12,6 +12,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private TextMeshProUGUI enemyCountText;
     [SerializeField] private TextMeshProUGUI enemyKillCountText;
+    [SerializeField] private TextMeshProUGUI enemyKillCountText2;
 
     public int CurrentMoney { get { return currentMoney; } }
 
@@ -58,6 +59,7 @@ public class PlayerStats : MonoBehaviour
     public void UpdateKillCountText(int count)
     {
         enemyKillCountText.text = "Kills: " + count;
+        enemyKillCountText2.text = "Kills: " + count;
     }
 
 }
