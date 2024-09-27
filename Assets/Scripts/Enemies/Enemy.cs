@@ -13,7 +13,7 @@ public struct DamageResistance
 
 public class Enemy : MonoBehaviour
 {
-    public Transform root;
+    //public Transform root;
     public float maxHealth;
 
     [SerializeField] float health;

@@ -13,7 +13,7 @@ public class LaserDamage : Damage, IDamageMethod
         {
             laserRenderer.enabled = true;
             laserRenderer.SetPosition(0, laserPivot.position);
-            laserRenderer.SetPosition(1, target.root.position);
+            laserRenderer.SetPosition(1, target.transform.position);
 
             if (delay > 0f)
             {
