@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PropManager : MonoBehaviour
 {
+
     //[SerializeField] bool aliveOnStartup = false;
     public LineRenderer line;
     public GameObject towerSpawn;

@@ -12,6 +12,8 @@ public class MiniMapTowerPlacement : MonoBehaviour
     [SerializeField] GameObject currTower;
     [SerializeField] GameObject radiusDecal;
 
+    [SerializeField] bool buildOnBuildPhaseOnly = true;
+
     private void Start()
     {
         playerStats = FindObjectOfType<PlayerStats>();
@@ -41,7 +43,9 @@ public class MiniMapTowerPlacement : MonoBehaviour
         TowerBehaviour towerToDrop = newProp.GetComponent<PropManager>().towerSpawn.GetComponent<TowerBehaviour>();
         GameObject spawnedTower = null;
 
-        if (playerStats.CurrentMoney >= towerToDrop.towerCost)
+        if (playerStats.CurrentMoney >= towerToDrop.towerCost && 
+            (buildOnBuildPhaseOnly || (TowerDefenseManager.CurrPhase != Phase.Build || 
+            TowerDefenseManager.CurrPhase != Phase.Repair)))
         {
             newProp.transform.parent = this.transform;
             newProp.transform.rotation = Quaternion.Euler(Vector3.zero);
@@ -65,6 +69,10 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
             AssignCurrentTower(null);
             radiusDecal.transform.position = new Vector3(0, -1000, 0);
+        }
+        else
+        {
+            Debug.Log("ERROR: Can o0nly place towers in build phase!");
         }
         return spawnedTower;
     }
@@ -120,7 +128,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
     public void UpgradeTower(GameObject oldTower, PropManager oldProp, GameObject upgradedTower)
     {
-        if (true) //TowerDefenseManager.CurrPhase == Phase.Build || TowerDefenseManager.CurrPhase == Phase.Repair)
+        if (buildOnBuildPhaseOnly || (TowerDefenseManager.CurrPhase == Phase.Build || TowerDefenseManager.CurrPhase == Phase.Repair))
         {
             int newTowerCost = upgradedTower.GetComponent<TowerBehaviour>().towerCost;
 
