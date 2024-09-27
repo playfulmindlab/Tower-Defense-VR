@@ -6,15 +6,9 @@ using UnityEngine.UI;
 public class PhaseControlUI : MonoBehaviour
 {
     [SerializeField] Button defendButton;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void ToggleDefendButton(bool toggleState)
     {
-        
+        defendButton.interactable = toggleState;
     }
 }

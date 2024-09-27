@@ -30,9 +30,6 @@ public class TowerDefenseManager : MonoBehaviour
     [SerializeField] PathAndNodesPair[] pathAndNodesPairings;
     [SerializeField] Node[] currNodePath;
     public static Vector3[] nodePositions2 = null;
-    //public int wavesTilLevelWin = 5;
-    //public int levelsTilMapWin = 3;
-    //int waveMult;
     int wavesTilEndMap = 5;
 
     [SerializeField] GameObject colliderObject;
@@ -347,6 +344,7 @@ public class TowerDefenseManager : MonoBehaviour
                     EventManager.instance.RecordNewEvent(newEvent);
 
                     ChangePhase(Phase.Build);
+                    phaseUIController.ToggleDefendButton(true);
                     return;
                 //break;
 
@@ -355,6 +353,7 @@ public class TowerDefenseManager : MonoBehaviour
                     EventManager.instance.RecordNewEvent(newEvent2);
 
                     UpdateLevelCount();
+                    phaseUIController.ToggleDefendButton(true);
                     return;
                 //break;
 
