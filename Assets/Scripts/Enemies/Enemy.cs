@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
 
     public void Init()
     {
-        health = maxHealth;
+        Health = maxHealth;
         activeEffects = new List<Effect>();
 
         damResistancesDict.Clear();
