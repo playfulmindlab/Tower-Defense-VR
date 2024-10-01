@@ -24,10 +24,12 @@ public class SpawnablesEnabler : MonoBehaviour
             if (activateUnlockableTowers == true)
             {
                 bss.DisableSpawnable();
+                bss.ToggleLockedStat(true);
             }
             else
             {
                 bss.EnableSpawnable();
+                bss.ToggleLockedStat(false);
             }
         }
     }
@@ -39,6 +41,22 @@ public class SpawnablesEnabler : MonoBehaviour
             if (spawnable.wave == newWave)
             {
                 spawnable.EnableSpawnables();
+            }
+        }
+    }
+
+    public void UpdateUnaffordableTowers(int playerMoney)
+    {
+        BarrelSpawnableScript[] allBSSs = GetComponentsInChildren<BarrelSpawnableScript>();
+        foreach (BarrelSpawnableScript bss in allBSSs)
+        {
+            if (bss.TowerCost > playerMoney)
+            {
+                bss.DisableSpawnable();
+            }
+            else if (bss.TowerCost <= playerMoney && !bss.isLocked)
+            {
+                bss.EnableSpawnable();
             }
         }
     }

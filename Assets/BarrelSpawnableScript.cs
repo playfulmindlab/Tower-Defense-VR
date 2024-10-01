@@ -17,20 +17,25 @@ public class BarrelSpawnableScript : MonoBehaviour
     Material[] baseMats;
 
     [SerializeField] bool isInteractable = true;
+    public bool isLocked = false;
+
+    int towerCost = 0;
+    public int TowerCost { get { return towerCost; } set { towerCost = value; } }
 
     void Awake()
     {
         grabInfo = GetComponent<XRGrabInteractable>();
         xrManager = GameObject.FindGameObjectWithTag("XRManager").GetComponent<XRInteractionManager>();
         minimap = GameObject.FindGameObjectWithTag("MinimapBaseplate").GetComponentInParent<MiniMapTowerPlacement>();
-
         renderers = gameObject.GetComponentsInChildren<MeshRenderer>();
+
         List<Material> matHolder = new List<Material>();
         foreach (Renderer renderer in renderers)
         {
             matHolder.Add(renderer.materials[0]);
             //renderer.material = disabledMat;
         }
+
         baseMats = matHolder.ToArray();
 
     }
@@ -52,6 +57,11 @@ public class BarrelSpawnableScript : MonoBehaviour
         }
 
         isInteractable = false;
+    }
+
+    public void ToggleLockedStat(bool lockStat)
+    {
+        isLocked = lockStat;
     }
 
 

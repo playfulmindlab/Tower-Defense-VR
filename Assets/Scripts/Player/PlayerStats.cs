@@ -34,12 +34,14 @@ public class PlayerStats : MonoBehaviour
     {
         currentMoney += newFunds;
         UpdateMoneyText();
+        SpawnablesEnabler.instance.UpdateUnaffordableTowers(currentMoney);
     }
 
     public void SubtractMoney(int removedFunds)
     {
         currentMoney -= removedFunds;
         UpdateMoneyText();
+        SpawnablesEnabler.instance.UpdateUnaffordableTowers(currentMoney);
     }
 
     public void UpdateMoneyText()
