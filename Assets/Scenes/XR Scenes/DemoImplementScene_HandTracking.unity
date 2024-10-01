@@ -26154,10 +26154,13 @@ MonoBehaviour:
   currTargetType: 0
   pathAndNodesPairings:
   - path: {fileID: 312663827}
+    minimapPath: {fileID: 1328910836}
     nodeHolder: {fileID: 1733667117}
   - path: {fileID: 1396179838}
+    minimapPath: {fileID: 1385986121}
     nodeHolder: {fileID: 2138607654}
   - path: {fileID: 1604645609}
+    minimapPath: {fileID: 819138919}
     nodeHolder: {fileID: 856756255}
   currNodePath: []
   colliderObject: {fileID: 0}

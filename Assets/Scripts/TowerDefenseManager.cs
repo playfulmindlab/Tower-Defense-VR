@@ -27,7 +27,7 @@ public class TowerDefenseManager : MonoBehaviour
 
     public Transform nodeParent;
     public TargetType currTargetType = TargetType.First;
-    [SerializeField] PathAndNodesPair[] pathAndNodesPairings;
+    [SerializeField] PathsAndNodesPair[] pathAndNodesPairings;
     [SerializeField] Node[] currNodePath;
     public static Vector3[] nodePositions2 = null;
     int wavesTilEndMap = 5;
@@ -240,10 +240,16 @@ public class TowerDefenseManager : MonoBehaviour
         Debug.Log("NEW PATH: " + newPath);
         //enable path, make it visible - the path is technically aesthetic
         pathAndNodesPairings[newPath].path.SetActive(true);
+        pathAndNodesPairings[newPath].minimapPath.SetActive(true);
         foreach (Transform childPath in pathAndNodesPairings[newPath].path.transform)
         {
             //set children's layer from "LevelUpPath" to "Path"
             childPath.gameObject.layer = 11;
+        }
+        foreach (Transform childMiniPath in pathAndNodesPairings[newPath].minimapPath.transform)
+        {
+            //set children's layer from "LevelUpPath" to "Path"
+            childMiniPath.gameObject.layer = 11;
         }
 
         //Safety Check - if "newPath" is 0, this makes sure the game doesn't break
@@ -781,9 +787,10 @@ public struct EnemyDamage
 }
 
 [System.Serializable]
-public class PathAndNodesPair
+public class PathsAndNodesPair
 {
     public GameObject path;
+    public GameObject minimapPath;
     public GameObject nodeHolder;
 
     public Node FirstNode { get { return nodeHolder.transform.GetChild(0).GetComponent<Node>(); } }
