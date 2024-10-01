@@ -26,7 +26,8 @@ public class Enemy : MonoBehaviour
             if (healthBar != null)
             {
                 healthBar.value = health;
-                healthText.text = health + "/" + maxHealth;
+                if (healthText != null)
+                    healthText.text = health + "/" + maxHealth;
             }
         }
     }
@@ -175,7 +176,8 @@ public class Enemy : MonoBehaviour
             {
                 anim.SetBool("Stopped", false);
             }
-            Vector3 positionToRotateTowards = currNodePath[nodeIndex].transform.position;
+            //Vector3 positionToRotateTowards = currNodePath[nodeIndex].transform.position;
+            Vector3 positionToRotateTowards = currNodePath[indexIndex].transform.position;
             Vector3 newDir = transform.position - positionToRotateTowards;
             transform.rotation = Quaternion.LookRotation(newDir, Vector3.up);
 
