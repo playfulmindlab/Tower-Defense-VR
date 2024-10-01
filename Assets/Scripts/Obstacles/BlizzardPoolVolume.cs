@@ -26,7 +26,7 @@ public class BlizzardPoolVolume : ObstacleDamageVolume
             Effect slowEffect = new Effect(gameObject.name + " - Slow", 0.5f, enemy.Speed, 3f);
             effect = new AppliedEffect(enemy, slowEffect);
             TowerDefenseManager.EnqueueEffectToApply(effect);
-            AudioManager.instance.PlaySFXArray("StatusFrozen", enemy.transform.position);
+            AudioManager.instance.PlaySFXArray("FrozenStatus", enemy.transform.position);
         }
     }
 }

@@ -74,11 +74,16 @@ public class Enemy : MonoBehaviour
 
     bool reachedEnd = false;
 
+    float shockDamage = 5;
+    float shockDamageMax = 5;
+
     private void Start()
     {
         gameObject.name = gameObject.name.Replace("(Clone)", " ");
         int randID = Random.Range(0, 10000);
-        gameObject.name += randID.ToString("D4"); ;
+        gameObject.name += randID.ToString("D4"); 
+        
+        shockDamage = shockDamageMax;
     }
 
     public void Init()
@@ -241,18 +246,22 @@ public class Enemy : MonoBehaviour
             {
                 activeEffects[i].expireTime -= Time.deltaTime;
                 activeEffects[i].stopExpireTime -= Time.deltaTime;
-
                 if (activeEffects[i].expireTime > 0) {
-                    //Speed = 0f;
+                    shockDamage -= activeEffects[i].damage;
+                    if (shockDamage > 0f)
+                    {
+                        TowerDefenseManager.EnqueueDamageData(new EnemyDamage(this, activeEffects[i].damage, GetResistanceModifier(activeEffects[i].element)));
+                        return;
+                    }
                     if (activeEffects[i].stopExpireTime <= 0f)
                     {
                         Effect shockEffect = activeEffects[i];
-
                         if (Speed == 0) //if speed = 0, switch to moving
                         {
                             Speed = shockEffect.origSpeed;
                             shockEffect.stopExpireTime = shockEffect.stopIntervalTime;
                             speedAffected = false;
+                            shockDamage = shockDamageMax;
                         }
                         else //otherwise, enemy has NOT stopped and needs to be!
                         

@@ -13,9 +13,7 @@ public class ElectricVolumeManager : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = EnemySpawner.enemyTransformPairs[other.transform];
-            //public Effect(string newEffectName, float newStopIntervalTime, float newResumeIntervalTime, float newOrigSpeed, float newExpireTime)
-            Effect shockEffect = new Effect("Shock", 2.0f, 0.5f, enemy.Speed, effectTime);
-
+            Effect shockEffect = new Effect("Shock", baseClass.DamageValue, baseClass.FirerateValue, 2.0f, 0.5f, enemy.Speed, effectTime);
             AppliedEffect effect = new AppliedEffect(enemy, shockEffect, "ShockStatus");
             TowerDefenseManager.EnqueueEffectToApply(effect);
         }

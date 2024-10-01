@@ -358,6 +358,7 @@ public class TowerDefenseManager : MonoBehaviour
                 //break;
 
                 default: //all other cases: advance to next wave uninterrupted
+                    //MiniMapTowerPlacement
                     break;
             }
         }
@@ -837,16 +838,19 @@ public class Effect
     }
 
     //Shock Effect
-    public Effect(string newEffectName, float newStopIntervalTime, float newResumeIntervalTime, float newOrigSpeed, float newExpireTime)
+    public Effect(string newEffectName, float newDamage, float newDamageRate, float newStopIntervalTime, float newResumeIntervalTime, float newOrigSpeed, float newExpireTime)
     {
         effectName = newEffectName;
+        damage = newDamage;
+        damageRate = newDamageRate;
         stopIntervalTime = newStopIntervalTime;
         resumeIntervalTime = newResumeIntervalTime;
         origSpeed = newOrigSpeed;
         expireTime = newExpireTime;
         stopExpireTime = stopIntervalTime;
 
-        effectType = EffectType.Stun;
+        element = ElementType.Electric;
+        effectType = EffectType.Shock;
     }
 
     //Stun Effect (towers)

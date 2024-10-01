@@ -16,7 +16,7 @@ public class FreezeBombItem : ItemScript
             //Debug.Log("Orig Speed: " + enemy.Speed + " // " + slowAmount);
             Effect slowEffect = new Effect(gameObject.name + " - Slow", slowAmount, enemy.Speed, 3f);
             AppliedEffect effect = new AppliedEffect(enemy, slowEffect);
-            AudioManager.instance.PlaySFXArray("StatusFrozen", enemy.transform.position);
+            AudioManager.instance.PlaySFXArray("FrozenStatus", enemy.transform.position);
             TowerDefenseManager.EnqueueEffectToApply(effect);
 
             base.OnItemUse();

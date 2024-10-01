@@ -80,11 +80,7 @@ MonoBehaviour:
   attackRate: 1
   attackingTower: {fileID: 0}
   damageResistance: 1
-  damageResistances:
-  - resistanceType: 1
-    resistanceModifier: 0.5
-  - resistanceType: 3
-    resistanceModifier: 1.7
+  damageResistances: []
   activeEffects: []
   currNodePath: []
   currNodeIndices: 

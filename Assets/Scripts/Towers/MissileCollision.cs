@@ -70,7 +70,7 @@ public class MissileCollision : MonoBehaviour
             case ElementType.Ice:
                 Effect slowEffect = new Effect(gameObject.name + " - Slow", 0.5f, enemy.Speed, 3f);
                 AppliedEffect effect = new AppliedEffect(enemy, slowEffect);
-                AudioManager.instance.PlaySFXArray("StatusFrozen", enemy.transform.position);
+                AudioManager.instance.PlaySFXArray("FrozenStatus", enemy.transform.position);
                 TowerDefenseManager.EnqueueEffectToApply(effect);
                 break;
             default:

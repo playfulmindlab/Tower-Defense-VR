@@ -107,7 +107,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.371528, y: 0.00000011920929, z: 3.2674692}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8408283972896232464}
@@ -132,17 +132,22 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 7598316381452625411}
   canFire: 1
+  followEnemy: 1
   towerCost: 400
   health: 10
   maxHealth: 10
   shield: 10
   damage: 2
-  firerate: 1
-  range: 3
+  firerate: 0.5
+  range: 6
+  readjustSpeed: 3
   healthBar: {fileID: 852212069904509526}
   shieldBar: {fileID: 4655992884383922369}
   outline: {fileID: 0}
   upgradedTower: {fileID: 0}
+  propParent: {fileID: 0}
+  activeEffects: []
+  stunnedImage: {fileID: 0}
   aliveOnSceneStart: 0
   rotateSpeed: 30
 --- !u!65 &4362111172397025636
@@ -180,6 +185,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 7762298013867646646}
   towerCamera: {fileID: 4177509734724272939}
+  towerTip: {fileID: 0}
+  towerUI: {fileID: 0}
+  towerUITransform: {fileID: 0}
 --- !u!114 &6314259200922738085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +202,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canFire: 1
   attackType: 3
-  fireEffect: {fileID: 5041510741216323220}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  missileSystem: {fileID: 0}
+  towerHead: {fileID: 0}
+  firingSFXName: TowerBasicShot
+  baseDamageValue: 2
   fireVolume: {fileID: 7455270040290180130}
 --- !u!54 &316731508935204768
 Rigidbody:
@@ -675,7 +689,7 @@ GameObject:
   - component: {fileID: 8787609175270618247}
   - component: {fileID: 7455270040290180130}
   - component: {fileID: 9210046944645752919}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: ElectricVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,17 +721,17 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4, y: 0.1, z: 0.1}
-  m_Center: {x: 0.2, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &9210046944645752919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2488,11 +2502,6 @@ PrefabInstance:
 --- !u!4 &4875726157579595369 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8142398905394400554, guid: 4d32c5cf75f10834c84c36b7fa04c585, type: 3}
-  m_PrefabInstance: {fileID: 3699025059706086211}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &5041510741216323220 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8548563265138935255, guid: 4d32c5cf75f10834c84c36b7fa04c585, type: 3}
   m_PrefabInstance: {fileID: 3699025059706086211}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3797461052305586538
