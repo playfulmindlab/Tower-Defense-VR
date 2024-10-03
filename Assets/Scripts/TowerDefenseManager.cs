@@ -174,6 +174,7 @@ public class TowerDefenseManager : MonoBehaviour
                     EventManager.instance.RecordNewEvent(newEvent);
 
                     UpdateWaveCount(waveCount);
+                    SpawnablesEnabler.instance.DisableAllTowers();
                 }
                 break;
 
@@ -518,11 +519,12 @@ public class TowerDefenseManager : MonoBehaviour
                     EnemySpawner.enemiesInGame[i].nodeIndex = nodeIndices[i];
 
                     Debug.Log("INDEX COMP: " + EnemySpawner.enemiesInGame[i].nodeIndex + " vs " + nodePositions2.Length);
-                    if (EnemySpawner.enemiesInGame[i].nodeIndex >= nodePositions2.Length)
+                    /*if (EnemySpawner.enemiesInGame[i].nodeIndex >= nodePositions2.Length)
                     {
-                        GameManager.instance.LogNewEvent("Enemy Finished", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
+                        GameManager.instance.LogNewEvent("Enemy Finished", EnemySpawner.enemiesInGame[i].gameObject, 
+                            transform.position, GameControlManager.instance.IsJumped, EnemySpawner.enemiesInGame[i].Health);
                         EnqueueEnemyToRemove(EnemySpawner.enemiesInGame[i]);
-                    }
+                    }*/
                 }
 
                 enemySpeeds.Dispose();

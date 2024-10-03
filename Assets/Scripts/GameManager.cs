@@ -110,6 +110,16 @@ public class GameManager : MonoBehaviour
         EventManager.instance.RecordNewEvent(newEvent);
     }
 
+    public void LogNewEvent(string newEventName, GameObject newGOName, Vector3 newEventCoords, bool isJumped, string newEnemyHealth)
+    {
+        string eventCoordinates = new string("X: " + newEventCoords.x + "Y: " + newEventCoords.y + "Z: " + newEventCoords.z);
+        DataEvent newEvent = new DataEvent(newEventName, newGOName.name, eventCoordinates, isJumped.ToString());
+
+        newEvent.enemyHealth = newEnemyHealth;
+
+        EventManager.instance.RecordNewEvent(newEvent);
+    }
+
     public void LogNewMainMenuEvent(string newEventName) 
     {
         //return new DataEvent(newEventName);

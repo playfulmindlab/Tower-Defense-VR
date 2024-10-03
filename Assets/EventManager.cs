@@ -43,7 +43,7 @@ public class EventManager : MonoBehaviour//Singleton<Analytics>
         }
 
         newFileLocation += GameManager.instance.SessionStartTime.ToString("dd-MM-yy - HH.mm.ss") + ".csv";
-        File.WriteAllText(newFileLocation, "Timestamp,Participant,Game,Total Time Played,Session Number,Session Time Played,Map Number,Level Number,Wave Number,Event,Gameobject,Gameobject Coordinates,Jump Status\n");
+        File.WriteAllText(newFileLocation, "Timestamp,Participant,Game,Total Time Played,Session Number,Session Time Played,Map Number,Level Number,Wave Number,Event,Gameobject,Gameobject Coordinates,Jump Status, Enemy Health\n");
         fileLocation = newFileLocation;
 
         Debug.Log("Swapped Files.");
@@ -85,6 +85,8 @@ public class DataEvent
     public string eventCoordinates;
     public string jumpStatus;
 
+    public string enemyHealth = "N/A";
+
     public DataEvent(string newEventName, GameObject newGO, Vector3 newEventCoords, bool isJumped)
     {
         GameManager gm = GameManager.instance;
@@ -105,7 +107,7 @@ public class DataEvent
         eventName = newEventName;
         gameObjectName = newGO.name;
         eventCoordinates = new string ("X: " + newEventCoords.x + " Y: " + newEventCoords.y + " Z: " + newEventCoords.z);
-        jumpStatus = isJumped.ToString() ;
+        jumpStatus = isJumped.ToString();
     }
 
     public DataEvent(string newEventName, string newGOName, string newEventCoords, string isJumped)
@@ -165,8 +167,6 @@ public class DataEvent
         jumpStatus = "N/A";
     }
 
-
-
     public string[] GetDataStringArray()
     {
         List<string> newEventStringList = new List<string>();
@@ -184,6 +184,8 @@ public class DataEvent
         newEventStringList.Add(gameObjectName);
         newEventStringList.Add(eventCoordinates);
         newEventStringList.Add(jumpStatus);
+
+        newEventStringList.Add(enemyHealth != "N/A" ? enemyHealth : "");
 
         return newEventStringList.ToArray();
     }

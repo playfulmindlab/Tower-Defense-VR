@@ -38,9 +38,26 @@ public class SpawnablesEnabler : MonoBehaviour
     {
         foreach (SpawnablesToEnable spawnable in spawnables)
         {
-            if (spawnable.wave == newWave)
+            if (spawnable.wave <= newWave)
             {
                 spawnable.EnableSpawnables();
+                //spawnable.ToggleLockedStat(true);
+            }
+        }
+    }
+
+    public void DisableAllTowers()
+    {
+        Debug.Log("TESTING 0");
+        if (activateUnlockableTowers == true)
+        {
+            Debug.Log("TESTING 1");
+            BarrelSpawnableScript[] allBSSs = GetComponentsInChildren<BarrelSpawnableScript>();
+            foreach (BarrelSpawnableScript bss in allBSSs)
+            {
+                Debug.Log("TESTING X");
+                bss.DisableSpawnable();
+                bss.ToggleLockedStat(true);
             }
         }
     }

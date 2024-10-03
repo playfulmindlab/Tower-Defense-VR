@@ -317,7 +317,9 @@ public class Enemy : MonoBehaviour
 
     public void RemoveFromGame()
     {
-        GameManager.instance.LogNewEvent("Enemy Finished", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
+        string healthRemaining = Health.ToString() + " / " + maxHealth.ToString();
+        GameManager.instance.LogNewEvent("Enemy Finished", this.gameObject, transform.position, GameControlManager.instance.IsJumped,
+            healthRemaining);
         TowerDefenseManager.EnqueueEnemyToRemove(this);
     }
 
