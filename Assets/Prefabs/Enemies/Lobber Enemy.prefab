@@ -735,7 +735,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1154,6 +1154,7 @@ MonoBehaviour:
   missileSystem: {fileID: 9001227276375387382}
   towerHead: {fileID: 6563785204448138362}
   firingSFXName: TowerBasicShot
+  baseDamageValue: 0
   baseClass: {fileID: 6763538773121577770}
   explosionSystem: {fileID: 8986009601953855263}
 --- !u!198 &9001227276375387382 stripped

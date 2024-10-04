@@ -9,6 +9,9 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     [SerializeField, Min(3)] int lineSegments = 20;
     [SerializeField] Transform tipTransform;
 
+    [SerializeField] float cameraHeightMod = 3f;
+    [SerializeField] float cameraAngleMod = 30f;
+
     GameObject targetDecal;
     Vector3 targetPoint = Vector3.zero;
     RaycastHit hit;
@@ -23,6 +26,8 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     {
         missileSystemMain = missileSystem.main;
         targetDecal = GameObject.Find("LobberTargetDecal");
+        towerCamera.transform.localPosition = Vector3.up * cameraHeightMod;
+
         if (trajectoryLine.enabled)
             trajectoryLine.enabled = false;
     }
@@ -41,12 +46,13 @@ public class JumpedLobberTowerControls : JumpedTowerControls
 
     void ChangeCameraRotation(Vector3 newCoords, float dampVal)
     {
+        newCoords += Vector3.right * cameraAngleMod;
         towerCamera.transform.localRotation = Quaternion.Slerp(towerCamera.transform.localRotation, Quaternion.Euler(newCoords), Time.deltaTime * dampVal);
     }
 
     public override void RotateGun(Vector2 balanceBoardCoords, float dampVal = 5f)
     {
-        ChangeCameraRotation(new Vector3((balanceBoardCoords.y - towerRotation) * 2f, -balanceBoardCoords.x * 2, 0f), dampVal);
+        ChangeCameraRotation(new Vector3(-(balanceBoardCoords.y - towerRotation) * 2f, -balanceBoardCoords.x * 2, 0f), dampVal);
 
         Quaternion rot = Quaternion.Euler(new Vector3(0f, -balanceBoardCoords.x * 2, 0f));
         towerHead.localRotation = Quaternion.Slerp(towerHead.localRotation, rot, Time.deltaTime * dampVal);

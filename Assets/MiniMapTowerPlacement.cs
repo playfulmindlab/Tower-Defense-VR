@@ -88,12 +88,25 @@ public class MiniMapTowerPlacement : MonoBehaviour
         playerStats.SubtractMoney(currentTowerBehaviour.towerCost);
 
         towerCollider.isTrigger = false;
-        towerCollider.gameObject.layer = 6;
+        string towerTag = tower.tag;
+        int newLayerNum = 0;
 
+        switch (towerTag)
+        {
+            case "Obstacle":
+            case "AttackObstacle":
+                newLayerNum = 9;
+                break;
+            case "Tower":
+            default:
+                newLayerNum = 6;
+                break;
+        }
 
+        towerCollider.gameObject.layer = newLayerNum;
         foreach (Transform child in towerCollider.transform)
         {
-            child.gameObject.layer = 6;
+            child.gameObject.layer = newLayerNum;
         }
 
         if (playTowerPlacedSFX == true)

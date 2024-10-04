@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 6049631168082168069}
   m_Layer: 2
   m_Name: Barrier
-  m_TagString: Obstacle
+  m_TagString: AttackObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -544,6 +544,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 2062417903487275000}
   canFire: 1
+  followEnemy: 1
   towerCost: 300
   health: 1
   maxHealth: 1
@@ -551,10 +552,12 @@ MonoBehaviour:
   damage: 0
   firerate: 0
   range: 1
+  readjustSpeed: 3
   healthBar: {fileID: 3962951845373691717}
   shieldBar: {fileID: 2884155592055299455}
   outline: {fileID: 6049631168082168069}
   upgradedTower: {fileID: 6638514398489324706, guid: 54f5de8133340ad4382bdf8da091962b, type: 3}
+  propParent: {fileID: 0}
   activeEffects: []
   stunnedImage: {fileID: 0}
   aliveOnSceneStart: 0
@@ -588,7 +591,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.4, y: 1, z: 1.4}
@@ -619,7 +622,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &9025790507391920904
 MonoBehaviour:
   m_ObjectHideFlags: 0
