@@ -552,6 +552,8 @@ MonoBehaviour:
   missileSystem: {fileID: 7983738889265385462}
   lineSegments: 20
   tipTransform: {fileID: 4595422328761283147}
+  cameraHeightMod: 3
+  cameraAngleMod: 20
 --- !u!114 &4782294286899974261
 MonoBehaviour:
   m_ObjectHideFlags: 0
