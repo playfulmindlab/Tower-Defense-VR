@@ -54120,8 +54120,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8689054701685227410}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -13.5, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -0.258819, z: 0, w: 0.9659259}
+  m_LocalPosition: {x: -9.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -54129,7 +54129,7 @@ Transform:
   - {fileID: 355571285}
   - {fileID: 2244232225340452393}
   m_Father: {fileID: 1028667802}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
 --- !u!4 &6298314326820546252
 Transform:
   m_ObjectHideFlags: 0
@@ -56751,19 +56751,19 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 612b0a42145375d45b1ab32b98c9e42b, type: 2}
+      objectReference: {fileID: 2100000, guid: 3f03fe22efa4c7c43b3033cb74a52b4e, type: 2}
     - target: {fileID: 2300002, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -2332099853253046095, guid: fdae1ae57a3fda44fb2970dd42deb6b7, type: 3}
+      objectReference: {fileID: 2100000, guid: 612b0a42145375d45b1ab32b98c9e42b, type: 2}
     - target: {fileID: 2300004, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -2332099853253046095, guid: fdae1ae57a3fda44fb2970dd42deb6b7, type: 3}
+      objectReference: {fileID: 2100000, guid: 612b0a42145375d45b1ab32b98c9e42b, type: 2}
     - target: {fileID: 2300006, guid: d148bd46a5a4c4e4d96a7c02442100fc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 6709170938499032525, guid: e5a35acfeb8411946ba64df2bb40c14b, type: 3}
+      objectReference: {fileID: 2100000, guid: 2bdb7953ef61f254b923df6204790ab6, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
