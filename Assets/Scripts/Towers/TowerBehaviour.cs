@@ -191,7 +191,7 @@ public class TowerBehaviour : MonoBehaviour
     {
         //TODO: wirte code for what happens when tower dies here
         AudioManager.instance.PlaySFXArray("TowerDestroyed", transform.position);
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
         canFire = false;
 
         propParent.DeletePropAndTower();

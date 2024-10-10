@@ -183,6 +183,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
                 newProp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
                 newProp.GetComponent<Rigidbody>().isKinematic = true;
                 newPropManager.LockPropPosition();
+                newTower.GetComponent<TowerBehaviour>().AssignPropParent(newPropManager);
             }
             else
             {

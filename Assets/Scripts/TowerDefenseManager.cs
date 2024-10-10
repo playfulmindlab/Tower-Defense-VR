@@ -47,6 +47,8 @@ public class TowerDefenseManager : MonoBehaviour
     int currEnemyKillCount;
     int currEnemiesRemovedCount;
     int spawnedEnemiesCount = 0;
+
+    [SerializeField] float enemySpawnTimes = 1.5f;
     [SerializeField] float intermissionTime = 2f;
     [SerializeField] bool continueLoop = true;
     [SerializeField] bool spawnEnemies = true;
@@ -369,16 +371,6 @@ public class TowerDefenseManager : MonoBehaviour
                     break;
             }
         }
-        /*
-        if (waveCount > wavesTilLevelWin)
-        {
-            DataEvent newEvent = new DataEvent("Level Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
-            EventManager.instance.RecordNewEvent(newEvent);
-
-            UpdateLevelCount();
-            return;
-        }
-        */
 
         Debug.Log("WENT THRU ANYWAYS");
 
@@ -402,7 +394,7 @@ public class TowerDefenseManager : MonoBehaviour
         spawnEnemies = true;
 
         AudioManager.instance.PlaySFXArray("NewWaveSound", new Vector3(20, 10, 0));
-        InvokeRepeating("SpawnEnemies", 0f, 1f);
+        InvokeRepeating("SpawnEnemies", 0f, enemySpawnTimes);
 
         DataEvent newEvent = new DataEvent("Wave Start", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent);

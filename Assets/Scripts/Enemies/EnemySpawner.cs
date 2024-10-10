@@ -64,26 +64,6 @@ public class EnemySpawner : MonoBehaviour
             numHolder.Add(enemyValues);
             waveCountHolder.Add(enemyCount);
             afterStatusHolder.Add(System.Convert.ToChar(dataValues[dataValues.Length - 1]));
-
-            //string testString = "";
-
-            /*
-            int[] dataValues = System.Array.ConvertAll(dataString.Split(','), int.Parse);
-
-            numHolder.Add(dataValues);
-
-            enemyCount = 0;
-            for (int i = 0; i < 4; i++)
-            {
-                enemyCount += dataValues[i];
-            }
-
-            enemyCount *= dataValues[4];
-
-            breakHolder.Add(dataValues[5] == 0 ? false : true);
-
-            waveCountHolder.Add(enemyCount);
-            */
         }
 
         reader.Close();
@@ -129,7 +109,6 @@ public class EnemySpawner : MonoBehaviour
             enemyObjectPools = new Dictionary<int, Queue<Enemy>>();
 
             EnemySummonData[] enemyData = Resources.LoadAll<EnemySummonData>("EnemyData");
-            //Debug.Log(enemyData[0].name);
 
             foreach (EnemySummonData enemy in enemyData)
             {

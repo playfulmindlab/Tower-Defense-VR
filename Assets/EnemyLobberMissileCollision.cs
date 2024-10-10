@@ -22,6 +22,7 @@ public class EnemyLobberMissileCollision : MissileDamage
     private void OnParticleCollision(GameObject other)
     {
         missileSystem.GetCollisionEvents(other, missileCollisions);
+        Debug.Log("OTHER: " + other.name);
 
         for (int collisionEvent = 0; collisionEvent < missileCollisions.Count; collisionEvent++)
         {
@@ -29,6 +30,7 @@ public class EnemyLobberMissileCollision : MissileDamage
             explosionSystem.Play();
 
             TowerBehaviour towerToDamage = other.GetComponent<TowerBehaviour>();
+            Debug.Log("ATK TOWER: " + towerToDamage);
             if (towerToDamage != null)
             {
                 towerToDamage.Damage(baseClass.attack);

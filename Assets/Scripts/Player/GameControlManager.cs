@@ -37,6 +37,7 @@ public class GameControlManager : MonoBehaviour
     [SerializeField] Canvas towerViewCanvas;
     [SerializeField] JumpedTowerControls jumpedTowerControls;
     [SerializeField] public float cameraDamping = 5f;
+    [SerializeField] GameObject tunnelVolume;
     //[SerializeField] public InputActionProperty attackButton, unjumpButton;
 
     SimpleInletBalanceBoard bbInlet;
@@ -187,6 +188,7 @@ public class GameControlManager : MonoBehaviour
                 jumpedTransitionCanvas.worldCamera = jumpedTowerControls.TowerCamera;
                 jumpedOverlayWarning.enabled = true;
 
+                tunnelVolume.transform.position = jumpedTowerControls.gameObject.transform.position;
                 isJumped = true;
                 //ChangeTargetType();
                 //towerUI.ResetReticle();
