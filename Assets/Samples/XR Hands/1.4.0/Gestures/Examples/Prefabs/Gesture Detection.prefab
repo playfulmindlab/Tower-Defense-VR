@@ -3270,6 +3270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2435022885875242552}
+  - component: {fileID: 1823696458356703201}
   m_Layer: 0
   m_Name: Gesture Detection
   m_TagString: Untagged
@@ -3293,6 +3294,18 @@ Transform:
   - {fileID: 7863554982681176244}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &1823696458356703201
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3309532503963047405}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3453953183478111622
 GameObject:
   m_ObjectHideFlags: 0
