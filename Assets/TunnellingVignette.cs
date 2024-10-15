@@ -23,7 +23,7 @@ public class TunnellingVignette : MonoBehaviour
         vIntensitry = tvVignette.intensity;
         Debug.Log("VOLUME: " + tvVolume);
         Debug.Log("VIGNETTE: " + tvVignette);
-        TunnelGOLocation();
+        //TunnelGOLocation();
     }
 
     float timer;
