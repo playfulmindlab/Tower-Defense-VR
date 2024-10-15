@@ -91,6 +91,7 @@ public class Enemy : MonoBehaviour
     {
         Health = maxHealth;
         activeEffects = new List<Effect>();
+        reachedEnd = false;
 
         damResistancesDict.Clear();
         foreach (DamageResistance damRes in damageResistances)
@@ -191,6 +192,7 @@ public class Enemy : MonoBehaviour
         if (reachedEnd)
         {
             RemoveFromGame();
+            return;
         }
 
         //Attack Obstacle
