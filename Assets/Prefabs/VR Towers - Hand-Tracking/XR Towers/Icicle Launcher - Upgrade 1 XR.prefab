@@ -743,10 +743,12 @@ MonoBehaviour:
   damage: 20
   firerate: 1
   range: 5
+  readjustSpeed: 3
   healthBar: {fileID: 7148677496383868548}
   shieldBar: {fileID: 6541553771498999157}
   outline: {fileID: 0}
   upgradedTower: {fileID: 1565751871533538187, guid: 3058f1f90d287c14bb67afb5d3f5f427, type: 3}
+  propParent: {fileID: 0}
   activeEffects: []
   stunnedImage: {fileID: 3736015725584384540}
   aliveOnSceneStart: 0
@@ -808,6 +810,7 @@ MonoBehaviour:
   missileSystem: {fileID: 4711468658047425504}
   towerHead: {fileID: 3391413054907642829}
   firingSFXName: TowerFreezeShot
+  baseDamageValue: 0
 --- !u!54 &4179621449504927544
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1515,10 +1518,10 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 3
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0

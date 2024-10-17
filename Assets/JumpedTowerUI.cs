@@ -42,10 +42,12 @@ public class JumpedTowerUI : MonoBehaviour
         
     }
 
+    Vector3 bbReticleMod = new Vector3(1f, -1f, 1f);
     public void ReticleRaycast(Camera camera)
     {
         // move the reticle to the screen point
-        reticle.transform.localPosition = Vector3.Lerp(reticle.transform.localPosition, balanceBoardInput.CoordValues * 3f, Time.deltaTime * gm.cameraDamping);//balanceBoardInput.CoordValues * 3;
+
+        reticle.transform.localPosition = Vector3.Lerp(reticle.transform.localPosition, balanceBoardInput.CoordValues * 3f * bbReticleMod, Time.deltaTime * gm.cameraDamping);//balanceBoardInput.CoordValues * 3;
         reticle.transform.rotation = Quaternion.LookRotation((Camera.main.transform.position - reticle.transform.position).normalized);
 
         //Debug.DrawRay(reticle.transform.position, reticle.transform.forward, Color.red);

@@ -30893,7 +30893,7 @@ GameObject:
   - component: {fileID: 1334275258}
   - component: {fileID: 1334275257}
   - component: {fileID: 1334275256}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: TunnellingVignetteGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52678,7 +52678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: CollisionModule.type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: SizeModule.separateAxes
@@ -53938,7 +53938,7 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 3
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
@@ -57004,6 +57004,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1574002766}
+  - {fileID: 1334275259}
   - {fileID: 856443670}
   - {fileID: 480158193}
   - {fileID: 1742867656}
@@ -57026,4 +57027,3 @@ SceneRoots:
   - {fileID: 1394042147}
   - {fileID: 479864125}
   - {fileID: 1599315079}
-  - {fileID: 1334275259}
