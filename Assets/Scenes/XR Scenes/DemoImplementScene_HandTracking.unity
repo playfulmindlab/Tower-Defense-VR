@@ -26636,7 +26636,7 @@ GameObject:
   - component: {fileID: 981493126}
   - component: {fileID: 981493125}
   - component: {fileID: 981493127}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: TunnellingVignetteGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
