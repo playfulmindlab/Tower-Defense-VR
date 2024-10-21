@@ -10,20 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35248167649168841a166c85015bb5e0, type: 3}
-  m_Name: TestWaveComp
+  m_Name: ControlScemeTest
   m_EditorClassIdentifier: 
   waves:
   - enemyOrder:
     - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
-    numLoops: 1
-    postWaveStep: 0
-  - enemyOrder:
-    - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
-    numLoops: 2
-    postWaveStep: 2
-  - enemyOrder:
-    - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
-    numLoops: 3
+    numLoops: 20
     postWaveStep: 1
   - enemyOrder:
     - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
