@@ -53,6 +53,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
             newProp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
             newProp.GetComponent<Rigidbody>().isKinematic = true;
             newProp.layer = LayerMask.NameToLayer("Props");
+            foreach(Transform pChild in newProp.transform) { pChild.gameObject.layer = LayerMask.NameToLayer("Props"); }
 
             RotateTowerTowardsPath(newProp);
 
@@ -82,9 +83,6 @@ public class MiniMapTowerPlacement : MonoBehaviour
         TowerBehaviour currentTowerBehaviour = tower.GetComponent<TowerBehaviour>();
         TowerDefenseManager.towersInGame.Add(currentTowerBehaviour);
 
-        //if (currentPlacingTower != null)
-        //    RotateTowerTowardsPath(currentPlacingTower);
-
         playerStats.SubtractMoney(currentTowerBehaviour.towerCost);
 
         towerCollider.isTrigger = false;
@@ -106,6 +104,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
         towerCollider.gameObject.layer = newLayerNum;
         foreach (Transform child in towerCollider.transform)
         {
+            Debug.Log("LAYER CHANGE: " + newLayerNum + " @ " + child.gameObject);
             child.gameObject.layer = newLayerNum;
         }
 

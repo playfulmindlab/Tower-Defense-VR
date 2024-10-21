@@ -794,6 +794,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 2062417903487275000}
   canFire: 1
+  followEnemy: 1
   towerCost: 1000
   health: 1
   maxHealth: 1
@@ -801,10 +802,12 @@ MonoBehaviour:
   damage: 0
   firerate: 0
   range: 1
+  readjustSpeed: 3
   healthBar: {fileID: 3962951845373691717}
   shieldBar: {fileID: 2884155592055299455}
   outline: {fileID: 6049631168082168069}
   upgradedTower: {fileID: 0}
+  propParent: {fileID: 0}
   activeEffects: []
   stunnedImage: {fileID: 0}
   aliveOnSceneStart: 0
@@ -841,8 +844,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4, y: 1, z: 1.4}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 1.7, y: 1, z: 1.7}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!54 &7992118818054850970
 Rigidbody:
   m_ObjectHideFlags: 0

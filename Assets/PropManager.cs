@@ -69,6 +69,7 @@ public class PropManager : MonoBehaviour
                 return;
             }
 
+            Debug.Log("DROP OUT: " + hit.collider.gameObject.name + " @ " + hit.collider.gameObject.layer.ToString());
             //Check to see if it intersects Baseplate & ONLY baseplate
             if (gameObject.tag == "Tower" && hit.collider.gameObject.layer == baseLayer)
             {

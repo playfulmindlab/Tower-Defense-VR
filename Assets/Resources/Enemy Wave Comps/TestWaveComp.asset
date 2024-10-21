@@ -29,3 +29,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
     numLoops: 999
     postWaveStep: 2
+  - enemyOrder:
+    - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
+    numLoops: 999
+    postWaveStep: 2
