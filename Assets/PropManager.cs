@@ -93,6 +93,7 @@ public class PropManager : MonoBehaviour
             else
             {
                 Destroy(gameObject);
+                miniMapScript.ResetRadiusDecal();
             }
         }
     }

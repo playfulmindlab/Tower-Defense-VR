@@ -38,6 +38,11 @@ public class MiniMapTowerPlacement : MonoBehaviour
         }
     }
 
+    public void ResetRadiusDecal()
+    {
+        radiusDecal.transform.position = new Vector3(0, -1000, 0);
+    }
+
     public GameObject DropNewProp(GameObject newProp, GameObject newMainMapTower, Vector3 localDropPoint)
     {
         TowerBehaviour towerToDrop = newProp.GetComponent<PropManager>().towerSpawn.GetComponent<TowerBehaviour>();
@@ -69,7 +74,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
             spawnedTower = newTower;
 
             AssignCurrentTower(null);
-            radiusDecal.transform.position = new Vector3(0, -1000, 0);
+            ResetRadiusDecal();
         }
         else
         {
