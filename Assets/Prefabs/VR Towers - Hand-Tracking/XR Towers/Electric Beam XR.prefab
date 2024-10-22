@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 556130989061614822}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 1.02, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 2559268645001446752}
   towerCamera: {fileID: 6928653573130352841}
-  towerTip: {fileID: 0}
+  towerTip: {fileID: 697098582393442149}
   towerUI: {fileID: 0}
   towerUITransform: {fileID: 0}
 --- !u!114 &1494679770127603109
@@ -2555,6 +2555,18 @@ PrefabInstance:
       value: turret_5
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 03f80303eb362fc489b3fe5bab219a93, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 03f80303eb362fc489b3fe5bab219a93, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 03f80303eb362fc489b3fe5bab219a93, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 03f80303eb362fc489b3fe5bab219a93, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2593,6 +2605,10 @@ PrefabInstance:
     - target: {fileID: 400006, guid: 03f80303eb362fc489b3fe5bab219a93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 03f80303eb362fc489b3fe5bab219a93, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

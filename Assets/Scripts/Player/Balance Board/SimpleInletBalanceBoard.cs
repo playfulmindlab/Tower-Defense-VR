@@ -121,7 +121,7 @@ namespace LSL4Unity.Samples.SimpleInlet
             {
                 float sinValue = Mathf.PingPong(Time.time * 15f, 90f) - 45;
 
-                AddNewReadingToRecentReadings(new float[] {sinValue, sinValue, 0f});
+                AddNewReadingToRecentReadings(new float[] {sinValue, 0f, 0f});
             }
 
             avgReading = GetAverageReading();
