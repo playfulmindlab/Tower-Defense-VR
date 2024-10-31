@@ -42053,7 +42053,7 @@ MonoBehaviour:
   rayWidth: 0.01
   layersToInclude:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32757
   rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   rayColorHoverState: {r: 0, g: 1, b: 0, a: 1}
 --- !u!120 &1657181474
@@ -43981,7 +43981,7 @@ MonoBehaviour:
   rayWidth: 0.05
   layersToInclude:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32757
   rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   rayColorHoverState: {r: 0, g: 1, b: 0, a: 1}
 --- !u!120 &1741921218

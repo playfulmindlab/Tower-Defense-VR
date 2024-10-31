@@ -48,7 +48,8 @@ public class EyeTrackingRecorder : MonoBehaviour
         //folderID = System.DateTime.Now.ToString("MM-dd/hh:mm:ss");
         Debug.Log(Application.dataPath + "/Eye Tracking/EyeTrackingTempData.csv");
 
-        string folderID = System.DateTime.Now.ToString("MM-dd - hh.mm.ss");
+        string folderID = System.DateTime.Now.ToString("MM-dd-yy - hh.mm.ss");
+        folderID += " - " + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         string newFileLocation = Application.dataPath + "/Eye Tracking/";
 
         if (!File.Exists(newFileLocation))
@@ -56,7 +57,6 @@ public class EyeTrackingRecorder : MonoBehaviour
             Directory.CreateDirectory(newFileLocation);
         }
 
-        //playerSaveData = GameManager.instance.PlayerData();
         newFileLocation += "TDEyeData_" + folderID + ".csv";
 
         //if we're running the program in the Eeditor, delete the contents of the EyeTrackingTempData file

@@ -153,7 +153,7 @@ namespace LSL4Unity.Samples.SimpleInlet
                 Directory.CreateDirectory(newFileLocation);
             }
 
-            newFileLocation += GameManager.instance.SessionStartTime.ToString("MM-yy - HH.mm.ss") + ".csv";
+            newFileLocation += GameManager.instance.SessionStartTime.ToString("MM-dd-yy - HH.mm.ss") + " - " + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + ".csv";
             File.WriteAllText(newFileLocation, "Timestamp,Participant,Session Number,Raw X,Raw Y,Raw Z,Mod X,Mod Y, Mod Z\n");
             fileLocation = newFileLocation;
 
