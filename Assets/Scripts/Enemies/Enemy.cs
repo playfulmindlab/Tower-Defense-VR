@@ -81,14 +81,21 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         gameObject.name = gameObject.name.Replace("(Clone)", " ");
-        int randID = Random.Range(0, 10000);
-        gameObject.name += randID.ToString("D4"); 
-        
+        //gameObject.name += "0000";
         shockDamage = shockDamageMax;
     }
 
     public void Init()
     {
+        gameObject.name = gameObject.name.Replace("(Clone)", " ");
+
+        string newName = gameObject.name;
+        if (char.IsDigit(newName[newName.Length - 1]))
+            newName = newName.Remove(newName.Length - 4);
+        int randID = Random.Range(0, 10000);
+        newName += randID.ToString("D4");
+        gameObject.name = newName;
+
         Health = maxHealth;
         activeEffects = new List<Effect>();
         reachedEnd = false;
