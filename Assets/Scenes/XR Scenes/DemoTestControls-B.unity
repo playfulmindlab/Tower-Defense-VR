@@ -24064,7 +24064,7 @@ GameObject:
   - component: {fileID: 929609217}
   - component: {fileID: 929609216}
   m_Layer: 12
-  m_Name: Baseplate
+  m_Name: MinimapBaseplate
   m_TagString: MinimapBaseplate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30328,7 +30328,7 @@ GameObject:
   - component: {fileID: 1294723965}
   - component: {fileID: 1294723964}
   m_Layer: 0
-  m_Name: Baseplate
+  m_Name: MainMapBaseplate
   m_TagString: Baseplate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

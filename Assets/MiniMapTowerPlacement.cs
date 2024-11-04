@@ -40,6 +40,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
     public void ResetRadiusDecal()
     {
+        if (currTower != null) currTower = null;
         radiusDecal.transform.position = new Vector3(0, -1000, 0);
     }
 
@@ -188,6 +189,21 @@ public class MiniMapTowerPlacement : MonoBehaviour
                 newProp.GetComponent<Rigidbody>().isKinematic = true;
                 newPropManager.LockPropPosition();
                 newTower.GetComponent<TowerBehaviour>().AssignPropParent(newPropManager);
+
+                towerCollider.isTrigger = false;
+                string propTag = newProp.tag;
+                int newLayerNum = 0;
+                switch (propTag)
+                {
+                    case "Obstacle":
+                    case "AttackObstacle":
+                        towerCollider.gameObject.layer = 9;
+                        break;
+                    case "Tower":
+                    default:
+                        towerCollider.gameObject.layer = 6;
+                        break;
+                }
             }
             else
             {

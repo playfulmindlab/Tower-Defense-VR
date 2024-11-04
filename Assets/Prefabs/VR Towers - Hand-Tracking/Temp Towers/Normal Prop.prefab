@@ -438,6 +438,7 @@ MonoBehaviour:
   miniMapScript: {fileID: 0}
   upgradedProp: {fileID: 0}
   radialMenuCanvas: {fileID: 8731099820192055578}
+  upgradedTowerRef: {fileID: 0}
 --- !u!1 &6353154423001119571
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +588,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80096398c55cf24c8e19fab9f14f614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 1316
 --- !u!1001 &123422316529598684
 PrefabInstance:
   m_ObjectHideFlags: 0
