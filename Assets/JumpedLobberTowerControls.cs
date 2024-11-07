@@ -52,7 +52,7 @@ public class JumpedLobberTowerControls : JumpedTowerControls
 
     public override void RotateGun(Vector2 balanceBoardCoords, float dampVal = 5f)
     {
-        ChangeCameraRotation(new Vector3(-(balanceBoardCoords.y - towerRotation) * 2f, -balanceBoardCoords.x * 2, 0f), dampVal);
+        ChangeCameraRotation(new Vector3((balanceBoardCoords.y - towerRotation) * 2f, -balanceBoardCoords.x * 2, 0f), dampVal);
 
         Quaternion rot = Quaternion.Euler(new Vector3(0f, -balanceBoardCoords.x * 2, 0f));
         towerHead.localRotation = Quaternion.Slerp(towerHead.localRotation, rot, Time.deltaTime * dampVal);
