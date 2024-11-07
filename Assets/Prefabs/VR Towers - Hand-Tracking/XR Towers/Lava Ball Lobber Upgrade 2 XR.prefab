@@ -2390,7 +2390,7 @@ MonoBehaviour:
   lineSegments: 20
   tipTransform: {fileID: 4947674486781701282}
   cameraHeightMod: 3
-  cameraAngleMod: 20
+  cameraAngleMod: 35
 --- !u!114 &9011514413597896596
 MonoBehaviour:
   m_ObjectHideFlags: 0
