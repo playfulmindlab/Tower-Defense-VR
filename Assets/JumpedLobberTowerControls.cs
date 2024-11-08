@@ -40,6 +40,9 @@ public class JumpedLobberTowerControls : JumpedTowerControls
             targetDecal.transform.position = hit.point;
             targetPoint = hit.point;
 
+            //trajectoryLine.enabled = jumpStatus;
+            //targetDecal.SetActive(jumpStatus);
+
             RenderTrajectory();
         }
     }
@@ -54,7 +57,7 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     {
         ChangeCameraRotation(new Vector3((balanceBoardCoords.y - towerRotation) * 2f, balanceBoardCoords.x * 2, 0f), dampVal);
 
-        Quaternion rot = Quaternion.Euler(new Vector3(0f, -balanceBoardCoords.x * 2, 0f));
+        Quaternion rot = Quaternion.Euler(new Vector3(0f, balanceBoardCoords.x * 2, 0f));
         towerHead.localRotation = Quaternion.Slerp(towerHead.localRotation, rot, Time.deltaTime * dampVal);
     }
 
@@ -92,14 +95,25 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     public override void SetCamera(bool camActive)
     {
         base.SetCamera(camActive);
-        trajectoryLine.enabled = true;
+        trajectoryLine.enabled = camActive;
+        targetDecal.SetActive(camActive);
     }
 
     public override void EndTowerJump()
     {
-        trajectoryLine.enabled = true;
+        Debug.Log("GOTHRU EndTowerJump()");
         base.EndTowerJump();
         //Quaternion rot = Quaternion.Euler(Vector3.zero);
         //towerHead.localEulerAngles = 
+        trajectoryLine.enabled = false;
+        targetDecal.SetActive(false);
+        ForceGun(false);
+    }
+
+    public override void SetGunFire()
+    {
+        Debug.Log("JUMP STAT 1: " + jumpStatus + " // " + trajectoryLine.enabled + " / " + targetDecal.activeSelf);
+        base.SetGunFire();
+        Debug.Log("JUMP STAT 2: " + jumpStatus + " // " + trajectoryLine.enabled + " / " + targetDecal.activeSelf);
     }
 }

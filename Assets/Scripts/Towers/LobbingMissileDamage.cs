@@ -42,7 +42,7 @@ public class LobbingMissileDamage : MissileDamage
         if (activeState == true)
         {
             audioSource.loop = true;
-            //missileSystemMain.loop = true;
+            missileSystemMain.loop = true;
             missileSystemMain.startSpeedMultiplier = jumpedLobberTowerControls.ProjectileSpeed;
             missileSystemMain.maxParticles = 1;
             var emission = missileSystem.emission;

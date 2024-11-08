@@ -118,6 +118,8 @@ public class JumpedTowerControls : MonoBehaviour
 
         if (jumpStatus == false && towerTip != null)
             towerTip.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+
+
     }
 
     public virtual void ResetHeadRotation()
