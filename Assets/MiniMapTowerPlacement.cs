@@ -74,6 +74,9 @@ public class MiniMapTowerPlacement : MonoBehaviour
             newTower.GetComponent<TowerBehaviour>().AssignPropParent(newProp.GetComponent<PropManager>());
             spawnedTower = newTower;
 
+            newTower.name = NewTowerIDGenerator(newTower.name);
+            newProp.name = NewTowerIDGenerator(newProp.name);
+
             AssignCurrentTower(null);
             ResetRadiusDecal();
         }
@@ -120,6 +123,19 @@ public class MiniMapTowerPlacement : MonoBehaviour
         towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
         Debug.Log("XR PLACEMENT SUCCESSFUL!");
+    }
+
+    string NewTowerIDGenerator(string originalName)
+    {
+        originalName = originalName.Replace("(Clone)", " ");
+
+        string newName = originalName;
+        if (char.IsDigit(newName[newName.Length - 1]))
+            newName = newName.Remove(newName.Length - 4);
+        int randID = Random.Range(0, 10000);
+        newName += randID.ToString("D4");
+
+        return newName;
     }
 
     void RotateTowerTowardsPath(GameObject newTower)
@@ -190,9 +206,11 @@ public class MiniMapTowerPlacement : MonoBehaviour
                 newPropManager.LockPropPosition();
                 newTower.GetComponent<TowerBehaviour>().AssignPropParent(newPropManager);
 
+                newTower.name = NewTowerIDGenerator(newTower.name);
+                newProp.name = NewTowerIDGenerator(newProp.name);
+
                 towerCollider.isTrigger = false;
                 string propTag = newProp.tag;
-                int newLayerNum = 0;
                 switch (propTag)
                 {
                     case "Obstacle":
@@ -204,6 +222,8 @@ public class MiniMapTowerPlacement : MonoBehaviour
                         towerCollider.gameObject.layer = 6;
                         break;
                 }
+                newProp.layer = LayerMask.NameToLayer("Props");
+                foreach (Transform pChild in newProp.transform) { pChild.gameObject.layer = LayerMask.NameToLayer("Props"); }
             }
             else
             {

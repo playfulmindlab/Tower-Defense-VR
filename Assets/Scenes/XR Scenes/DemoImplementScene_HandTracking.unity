@@ -20719,91 +20719,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5289182684458692541, guid: e5db301629853dd4a99835fa70099d79, type: 3}
   m_PrefabInstance: {fileID: 264508290}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &687917881
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 859423888049345578, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_Name
-      value: Blizzard Bomb Lobber XR
-      objectReference: {fileID: 0}
-    - target: {fileID: 859423888049345578, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255686201457586252, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -24.546234
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255686201457586252, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 16.133846
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255686201457586252, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -36.67475
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255686201457586252, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255686201457586252, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255686201457586252, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255686201457586252, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255686201457586252, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255686201457586252, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255686201457586252, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5661807490688474327, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5661807490688474327, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5661807490688474327, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.464
-      objectReference: {fileID: 0}
-    - target: {fileID: 7411126084630164216, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7411126084630164216, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7411126084630164216, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.555
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b32b5ada8a7902b4db161812b735ad81, type: 3}
 --- !u!1001 &689886520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41146,7 +41061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3b6e3b5977f2c46b70addf24d23661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 200
+  rayDistance: 500
   rayWidth: 0.05
   layersToInclude:
     serializedVersion: 2
@@ -43042,7 +42957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3b6e3b5977f2c46b70addf24d23661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 200
+  rayDistance: 500
   rayWidth: 0.05
   layersToInclude:
     serializedVersion: 2
@@ -55469,7 +55384,7 @@ Transform:
   m_GameObject: {fileID: 5211398768775395271}
   serializedVersion: 2
   m_LocalRotation: {x: -0.27059805, y: -0.6532815, z: 0.27059805, w: 0.6532815}
-  m_LocalPosition: {x: 5, y: 0, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1200, y: 1200, z: 1200}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -57123,7 +57038,7 @@ GameObject:
   - component: {fileID: 3240709848848952279}
   - component: {fileID: 5776393923293046893}
   m_Layer: 0
-  m_Name: Void
+  m_Name: Skybox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59277,4 +59192,3 @@ SceneRoots:
   - {fileID: 1394042147}
   - {fileID: 783526907}
   - {fileID: 2467965611974996052}
-  - {fileID: 687917881}
