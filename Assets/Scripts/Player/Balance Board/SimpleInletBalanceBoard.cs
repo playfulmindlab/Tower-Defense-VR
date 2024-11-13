@@ -37,7 +37,7 @@ namespace LSL4Unity.Samples.SimpleInlet
         float timer = 0;
         float[] lastValues = new float[3] {0, 0, 0};
         List<Vector2> mostRecentReadings = new List<Vector2>();
-        Vector2 avgReading = Vector2.zero;
+        Vector3 avgReading = Vector3.zero;
         int maxAverageReadingSample = 20;
 
         void Start()
@@ -102,7 +102,6 @@ namespace LSL4Unity.Samples.SimpleInlet
         // Update is called once per frame
         void Update()
         {
-
             if (inlet != null)
             {
                 inlet.pull_sample(new_data_buffer, timestamp_buffer);
@@ -124,8 +123,8 @@ namespace LSL4Unity.Samples.SimpleInlet
                 AddNewReadingToRecentReadings(new float[] {sinValue, 0f, 0f});
             }
 
-            avgReading = GetAverageReading();
-            coordValues = new float[] {avgReading.x, avgReading.y, avgReading.x};
+            avgReading = GetAverageReading(); 
+            coordValues = new float[] {avgReading.x * GameManager.instance.balanceBoardSensitivity, avgReading.y * GameManager.instance.balanceBoardSensitivity, avgReading.z * GameManager.instance.balanceBoardSensitivity};
 
             if (isReady)
             {

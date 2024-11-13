@@ -177,6 +177,10 @@ public class MiniMapTowerPlacement : MonoBehaviour
                 TowerDefenseManager.towersInGame.Remove(oldTower.GetComponent<TowerBehaviour>());
 
                 PlaceNewTower(newTower, towerCollider, false);
+
+                newTower.name = NewTowerIDGenerator(newTower.name);
+                GameManager.instance.LogNewEvent("PPO Upgrade - " + oldTower.name + " > " + upgradedTower.name, this.gameObject, transform.position, GameControlManager.instance.IsJumped);
+
                 Destroy(oldTower);
 
                 AudioManager.instance.PlaySFXArray("TowerUpgrade", newTower.transform.position);
@@ -188,6 +192,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
                 //------------------------------------------
 
                 GameObject newProp = Instantiate(oldProp.upgradedProp, oldProp.transform.position, oldProp.transform.rotation);
+                newProp.name = NewTowerIDGenerator(newProp.name);
 
                 PropManager newPropManager = newProp.GetComponent<PropManager>();
                 if (newPropManager != null)
@@ -199,15 +204,16 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
                 newProp.transform.parent = this.transform;
 
+                //string newID = 
+                //newTower.name = NewTowerIDGenerator(newTower.name);
+                //GameManager.instance.LogNewEvent("PPO Upgrade - " + gameObject.name + " > " + upgradedTower.name, this.gameObject, transform.position, GameControlManager.instance.IsJumped);
+
                 Destroy(oldProp.gameObject);
 
                 newProp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
                 newProp.GetComponent<Rigidbody>().isKinematic = true;
                 newPropManager.LockPropPosition();
                 newTower.GetComponent<TowerBehaviour>().AssignPropParent(newPropManager);
-
-                newTower.name = NewTowerIDGenerator(newTower.name);
-                newProp.name = NewTowerIDGenerator(newProp.name);
 
                 towerCollider.isTrigger = false;
                 string propTag = newProp.tag;

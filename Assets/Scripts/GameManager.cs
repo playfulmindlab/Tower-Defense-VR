@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public int currPathNum;
     public int currWaveNum;
 
+    public float balanceBoardSensitivity = 1.0f;
+
     DateTime sessionStartTime;
     public DateTime SessionStartTime { get { return sessionStartTime; } set { } }
 
