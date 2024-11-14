@@ -32794,7 +32794,7 @@ GameObject:
   - component: {fileID: 1294723966}
   - component: {fileID: 1294723965}
   - component: {fileID: 1294723964}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MainMapBaseplate
   m_TagString: Baseplate
   m_Icon: {fileID: 0}
@@ -38371,6 +38371,7 @@ MonoBehaviour:
   currMapName: 
   currPathNum: 0
   currWaveNum: 0
+  balanceBoardSensitivity: 1
 --- !u!4 &1593437115
 Transform:
   m_ObjectHideFlags: 0

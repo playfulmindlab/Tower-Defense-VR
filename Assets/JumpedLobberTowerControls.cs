@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class JumpedLobberTowerControls : JumpedTowerControls
 {
@@ -12,7 +13,8 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     [SerializeField] float cameraHeightMod = 3f;
     [SerializeField] float cameraAngleMod = 30f;
 
-    GameObject targetDecal;
+    [SerializeField] GameObject targetDecal;
+    [SerializeField] DecalProjector tDP;
     Vector3 targetPoint = Vector3.zero;
     RaycastHit hit;
     float attackRange = 60f;
@@ -26,6 +28,7 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     {
         missileSystemMain = missileSystem.main;
         targetDecal = GameObject.Find("LobberTargetDecal");
+        tDP = targetDecal.GetComponent<DecalProjector>();
         towerCamera.transform.localPosition = Vector3.up * cameraHeightMod;
 
         if (trajectoryLine.enabled)
@@ -35,10 +38,11 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     // Update is called once per frame
     void Update()
     {
-        if (Physics.Raycast(towerCamera.transform.position, towerCamera.transform.forward, out hit, attackRange))
+        if (Physics.Raycast(towerCamera.transform.position, towerCamera.transform.forward, out hit, attackRange, 1 << 12))
         {
             targetDecal.transform.position = hit.point;
             targetPoint = hit.point;
+            //targetDecal.transform.position = hit.point;
 
             //trajectoryLine.enabled = jumpStatus;
             //targetDecal.SetActive(jumpStatus);
@@ -90,13 +94,14 @@ public class JumpedLobberTowerControls : JumpedTowerControls
         }
 
         trajectoryLine.SetPositions(positions);
+
     }
 
     public override void SetCamera(bool camActive)
     {
         base.SetCamera(camActive);
         trajectoryLine.enabled = camActive;
-        targetDecal.SetActive(camActive);
+        targetDecal.GetComponent<DecalProjector>().enabled = camActive;//SetActive(camActive);
     }
 
     public override void EndTowerJump()
@@ -106,14 +111,15 @@ public class JumpedLobberTowerControls : JumpedTowerControls
         //Quaternion rot = Quaternion.Euler(Vector3.zero);
         //towerHead.localEulerAngles = 
         trajectoryLine.enabled = false;
-        targetDecal.SetActive(false);
+        targetDecal.GetComponent<DecalProjector>().enabled = false;
+        //targetDecal.SetActive(false);
         ForceGun(false);
     }
 
     public override void SetGunFire()
     {
-        Debug.Log("JUMP STAT 1: " + jumpStatus + " // " + trajectoryLine.enabled + " / " + targetDecal.activeSelf);
+        //Debug.Log("JUMP STAT 1: " + jumpStatus + " // " + trajectoryLine.enabled + " / " + targetDecal.activeSelf);
         base.SetGunFire();
-        Debug.Log("JUMP STAT 2: " + jumpStatus + " // " + trajectoryLine.enabled + " / " + targetDecal.activeSelf);
+        //Debug.Log("JUMP STAT 2: " + jumpStatus + " // " + trajectoryLine.enabled + " / " + targetDecal.activeSelf);
     }
 }

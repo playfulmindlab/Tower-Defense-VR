@@ -368,6 +368,8 @@ MonoBehaviour:
   tipTransform: {fileID: 8863804665551505865}
   cameraHeightMod: 3
   cameraAngleMod: 35
+  targetDecal: {fileID: 0}
+  tDP: {fileID: 0}
 --- !u!114 &4547214773447800031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3161,7 +3163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 2049
+      value: 6145
       objectReference: {fileID: 0}
     - target: {fileID: 4236064142587593492, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

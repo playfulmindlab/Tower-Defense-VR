@@ -3325,6 +3325,7 @@ MonoBehaviour:
   currMapName: 
   currPathNum: 0
   currWaveNum: 0
+  balanceBoardSensitivity: 1
 --- !u!4 &666297962
 Transform:
   m_ObjectHideFlags: 0
@@ -6210,6 +6211,8 @@ MonoBehaviour:
   moneyText: {fileID: 0}
   waveText: {fileID: 0}
   enemyCountText: {fileID: 0}
+  enemyKillCountText: {fileID: 0}
+  enemyKillCountText2: {fileID: 0}
 --- !u!1 &1295881387
 GameObject:
   m_ObjectHideFlags: 0
@@ -7835,6 +7838,7 @@ GameObject:
   - component: {fileID: 1709570851}
   - component: {fileID: 1709570850}
   - component: {fileID: 1709570849}
+  - component: {fileID: 1709570852}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -7942,6 +7946,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1709570852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709570848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa7d98688840c04fbb697c78c34428c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currMapWaveComp: {fileID: 0}
 --- !u!1 &1720005103
 GameObject:
   m_ObjectHideFlags: 0
