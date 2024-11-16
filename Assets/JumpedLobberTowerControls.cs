@@ -13,8 +13,7 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     [SerializeField] float cameraHeightMod = 3f;
     [SerializeField] float cameraAngleMod = 30f;
 
-    [SerializeField] GameObject targetDecal;
-    [SerializeField] DecalProjector tDP;
+    GameObject targetDecal;
     Vector3 targetPoint = Vector3.zero;
     RaycastHit hit;
     float attackRange = 60f;
@@ -23,21 +22,28 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     float projectileSpeed = 0f;
     public float ProjectileSpeed { get { return projectileSpeed; } }
 
+    float fireateTime = 3f;
+
     // Start is called before the first frame update
     void Start()
     {
         missileSystemMain = missileSystem.main;
         targetDecal = GameObject.Find("LobberTargetDecal");
-        tDP = targetDecal.GetComponent<DecalProjector>();
         towerCamera.transform.localPosition = Vector3.up * cameraHeightMod;
 
         if (trajectoryLine.enabled)
             trajectoryLine.enabled = false;
+
+        //fireateTime = gameObject.GetComponent<TowerBehaviour>().firerate;
+        var em = missileSystem.emission;
+        em.rateOverTime = gameObject.GetComponent<TowerBehaviour>().firerate;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //fireateTime -= Time.deltaTime;
+
         if (Physics.Raycast(towerCamera.transform.position, towerCamera.transform.forward, out hit, attackRange, 1 << 12))
         {
             targetDecal.transform.position = hit.point;

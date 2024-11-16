@@ -60,20 +60,27 @@ public class PropManager : MonoBehaviour
         {
             Vector3 dir = (line.GetPosition(1) - line.GetPosition(0)).normalized;
 
-            RaycastHit hit;
+            RaycastHit mainRayHit; 
+            RaycastHit[] rayHits = new RaycastHit[4];
 
-            Physics.Raycast(line.GetPosition(0), dir, out hit, 40f);
-            if (hit.collider == null)
+            Physics.Raycast(line.GetPosition(0), dir, out mainRayHit, 40f);
+            Physics.Raycast(line.GetPosition(0) + (Vector3.left * .01f), dir, out rayHits[0], 40f);
+            Physics.Raycast(line.GetPosition(0) + (Vector3.back * .01f), dir, out rayHits[1], 40f);
+            Physics.Raycast(line.GetPosition(0) + (Vector3.right * .01f), dir, out rayHits[2], 40f);
+            Physics.Raycast(line.GetPosition(0) + (Vector3.forward * .01f), dir, out rayHits[3], 40f);
+
+            if (rayHits[0].collider == null || rayHits[1].collider == null ||
+                rayHits[2].collider == null || rayHits[3].collider == null)
             {
                 Destroy(gameObject);
                 return;
             }
 
-            Debug.Log("DROP OUT: " + hit.collider.gameObject.name + " @ " + hit.collider.gameObject.layer.ToString());
+            //Debug.Log("DROP OUT: " + hit.collider.gameObject.name + " @ " + hit.collider.gameObject.layer.ToString());
             //Check to see if it intersects Baseplate & ONLY baseplate
-            if (gameObject.tag == "Tower" && hit.collider.gameObject.layer == baseLayer)
+            if (gameObject.tag == "Tower" && CheckRaycastOnLayer(rayHits, baseLayer))
             {
-                towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, hit.point);
+                towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, mainRayHit.point);
 
                 towerScript = towerSpawn.GetComponent<TowerBehaviour>();
                 jumpedTowerScript = towerSpawn.GetComponent<JumpedTowerControls>();
@@ -81,9 +88,9 @@ public class PropManager : MonoBehaviour
                 isPropDropped = true;
             }
             else if ((gameObject.tag == "Obstacle" || gameObject.tag == "AttackObstacle") &&
-                        hit.collider.gameObject.layer == pathLayer)
+                        CheckRaycastOnLayer(rayHits, pathLayer))//hit.collider.gameObject.layer == pathLayer)
             {
-                towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, hit.point);
+                towerSpawn = miniMapScript.DropNewProp(this.gameObject, towerSpawn, mainRayHit.point);
 
                 towerScript = towerSpawn.GetComponent<TowerBehaviour>();
                 jumpedTowerScript = towerSpawn.GetComponent<JumpedTowerControls>();
@@ -96,6 +103,23 @@ public class PropManager : MonoBehaviour
                 miniMapScript.ResetRadiusDecal();
             }
         }
+    }
+
+    bool CheckRaycastOnLayer(RaycastHit[] rayHits, LayerMask findLayer)
+    {
+        bool hitValid = true;
+
+        foreach(RaycastHit hit in rayHits)
+        {
+            Debug.Log("RAYHIT: " + hit.point + " // " + hit.collider.gameObject.layer);
+            if (hit.collider.gameObject.layer != findLayer)
+            {
+                hitValid = false;
+                break;
+            }
+        }
+
+        return hitValid;
     }
 
     public void LockPropPosition()
