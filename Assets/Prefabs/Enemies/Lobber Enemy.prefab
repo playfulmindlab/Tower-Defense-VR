@@ -1573,7 +1573,7 @@ MonoBehaviour:
   speed: 5
   initialSpeed: 1.5
   speedIncreasePerWave: 0.3
-  attack: 10
+  attack: 0
   attackRate: 1
   attackingTower: {fileID: 0}
   damageResistance: 1

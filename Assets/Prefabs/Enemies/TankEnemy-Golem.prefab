@@ -76,8 +76,8 @@ MonoBehaviour:
   health: 100
   speed: 8
   initialSpeed: 1
-  speedIncreasePerWave: 0.17
-  attack: 3
+  speedIncreasePerWave: 0.1
+  attack: 0
   attackRate: 1
   attackingTower: {fileID: 0}
   damageResistance: 1
