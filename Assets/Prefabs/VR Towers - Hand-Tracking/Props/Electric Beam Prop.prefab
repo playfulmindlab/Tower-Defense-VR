@@ -1831,6 +1831,10 @@ PrefabInstance:
       value: ToggleRadialMenu
       objectReference: {fileID: 0}
     - target: {fileID: 1856445090972832545, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856445090972832545, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5426558980173821264}
