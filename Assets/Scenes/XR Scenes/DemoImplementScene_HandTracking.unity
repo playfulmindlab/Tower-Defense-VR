@@ -30720,17 +30720,17 @@ MonoBehaviour:
   - name: BaseAttacked
     clips:
     - clip: {fileID: 8300000, guid: b94609c1b026b704994deb0ec59cfaac, type: 3}
-      volume: 1
+      volume: 0.14
     - clip: {fileID: 8300000, guid: 2841792790e899c4ea94db44c3fbd92d, type: 3}
-      volume: 1
+      volume: 0.152
     - clip: {fileID: 8300000, guid: da586672ce1b2724083b2e989d11a538, type: 3}
-      volume: 1
+      volume: 0.162
     - clip: {fileID: 8300000, guid: 2c68deadbb42ff84cb712c42e5a0e500, type: 3}
-      volume: 1
+      volume: 0.152
     - clip: {fileID: 8300000, guid: d22d29778f072b44187ab4ce61dae52a, type: 3}
-      volume: 1
+      volume: 0.143
     - clip: {fileID: 8300000, guid: 3fdad062621dbce4d91d559f30b1622d, type: 3}
-      volume: 1
+      volume: 0.194
   - name: BaseDestroyed
     clips:
     - clip: {fileID: 8300000, guid: 0bb1501436dd45144977cead2ff9a8df, type: 3}
