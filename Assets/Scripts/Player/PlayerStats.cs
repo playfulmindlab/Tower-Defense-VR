@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        transform.position = new Vector3(0f, 8.3f, -35f);
+        transform.position = new Vector3(-0.3f, 8.3f, -35f);
     }
 
     // Start is called before the first frame update

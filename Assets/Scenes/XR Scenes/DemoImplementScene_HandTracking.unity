@@ -37168,7 +37168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1574002770}
-  yDiff: -5
+  yDiff: -1.8
 --- !u!1 &1521146923
 GameObject:
   m_ObjectHideFlags: 0
