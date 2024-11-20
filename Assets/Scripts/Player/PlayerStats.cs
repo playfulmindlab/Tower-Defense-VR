@@ -18,7 +18,8 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        transform.position = new Vector3(-0.3f, 8.3f, -35f);
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "MainMenuXR-V2")
+            transform.position = new Vector3(-0.3f, 8.3f, -35f);
     }
 
     // Start is called before the first frame update

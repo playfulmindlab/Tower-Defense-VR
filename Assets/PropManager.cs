@@ -64,10 +64,10 @@ public class PropManager : MonoBehaviour
             RaycastHit[] rayHits = new RaycastHit[4];
 
             Physics.Raycast(line.GetPosition(0), dir, out mainRayHit, 40f);
-            Physics.Raycast(line.GetPosition(0) + (Vector3.left * .01f), dir, out rayHits[0], 40f);
-            Physics.Raycast(line.GetPosition(0) + (Vector3.back * .01f), dir, out rayHits[1], 40f);
-            Physics.Raycast(line.GetPosition(0) + (Vector3.right * .01f), dir, out rayHits[2], 40f);
-            Physics.Raycast(line.GetPosition(0) + (Vector3.forward * .01f), dir, out rayHits[3], 40f);
+            Physics.Raycast(line.GetPosition(0) + (Vector3.left * .005f), dir, out rayHits[0], 40f);
+            Physics.Raycast(line.GetPosition(0) + (Vector3.back * .005f), dir, out rayHits[1], 40f);
+            Physics.Raycast(line.GetPosition(0) + (Vector3.right * .005f), dir, out rayHits[2], 40f);
+            Physics.Raycast(line.GetPosition(0) + (Vector3.forward * .005f), dir, out rayHits[3], 40f);
 
             if (rayHits[0].collider == null || rayHits[1].collider == null ||
                 rayHits[2].collider == null || rayHits[3].collider == null)

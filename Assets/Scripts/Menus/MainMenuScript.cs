@@ -10,9 +10,12 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] GameObject optionsPanel;
     [SerializeField] GameObject quitGamePanel;
 
+    [SerializeField] Canvas mainMenuCanvas;
+    [SerializeField] Canvas settingsCanvas;
+
     public void NewGame()
     {
-        GameManager.instance.ChangeScene("DemoImplementScene");
+        GameManager.instance.ChangeScene("DemoImplementScene_HandTracking");
     }
 
     public void LoadGame()
@@ -20,9 +23,10 @@ public class MainMenuScript : MonoBehaviour
         GameManager.instance.ChangeScene("LoadGameScreen");
     }
 
-    public void ToggleOptionsMenu(bool toggle)
+    public void ToggleSettingsMenu(bool toggle)
     {
-        //optionsCanvas.SetActive(toggle);
+        settingsCanvas.enabled = toggle;
+        mainMenuCanvas.enabled = !toggle;
     }
 
     public void QuitGamePanel(bool screenActive)

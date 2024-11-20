@@ -77,6 +77,8 @@ public class MiniMapTowerPlacement : MonoBehaviour
             newTower.name = NewTowerIDGenerator(newTower.name);
             newProp.name = NewTowerIDGenerator(newProp.name);
 
+            GameManager.instance.LogNewEvent("PPO Placed - " + newTower.name, newTower, newTower.transform.position, GameControlManager.instance.IsJumped);
+
             AssignCurrentTower(null);
             ResetRadiusDecal();
         }
@@ -179,7 +181,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
                 PlaceNewTower(newTower, towerCollider, false);
 
                 newTower.name = NewTowerIDGenerator(newTower.name);
-                GameManager.instance.LogNewEvent("PPO Upgrade - " + oldTower.name + " > " + upgradedTower.name, this.gameObject, transform.position, GameControlManager.instance.IsJumped);
+                GameManager.instance.LogNewEvent("PPO Upgrade - " + oldTower.name + " > " + newTower.name, this.gameObject, transform.position, GameControlManager.instance.IsJumped);
 
                 Destroy(oldTower);
 

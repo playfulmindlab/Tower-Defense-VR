@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    AudioManager audioM;
+
     private SaveData playerData;
     public SaveData PlayerData{ get { return playerData; } set { } }
 
@@ -15,7 +17,11 @@ public class GameManager : MonoBehaviour
     public int currPathNum;
     public int currWaveNum;
 
-    public float balanceBoardSensitivity = 1.0f;
+    public float musicVolume = 1.0f;
+    public float sfxVolume = 1.0f;
+    public float balanceBoardXSensitivity = 1.0f;
+    public float balanceBoardYSensitivity = 1.0f;
+    public float balanceBoardYInversion = 1.0f;
 
     DateTime sessionStartTime;
     public DateTime SessionStartTime { get { return sessionStartTime; } set { } }
@@ -37,6 +43,13 @@ public class GameManager : MonoBehaviour
         playerData = new SaveData("TempPlayer", new TimeSpan(0, 0, 0).ToString(), 1, "DemoImplementScene_HandTracking", 0);
     }
 
+    private void Start()
+    {
+        audioM = AudioManager.instance;
+
+        UpdateSettings();
+    }
+
     public void ChangePathWave(int pathNum, int waveNum)
     {
         currPathNum = pathNum;
@@ -49,35 +62,41 @@ public class GameManager : MonoBehaviour
         Debug.Log("LOADED MAP " + currMapName);
     }
 
-/*
-    private void Update()
+    public void UpdateSettings()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Debug.Log("Test Out");
-
-            string saveString = string.Join(" /// ", playerData.ReturnDataAsStrings());
-            Debug.Log(saveString);
-        }
-         
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Debug.Log("Test Save");
-            SaveDataManager.instance.Save();
-
-            LogNewMainMenuEvent("Save Event");
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("Test Load");
-            SaveDataManager.instance.Load("TempPlayer");
-
-            string loadString = string.Join(" /// ", playerData.ReturnDataAsStrings());
-            Debug.Log(loadString);
-        }
+        audioM.UpdateMusicVolume(musicVolume);
+        audioM.UpdateSFXVolume(sfxVolume);
     }
-*/
+
+    /*
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                Debug.Log("Test Out");
+
+                string saveString = string.Join(" /// ", playerData.ReturnDataAsStrings());
+                Debug.Log(saveString);
+            }
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                Debug.Log("Test Save");
+                SaveDataManager.instance.Save();
+
+                LogNewMainMenuEvent("Save Event");
+            }
+
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                Debug.Log("Test Load");
+                SaveDataManager.instance.Load("TempPlayer");
+
+                string loadString = string.Join(" /// ", playerData.ReturnDataAsStrings());
+                Debug.Log(loadString);
+            }
+        }
+    */
 
     public void SetPlayerData(SaveData newData)
     {

@@ -124,11 +124,13 @@ namespace LSL4Unity.Samples.SimpleInlet
             }
 
             avgReading = GetAverageReading(); 
-            coordValues = new float[] {avgReading.x * GameManager.instance.balanceBoardSensitivity, avgReading.y * GameManager.instance.balanceBoardSensitivity, avgReading.z * GameManager.instance.balanceBoardSensitivity};
+            coordValues = new float[] { avgReading.x * GameManager.instance.balanceBoardXSensitivity, 
+                                        avgReading.y * GameManager.instance.balanceBoardYSensitivity * GameManager.instance.balanceBoardYInversion, 
+                                        avgReading.z};
 
             if (isReady)
             {
-                RecordNewBalanceBoardValues(mostRecentReadings[mostRecentReadings.Count - 1], avgReading);
+                RecordNewBalanceBoardValues(mostRecentReadings[mostRecentReadings.Count - 1], coordValues);
             }
         }
 
@@ -187,7 +189,7 @@ namespace LSL4Unity.Samples.SimpleInlet
             return newAverage;
         }
 
-        void RecordNewBalanceBoardValues(Vector3 newBBValues, Vector3 moddedBBValues)
+        void RecordNewBalanceBoardValues(Vector3 newBBValues, float[] moddedBBValues)
         {
             Debug.Log("Balance Board...");
             string newReadingsString = "";
@@ -202,9 +204,9 @@ namespace LSL4Unity.Samples.SimpleInlet
             newReadingsString += newBBValues.x.ToString() + ",";
             newReadingsString += newBBValues.y.ToString() + ",";
             newReadingsString += newBBValues.z.ToString() + ",";
-            newReadingsString += moddedBBValues.x.ToString() + ",";
-            newReadingsString += moddedBBValues.y.ToString() + ",";
-            newReadingsString += moddedBBValues.z.ToString();
+            newReadingsString += moddedBBValues[0].ToString() + ",";
+            newReadingsString += moddedBBValues[1].ToString() + ",";
+            newReadingsString += moddedBBValues[2].ToString();
 
             StreamWriter writer;
             writer = new StreamWriter(fileLocation, true);
