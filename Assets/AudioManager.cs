@@ -35,7 +35,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] Music[] musicArray;
     [SerializeField] Sounds[] sfxArray;
 
-    [SerializeField] AudioSource musicSource;//, sfxSource;
+    AudioSource musicSource;//, sfxSource;
     float sfxVolumeMod = 1f;
 
     Music musicSound;
@@ -46,11 +46,14 @@ public class AudioManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         else if (instance != this) Destroy(this.gameObject);
+
+        musicSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+
         //PlayMusic("MainTheme");
     }
 

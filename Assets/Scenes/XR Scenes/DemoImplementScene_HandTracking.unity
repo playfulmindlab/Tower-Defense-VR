@@ -29321,7 +29321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa7d98688840c04fbb697c78c34428c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMapWaveComp: {fileID: 11400000, guid: 2cc30c28959701f4c8a2d666e093fb72, type: 2}
+  currMapWaveComp: {fileID: 11400000, guid: eab6d8da004a92346b6deee4ee2ef44d, type: 2}
 --- !u!4 &1123684177
 Transform:
   m_ObjectHideFlags: 0
@@ -31166,10 +31166,6 @@ MonoBehaviour:
     clips:
     - clip: {fileID: 8300000, guid: 9454bf84c11212a42b37795b5fc22e79, type: 3}
       volume: 1
-  - name: GameOver
-    clips:
-    - clip: {fileID: 8300000, guid: 08861b87987c236499a025f9a2f313ea, type: 3}
-      volume: 1
   - name: NewWaveSound
     clips:
     - clip: {fileID: 8300000, guid: 7cc9ae703d204834fbe2658a4b60a681, type: 3}
@@ -31231,6 +31227,14 @@ MonoBehaviour:
     - clip: {fileID: 8300000, guid: 38748d66192b0484ebf841d621077779, type: 3}
       volume: 1
     - clip: {fileID: 8300000, guid: bcdaa2c0c816e0b4bbd9c4b088e598a4, type: 3}
+      volume: 1
+  - name: SceneGameOver
+    clips:
+    - clip: {fileID: 8300000, guid: 08861b87987c236499a025f9a2f313ea, type: 3}
+      volume: 1
+  - name: SceneWin
+    clips:
+    - clip: {fileID: 8300000, guid: 895dee8c6077f7b408a6622c846d37c1, type: 3}
       volume: 1
   musicSource: {fileID: 1164044097}
 --- !u!4 &1164044099

@@ -15,9 +15,9 @@ MonoBehaviour:
   waves:
   - enemyOrder:
     - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
-    numLoops: 60
+    numLoops: 9
     postWaveStep: 1
   - enemyOrder:
     - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
-    numLoops: 400
+    numLoops: 3
     postWaveStep: 2

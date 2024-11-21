@@ -393,27 +393,42 @@ public class TowerDefenseManager : MonoBehaviour
 
         spawnEnemies = true;
 
-        AudioManager.instance.PlaySFXArray("NewWaveSound", new Vector3(20, 10, 0));
-        InvokeRepeating("SpawnEnemies", 0f, enemySpawnTimes);
+        if (waveCount > wavesTilEndMap)
+        {
+            DataEvent newEvent = new DataEvent("Force Game End From Wave Change", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+            EventManager.instance.RecordNewEvent(newEvent);
 
-        DataEvent newEvent = new DataEvent("Wave Start", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
-        EventManager.instance.RecordNewEvent(newEvent);
+            StartCoroutine(LevelVictorySequence());
+            continueLoop = false;
+        }
+
+        else
+        {
+            AudioManager.instance.PlaySFXArray("NewWaveSound", new Vector3(20, 10, 0));
+            InvokeRepeating("SpawnEnemies", 0f, enemySpawnTimes);
+
+            DataEvent newEvent = new DataEvent("Wave Start", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+            EventManager.instance.RecordNewEvent(newEvent);
+        }
     }
 
     void UpdateLevelCount()
     {
+        Debug.Log("LEVEL CHECK 1");
         if (gamePaused != false)
         {
             return;
         }
 
-        if (levelCount >= wavesTilEndMap)
+        Debug.Log("LEVEL CHECK 2 - " + waveCount + " // " + wavesTilEndMap);
+        if (waveCount > wavesTilEndMap)
         {
             StartCoroutine(LevelVictorySequence());
             continueLoop = false;
             return;
         }
 
+        Debug.Log("LEVEL CHECK 3 - elsewhere");
         levelCount++;
         //wavesTilLevelWin += waveMult;
 
@@ -666,13 +681,16 @@ public class TowerDefenseManager : MonoBehaviour
     IEnumerator LevelVictorySequence()
     {
         victoryScreen.SetActive(true);
+        AudioManager.instance.PlaySFXArray("SceneWin", Camera.main.transform.position);
+
         DataEvent newEvent = new DataEvent("Map Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent);
 
         TogglePause();
+        phaseText.text = "YOU WIN!";
         yield return new WaitForSeconds(4f);
         TogglePause();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR", UnityEngine.SceneManagement.LoadSceneMode.Single);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR-V2", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
     IEnumerator GameOverSequence()
@@ -681,7 +699,9 @@ public class TowerDefenseManager : MonoBehaviour
         EventManager.instance.RecordNewEvent(newEvent);
 
         gameOverScreen.SetActive(true);
-        AudioManager.instance.PlaySFXArray("GameOver", Camera.main.transform.position);
+        AudioManager.instance.PlaySFXArray("SceneGameOver", Camera.main.transform.position);
+        TogglePause();
+        phaseText.text = "GAME OVER";
         yield return new WaitForSeconds(4f);
 
         DataEvent newEvent2 = new DataEvent("Game Quit", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
@@ -736,8 +756,6 @@ public class TowerDefenseManager : MonoBehaviour
 
         Destroy(towerToRemove.gameObject);
     }
-
-
 
     public void TogglePause()
     {

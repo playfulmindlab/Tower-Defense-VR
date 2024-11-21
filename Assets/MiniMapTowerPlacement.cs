@@ -181,7 +181,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
                 PlaceNewTower(newTower, towerCollider, false);
 
                 newTower.name = NewTowerIDGenerator(newTower.name);
-                GameManager.instance.LogNewEvent("PPO Upgrade - " + oldTower.name + " > " + newTower.name, this.gameObject, transform.position, GameControlManager.instance.IsJumped);
+                GameManager.instance.LogNewEvent("PPO Upgrade - " + oldTower.name + " > " + newTower.name, oldTower, oldTower.transform.position, GameControlManager.instance.IsJumped);
 
                 Destroy(oldTower);
 
