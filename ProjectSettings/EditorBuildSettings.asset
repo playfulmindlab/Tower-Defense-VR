@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadGameScreen.unity
     guid: bc2f88de3a48f3e4f90e5be8c8067431
   - enabled: 1
-    path: Assets/Scenes/XR Scenes/MainMenuXR.unity
+    path: Assets/Scenes/XR Scenes/MainMenuXR-V2.unity
     guid: 924f6305e6f12564ca12f1830fe14889
   - enabled: 1
     path: Assets/Scenes/XR Scenes/DemoImplementScene_HandTracking.unity

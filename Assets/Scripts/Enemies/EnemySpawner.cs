@@ -15,8 +15,8 @@ public class EnemySpawner : MonoBehaviour
     private static bool isInitialized;
 
     [SerializeField] MapWaveCompositions currMapWaveComp;
-    [SerializeField] private static int[][] enemyNumbers; //new order is Lobber, Saboteur, Standard, Tank
-    private static int[][] waveAndEnemyIDOrder;//[wave][currentEnemyID]
+    [SerializeField] private static int[][] enemyNumbers;
+    private static int[][] waveAndEnemyIDOrder; // [wave][currentEnemyID]
     public static int[] numEnemiesInWaves;
     public static PostWaveStep[] postWaveSteps;
 
@@ -25,47 +25,6 @@ public class EnemySpawner : MonoBehaviour
 
     public void Start()
     {
-        /*
-        StreamReader reader = new StreamReader("Assets/Resources/Enemy Numbers/" + enemyNumbersLoc + ".csv");
-        bool endOfFile = false;
-
-        reader.ReadLine(); //skip the first line with column labels
-
-        while (!endOfFile)
-        {
-            string dataString = reader.ReadLine();
-
-            if (dataString == null)
-            {
-                endOfFile = true;
-                break;
-            }
-
-            string[] dataValues = dataString.Split(',');
-
-            string[] tempData = new string[5];
-            System.Array.Copy(dataValues, tempData, 5);
-            int[] enemyValues = System.Array.ConvertAll(tempData, int.Parse);
-
-            enemyCount = 0;
-            for (int i = 0; i < 4; i++)
-            {
-                enemyCount += enemyValues[i];
-            }
-
-            enemyCount *= enemyValues[4]; //enemyValues[4] = loop count
-
-            numHolder.Add(enemyValues);
-            waveCountHolder.Add(enemyCount);
-            afterStatusHolder.Add(System.Convert.ToChar(dataValues[dataValues.Length - 1]));
-        }
-
-        reader.Close();
-        */
-
-
-
-
         //enemyNumbers = enemyIDHolder.ToArray();
         //numEnemiesInWaves = waveCountHolder.ToArray();
         //afterWaveStatus = afterStatusHolder.ToArray();
@@ -73,8 +32,6 @@ public class EnemySpawner : MonoBehaviour
         enemyNumbers = currMapWaveComp.GetAllWaveEnemyIDs();
         numEnemiesInWaves = currMapWaveComp.GetAllEnemiesInEachWave();
         postWaveSteps = currMapWaveComp.MapPostWaveSteps();
-
-        //Debug.Log("ENEMIES: " + enemyNumbers[12][3]);
 
         Debug.Log("INITIALIZING ENEMY LIST...");
         List<int[]> newOrder = new List<int[]>();
@@ -177,51 +134,13 @@ public class EnemySpawner : MonoBehaviour
 
         return newEnemy;
     }
-    /*
-    static int[] GetWaveSpawnOrder(int[] waveEnemyNums)
-    {
-        if (waveEnemyNums.Length != 5)
-            return null;
-
-        List<int> newEnemyOrder = new List<int>();
-
-        if (waveEnemyNums[4] == 1)
-        {
-            for (int id = 0; id < waveEnemyNums.Length - 1; id++)
-            {
-                for (int numToSpawn = 0; numToSpawn < waveEnemyNums[id]; numToSpawn++)
-                {
-                    newEnemyOrder.Add(id);
-                }
-            }
-        }
-        else
-        {
-            for (int h = 0; h < waveEnemyNums[4]; h++)
-            {
-                for (int id = 0; id < waveEnemyNums.Length - 1; id++)
-                {
-                    for (int numToSpawn = 0; numToSpawn < waveEnemyNums[id]; numToSpawn++)
-                    {
-                        newEnemyOrder.Add(id);
-                    }
-                }
-            }
-        }
-
-        return newEnemyOrder.ToArray();
-    }
-    */
 
     public static int GetNextIDToSpawn()
     {
         int currWave = TowerDefenseManager.waveCount - 1;
 
-        //if (currEnemySpawned < waveAndEnemyIDOrder[currWave].Length)
-        //{
-            int newID = waveAndEnemyIDOrder[currWave][currEnemySpawned];
-            currEnemySpawned++;
-        //}
+        int newID = waveAndEnemyIDOrder[currWave][currEnemySpawned];
+        currEnemySpawned++;
 
         if (currEnemySpawned >= waveAndEnemyIDOrder[currWave].Length)
         {
@@ -229,41 +148,6 @@ public class EnemySpawner : MonoBehaviour
         }
         return newID;     
     }
-
-    /*
-    //uncomment this section to get random enemies spawn order
-    public static int GetValidIDToSpawn()
-    {
-        int currWave = TowerDefenseManager.waveCount - 1;
-        int newEnemyID = Random.Range(0, 4);
-
-        //Debug.Log("SafetyTest: " + currWave + "/" + newEnemyID + " = " + enemyNumbers[currWave][newEnemyID]);
-
-        if (randEnemyLoopCap >= 12)
-        {
-            Debug.LogError("Too many tries! Spawning Standard Enemy as Default!");
-            randEnemyLoopCap = 0;
-            return 0;
-        }
-
-        if (enemyNumbers[currWave][newEnemyID] >= 1)
-        {
-            enemyNumbers[currWave][newEnemyID]--;
-            Debug.Log("Enemy ID " + newEnemyID + " is OK! Can spawn " + enemyNumbers[currWave][newEnemyID] + " more enemies with ID " + newEnemyID + " // Attempt #" + randEnemyLoopCap);
-        }
-        else
-        {
-            randEnemyLoopCap++;
-            Debug.Log("Can't spawn any more enemies with ID " + newEnemyID + " - Trying Again! Attempt #" + randEnemyLoopCap);
-
-            return GetValidIDToSpawn();
-        }
-
-        randEnemyLoopCap = 0;
-
-        return newEnemyID;
-    }
-    */
 
     public static void RemoveEnemy(Enemy enemyToRemove)
     {

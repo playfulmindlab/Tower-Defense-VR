@@ -35,7 +35,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] Music[] musicArray;
     [SerializeField] Sounds[] sfxArray;
 
-    [SerializeField] AudioSource musicSource;//, sfxSource;
+    AudioSource musicSource;//, sfxSource;
+    float sfxVolumeMod = 1f;
 
     Music musicSound;
     Sounds sound;
@@ -45,11 +46,14 @@ public class AudioManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         else if (instance != this) Destroy(this.gameObject);
+
+        musicSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+
         //PlayMusic("MainTheme");
     }
 
@@ -66,21 +70,15 @@ public class AudioManager : MonoBehaviour
         else Debug.LogError("Sound '" + musicName + "' not present in AudioManager: MusicArray!");
     }
 
-   /* public void PlaySFX(string sfxName, Vector3 sfxPosition)
+    public void UpdateMusicVolume(float newVolume)
     {
-        sfxSound = Array.Find(sfxArray, x => x.name == sfxName);
+        musicSource.volume = newVolume;
+    }
 
-        if (sfxSound != null)
-        {
-            AudioClip clip = sfxSound.clips[]
-            GameObject tempSFXObject = Instantiate(sfxPrefab, sfxPosition, Quaternion.identity);
-            AudioSource newSFX = tempSFXObject.GetComponent<AudioSource>();
-            newSFX.PlayOneShot(sfxSound.clip, sfxSound.volume);
-            Destroy(tempSFXObject, sfxSound.clip.length);
-        }
-        else Debug.LogError("Sound '" + sfxName + "' not present in AudioManager: SFXArray!");
-    }*/
-
+    public void UpdateSFXVolume(float newVolume)
+    {
+        sfxVolumeMod = newVolume;
+    }
 
     public void PlaySFXArray(string sfxName, Vector3 sfxPosition)
     {
@@ -94,7 +92,7 @@ public class AudioManager : MonoBehaviour
             
                 GameObject tempSFXObject = Instantiate(sfxPrefab, sfxPosition, Quaternion.identity);
                 AudioSource newSFX = tempSFXObject.GetComponent<AudioSource>();
-                newSFX.PlayOneShot(sfxClip.clip, sfxClip.volume);
+                newSFX.PlayOneShot(sfxClip.clip, sfxClip.volume * sfxVolumeMod);
                 Destroy(tempSFXObject, sfxClip.clip.length); 
             }
             else Debug.LogError("Sound '" + sfxName + "' has an empty array!");
