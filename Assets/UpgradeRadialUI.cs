@@ -16,7 +16,11 @@ public class UpgradeRadialUI : MonoBehaviour
 
         if (propManager != null)
         {
-            towerNameText.text = propManager.gameObject.name.Replace(" Prop", "").Replace("(Clone)", "");
+            string propName = propManager.gameObject.name;
+            if (char.IsDigit(propName[propName.Length - 1]))
+                propName = propName.Remove(propName.Length - 4);
+
+            towerNameText.text = propName.Replace(" Prop", "").Replace("(Clone)", "");
             if (propManager.upgradedTowerRef != null)
                 upgradeCostText.text = "$" + propManager.upgradedTowerRef.towerCost;
             else

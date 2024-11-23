@@ -57,6 +57,6 @@ public class BaseBarricade : TowerBehaviour
     {
         AudioManager.instance.PlaySFXArray("BaseDestroyed", transform.position);
         TowerDefenseManager.BeginGameOverSequence();
-        base.TowerDie();
+        //base.TowerDie();
     }
 }

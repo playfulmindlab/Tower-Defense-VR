@@ -253,6 +253,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
     public void DeleteTower(PropManager propScript, TowerBehaviour towerScript)
     {
+        Debug.Log("PS: " + playerStats + " // TS: " + towerScript);
         playerStats.AddMoney(towerScript.towerCost);
         TowerDefenseManager.EnqueueTowerToRemove(towerScript);
         Destroy(propScript.gameObject);

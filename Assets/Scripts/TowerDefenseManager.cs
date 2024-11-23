@@ -680,6 +680,8 @@ public class TowerDefenseManager : MonoBehaviour
 
     IEnumerator LevelVictorySequence()
     {
+        GameControlManager.instance.SwapToUnjumpedControls();
+
         victoryScreen.SetActive(true);
         AudioManager.instance.PlaySFXArray("SceneWin", Camera.main.transform.position);
 
@@ -689,12 +691,14 @@ public class TowerDefenseManager : MonoBehaviour
         TogglePause();
         phaseText.text = "YOU WIN!";
         yield return new WaitForSeconds(4f);
-        TogglePause();
+        //TogglePause();
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR-V2", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
     IEnumerator GameOverSequence()
     {
+        GameControlManager.instance.SwapToUnjumpedControls();
+
         DataEvent newEvent = new DataEvent("Player Death", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent);
 
@@ -706,7 +710,7 @@ public class TowerDefenseManager : MonoBehaviour
 
         DataEvent newEvent2 = new DataEvent("Game Quit", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent2);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR", UnityEngine.SceneManagement.LoadSceneMode.Single);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR-V2", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
     public static void BeginGameOverSequence()

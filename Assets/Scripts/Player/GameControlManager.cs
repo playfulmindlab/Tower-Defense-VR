@@ -209,7 +209,8 @@ public class GameControlManager : MonoBehaviour
 
     public void SwapToUnjumpedControls()
     {
-        jumpTransAnim.SetTrigger("Unjump");
+        if (jumpedTowerControls != null)
+            jumpTransAnim.SetTrigger("Unjump");
     }
 
     public void SwapControls(string newControlString)

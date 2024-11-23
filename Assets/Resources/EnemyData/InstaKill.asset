@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: InstaKill
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 265340451732183431, guid: 3ad84d9f03fd4084ab78cc5a5667ba0e, type: 3}
-  enemyID: 1
+  enemyImage: {fileID: 0}
+  enemyID: 5
