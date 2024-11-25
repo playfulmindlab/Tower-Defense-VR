@@ -22,6 +22,7 @@ public class JumpedTowerControls : MonoBehaviour
     StaticHandGesturesTowerJump[] gestureScripts;
 
     protected bool jumpStatus = false;
+    public bool JumpStatus { get { return jumpStatus; } }
 
     public JumpedTowerUI towerUI;
     public RectTransform towerUITransform;
@@ -69,6 +70,8 @@ public class JumpedTowerControls : MonoBehaviour
             {
                 s.enabled = true;
             }
+
+            //ToggleFollowEnemy(false);
         }
     }
 
@@ -108,12 +111,16 @@ public class JumpedTowerControls : MonoBehaviour
         {
             s.enabled = false;
         }
+        //if (GameControlManager.instance.jumpType == JumpedType.Normal)
+        //    ToggleFollowEnemy(true);
+
         GameControlManager.instance.SwapToUnjumpedControls();
     }
 
     public virtual void SetGunFire()
     {
         jumpStatus = !jumpStatus;
+
         missileDamage.ActivateGun(jumpStatus);
 
         if (jumpStatus == false && towerTip != null)

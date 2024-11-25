@@ -33,6 +33,9 @@ public class TowerBehaviour : MonoBehaviour
     public GameObject upgradedTower;
     [SerializeField] PropManager propParent;
 
+    JumpedTowerControls jumpedControls;
+    public JumpedTowerControls JumpedControls { get { return jumpedControls; } }
+
     protected IDamageMethod currentDamageMethodClass;
     protected float delay;
     private float healthDamageMod = 1;
@@ -41,6 +44,9 @@ public class TowerBehaviour : MonoBehaviour
     [SerializeField] RawImage stunnedImage;
 
     public bool aliveOnSceneStart = false;
+
+    BoxCollider col;
+    Animator anim;
 
     //Outline towerOutline;
     public void ToggleOutline(bool isActive) 
@@ -57,6 +63,10 @@ public class TowerBehaviour : MonoBehaviour
         currentDamageMethodClass = GetComponent<IDamageMethod>();
 
         health = maxHealth;
+        jumpedControls = GetComponent<JumpedTowerControls>();
+
+        col = GetComponent<BoxCollider>();
+        anim = GetComponent<Animator>();
 
         if (healthBar != null && shieldBar != null)
         {
@@ -133,8 +143,10 @@ public class TowerBehaviour : MonoBehaviour
             currentDamageMethodClass.DamageTick(target);
         }
 
+        Debug.Log("CONTROL CHECK: " + followEnemy + " // " + jumpedControls + " - " + jumpedControls.JumpStatus);
         if (followEnemy == true) { 
-            if (target != null)
+            if (target != null && 
+                (jumpedControls != null && !jumpedControls.JumpStatus))
             {
                 Vector3 posDifference = target.transform.position - transform.position;
                 posDifference.y = 0;
@@ -175,8 +187,17 @@ public class TowerBehaviour : MonoBehaviour
 
         if (health <= 0 && this.gameObject.activeSelf)
         {
-            this.gameObject.SetActive(false);
-            TowerDie();
+            Debug.Log("DEATH CHECK: " + jumpedControls.JumpStatus);
+            if (jumpedControls.JumpStatus == false)
+            {
+                //this.gameObject.SetActive(false);
+                col.enabled = false;
+                TowerDie();
+            }
+            else
+            {
+                jumpedControls.EndTowerJump();
+            }
         }
 
         if (health <= maxHealth * 0.3f)
@@ -186,10 +207,15 @@ public class TowerBehaviour : MonoBehaviour
         }
     }
 
+    public void DeathAnim()
+    {
+        anim.SetBool("Destroyed", true);
+    }
+
     public virtual void TowerDie()
     {
         //TODO: wirte code for what happens when tower dies here
-        AudioManager.instance.PlaySFXArray("TowerDestroyed", transform.position);
+        //AudioManager.instance.PlaySFXArray("TowerDestroyed", transform.position);
         //this.gameObject.SetActive(false);
         canFire = false;
 

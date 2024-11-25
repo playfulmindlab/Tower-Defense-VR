@@ -16,8 +16,13 @@ public class PreplacedPropManager : PropManager
         jumpedTowerScript = existingJumpedTowerScript;
         isPropDropped = true;
 
-        gameObject.layer = LayerMask.NameToLayer("Props");
-        LockPropPosition();
+        gameObject.layer = 13;
+
+        if (xrGrab != null)
+        {
+            xrGrab.trackPosition = false;
+            xrGrab.trackRotation = false;
+        }
 
         Collider towerCollider = existingTowerScript.GetComponent<Collider>();
         towerCollider.gameObject.layer = 6;

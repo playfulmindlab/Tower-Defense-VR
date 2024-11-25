@@ -757,8 +757,13 @@ public class TowerDefenseManager : MonoBehaviour
         //DataEvent newEvent = new DataEvent("PPO Destroyed", towerToRemove.gameObject, towerToRemove.gameObject.transform.position, GameControlManager.instance.IsJumped);
         //EventManager.instance.RecordNewEvent(newEvent);
         towersInGame.Remove(towerToRemove);
+        AudioManager.instance.PlaySFXArray("TowerDestroyed", towerToRemove.transform.position);
 
-        Destroy(towerToRemove.gameObject);
+        if (towerToRemove.JumpedControls != null)
+            towerToRemove.JumpedControls.EndTowerJump();
+
+        Destroy(towerToRemove.gameObject, 1f);
+        towerToRemove.DeathAnim();
     }
 
     public void TogglePause()

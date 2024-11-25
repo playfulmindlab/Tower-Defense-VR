@@ -39,7 +39,8 @@ public class MissileDamage : Damage, IDamageMethod
         }
         else
         {
-            missileSystem.Stop();
+            if (missileSystem != null)
+                missileSystem.Stop();
             audioSource.loop = false;
             missileSystemMain.loop = false;
             missileSystemMain.maxParticles = 10;        

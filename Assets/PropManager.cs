@@ -14,7 +14,7 @@ public class PropManager : MonoBehaviour
     public GameObject upgradedProp;
 
     [SerializeField] Canvas radialMenuCanvas;
-    UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable xrGrab;
+    protected UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable xrGrab;
     protected TowerBehaviour towerScript;
     protected JumpedTowerControls jumpedTowerScript;
 

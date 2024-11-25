@@ -7560,7 +7560,7 @@ MonoBehaviour:
   towerSpawn: {fileID: 0}
   miniMapScript: {fileID: 738440234}
   upgradedProp: {fileID: 0}
-  radialMenuCanvas: {fileID: 0}
+  radialMenuCanvas: {fileID: 591704120}
   upgradedTowerRef: {fileID: 0}
   existingTowerScript: {fileID: 7428511184813454367}
   existingJumpedTowerScript: {fileID: 0}
