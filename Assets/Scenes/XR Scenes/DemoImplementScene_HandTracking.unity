@@ -17582,7 +17582,6 @@ MonoBehaviour:
   canFire: 1
   followEnemy: 1
   towerCost: 350
-  health: 10
   maxHealth: 100
   shield: 10
   damage: 1
@@ -42036,7 +42035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.y
@@ -42044,7 +42043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.31
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalRotation.w
@@ -63148,7 +63147,6 @@ MonoBehaviour:
   canFire: 0
   followEnemy: 1
   towerCost: 0
-  health: 1
   maxHealth: 1
   shield: 1000
   damage: 0
