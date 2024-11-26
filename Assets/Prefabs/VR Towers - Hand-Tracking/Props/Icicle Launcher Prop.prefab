@@ -2314,6 +2314,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 508920615863738323, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 660289632757484149, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2531,9 +2535,21 @@ PrefabInstance:
       value: JumpTower
       objectReference: {fileID: 0}
     - target: {fileID: 8310265313412031947, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_text
+      value: Icicle Launcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310265313412031947, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_fontSize
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310265313412031947, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
+    - target: {fileID: 8310265313412031947, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8310265313412031947, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
       propertyPath: m_sharedMaterial
       value: 
@@ -2541,6 +2557,10 @@ PrefabInstance:
     - target: {fileID: 8310265313412031947, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099733073372951142, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

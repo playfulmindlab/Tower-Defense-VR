@@ -58885,7 +58885,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6809239254962384233, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 25
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110088335271474290, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
+      propertyPath: m_text
+      value: Icicle Launchers
       objectReference: {fileID: 0}
     - target: {fileID: 7110088335271474290, guid: 15e1688b22f955c4a98b2ad7b36f4d05, type: 3}
       propertyPath: m_fontAsset

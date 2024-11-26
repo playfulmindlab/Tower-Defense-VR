@@ -2471,6 +2471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RadialXRCanvas_4
       objectReference: {fileID: 0}
+    - target: {fileID: 5136155653624342525, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7019386701169257683, guid: 33efe78079f5ce447a8e7cbf72d69cb3, type: 3}
       propertyPath: m_fontAsset
       value: 
