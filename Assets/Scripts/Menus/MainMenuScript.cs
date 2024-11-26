@@ -12,6 +12,7 @@ public class MainMenuScript : MonoBehaviour
 
     [SerializeField] Canvas mainMenuCanvas;
     [SerializeField] Canvas settingsCanvas;
+    [SerializeField] Canvas tutorialCanvas;
 
     public void NewGame()
     {
@@ -26,6 +27,12 @@ public class MainMenuScript : MonoBehaviour
     public void ToggleSettingsMenu(bool toggle)
     {
         settingsCanvas.enabled = toggle;
+        mainMenuCanvas.enabled = !toggle;
+    }
+
+    public void ToggleTutorial(bool toggle)
+    {
+        tutorialCanvas.enabled = toggle;
         mainMenuCanvas.enabled = !toggle;
     }
 
