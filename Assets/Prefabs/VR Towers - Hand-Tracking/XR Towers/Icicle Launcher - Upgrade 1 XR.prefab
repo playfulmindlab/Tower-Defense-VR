@@ -737,7 +737,6 @@ MonoBehaviour:
   canFire: 1
   followEnemy: 1
   towerCost: 800
-  health: 10
   maxHealth: 10
   shield: 10
   damage: 20

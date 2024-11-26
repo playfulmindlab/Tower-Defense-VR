@@ -13,21 +13,29 @@ public class Settings : MonoBehaviour
     [SerializeField] Slider ySensitivity;
     [SerializeField] Toggle yInvert;
 
+    [SerializeField] TMPro.TMP_Text musicText;
+    [SerializeField] TMPro.TMP_Text sfxText;
+
     // Start is called before the first frame update
     void Start()
     {
         gm = GameManager.instance;
+
+        ResetToDefaultSettings();
+        gm.UpdateSettings();
     }
 
     public void UpdateMusicVolume(float newValue)
     {
         gm.musicVolume = newValue;
+        musicText.text = newValue.ToString("F3");
         gm.UpdateSettings();
     }
 
     public void UpdateSFXVolume(float newValue)
     {
         gm.sfxVolume = newValue;
+        sfxText.text = newValue.ToString("F3");
         gm.UpdateSettings();
     }
 
@@ -58,6 +66,9 @@ public class Settings : MonoBehaviour
         xSensitivity.value = 1.0f;
         ySensitivity.value = 1.0f;
         yInvert.isOn = false;
+
+        musicText.text = musicVolumeSlider.value.ToString("F3");
+        sfxText.text = sfxVolumeSlider.value.ToString("F3");
 
         UpdateMusicVolume(musicVolumeSlider.value);
         UpdateSFXVolume(sfxVolumeSlider.value);

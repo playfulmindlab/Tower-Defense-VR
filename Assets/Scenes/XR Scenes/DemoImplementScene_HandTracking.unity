@@ -31830,7 +31830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa7d98688840c04fbb697c78c34428c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMapWaveComp: {fileID: 11400000, guid: 789b70f639d27544b90fa163ca23dc0a, type: 2}
+  currMapWaveComp: {fileID: 11400000, guid: 3b9de330712f1f34d93a92b27bfa2ef8, type: 2}
 --- !u!4 &1123684177
 Transform:
   m_ObjectHideFlags: 0
@@ -33723,6 +33723,7 @@ MonoBehaviour:
     clips:
     - clip: {fileID: 8300000, guid: 895dee8c6077f7b408a6622c846d37c1, type: 3}
       volume: 1
+  musicSource: {fileID: 1164044097}
 --- !u!4 &1164044099
 Transform:
   m_ObjectHideFlags: 0

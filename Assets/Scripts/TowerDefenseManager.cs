@@ -691,7 +691,10 @@ public class TowerDefenseManager : MonoBehaviour
         TogglePause();
         phaseText.text = "YOU WIN!";
         yield return new WaitForSeconds(4f);
-        //TogglePause();
+
+        DataEvent newEvent2 = new DataEvent("Game Quit", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        EventManager.instance.RecordNewEvent(newEvent2);
+        TogglePause();
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR-V2", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
@@ -706,10 +709,11 @@ public class TowerDefenseManager : MonoBehaviour
         AudioManager.instance.PlaySFXArray("SceneGameOver", Camera.main.transform.position);
         TogglePause();
         phaseText.text = "GAME OVER";
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
 
         DataEvent newEvent2 = new DataEvent("Game Quit", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent2);
+        TogglePause();
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR-V2", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 

@@ -16,7 +16,7 @@ public class TowerBehaviour : MonoBehaviour
     public bool followEnemy = true;
 
     public int towerCost = 100;
-    [SerializeField] protected int health = 10;
+    protected int health = 10;
     public int maxHealth = 10;
     public int shield = 10;
 
