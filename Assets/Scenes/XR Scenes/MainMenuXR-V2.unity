@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.02495846, g: 0.02274444, b: 0.07047759, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7302,7 +7302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &823167722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7450,7 +7450,7 @@ MonoBehaviour:
 
 '
     firstImage: {fileID: 21300000, guid: 9093a166ef82c46489ebcc42c5e98570, type: 3}
-    secondImage: {fileID: 21300000, guid: 1b57c577d2076084e89644cc0e2a886a, type: 3}
+    secondImage: {fileID: 21300000, guid: 335857be2ee27b343b2fe9cfbef9a13f, type: 3}
   - pageText: 'Grab a tower
 
 
@@ -7479,11 +7479,11 @@ MonoBehaviour:
 
 
       "Delete" deletes the tower
-      from the map and refunds the cost of the tower.
+      from the map and refunds some of the cost of the tower.
 
 
-      "Jump" lets you control
-      the tower from a first-person perspective with your balance.
+      "Jump" lets
+      you control the tower from a first-person perspective with your balance.
 
 
       "Upgrade"
@@ -7512,19 +7512,15 @@ MonoBehaviour:
       build more towers. You also will get new towers unlocked during this phase
       as the game goes on.'
     firstImage: {fileID: 21300000, guid: f1a8ee9eff719b349a8cac237b6f71e9, type: 3}
-    secondImage: {fileID: 21300000, guid: 9093a166ef82c46489ebcc42c5e98570, type: 3}
-  - pageText: 'Jump tower
-
-      Open any tower''s menu and press "Jump".
-
-      You
-      are going to see a reticle in front of you. Move the reticle by changing where
+    secondImage: {fileID: 21300000, guid: 287c3f9af784955469756d97f2b0475b, type: 3}
+  - pageText: "Jump tower\n\nOpen any tower's menu and press \"Jump\".\n\nYou are
+      going to see a reticle in front of you. Move the reticle by changing where
       your weight is distributed. Putting more weight on your right foot will make
       the reticle and your perspective turn to the right. If you turn your head,
       you wont be able to look around - this is on purpose, and you will have to
-      adjust your weight to see more. '
-    firstImage: {fileID: 21300000, guid: 7cc2595341bbfe44ab5fab724c7e348e, type: 3}
-    secondImage: {fileID: 21300000, guid: 9093a166ef82c46489ebcc42c5e98570, type: 3}
+      adjust your weight to see more. \n"
+    firstImage: {fileID: 21300000, guid: 983b81c2f9aec3c4690089844791ebdc, type: 3}
+    secondImage: {fileID: 21300000, guid: d2fcf91f21dfb944f8e569c2e619dc88, type: 3}
   - pageText: 'Jump tower (continued)
 
       To start the tower, make a thumbs up
@@ -7545,14 +7541,16 @@ MonoBehaviour:
       The blizzard bombs slow enemies, and the flamethrowers and lava lobber towers
       burn enemies. The electric tower shocks enemies intermittently.
 
+
       Some
       enemies also have special properties. The slime-type enemies can damage towers,
       but only within a certain range.
 
+
       The saboteur enemies deactivate towers
       that are near them, but deactivated towers can still be jumped. '
-    firstImage: {fileID: 21300000, guid: 43090abb8311a024d8db60bf7b89dc65, type: 3}
-    secondImage: {fileID: 21300000, guid: fe754fd19537e5646b07cb27ebd8bb20, type: 3}
+    firstImage: {fileID: 21300000, guid: f0e42db1eb54b604bac140e1eb6a43e3, type: 3}
+    secondImage: {fileID: 21300000, guid: 8b4c51b61bce80746895baaa59fdcc52, type: 3}
 --- !u!1001 &856404878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16918,7 +16916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!223 &781630662741843254
 Canvas:
   m_ObjectHideFlags: 0
