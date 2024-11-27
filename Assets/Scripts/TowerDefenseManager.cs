@@ -506,7 +506,7 @@ public class TowerDefenseManager : MonoBehaviour
 
                 for (int i = 0; i < EnemySpawner.enemiesInGame.Count; i++)
                 {
-                    enemySpeeds[i] = EnemySpawner.enemiesInGame[i].speed;
+                    enemySpeeds[i] = EnemySpawner.enemiesInGame[i].Speed;
                     nodeIndices[i] = EnemySpawner.enemiesInGame[i].nodeIndex;
                 }
 
