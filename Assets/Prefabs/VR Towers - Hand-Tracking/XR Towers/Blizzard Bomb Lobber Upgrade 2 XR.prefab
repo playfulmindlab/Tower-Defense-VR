@@ -2100,10 +2100,9 @@ MonoBehaviour:
   canFire: 1
   followEnemy: 1
   towerCost: 1000
-  health: 10
   maxHealth: 10
   shield: 10
-  damage: 8
+  damage: 10
   firerate: 0.5
   range: 6
   readjustSpeed: 3
@@ -2159,8 +2158,6 @@ MonoBehaviour:
   tipTransform: {fileID: 6023050348623473047}
   cameraHeightMod: 3
   cameraAngleMod: 35
-  targetDecal: {fileID: 0}
-  tDP: {fileID: 0}
 --- !u!114 &3932013457937336223
 MonoBehaviour:
   m_ObjectHideFlags: 0

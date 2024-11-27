@@ -1572,12 +1572,11 @@ MonoBehaviour:
   canFire: 1
   followEnemy: 1
   towerCost: 800
-  health: 10
   maxHealth: 20
   shield: 10
   damage: 4
   firerate: 1
-  range: 3
+  range: 7
   readjustSpeed: 3
   healthBar: {fileID: 2254208697112799804}
   shieldBar: {fileID: 7817803639595467311}

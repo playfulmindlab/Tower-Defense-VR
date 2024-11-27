@@ -741,7 +741,7 @@ MonoBehaviour:
   shield: 10
   damage: 20
   firerate: 1
-  range: 5
+  range: 8
   readjustSpeed: 3
   healthBar: {fileID: 7148677496383868548}
   shieldBar: {fileID: 6541553771498999157}
