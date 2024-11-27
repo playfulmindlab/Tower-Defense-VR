@@ -13,10 +13,10 @@ public struct DamageResistance
 
 public class Enemy : MonoBehaviour
 {
-    public Transform root;
+    //public Transform root;
     public float maxHealth;
 
-    [SerializeField] float health;
+    float health;
     public float Health
     {
         get { return health; }
@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
     EnemySensor towerSensor;
     [SerializeField] TowerBehaviour attackingTower;
 
-    public float damageResistance = 1f;
+    //public float damageResistance = 1f;
     public DamageResistance[] damageResistances = new DamageResistance[0];
     public List<Effect> activeEffects;
 

@@ -13,7 +13,7 @@ public class LaserDamage : Damage, IDamageMethod
         {
             laserRenderer.enabled = true;
             laserRenderer.SetPosition(0, laserPivot.position);
-            laserRenderer.SetPosition(1, target.root.position);
+            //laserRenderer.SetPosition(1, target.root.position);
 
             if (delay > 0f)
             {
@@ -21,7 +21,7 @@ public class LaserDamage : Damage, IDamageMethod
                 return;
             }
 
-            TowerDefenseManager.EnqueueDamageData(new EnemyDamage(target, damage, target.damageResistance));
+            //TowerDefenseManager.EnqueueDamageData(new EnemyDamage(target, damage, target.damageResistance));
 
             delay = 1f / firerate;
             return;
