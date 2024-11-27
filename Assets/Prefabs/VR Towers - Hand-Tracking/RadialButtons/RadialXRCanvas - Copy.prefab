@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 3606599164802792322}
   - component: {fileID: 8013235125041252172}
   m_Layer: 2
-  m_Name: RadialXRCanvas
+  m_Name: RadialXRCanvas - Copy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -816,7 +816,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 10
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &4642161008966700571
 MonoBehaviour:
   m_ObjectHideFlags: 0

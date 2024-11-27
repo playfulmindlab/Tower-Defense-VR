@@ -7384,7 +7384,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823167720}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 558152710}
@@ -7438,12 +7438,121 @@ MonoBehaviour:
   image2: {fileID: 1252592069}
   pageNumText: {fileID: 333118471}
   tutorialPages:
-  - pageText: PAGE 1
-    firstImage: {fileID: 21300000, guid: 26c92bd68c26bfb448b47643b9f452c5, type: 3}
+  - pageText: 'Welcome to the VR Tower-Defense Training!
+
+
+
+      In this game you''ll
+      be protecting the base from 15 waves of alien invaders.
+
+      If the base
+      is attacked and all health is depleted, then you lose.
+
+'
+    firstImage: {fileID: 21300000, guid: 9093a166ef82c46489ebcc42c5e98570, type: 3}
     secondImage: {fileID: 21300000, guid: 1b57c577d2076084e89644cc0e2a886a, type: 3}
-  - pageText: NEW PAGE 2
+  - pageText: 'Grab a tower
+
+
+      Hold your right hand over a tower on the shelf
+      to your right. Pinch your thumb and forefinger together to pick it up.
+
+
+      Hold
+      your thumb and forefinger together, and move your hand so it is over the miniature
+      map in front of you.
+
+
+      When the dotted line below your hands is green,
+      ''drop'' the tower by letting go of the pinch.
+
+
+      The circle on the map
+      shows how far the tower can reach to do damage.'
+    firstImage: {fileID: 21300000, guid: 7cc2595341bbfe44ab5fab724c7e348e, type: 3}
+    secondImage: {fileID: 21300000, guid: 4a6d6a9538956174babc64c73bc3a386, type: 3}
+  - pageText: 'Open tower menu
+
+
+      Pinch the dropped tower whose menu you want
+      to open with your thumb and forefinger.
+
+
+      "Delete" deletes the tower
+      from the map and refunds the cost of the tower.
+
+
+      "Jump" lets you control
+      the tower from a first-person perspective with your balance.
+
+
+      "Upgrade"
+      upgrades the tower to a more powerful version for a cost.
+
+
+      "Close" minimizes
+      the menu.'
+    firstImage: {fileID: 21300000, guid: 7cc2595341bbfe44ab5fab724c7e348e, type: 3}
+    secondImage: {fileID: 21300000, guid: 794614ac6403bda4e927155002bb3f54, type: 3}
+  - pageText: 'Start waves
+
+
+      Menu on your left shows the money available for
+      use, and a "Defend" button. To start the game, press "Defend."
+
+
+      The
+      "Wave" part of the menu tells you what phase the game is in. If it is in the
+      "Defend" phase, your goal is to use the towers and your balance to defeat all
+      the enemies before they reach the base. You cannot build new towers at this
+      time.
+
+
+      If the "Wave" part of the menu says "Build" then you can now
+      build more towers. You also will get new towers unlocked during this phase
+      as the game goes on.'
+    firstImage: {fileID: 21300000, guid: f1a8ee9eff719b349a8cac237b6f71e9, type: 3}
+    secondImage: {fileID: 21300000, guid: 9093a166ef82c46489ebcc42c5e98570, type: 3}
+  - pageText: 'Jump tower
+
+      Open any tower''s menu and press "Jump".
+
+      You
+      are going to see a reticle in front of you. Move the reticle by changing where
+      your weight is distributed. Putting more weight on your right foot will make
+      the reticle and your perspective turn to the right. If you turn your head,
+      you wont be able to look around - this is on purpose, and you will have to
+      adjust your weight to see more. '
     firstImage: {fileID: 21300000, guid: 7cc2595341bbfe44ab5fab724c7e348e, type: 3}
     secondImage: {fileID: 21300000, guid: 9093a166ef82c46489ebcc42c5e98570, type: 3}
+  - pageText: 'Jump tower (continued)
+
+      To start the tower, make a thumbs up
+      with your hand in front of you - you wont see it, but the game will.
+
+      If
+      the thumb''s up isn''t starting the tower, try stretching your thumb upwards
+      to exaggerate the gesture.
+
+      To exit the tower, make a thumbs down gesture
+      in front of you.'
+    firstImage: {fileID: 21300000, guid: 43090abb8311a024d8db60bf7b89dc65, type: 3}
+    secondImage: {fileID: 21300000, guid: fe754fd19537e5646b07cb27ebd8bb20, type: 3}
+  - pageText: 'Special towers/enemies
+
+
+      Some of the towers have special properties.
+      The blizzard bombs slow enemies, and the flamethrowers and lava lobber towers
+      burn enemies. The electric tower shocks enemies intermittently.
+
+      Some
+      enemies also have special properties. The slime-type enemies can damage towers,
+      but only within a certain range.
+
+      The saboteur enemies deactivate towers
+      that are near them, but deactivated towers can still be jumped. '
+    firstImage: {fileID: 21300000, guid: 43090abb8311a024d8db60bf7b89dc65, type: 3}
+    secondImage: {fileID: 21300000, guid: fe754fd19537e5646b07cb27ebd8bb20, type: 3}
 --- !u!1001 &856404878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8708,7 +8817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.81
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16809,7 +16918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!223 &781630662741843254
 Canvas:
   m_ObjectHideFlags: 0
