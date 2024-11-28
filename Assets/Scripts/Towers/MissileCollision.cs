@@ -10,7 +10,7 @@ public class MissileCollision : MonoBehaviour
     [SerializeField] private float explositonRadius;
     private List<ParticleCollisionEvent> missileCollisions;
 
-    public float damageValue = 0;
+    //public float damageValue = 0;
     [SerializeField] bool splashDamage = false;
 
     // Start is called before the first frame update
@@ -42,13 +42,13 @@ public class MissileCollision : MonoBehaviour
                     EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.GetResistanceModifier(baseClass.GetAttackType));
                     TowerDefenseManager.EnqueueDamageData(damageToApply);
 
-                    damageValue = baseClass.DamageValue;
+                    //damageValue = baseClass.DamageValue;
                 }
             }
             else
             {
                 Enemy enemyToDamage = other.GetComponent<Enemy>();
-                damageValue = baseClass.DamageValue;
+                //damageValue = baseClass.DamageValue;
                 if (enemyToDamage != null)
                 {
                     EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.GetResistanceModifier(baseClass.GetAttackType));

@@ -2,11 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyLobberMissileCollision : MissileDamage
+public class EnemyLobberMissileCollision : Damage
 {
+    //public LayerMask towerLayer;
+    [SerializeField] protected ParticleSystem missileSystem;
+    //[SerializeField] protected Transform towerHead;
+    [SerializeField] string shotHitSFXName = "TowerBasicShot";
+
+    protected ParticleSystem.MainModule missileSystemMain;
+    //protected AudioSource audioSource;
+
+
+
     [SerializeField] private Enemy baseClass;
     [SerializeField] private ParticleSystem explosionSystem;
     private List<ParticleCollisionEvent> missileCollisions;
+
+    public override void Init(float damage, float firerate)
+    {
+        //audioSource = GetComponent<AudioSource>();
+        missileSystemMain = missileSystem.main;
+        missileSystemMain.duration = 1 / firerate;
+
+        //missileSystemMain.startSpeed = projectileSpeed;
+        base.Init(damage, firerate);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +35,7 @@ public class EnemyLobberMissileCollision : MissileDamage
         Physics.IgnoreLayerCollision(0, 10);
     }
 
-    public override void ActivateGun(bool activeState) { }
+    //public override void ActivateGun(bool activeState) { }
 
     public override void DamageTick(Enemy target) { }
 
@@ -23,6 +43,8 @@ public class EnemyLobberMissileCollision : MissileDamage
     {
         missileSystem.GetCollisionEvents(other, missileCollisions);
         Debug.Log("OTHER: " + other.name);
+
+        AudioManager.instance.PlaySFXArray(shotHitSFXName, other.transform.position);
 
         for (int collisionEvent = 0; collisionEvent < missileCollisions.Count; collisionEvent++)
         {
@@ -35,6 +57,9 @@ public class EnemyLobberMissileCollision : MissileDamage
             {
                 towerToDamage.Damage(baseClass.attack);
             }
+
+            //Note: this section of code is meant for damage dealt in a radius around an exploded missile - the lobber currently doesn't use
+            //this at all right now, but the code is here easy to implement it if we so choose
 
             //Collider[] enemiesInRadius = Physics.OverlapSphere(missileCollisions[collisionEvent].intersection, explosionRadius, 1 << LayerMask.NameToLayer("Tower"));
 

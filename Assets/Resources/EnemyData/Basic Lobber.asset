@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc2c6022bf31f644bd4dbd5b7eb3d0f, type: 3}
   m_Name: Basic Lobber
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6832201459843661038, guid: b7fe1bc8d07fba74299c5d8d7f8ec772, type: 3}
+  enemyPrefab: {fileID: 7079708086367606171, guid: ebc740c4f693d624785d53a305daede7, type: 3}
   enemyImage: {fileID: 21300000, guid: 548f83033a7313742a23435b328875b6, type: 3}
   enemyID: 0

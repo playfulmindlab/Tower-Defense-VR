@@ -5,6 +5,7 @@ using UnityEngine;
 public class LobberEnemy : Enemy
 {
     [SerializeField] GameObject tip;
+    [SerializeField] string firingSFXName = "TowerBasicShot";
     ParticleSystem missileSystem;
     ParticleSystem.MainModule missileSystemMain;
 
@@ -32,6 +33,7 @@ public class LobberEnemy : Enemy
             missileSystemMain.startSpeed = Mathf.Sqrt(dist * missileSystemMain.gravityModifierMultiplier * 9.81f);
 
             missileSystem.Play();
+            AudioManager.instance.PlaySFXArray(firingSFXName, transform.position);
         }
     }
 }
