@@ -7396,7 +7396,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823167720}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 558152710}
@@ -7534,28 +7534,19 @@ MonoBehaviour:
       adjust your weight to see more. \n"
     firstImage: {fileID: 21300000, guid: 983b81c2f9aec3c4690089844791ebdc, type: 3}
     secondImage: {fileID: 21300000, guid: d2fcf91f21dfb944f8e569c2e619dc88, type: 3}
-  - pageText: 'Jump tower (continued)
-
-
-      To start the tower, make a thumbs up
-      with your hand in front of you - you wont see it, but the game will.
-
-
-      If
-      the thumb''s up isn''t starting the tower, try stretching your thumb upwards
-      to exaggerate the gesture.
-
-
-      To exit the tower, make a thumbs down gesture
-      in front of you.'
+  - pageText: "Jump tower (continued)\n\nTo start the tower, make a thumbs up with
+      your hand in front of you - you wont see it, but the game will. \n\nIf the
+      thumb's up isn't starting the tower, try stretching your thumb upwards to exaggerate
+      the gesture.\n\nTo exit the tower, make a thumbs down gesture in front of you."
     firstImage: {fileID: 21300000, guid: 43090abb8311a024d8db60bf7b89dc65, type: 3}
     secondImage: {fileID: 21300000, guid: fe754fd19537e5646b07cb27ebd8bb20, type: 3}
-  - pageText: "Special towers/enemies\n\nSome of the towers have special abilities.
-      \n\nThe blizzard bombs slow enemies, and the flamethrowers and lava lobber
-      towers burn enemies. The electric tower shocks enemies intermittently.\n\nSome
-      enemies also have special properties. \n\nThe slime-type enemies can damage
-      towers, but only within a certain range. The saboteur enemies deactivate towers
-      that are near them, but deactivated towers can still be jumped. "
+  - pageText: "Special towers/enemies\n\nAll towers have their attack power doubled
+      when you are jumped into them. Some of the towers have special abilities. \n\nThe
+      blizzard bombs slow enemies, and the flamethrowers and lava lobber towers burn
+      enemies. The electric tower stuns enemies intermittently.\n\nSome enemies also
+      have special properties. \n\nThe slime-type enemies can damage towers, but
+      only within a certain range. The saboteur enemies deactivate towers that are
+      near them, but deactivated towers can still be jumped. "
     firstImage: {fileID: 21300000, guid: f0e42db1eb54b604bac140e1eb6a43e3, type: 3}
     secondImage: {fileID: 21300000, guid: 8b4c51b61bce80746895baaa59fdcc52, type: 3}
 --- !u!1001 &856404878
@@ -11242,8 +11233,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 70, y: -117.00039}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 80, y: -117.00039}
+  m_SizeDelta: {x: 125, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1252592069
 MonoBehaviour:
@@ -14084,8 +14075,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: -117}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -80, y: -117}
+  m_SizeDelta: {x: 125, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618092234
 MonoBehaviour:
