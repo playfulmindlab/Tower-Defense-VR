@@ -8242,6 +8242,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: XRTowerBuilderMenu V2
       objectReference: {fileID: 0}
+    - target: {fileID: 1095605392257230712, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095605392257230712, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095605392257230712, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 23.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197190779712869173, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_Text
+      value: Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197190779712869173, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846574917733930493, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00028640032
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846574917733930493, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.8994617
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846574917733930493, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.1997223
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499544815848533480, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00028640032
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499544815848533480, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.8994617
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499544815848533480, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -26.199722
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452545773541746893, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20.9
+      objectReference: {fileID: 0}
     - target: {fileID: 7914156765007134439, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -33514,7 +33562,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.251
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -33622,17 +33670,17 @@ MonoBehaviour:
   - name: BaseAttacked
     clips:
     - clip: {fileID: 8300000, guid: b94609c1b026b704994deb0ec59cfaac, type: 3}
-      volume: 0.14
+      volume: 0.2
     - clip: {fileID: 8300000, guid: 2841792790e899c4ea94db44c3fbd92d, type: 3}
-      volume: 0.152
+      volume: 0.2
     - clip: {fileID: 8300000, guid: da586672ce1b2724083b2e989d11a538, type: 3}
-      volume: 0.162
+      volume: 0.2
     - clip: {fileID: 8300000, guid: 2c68deadbb42ff84cb712c42e5a0e500, type: 3}
-      volume: 0.152
+      volume: 0.2
     - clip: {fileID: 8300000, guid: d22d29778f072b44187ab4ce61dae52a, type: 3}
-      volume: 0.143
+      volume: 0.2
     - clip: {fileID: 8300000, guid: 3fdad062621dbce4d91d559f30b1622d, type: 3}
-      volume: 0.194
+      volume: 0.2
   - name: BaseDestroyed
     clips:
     - clip: {fileID: 8300000, guid: 0bb1501436dd45144977cead2ff9a8df, type: 3}

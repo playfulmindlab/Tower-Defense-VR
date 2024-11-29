@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemyOrder:
-    - {fileID: 11400000, guid: 3fa82ea8c9fd1254a83db45535cd0238, type: 2}
+    - {fileID: 11400000, guid: 1f6f15e6e69fdf544a45b45d8051da07, type: 2}
     numLoops: 100
     postWaveStep: 2

@@ -10601,7 +10601,7 @@ MonoBehaviour:
   speed: 5
   initialSpeed: 1.5
   speedIncreasePerWave: 0.3
-  attack: 10
+  attack: 5
   attackRate: 1
   attackingTower: {fileID: 0}
   damageResistances: []
