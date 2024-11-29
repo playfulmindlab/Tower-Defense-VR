@@ -337,16 +337,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41400f6826b33154c8dee3bdfa4e4ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  root: {fileID: 0}
   maxHealth: 10
-  health: 10
   speed: 10
   initialSpeed: 2
   speedIncreasePerWave: 0.4
   attack: 3
   attackRate: 0.5
   attackingTower: {fileID: 0}
-  damageResistance: 1
   damageResistances: []
   activeEffects: []
   currNodePath: []

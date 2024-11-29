@@ -152,15 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24eee7aaf11709439b42f71274a38c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 1
   attackType: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
   missileSystem: {fileID: 4473950248981139376}
-  towerHead: {fileID: 5177503397452929469}
-  firingSFXName: TowerBasicShot
-  baseDamageValue: 0
+  shotHitSFXName: TowerBasicShot
   baseClass: {fileID: 4129434808576197676}
   explosionSystem: {fileID: 2167651185581487642}
 --- !u!198 &4473950248981139376
@@ -10622,6 +10616,7 @@ MonoBehaviour:
   healthText: {fileID: 68655007755212624}
   speedText: {fileID: 6638209137943556958}
   tip: {fileID: 6398276963847502964}
+  firingSFXName: TowerBasicShot
 --- !u!1 &7196035759148970409
 GameObject:
   m_ObjectHideFlags: 0

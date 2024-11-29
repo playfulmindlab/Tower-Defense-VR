@@ -3563,7 +3563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 120, y: 142.5}
+  m_AnchoredPosition: {x: 121, y: 227}
   m_SizeDelta: {x: 75, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &333118471
@@ -4542,11 +4542,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5289182684458692541, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -90
+      value: -89.99999
       objectReference: {fileID: 0}
     - target: {fileID: 5289182684458692541, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -90
+      value: -164.00012
       objectReference: {fileID: 0}
     - target: {fileID: 5289182684458692541, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5959,8 +5959,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 70}
-  m_SizeDelta: {x: 350, y: 180}
+  m_AnchoredPosition: {x: 0, y: 140}
+  m_SizeDelta: {x: 431.2, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &640185182
 MonoBehaviour:
@@ -5982,12 +5982,24 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-    in culpa qui officia deserunt mollit anim id est laborum.
+  m_text: 'Grab a tower
+
+
+    Hold your right hand over a tower on the shelf to your
+    right. Pinch your thumb and forefinger together to pick it up.
+
+
+    Hold your
+    thumb and forefinger together, and move your hand so it is over the miniature
+    map in front of you.
+
+
+    When the dotted line below your hands is green, ''drop''
+    the tower by letting go of the pinch.
+
+
+    The circle on the map shows how far
+    the tower can reach to do damage.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6014,8 +6026,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7302,7 +7314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &823167722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7384,7 +7396,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823167720}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 558152710}
@@ -7418,8 +7430,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 4.25}
-  m_SizeDelta: {x: 420, y: 450}
+  m_AnchoredPosition: {x: 0.0231, y: 4.1697}
+  m_SizeDelta: {x: 610, y: 610}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &823167728
 MonoBehaviour:
@@ -7444,6 +7456,7 @@ MonoBehaviour:
 
       In this game you''ll
       be protecting the base from 15 waves of alien invaders.
+
 
       If the base
       is attacked and all health is depleted, then you lose.
@@ -7516,39 +7529,33 @@ MonoBehaviour:
   - pageText: "Jump tower\n\nOpen any tower's menu and press \"Jump\".\n\nYou are
       going to see a reticle in front of you. Move the reticle by changing where
       your weight is distributed. Putting more weight on your right foot will make
-      the reticle and your perspective turn to the right. If you turn your head,
+      the reticle and your perspective turn to the right. \n\nIf you turn your head,
       you wont be able to look around - this is on purpose, and you will have to
       adjust your weight to see more. \n"
     firstImage: {fileID: 21300000, guid: 983b81c2f9aec3c4690089844791ebdc, type: 3}
     secondImage: {fileID: 21300000, guid: d2fcf91f21dfb944f8e569c2e619dc88, type: 3}
   - pageText: 'Jump tower (continued)
 
+
       To start the tower, make a thumbs up
       with your hand in front of you - you wont see it, but the game will.
+
 
       If
       the thumb''s up isn''t starting the tower, try stretching your thumb upwards
       to exaggerate the gesture.
 
+
       To exit the tower, make a thumbs down gesture
       in front of you.'
     firstImage: {fileID: 21300000, guid: 43090abb8311a024d8db60bf7b89dc65, type: 3}
     secondImage: {fileID: 21300000, guid: fe754fd19537e5646b07cb27ebd8bb20, type: 3}
-  - pageText: 'Special towers/enemies
-
-
-      Some of the towers have special properties.
-      The blizzard bombs slow enemies, and the flamethrowers and lava lobber towers
-      burn enemies. The electric tower shocks enemies intermittently.
-
-
-      Some
-      enemies also have special properties. The slime-type enemies can damage towers,
-      but only within a certain range.
-
-
-      The saboteur enemies deactivate towers
-      that are near them, but deactivated towers can still be jumped. '
+  - pageText: "Special towers/enemies\n\nSome of the towers have special abilities.
+      \n\nThe blizzard bombs slow enemies, and the flamethrowers and lava lobber
+      towers burn enemies. The electric tower shocks enemies intermittently.\n\nSome
+      enemies also have special properties. \n\nThe slime-type enemies can damage
+      towers, but only within a certain range. The saboteur enemies deactivate towers
+      that are near them, but deactivated towers can still be jumped. "
     firstImage: {fileID: 21300000, guid: f0e42db1eb54b604bac140e1eb6a43e3, type: 3}
     secondImage: {fileID: 21300000, guid: 8b4c51b61bce80746895baaa59fdcc52, type: 3}
 --- !u!1001 &856404878
@@ -10931,7 +10938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5289182684458692541, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -90
+      value: -164.00012
       objectReference: {fileID: 0}
     - target: {fileID: 5289182684458692541, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11235,7 +11242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 70, y: -50}
+  m_AnchoredPosition: {x: 70, y: -117.00039}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1252592069
@@ -14077,7 +14084,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: -50}
+  m_AnchoredPosition: {x: -70, y: -117}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618092234
@@ -14545,7 +14552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5289182684458692541, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -90
+      value: -164
       objectReference: {fileID: 0}
     - target: {fileID: 5289182684458692541, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
