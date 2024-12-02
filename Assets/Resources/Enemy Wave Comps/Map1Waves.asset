@@ -16,11 +16,11 @@ MonoBehaviour:
   - enemyOrder:
     - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
     numLoops: 5
-    postWaveStep: 2
+    postWaveStep: 0
   - enemyOrder:
     - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
     numLoops: 7
-    postWaveStep: 2
+    postWaveStep: 0
   - enemyOrder:
     - {fileID: 11400000, guid: 7a5ca6b3494fbaf489800408c6fc63d7, type: 2}
     numLoops: 9
