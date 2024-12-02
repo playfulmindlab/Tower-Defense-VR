@@ -46071,7 +46071,7 @@ Transform:
   m_GameObject: {fileID: 1167315807}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.00029670322, w: 1}
-  m_LocalPosition: {x: -25.81, y: -10.25, z: -27.39}
+  m_LocalPosition: {x: -25.81, y: -10.24, z: -27.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55872,7 +55872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9f79c378999684f8debdfe718211e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateUnlockableTowers: 1
+  activateUnlockableTowers: 0
   spawnables:
   - wave: 1
     spawnables:
@@ -59342,7 +59342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0f51457cb66fd4fbe91b6c8e383868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMoney: 550
+  startingMoney: 5500
   currentMoney: 0
   moneyText: {fileID: 1640613817}
   waveText: {fileID: 900864732}
@@ -72521,7 +72521,7 @@ Transform:
   m_GameObject: {fileID: 1889257463}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.00029670322, w: 1}
-  m_LocalPosition: {x: -25.81, y: -10.24, z: -27.39}
+  m_LocalPosition: {x: -25.81, y: -10.23, z: -27.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
