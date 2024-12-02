@@ -189,7 +189,7 @@ public class GameControlManager : MonoBehaviour
                 jumpedTransitionCanvas.worldCamera = jumpedTowerControls.TowerCamera;
                 jumpedOverlayWarning.enabled = true;
 
-                tunnelVolume.transform.position = jumpedTowerControls.gameObject.transform.position;
+                tunnelVolume.transform.position = jumpedTowerControls.gameObject.GetComponentInChildren<Camera>().transform.position;
                 isJumped = true;
                 //ChangeTargetType();
                 //towerUI.ResetReticle();
