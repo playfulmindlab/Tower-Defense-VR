@@ -30625,7 +30625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8998820638953485013, guid: c82f2e8ce1d3b5343b5cfe182da1a9fd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8998820638953485013, guid: c82f2e8ce1d3b5343b5cfe182da1a9fd, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -36905,6 +36905,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallMetalDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 3477274868013797961, guid: 445f84d7d07ddc1439b45b3eb63efd9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4254234501362436339, guid: 445f84d7d07ddc1439b45b3eb63efd9b, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -36931,7 +36935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4254234501362436339, guid: 445f84d7d07ddc1439b45b3eb63efd9b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.398
+      value: 0.91
       objectReference: {fileID: 0}
     - target: {fileID: 4254234501362436339, guid: 445f84d7d07ddc1439b45b3eb63efd9b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -38363,7 +38367,7 @@ MonoBehaviour:
   m_IsGlobal: 0
   priority: 0
   blendDistance: 0
-  weight: 0.484
+  weight: 1
   sharedProfile: {fileID: 11400000, guid: f9c71e86035df0446a88a03b64413d9b, type: 2}
 --- !u!114 &981493127
 MonoBehaviour:

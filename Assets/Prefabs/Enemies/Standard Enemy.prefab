@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0198002c95ff54da0e002c1604c884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 35
   speed: 8
   initialSpeed: 2
   speedIncreasePerWave: 0.2
