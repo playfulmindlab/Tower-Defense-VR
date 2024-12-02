@@ -4,27 +4,19 @@ using UnityEngine;
 
 public class EnemyLobberMissileCollision : Damage
 {
-    //public LayerMask towerLayer;
+    [SerializeField] private Enemy baseClass;
     [SerializeField] protected ParticleSystem missileSystem;
-    //[SerializeField] protected Transform towerHead;
+    [SerializeField] private ParticleSystem explosionSystem;
     [SerializeField] string shotHitSFXName = "TowerBasicShot";
 
     protected ParticleSystem.MainModule missileSystemMain;
-    //protected AudioSource audioSource;
-
-
-
-    [SerializeField] private Enemy baseClass;
-    [SerializeField] private ParticleSystem explosionSystem;
     private List<ParticleCollisionEvent> missileCollisions;
 
     public override void Init(float damage, float firerate)
     {
-        //audioSource = GetComponent<AudioSource>();
         missileSystemMain = missileSystem.main;
         missileSystemMain.duration = 1 / firerate;
 
-        //missileSystemMain.startSpeed = projectileSpeed;
         base.Init(damage, firerate);
     }
 
@@ -34,8 +26,6 @@ public class EnemyLobberMissileCollision : Damage
         missileCollisions = new List<ParticleCollisionEvent>();
         Physics.IgnoreLayerCollision(0, 10);
     }
-
-    //public override void ActivateGun(bool activeState) { }
 
     public override void DamageTick(Enemy target) { }
 
