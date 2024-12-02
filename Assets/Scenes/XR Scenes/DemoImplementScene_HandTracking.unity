@@ -1736,7 +1736,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: xx\nDamage: \nAttack: 1\nFire Rate: \nAbility: None"
+  m_text: 'HP: 10
+
+    Damage: 20
+
+    Fire Rate: 0.5
+
+    Upgrade Count: 0
+
+    Ability:
+    None'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
@@ -8425,7 +8434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: xx\nDamage: \nAttack: 1\nFire Rate: \nAbility: None"
+  m_text: "HP: 100\nDamage: 1\nFire Rate: 5 \nUpgrade Count: 0\nAbility: None"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
@@ -37304,7 +37313,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: xx\nDamage: \nAttack: 1\nFire Rate: \nAbility: None"
+  m_text: "HP: 10\nDamage: 5 \nFire Rate: 0.5\nUpgrade Count: 2\nAbility: Damage
+    Over Time"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
@@ -37512,7 +37522,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: xx\nDamage: \nAttack: 1\nFire Rate: \nAbility: None"
+  m_text: 'HP: 1
+
+    Ability: Block'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
@@ -40422,7 +40434,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: xx\nDamage: \nAttack: 1\nFire Rate: \nAbility: None"
+  m_text: 'HP: 10
+
+    Damage: 8
+
+    Fire Rate: 1
+
+    Upgrade Count: 2
+
+    Ability:
+    Slow'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
@@ -42784,7 +42805,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: xx\nDamage: \nAttack: 1\nFire Rate: \nAbility: None"
+  m_text: "HP: 10\nDamage: 6 \nFire Rate: 0.5\nUpgrade Count: 2\nAbility: Damage
+    Over Time"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
@@ -56293,7 +56315,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: xx\nDamage: \nAttack: 1\nFire Rate: \nAbility: None"
+  m_text: "HP: 10\nDamage: 2 \nFire Rate: 1\nUpgrade Count: 2\nAbility: Damage Over
+    Time"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
@@ -59155,7 +59178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: xx\nDamage: \nAttack: 1\nFire Rate: \nAbility: None"
+  m_text: "HP: 10\nDamage: 2 \nFire Rate: 1\nUpgrade Count: 0\nAbility: Temp Stun"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
@@ -79792,7 +79815,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: xx\nDamage: \nAttack: 1\nFire Rate: \nAbility: None"
+  m_text: 'HP: 500
+
+    Heal: 3
+
+    Heal Rate: 5
+
+    Upgrade Count: 0
+
+    Ability:
+    Heal Towers'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
