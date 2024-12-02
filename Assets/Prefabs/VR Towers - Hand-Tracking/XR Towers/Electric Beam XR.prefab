@@ -1099,12 +1099,12 @@ MonoBehaviour:
   towerPivot: {fileID: 3782075774115030605}
   canFire: 1
   followEnemy: 1
-  towerCost: 400
+  towerCost: 350
   maxHealth: 10
   shield: 10
   damage: 2
   firerate: 1
-  range: 7
+  range: 8
   readjustSpeed: 3
   healthBar: {fileID: 8621385811426813372}
   shieldBar: {fileID: 7369811176753943267}
@@ -1165,7 +1165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0433298245dcc0d4ebea0e1243b8ab40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 1
   attackType: 3
   enemyLayer:
     serializedVersion: 2

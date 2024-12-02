@@ -377,12 +377,12 @@ MonoBehaviour:
   towerPivot: {fileID: 5282223004226913702}
   canFire: 1
   followEnemy: 1
-  towerCost: 350
+  towerCost: 300
   maxHealth: 10
   shield: 10
   damage: 8
   firerate: 1
-  range: 8
+  range: 10
   readjustSpeed: 3
   healthBar: {fileID: 1296867385743402944}
   shieldBar: {fileID: 8539086834192553709}
@@ -425,7 +425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d3b668b7f2684bb7b72b686cb4096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 1
   attackType: 2
   enemyLayer:
     serializedVersion: 2
@@ -1703,7 +1702,6 @@ MonoBehaviour:
   explosionSystem: {fileID: 5731498311427944617}
   missileSystem: {fileID: 7820477337006080346}
   explositonRadius: 3
-  damageValue: 0
   splashDamage: 0
 --- !u!198 &7820477337006080346 stripped
 ParticleSystem:

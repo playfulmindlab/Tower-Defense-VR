@@ -741,7 +741,7 @@ MonoBehaviour:
   shield: 10
   damage: 20
   firerate: 1
-  range: 8
+  range: 10
   readjustSpeed: 3
   healthBar: {fileID: 7148677496383868548}
   shieldBar: {fileID: 6541553771498999157}
@@ -801,7 +801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d3b668b7f2684bb7b72b686cb4096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 1
   attackType: 2
   enemyLayer:
     serializedVersion: 2
@@ -1941,5 +1940,4 @@ MonoBehaviour:
   explosionSystem: {fileID: 1663375243707769306}
   missileSystem: {fileID: 4711468658047425504}
   explositonRadius: 3
-  damageValue: 0
   splashDamage: 0

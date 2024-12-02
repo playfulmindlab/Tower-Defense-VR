@@ -57,17 +57,19 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 2278293629381285808}
   canFire: 1
-  towerCost: 500
-  health: 10
+  followEnemy: 1
+  towerCost: 400
   maxHealth: 10
   shield: 10
   damage: 3
   firerate: 5
   range: 6
+  readjustSpeed: 3
   healthBar: {fileID: 4641973182273368262}
   shieldBar: {fileID: 178977427725943882}
   outline: {fileID: 0}
   upgradedTower: {fileID: 0}
+  propParent: {fileID: 0}
   activeEffects: []
   stunnedImage: {fileID: 5405432979015892636}
   aliveOnSceneStart: 0
@@ -84,7 +86,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a93aee2fa582324982409fc822b6c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 1
   attackType: 0
 --- !u!54 &8662662810863522878
 Rigidbody:

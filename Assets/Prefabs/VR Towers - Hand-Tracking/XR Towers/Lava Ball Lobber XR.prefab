@@ -2153,12 +2153,11 @@ MonoBehaviour:
   canFire: 1
   followEnemy: 1
   towerCost: 350
-  health: 10
   maxHealth: 10
   shield: 10
   damage: 6
   firerate: 0.5
-  range: 6
+  range: 8
   readjustSpeed: 3
   healthBar: {fileID: 5308864755986183616}
   shieldBar: {fileID: 6154435608660097663}
@@ -2212,8 +2211,6 @@ MonoBehaviour:
   tipTransform: {fileID: 8200547051017606460}
   cameraHeightMod: 3
   cameraAngleMod: 35
-  targetDecal: {fileID: 0}
-  tDP: {fileID: 0}
 --- !u!114 &8978175906035924796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2226,7 +2223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a2c9f12f23774484731f325185cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 1
   attackType: 1
   enemyLayer:
     serializedVersion: 2

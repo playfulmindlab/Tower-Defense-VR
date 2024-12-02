@@ -291,7 +291,7 @@ MonoBehaviour:
   towerPivot: {fileID: 3637913227264682718}
   canFire: 1
   followEnemy: 1
-  towerCost: 350
+  towerCost: 250
   maxHealth: 100
   shield: 10
   damage: 1
@@ -356,7 +356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d3b668b7f2684bb7b72b686cb4096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 1
   attackType: 0
   enemyLayer:
     serializedVersion: 2
@@ -2965,7 +2964,6 @@ MonoBehaviour:
   explosionSystem: {fileID: 7230119450756066597}
   missileSystem: {fileID: 2031073741363571204}
   explositonRadius: 1
-  damageValue: 0
   splashDamage: 0
 --- !u!4 &9148060454886642991 stripped
 Transform:

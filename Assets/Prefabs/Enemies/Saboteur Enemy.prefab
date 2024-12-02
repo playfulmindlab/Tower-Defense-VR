@@ -348,7 +348,7 @@ MonoBehaviour:
   activeEffects: []
   currNodePath: []
   currNodeIndices: 
-  reward: 30
+  reward: 35
   id: 3
   nodeIndex: 0
   deathSound: {fileID: 8300000, guid: c0f50fb3f1a69184999f0c9cd858a6ac, type: 3}

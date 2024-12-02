@@ -153,10 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackType: 0
-  missileSystem: {fileID: 4473950248981139376}
-  shotHitSFXName: TowerBasicShot
   baseClass: {fileID: 4129434808576197676}
+  missileSystem: {fileID: 4473950248981139376}
   explosionSystem: {fileID: 2167651185581487642}
+  shotHitSFXName: TowerBasicShot
 --- !u!198 &4473950248981139376
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -10608,7 +10608,7 @@ MonoBehaviour:
   activeEffects: []
   currNodePath: []
   currNodeIndices: 
-  reward: 25
+  reward: 30
   id: 2
   nodeIndex: 0
   deathSound: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
