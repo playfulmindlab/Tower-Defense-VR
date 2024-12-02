@@ -5644,7 +5644,7 @@ MonoBehaviour:
   towerCost: 275
   maxHealth: 10
   shield: 10
-  damage: 20
+  damage: 5
   firerate: 0.5
   range: 12
   readjustSpeed: 3
