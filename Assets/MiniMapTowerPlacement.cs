@@ -157,7 +157,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
         float closestPathDistance = Mathf.Infinity;
 
         RaycastHit hit;
-        for (int d = 0; d < 360; d += 90)
+        for (int d = 0; d < 360; d += 30)
         {
             if (Physics.Raycast(newTower.transform.position + (Vector3.up * 0.003f),
                 new Vector3(Mathf.Sin(d * Mathf.Deg2Rad), 0, Mathf.Cos(d * Mathf.Deg2Rad)),
