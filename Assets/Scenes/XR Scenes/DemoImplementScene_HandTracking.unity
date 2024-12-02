@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.02495846, g: 0.02274444, b: 0.07047759, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24896,13 +24896,13 @@ GameObject:
   - component: {fileID: 531961040}
   - component: {fileID: 531961042}
   - component: {fileID: 531961041}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Minimap Path B
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &531961040
 Transform:
   m_ObjectHideFlags: 0
@@ -24912,7 +24912,7 @@ Transform:
   m_GameObject: {fileID: 531961039}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.93, y: -16.880035, z: -27.209854}
+  m_LocalPosition: {x: -24.93, y: -16.5, z: -27.209854}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37699,9 +37699,9 @@ GameObject:
   - component: {fileID: 892178969}
   - component: {fileID: 892178971}
   - component: {fileID: 892178970}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Minimap Path C
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -37715,7 +37715,7 @@ Transform:
   m_GameObject: {fileID: 892178968}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.93, y: -16.880035, z: -27.209854}
+  m_LocalPosition: {x: -24.93, y: -16.5, z: -27.209854}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58480,13 +58480,13 @@ GameObject:
   - component: {fileID: 1495808208}
   - component: {fileID: 1495808210}
   - component: {fileID: 1495808209}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Minimap Path A
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1495808208
 Transform:
   m_ObjectHideFlags: 0
@@ -58496,7 +58496,7 @@ Transform:
   m_GameObject: {fileID: 1495808207}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.93, y: -16.880035, z: -27.209854}
+  m_LocalPosition: {x: -24.93, y: -16.5, z: -27.209854}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
