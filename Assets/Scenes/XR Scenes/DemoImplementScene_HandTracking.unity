@@ -14057,7 +14057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &451674819
 Transform:
   m_ObjectHideFlags: 0
@@ -31098,7 +31098,7 @@ Transform:
   m_GameObject: {fileID: 712994297}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.00029670322, w: 1}
-  m_LocalPosition: {x: -25.81, y: -10.28, z: -27.39}
+  m_LocalPosition: {x: -25.81, y: -10.25, z: -27.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47658,7 +47658,7 @@ Transform:
   m_GameObject: {fileID: 1167315807}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.00029670322, w: 1}
-  m_LocalPosition: {x: -25.81, y: -10.28, z: -27.39}
+  m_LocalPosition: {x: -25.81, y: -10.25, z: -27.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47770,7 +47770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1174312740
 Transform:
   m_ObjectHideFlags: 0
@@ -49560,7 +49560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1226747266
 Transform:
   m_ObjectHideFlags: 0
@@ -61478,7 +61478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0f51457cb66fd4fbe91b6c8e383868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMoney: 550
+  startingMoney: 50000
   currentMoney: 0
   moneyText: {fileID: 1640613817}
   waveText: {fileID: 900864732}
@@ -75728,7 +75728,7 @@ Transform:
   m_GameObject: {fileID: 1889257463}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.00029670322, w: 1}
-  m_LocalPosition: {x: -25.81, y: -10.28, z: -27.39}
+  m_LocalPosition: {x: -25.81, y: -10.25, z: -27.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -286,17 +286,21 @@ MonoBehaviour:
   target: {fileID: 0}
   towerPivot: {fileID: 3637913227264682718}
   canFire: 1
+  followEnemy: 1
   towerCost: 350
-  health: 10
   maxHealth: 100
   shield: 10
   damage: 1
   firerate: 10
-  range: 5
+  range: 4
+  readjustSpeed: 3
   healthBar: {fileID: 1316986364790579683}
   shieldBar: {fileID: 6081177905782535348}
   outline: {fileID: 0}
   upgradedTower: {fileID: 0}
+  propParent: {fileID: 0}
+  activeEffects: []
+  stunnedImage: {fileID: 0}
   aliveOnSceneStart: 0
 --- !u!114 &4050970522703880095
 MonoBehaviour:
@@ -312,6 +316,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerBehaviour: {fileID: 4664551865754155880}
   towerCamera: {fileID: 2811583525624304828}
+  towerTip: {fileID: 0}
+  towerUI: {fileID: 0}
+  towerUITransform: {fileID: 0}
 --- !u!65 &3660638161032093835
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -345,15 +352,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d3b668b7f2684bb7b72b686cb4096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 1
   attackType: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
   missileSystem: {fileID: 2031073741363571204}
   towerHead: {fileID: 2124233296637705184}
-  projectileSpeed: 30
   firingSFXName: TowerBasicShot
+  baseDamageValue: 0
 --- !u!54 &8923842401569580651
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2757,7 +2763,6 @@ MonoBehaviour:
   explosionSystem: {fileID: 7230119450756066597}
   missileSystem: {fileID: 2031073741363571204}
   explositonRadius: 1
-  damageValue: 0
   splashDamage: 0
 --- !u!4 &9148060454886642991 stripped
 Transform:
