@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.02495846, g: 0.02274444, b: 0.07047759, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -49497,27 +49497,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8432657206815891787, guid: 3ef4bd821bbe7ad43919e84d082abb81, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5445142
+      value: 0.5445146
       objectReference: {fileID: 0}
     - target: {fileID: 8432657206815891787, guid: 3ef4bd821bbe7ad43919e84d082abb81, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.00014254324
       objectReference: {fileID: 0}
     - target: {fileID: 8432657206815891787, guid: 3ef4bd821bbe7ad43919e84d082abb81, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.8387517
+      value: -0.8387514
       objectReference: {fileID: 0}
     - target: {fileID: 8432657206815891787, guid: 3ef4bd821bbe7ad43919e84d082abb81, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.00021956867
       objectReference: {fileID: 0}
     - target: {fileID: 8432657206815891787, guid: 3ef4bd821bbe7ad43919e84d082abb81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8432657206815891787, guid: 3ef4bd821bbe7ad43919e84d082abb81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -114.017
       objectReference: {fileID: 0}
     - target: {fileID: 8432657206815891787, guid: 3ef4bd821bbe7ad43919e84d082abb81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -61478,7 +61478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0f51457cb66fd4fbe91b6c8e383868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMoney: 50000
+  startingMoney: 550
   currentMoney: 0
   moneyText: {fileID: 1640613817}
   waveText: {fileID: 900864732}
