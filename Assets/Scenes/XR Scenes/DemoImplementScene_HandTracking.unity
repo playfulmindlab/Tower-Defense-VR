@@ -37561,14 +37561,14 @@ MonoBehaviour:
   nodeParent: {fileID: 1733667118}
   currTargetType: 0
   pathAndNodesPairings:
-  - path: {fileID: 312663827}
-    minimapPath: {fileID: 1328910836}
+  - path: {fileID: 712994297}
+    minimapPath: {fileID: 1495808207}
     nodeHolder: {fileID: 1733667117}
-  - path: {fileID: 1396179838}
-    minimapPath: {fileID: 1385986121}
+  - path: {fileID: 1167315807}
+    minimapPath: {fileID: 531961039}
     nodeHolder: {fileID: 2138607654}
-  - path: {fileID: 1604645609}
-    minimapPath: {fileID: 819138919}
+  - path: {fileID: 1889257463}
+    minimapPath: {fileID: 892178968}
     nodeHolder: {fileID: 856756255}
   currNodePath: []
   colliderObject: {fileID: 0}
