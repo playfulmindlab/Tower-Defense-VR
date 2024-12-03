@@ -49,13 +49,11 @@ public class AudioManager : MonoBehaviour
 
         musicSource = GetComponent<AudioSource>();
         DontDestroyOnLoad(this);
-
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
         //PlayMusic("MainTheme");
     }
 

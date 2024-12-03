@@ -259,6 +259,9 @@ public class TowerDefenseManager : MonoBehaviour
         if (newPath > 0)
         {
             pathAndNodesPairings[newPath - 1].nodeHolder.SetActive(false);
+
+            pathAndNodesPairings[newPath - 1].path.SetActive(false);
+            pathAndNodesPairings[newPath - 1].minimapPath.SetActive(false);
         }
         pathAndNodesPairings[newPath].nodeHolder.SetActive(true);
         currNodePath = pathAndNodesPairings[newPath].Nodes;

@@ -540,13 +540,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 128
   target: {fileID: 0}
   towerPivot: {fileID: 2062417903487275000}
   canFire: 1
   followEnemy: 1
   towerCost: 300
-  health: 1
   maxHealth: 1
   shield: 20
   damage: 0
@@ -573,7 +572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a93aee2fa582324982409fc822b6c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 0
   attackType: 0
 --- !u!65 &616077820970857840
 BoxCollider:
@@ -585,7 +583,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -619,7 +617,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1

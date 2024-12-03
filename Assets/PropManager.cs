@@ -29,6 +29,9 @@ public class PropManager : MonoBehaviour
     Outline propOutline;
     public void TogglePropOutline(bool isActive) { propOutline.OutlineColor = Color.red; if (isActive) propOutline.ChangeOutlineWidth(3); else propOutline.ChangeOutlineWidth(0); }
 
+    float placementRange = 0.01f;
+    public float PlacementRange { get { return placementRange; } }
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -64,10 +67,10 @@ public class PropManager : MonoBehaviour
             RaycastHit[] rayHits = new RaycastHit[4];
 
             Physics.Raycast(line.GetPosition(0), dir, out mainRayHit, 40f);
-            Physics.Raycast(line.GetPosition(0) + (Vector3.left * .005f), dir, out rayHits[0], 40f);
-            Physics.Raycast(line.GetPosition(0) + (Vector3.back * .005f), dir, out rayHits[1], 40f);
-            Physics.Raycast(line.GetPosition(0) + (Vector3.right * .005f), dir, out rayHits[2], 40f);
-            Physics.Raycast(line.GetPosition(0) + (Vector3.forward * .005f), dir, out rayHits[3], 40f);
+            Physics.Raycast(line.GetPosition(0) + (Vector3.left * placementRange), dir, out rayHits[0], 40f);
+            Physics.Raycast(line.GetPosition(0) + (Vector3.back * placementRange), dir, out rayHits[1], 40f);
+            Physics.Raycast(line.GetPosition(0) + (Vector3.right * placementRange), dir, out rayHits[2], 40f);
+            Physics.Raycast(line.GetPosition(0) + (Vector3.forward * placementRange), dir, out rayHits[3], 40f);
 
             if (rayHits[0].collider == null || rayHits[1].collider == null ||
                 rayHits[2].collider == null || rayHits[3].collider == null)

@@ -187,7 +187,7 @@ public class TowerBehaviour : MonoBehaviour
 
         if (health <= 0 && this.gameObject.activeSelf)
         {
-            Debug.Log("DEATH CHECK: " + jumpedControls.JumpStatus);
+            //Debug.Log("DEATH CHECK: " + jumpedControls.JumpStatus);
             if (jumpedControls.JumpStatus == false)
             {
                 //this.gameObject.SetActive(false);

@@ -26,13 +26,10 @@ public class EnemySensor : MonoBehaviour
                 enemyBase.ChangeTowerTarget(other.gameObject.GetComponent<TowerBehaviour>());
             }
         }
-        Debug.Log("BARRIER 1");
         if (other.gameObject.CompareTag("AttackObstacle") || other.gameObject.CompareTag("BaseObstacle"))
         {
-            Debug.Log("BARRIER 2");
             if (other.gameObject.GetComponent<TowerBehaviour>() != null)
             {
-                Debug.Log("BARRIER 3");
                 enemyBase.ChangeTowerTarget(other.gameObject.GetComponent<TowerBehaviour>());
             }
         }

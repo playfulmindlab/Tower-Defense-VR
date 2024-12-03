@@ -8,6 +8,8 @@ public class PropAim : MonoBehaviour
     [SerializeField] LayerMask ignoreLayers;
     LineRenderer line;
     int layerInt = 0;
+    PropManager pManager;
+    float range = .001f;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +17,10 @@ public class PropAim : MonoBehaviour
         line = GetComponent<LineRenderer>();
         layerInt = (int) Mathf.Log(detectLayer.value, 2);
         ignoreLayers = ~ignoreLayers;
+        pManager = GetComponentInParent<PropManager>();
+        range = pManager.PlacementRange;
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -29,10 +34,10 @@ public class PropAim : MonoBehaviour
         RaycastHit[] rayHits = new RaycastHit[4];
 
         Physics.Raycast(line.GetPosition(0), dir, out mainRayHit, 40f);
-        Physics.Raycast(line.GetPosition(0) + (Vector3.left * .005f), dir, out rayHits[0], 40f);
-        Physics.Raycast(line.GetPosition(0) + (Vector3.back * .005f), dir, out rayHits[1], 40f);
-        Physics.Raycast(line.GetPosition(0) + (Vector3.right * .005f), dir, out rayHits[2], 40f);
-        Physics.Raycast(line.GetPosition(0) + (Vector3.forward * .005f), dir, out rayHits[3], 40f);
+        Physics.Raycast(line.GetPosition(0) + (Vector3.left * range), dir, out rayHits[0], 40f);
+        Physics.Raycast(line.GetPosition(0) + (Vector3.back * range), dir, out rayHits[1], 40f);
+        Physics.Raycast(line.GetPosition(0) + (Vector3.right * range), dir, out rayHits[2], 40f);
+        Physics.Raycast(line.GetPosition(0) + (Vector3.forward * range), dir, out rayHits[3], 40f);
 
         //RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out mainRayHit, 40, ignoreLayers))
