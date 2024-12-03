@@ -715,6 +715,7 @@ public class TowerDefenseManager : MonoBehaviour
         DataEvent newEvent = new DataEvent("Map Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent);
 
+        AudioManager.instance.StopMusic();
         TogglePause();
         phaseText.text = "YOU WIN!";
         PhaseControlUI.instance.DisableUIButtons();
@@ -755,6 +756,8 @@ public class TowerDefenseManager : MonoBehaviour
 
         gameOverScreen.SetActive(true);
         AudioManager.instance.PlaySFXArray("SceneGameOver", Camera.main.transform.position);
+
+        AudioManager.instance.StopMusic();
         TogglePause();
         phaseText.text = "GAME OVER";
         PhaseControlUI.instance.DisableUIButtons();

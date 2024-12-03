@@ -43872,7 +43872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa7d98688840c04fbb697c78c34428c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMapWaveComp: {fileID: 11400000, guid: acbd0902f8b0f9341a8aa1e5d8e1c355, type: 2}
+  currMapWaveComp: {fileID: 11400000, guid: 3b9de330712f1f34d93a92b27bfa2ef8, type: 2}
 --- !u!4 &1123684177
 Transform:
   m_ObjectHideFlags: 0
@@ -47870,7 +47870,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 19.037, y: 0.25, z: 0}
-  m_LocalScale: {x: 2.9216201, y: 1, z: 2}
+  m_LocalScale: {x: 1.37, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 103505801}
@@ -55911,7 +55911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9f79c378999684f8debdfe718211e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateUnlockableTowers: 0
+  activateUnlockableTowers: 1
   spawnables:
   - wave: 1
     spawnables:

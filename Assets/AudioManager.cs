@@ -70,6 +70,11 @@ public class AudioManager : MonoBehaviour
         else Debug.LogError("Sound '" + musicName + "' not present in AudioManager: MusicArray!");
     }
 
+    public void StopMusic()
+    {
+        musicSource.Stop();
+    }
+
     public void UpdateMusicVolume(float newVolume)
     {
         musicSource.volume = newVolume;

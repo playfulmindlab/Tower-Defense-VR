@@ -23,7 +23,7 @@ public class MenuTutorialScript : MonoBehaviour
 
     public void NextButton()
     {
-        if (currPage < tutorialPages.Length)
+        if (currPage < tutorialPages.Length - 1)
         {
             currPage++;
             UpdatePage();
