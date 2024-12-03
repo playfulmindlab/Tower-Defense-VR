@@ -16,7 +16,6 @@ public class TunnellingVignette : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         tvVolume = GetComponent<Volume>();
         vp = tvVolume.profile;
         tvVolume.profile.TryGet(out tvVignette);

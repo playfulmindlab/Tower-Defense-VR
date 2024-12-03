@@ -14,6 +14,7 @@ public class MissileDamage : Damage, IDamageMethod
     protected AudioSource audioSource;
 
     [SerializeField] float baseDamageValue = 0;
+    float jumpDamageMultiplier;
 
     public override void Init(float damage, float firerate)
     {
@@ -26,6 +27,11 @@ public class MissileDamage : Damage, IDamageMethod
         baseDamageValue = damage;
     }
 
+    public void SetJumpMultiplier(float newMult)
+    {
+        jumpDamageMultiplier = newMult;
+    }
+
     public virtual void ActivateGun(bool activeState)
     {
         //missileSystem.Stop();
@@ -34,7 +40,7 @@ public class MissileDamage : Damage, IDamageMethod
             audioSource.loop = true;
             missileSystemMain.loop = true;
             missileSystemMain.maxParticles = 100;
-            UpdateDamage(damage * 2);
+            UpdateDamage(damage * jumpDamageMultiplier);
             missileSystem.Play();
         }
         else

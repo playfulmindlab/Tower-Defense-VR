@@ -27,6 +27,8 @@ public class JumpedTowerControls : MonoBehaviour
     public JumpedTowerUI towerUI;
     public RectTransform towerUITransform;
 
+    [SerializeField] float jumpDamageMult = 2f;
+
     public void Awake()
     {
         towerHead = towerBehaviour.towerPivot;
@@ -43,6 +45,7 @@ public class JumpedTowerControls : MonoBehaviour
         }
 
         missileDamage = GetComponent<MissileDamage>();
+        missileDamage.SetJumpMultiplier(jumpDamageMult);
     }
 
     public void AssignNewTowerUI(JumpedTowerUI newUI)
