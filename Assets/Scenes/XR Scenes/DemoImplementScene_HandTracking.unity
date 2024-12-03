@@ -21239,6 +21239,7 @@ MonoBehaviour:
   towerTip: {fileID: 0}
   towerUI: {fileID: 0}
   towerUITransform: {fileID: 0}
+  jumpDamageMult: 2
 --- !u!4 &481922878
 Transform:
   m_ObjectHideFlags: 0
@@ -55910,7 +55911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9f79c378999684f8debdfe718211e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateUnlockableTowers: 0
+  activateUnlockableTowers: 1
   spawnables:
   - wave: 1
     spawnables:
@@ -59380,7 +59381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0f51457cb66fd4fbe91b6c8e383868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMoney: 5500
+  startingMoney: 500
   currentMoney: 0
   moneyText: {fileID: 1640613817}
   waveText: {fileID: 900864732}
