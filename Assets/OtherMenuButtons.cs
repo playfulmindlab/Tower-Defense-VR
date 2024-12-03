@@ -6,6 +6,9 @@ public class OtherMenuButtons : MonoBehaviour
 {
     public void ReturnToMenu()
     {
-        GameManager.instance.ChangeScene("MainMenuVR");
+        DataEvent newEvent2 = new DataEvent("Game Quit", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        EventManager.instance.RecordNewEvent(newEvent2);
+
+        GameManager.instance.ChangeScene("MainMenuXR-V2");
     }
 }

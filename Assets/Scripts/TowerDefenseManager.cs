@@ -6,7 +6,7 @@ using Unity.Jobs;
 using UnityEngine.Jobs;
 using System;
 
-public enum Phase{ None = 0, Build = 1, Defend_ChooseJump = 2, Defend = 3, Repair = 4, Intermission = 5, Pause = 100 }
+public enum Phase{ None = 0, Build = 1, Defend_ChooseJump = 2, Defend = 3, Repair = 4, Intermission = 5, Pause = 100, PermaPause = 101 }
 
 public class TowerDefenseManager : MonoBehaviour
 {
@@ -398,7 +398,8 @@ public class TowerDefenseManager : MonoBehaviour
             DataEvent newEvent = new DataEvent("Force Game End From Wave Change", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
             EventManager.instance.RecordNewEvent(newEvent);
 
-            StartCoroutine(LevelVictorySequence());
+            //StartCoroutine(LevelVictorySequence());
+            LevelVictorySeq();
             continueLoop = false;
         }
 
@@ -423,7 +424,8 @@ public class TowerDefenseManager : MonoBehaviour
         Debug.Log("LEVEL CHECK 2 - " + waveCount + " // " + wavesTilEndMap);
         if (waveCount > wavesTilEndMap)
         {
-            StartCoroutine(LevelVictorySequence());
+            //StartCoroutine(LevelVictorySequence());
+            LevelVictorySeq();
             continueLoop = false;
             return;
         }
@@ -465,7 +467,8 @@ public class TowerDefenseManager : MonoBehaviour
             //if base health = 0, start Game Over sequence
             if (isGameOver)
             {
-                StartCoroutine(GameOverSequence());
+                //StartCoroutine(GameOverSequence());
+                GameOverSeq();
                 continueLoop = false;
                 break;
             }
@@ -695,7 +698,29 @@ public class TowerDefenseManager : MonoBehaviour
         DataEvent newEvent2 = new DataEvent("Game Quit", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent2);
         TogglePause();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR-V2", UnityEngine.SceneManagement.LoadSceneMode.Single);
+        GameManager.instance.ChangeScene("MainMenuXR-V2");
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR-V2", UnityEngine.SceneManagement.LoadSceneMode.Single);
+    }
+
+    void LevelVictorySeq()
+    {
+        GameControlManager.instance.SwapToUnjumpedControls();
+
+        victoryScreen.SetActive(true);
+        AudioManager.instance.PlaySFXArray("SceneWin", Camera.main.transform.position);
+
+        DataEvent newEvent = new DataEvent("Map Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        EventManager.instance.RecordNewEvent(newEvent);
+
+        TogglePause();
+        phaseText.text = "YOU WIN!";
+        PhaseControlUI.instance.DisableUIButtons();
+
+        //DataEvent newEvent2 = new DataEvent("Game Quit", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        //EventManager.instance.RecordNewEvent(newEvent2);
+        //TogglePause();
+        //GameManager.instance.ChangeScene("MainMenuXR-V2");
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR-V2", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
     IEnumerator GameOverSequence()
@@ -714,7 +739,30 @@ public class TowerDefenseManager : MonoBehaviour
         DataEvent newEvent2 = new DataEvent("Game Quit", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent2);
         TogglePause();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR-V2", UnityEngine.SceneManagement.LoadSceneMode.Single);
+        GameManager.instance.ChangeScene("MainMenuXR-V2");
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR-V2", UnityEngine.SceneManagement.LoadSceneMode.Single);
+    }
+
+    void GameOverSeq()
+    {
+        GameControlManager.instance.SwapToUnjumpedControls();
+
+        DataEvent newEvent = new DataEvent("Player Death", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        EventManager.instance.RecordNewEvent(newEvent);
+
+        gameOverScreen.SetActive(true);
+        AudioManager.instance.PlaySFXArray("SceneGameOver", Camera.main.transform.position);
+        TogglePause();
+        phaseText.text = "GAME OVER";
+        PhaseControlUI.instance.DisableUIButtons();
+
+        /*
+        DataEvent newEvent2 = new DataEvent("Game Quit", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        EventManager.instance.RecordNewEvent(newEvent2);
+        TogglePause();
+        GameManager.instance.ChangeScene("MainMenuXR-V2");
+        */
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuXR-V2", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
     public static void BeginGameOverSequence()
