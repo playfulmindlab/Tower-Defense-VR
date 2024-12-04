@@ -49,6 +49,7 @@ public class BarrelSpawnableScript : MonoBehaviour
 
         isInteractable = true;
     }
+
     public void DisableSpawnable()
     {
         for (int i = 0; i < renderers.Length; i++)

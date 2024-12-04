@@ -34,13 +34,13 @@ public class SpawnablesEnabler : MonoBehaviour
         }
     }
 
-    public void WaveUpdate(int newWave)
+    public void WaveUpdate(int newWave, int currMoney)
     {
         foreach (SpawnablesToEnable spawnable in spawnables)
         {
             if (spawnable.wave <= newWave)
             {
-                spawnable.EnableSpawnables();
+                spawnable.EnableSpawnables(currMoney);
                 //spawnable.ToggleLockedStat(true);
             }
         }
@@ -48,14 +48,11 @@ public class SpawnablesEnabler : MonoBehaviour
 
     public void DisableAllTowers()
     {
-        Debug.Log("TESTING 0");
         if (activateUnlockableTowers == true)
         {
-            Debug.Log("TESTING 1");
             BarrelSpawnableScript[] allBSSs = GetComponentsInChildren<BarrelSpawnableScript>();
             foreach (BarrelSpawnableScript bss in allBSSs)
             {
-                Debug.Log("TESTING X");
                 bss.DisableSpawnable();
                 bss.ToggleLockedStat(true);
             }
@@ -92,11 +89,12 @@ public struct SpawnablesToEnable
         spawnables = newSpawnables;
     }
 
-    public void EnableSpawnables()
+    public void EnableSpawnables(int currMoney)
     {
         foreach(BarrelSpawnableScript s in spawnables)
         {
-            s.EnableSpawnable();
+            if (s.TowerCost < currMoney)
+                s.EnableSpawnable();
         }
     }
 }

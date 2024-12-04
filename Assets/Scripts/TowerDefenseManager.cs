@@ -206,7 +206,7 @@ public class TowerDefenseManager : MonoBehaviour
         waveCount = 1;
         currEnemyKillCount = 0;
         continueLoop = true;
-        spawnablesEnabler.WaveUpdate(waveCount);
+        spawnablesEnabler.WaveUpdate(waveCount, playerStats.CurrentMoney);
 
         towersInGame.Clear();
         enemyIDsToSpawnQueue.Clear();
@@ -342,7 +342,7 @@ public class TowerDefenseManager : MonoBehaviour
             waveCount = newWaveNum;
 
         //tower unlock system
-        spawnablesEnabler.WaveUpdate(waveCount);
+        spawnablesEnabler.WaveUpdate(waveCount, playerStats.CurrentMoney);
 
         UpdateGameManagerStats();
 
