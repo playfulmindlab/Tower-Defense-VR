@@ -8112,13 +8112,17 @@ MonoBehaviour:
     clips:
     - clip: {fileID: 8300000, guid: 9454bf84c11212a42b37795b5fc22e79, type: 3}
       volume: 1
-  - name: GameOver
-    clips:
-    - clip: {fileID: 8300000, guid: 08861b87987c236499a025f9a2f313ea, type: 3}
-      volume: 1
   - name: NewWaveSound
     clips:
     - clip: {fileID: 8300000, guid: 7cc9ae703d204834fbe2658a4b60a681, type: 3}
+      volume: 1
+  - name: SceneGameOver
+    clips:
+    - clip: {fileID: 8300000, guid: 08861b87987c236499a025f9a2f313ea, type: 3}
+      volume: 1
+  - name: SceneWin
+    clips:
+    - clip: {fileID: 8300000, guid: 895dee8c6077f7b408a6622c846d37c1, type: 3}
       volume: 1
   - name: ShockStatus
     clips:
@@ -8177,10 +8181,6 @@ MonoBehaviour:
     - clip: {fileID: 8300000, guid: 38748d66192b0484ebf841d621077779, type: 3}
       volume: 1
     - clip: {fileID: 8300000, guid: bcdaa2c0c816e0b4bbd9c4b088e598a4, type: 3}
-      volume: 1
-  - name: WinScene
-    clips:
-    - clip: {fileID: 8300000, guid: 895dee8c6077f7b408a6622c846d37c1, type: 3}
       volume: 1
 --- !u!4 &882404469
 Transform:

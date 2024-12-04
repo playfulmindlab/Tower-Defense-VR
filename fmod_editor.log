@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000002B2917866B8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000002B20CA93608 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -18,3 +18,88 @@
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] SystemI::createSound                     : filename = ../../FMOD Studio/TD Audio/Build/Desktop/MainMusic.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000002B272E9D5B8, queue head = 000002B130AF9388, queue count = 0
+[LOG] SystemI::createSound                     : filename = ../../FMOD Studio/TD Audio/Build/Desktop/MainMusic.bank : mode 02010082
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B272E9D5B8
+[LOG] SystemI::createSoundInternal             :     Create name='../../FMOD Studio/TD Audio/Build/Desktop/MainMusic.bank', mode=0x02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] AsyncThread::add                         :     add sound to async queue : soundi = 000002B272E9DE28, queue head = 000002B130AF9388, queue count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16246272
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 7104
+[LOG] SystemI::createSound                     :     filename = ../../FMOD Studio/TD Audio/Build/Desktop/MainMusic.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B2BEFF1980
+[LOG] AsyncThread::add                         :     add sound to async queue : soundi = 000002B272E9D258, queue head = 000002B130AF9388, queue count = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Layer 2 (Main Theme)', format=5, channels=2, frequency=48000, lengthbytes=4822464, lengthpcm=15360000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.047638.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B272E9D5B8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B272E9DE28
+[LOG] SystemI::createSoundInternal             :     Create name='../../FMOD Studio/TD Audio/Build/Desktop/MainMusic.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16246272
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 7104
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B2BEFF0BC0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Layer 4 (Main Theme)', format=5, channels=2, frequency=48000, lengthbytes=3608928, lengthpcm=15360000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.188385.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B272E9DE28
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B272E9D258
+[LOG] SystemI::createSoundInternal             :     Create name='../../FMOD Studio/TD Audio/Build/Desktop/MainMusic.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16246272
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 7104
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B2BEFF0D00
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Layer 3 (Main Theme)', format=5, channels=2, frequency=48000, lengthbytes=3902816, lengthpcm=15360000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.677582.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B272E9D258
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000002B2A0CBAA38, queue head = 000002B130AF9388, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B2A0CBAA38
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000002B2A0CBAD98, queue head = 000002B130AF9388, queue count = 0
+[LOG] AsyncThread::add                         :     add sound to async queue : soundi = 000002B2A0CBB458, queue head = 000002B130AF9388, queue count = 1
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B2A0CBAA38
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B2A0CBAD98
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B2A0CBAD98
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B2A0CBB458
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B2A0CBB458
+[LOG] SoundI::release                          : Layer 3 (Main Theme) (000002B272E9D258)
+[LOG] SoundI::release                          :     Layer 3 (Main Theme) (000002B0AB140F48)
+[LOG] SoundI::release                          :     Layer 3 (Main Theme) (000002B2A0CBB458)
+[LOG] SoundI::release                          : Layer 4 (Main Theme) (000002B272E9DE28)
+[LOG] SoundI::release                          :     Layer 4 (Main Theme) (000002B0AB13ED28)
+[LOG] SoundI::release                          :     Layer 4 (Main Theme) (000002B2A0CBAD98)
+[LOG] SoundI::release                          : Layer 2 (Main Theme) (000002B272E9D5B8)
+[LOG] SoundI::release                          :     Layer 2 (Main Theme) (000002B0AB1427A8)
+[LOG] SoundI::release                          :     Layer 2 (Main Theme) (000002B2A0CBAA38)
+[LOG] SoundI::release                          : Layer 1 (Main Theme) (000002B1EDBEE9D8)
+[LOG] SoundI::release                          :     Layer 1 (Main Theme) (000002B0F8D40D88)
+[LOG] SoundI::release                          :     Layer 1 (Main Theme) (000002B28F083988)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] SystemI::close                           : Closed.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
