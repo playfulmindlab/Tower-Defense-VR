@@ -34,6 +34,7 @@ public class GameControlManager : MonoBehaviour
     LineRenderer rayLine;
 
     [Header("Jumping Controls")]
+    [SerializeField] GameObject jumpedHandsGO;
     [SerializeField] Canvas towerViewCanvas;
     [SerializeField] JumpedTowerControls jumpedTowerControls;
     [SerializeField] public float cameraDamping = 5f;
@@ -204,6 +205,10 @@ public class GameControlManager : MonoBehaviour
     public void SwapToJumpedControls(JumpedTowerControls jumpedTower)
     {
         jumpedTowerControls = jumpedTower;
+        //jumpedHandsGO.transform.position = jumpedTowerControls.TowerCamera.transform.position;
+        jumpedHandsGO.transform.parent = jumpedTowerControls.TowerCamera.transform;
+        jumpedHandsGO.transform.localPosition = new Vector3(-0.2f, -1.5f, 0.55f);
+        jumpedHandsGO.transform.localRotation = Quaternion.Euler(Vector3.zero);//new Vector3(0f, -0.8f, 1.0f);
 
         jumpTransAnim.SetTrigger("Jump");
     }
@@ -211,7 +216,12 @@ public class GameControlManager : MonoBehaviour
     public void SwapToUnjumpedControls()
     {
         if (jumpedTowerControls != null)
+        {
+            jumpedHandsGO.transform.parent = null;
+            jumpedHandsGO.transform.position = new Vector3(0, -1000, 0);
+
             jumpTransAnim.SetTrigger("Unjump");
+        }
     }
 
     public void SwapControls(string newControlString)
