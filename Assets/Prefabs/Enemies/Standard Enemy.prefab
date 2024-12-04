@@ -81,7 +81,7 @@ MonoBehaviour:
   activeEffects: []
   currNodePath: []
   currNodeIndices: 
-  reward: 20
+  reward: 50
   id: 1
   nodeIndex: 0
   deathSound: {fileID: 0}

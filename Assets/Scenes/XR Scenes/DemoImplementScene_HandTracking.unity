@@ -56558,26 +56558,26 @@ MonoBehaviour:
   - wave: 1
     spawnables:
     - {fileID: 1210215374597092214}
-  - wave: 4
+  - wave: 3
     spawnables:
     - {fileID: 4899362334915069622}
-  - wave: 7
+  - wave: 5
     spawnables:
     - {fileID: 4899362333596808629}
   - wave: 8
     spawnables:
-    - {fileID: 7740388163749484304}
-    - {fileID: 2884642047360790656}
-  - wave: 11
-    spawnables:
     - {fileID: 1136957866704716056}
-  - wave: 14
-    spawnables:
-    - {fileID: 1711848728172961536}
-    - {fileID: 2121967906}
-  - wave: 16
+  - wave: 10
     spawnables:
     - {fileID: 4648707536710769288}
+  - wave: 13
+    spawnables:
+    - {fileID: 7740388163749484304}
+    - {fileID: 2884642047360790656}
+  - wave: 15
+    spawnables:
+    - {fileID: 2121967906}
+    - {fileID: 1711848728172961536}
 --- !u!1 &1471943151
 GameObject:
   m_ObjectHideFlags: 0

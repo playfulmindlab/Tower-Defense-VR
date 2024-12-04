@@ -10598,9 +10598,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
-  speed: 5
-  initialSpeed: 1.5
-  speedIncreasePerWave: 0.3
+  speed: 1
+  initialSpeed: 1
+  speedIncreasePerWave: 0.2
   attack: 5
   attackRate: 1
   attackingTower: {fileID: 0}
@@ -10608,7 +10608,7 @@ MonoBehaviour:
   activeEffects: []
   currNodePath: []
   currNodeIndices: 
-  reward: 30
+  reward: 60
   id: 2
   nodeIndex: 0
   deathSound: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
