@@ -450,6 +450,7 @@ MonoBehaviour:
   towerTip: {fileID: 0}
   towerUI: {fileID: 0}
   towerUITransform: {fileID: 0}
+  jumpDamageMult: 5
 --- !u!82 &1803110059874629407
 AudioSource:
   m_ObjectHideFlags: 0

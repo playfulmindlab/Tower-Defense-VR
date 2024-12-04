@@ -2205,6 +2205,7 @@ MonoBehaviour:
   towerTip: {fileID: 0}
   towerUI: {fileID: 0}
   towerUITransform: {fileID: 0}
+  jumpDamageMult: 5
   trajectoryLine: {fileID: 1045139377900088625}
   missileSystem: {fileID: 246769362408340450}
   lineSegments: 20

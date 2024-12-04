@@ -789,6 +789,7 @@ MonoBehaviour:
   towerTip: {fileID: 0}
   towerUI: {fileID: 0}
   towerUITransform: {fileID: 0}
+  jumpDamageMult: 5
 --- !u!114 &9208982388282321303
 MonoBehaviour:
   m_ObjectHideFlags: 0

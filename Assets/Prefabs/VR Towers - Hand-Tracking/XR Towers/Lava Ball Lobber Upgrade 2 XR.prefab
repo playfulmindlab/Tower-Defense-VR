@@ -2332,7 +2332,6 @@ MonoBehaviour:
   canFire: 1
   followEnemy: 1
   towerCost: 1000
-  health: 10
   maxHealth: 10
   shield: 10
   damage: 6
@@ -2385,14 +2384,13 @@ MonoBehaviour:
   towerTip: {fileID: 0}
   towerUI: {fileID: 0}
   towerUITransform: {fileID: 0}
+  jumpDamageMult: 5
   trajectoryLine: {fileID: 4107386143071727893}
   missileSystem: {fileID: 2034213192721532194}
   lineSegments: 20
   tipTransform: {fileID: 4947674486781701282}
   cameraHeightMod: 3
   cameraAngleMod: 35
-  targetDecal: {fileID: 0}
-  tDP: {fileID: 0}
 --- !u!114 &9011514413597896596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2405,7 +2403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a2c9f12f23774484731f325185cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 1
   attackType: 1
   enemyLayer:
     serializedVersion: 2

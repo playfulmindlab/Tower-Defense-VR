@@ -520,6 +520,7 @@ MonoBehaviour:
   towerTip: {fileID: 0}
   towerUI: {fileID: 0}
   towerUITransform: {fileID: 0}
+  jumpDamageMult: 5
 --- !u!114 &4852615727023215318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,7 +533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d3b668b7f2684bb7b72b686cb4096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 1
   attackType: 2
   enemyLayer:
     serializedVersion: 2
@@ -2074,7 +2074,6 @@ MonoBehaviour:
   explosionSystem: {fileID: 823407316450146304}
   missileSystem: {fileID: 291721736269072969}
   explositonRadius: 3
-  damageValue: 0
   splashDamage: 0
 --- !u!4 &7410608397128332642 stripped
 Transform:

@@ -2152,6 +2152,7 @@ MonoBehaviour:
   towerTip: {fileID: 0}
   towerUI: {fileID: 0}
   towerUITransform: {fileID: 0}
+  jumpDamageMult: 5
   trajectoryLine: {fileID: 8230756354201994163}
   missileSystem: {fileID: 4489904890220293516}
   lineSegments: 20
@@ -2170,7 +2171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0a2c9f12f23774484731f325185cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 1
   attackType: 2
   enemyLayer:
     serializedVersion: 2

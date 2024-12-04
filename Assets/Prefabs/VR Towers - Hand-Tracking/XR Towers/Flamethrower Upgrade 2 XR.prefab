@@ -1490,6 +1490,7 @@ MonoBehaviour:
   towerTip: {fileID: 0}
   towerUI: {fileID: 0}
   towerUITransform: {fileID: 0}
+  jumpDamageMult: 5
   flamethrowerDamage1: {fileID: 1681050569264282019}
   flamethrowerDamage2: {fileID: 1966474720907748190}
 --- !u!114 &1681050569264282019
