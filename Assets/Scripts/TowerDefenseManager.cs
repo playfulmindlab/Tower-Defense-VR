@@ -471,8 +471,8 @@ public class TowerDefenseManager : MonoBehaviour
             if (isGameOver)
             {
                 //StartCoroutine(GameOverSequence());
-                GameOverSeq();
                 continueLoop = false;
+                GameOverSeq();
                 break;
             }
 
