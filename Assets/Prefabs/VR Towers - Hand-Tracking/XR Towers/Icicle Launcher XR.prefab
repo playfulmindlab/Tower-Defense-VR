@@ -380,8 +380,8 @@ MonoBehaviour:
   towerCost: 300
   maxHealth: 10
   shield: 10
-  damage: 8
-  firerate: 1
+  damage: 2
+  firerate: 0.5
   range: 10
   readjustSpeed: 3
   healthBar: {fileID: 1296867385743402944}

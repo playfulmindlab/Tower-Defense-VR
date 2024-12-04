@@ -494,7 +494,7 @@ MonoBehaviour:
   towerPivot: {fileID: 6975369987042829683}
   canFire: 1
   followEnemy: 1
-  towerCost: 700
+  towerCost: 600
   maxHealth: 10
   shield: 10
   damage: 6

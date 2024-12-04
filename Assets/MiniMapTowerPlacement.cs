@@ -132,7 +132,7 @@ public class MiniMapTowerPlacement : MonoBehaviour
         if (playTowerPlacedSFX == true)
             AudioManager.instance.PlaySFXArray("TowerPlaced", tower.transform.position);
 
-        towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        towerCollider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
         Debug.Log("XR PLACEMENT SUCCESSFUL!");
     }

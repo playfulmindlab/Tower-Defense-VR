@@ -1944,7 +1944,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'HP: 10
 
-    Damage: 20
+    Damage: 3
 
     Fire Rate: 0.5
 
@@ -8416,7 +8416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: 100\nDamage: 1\nFire Rate: 5 \nUpgrade Count: 0\nAbility: None"
+  m_text: "HP: 10\nDamage: 1\nFire Rate: 5 \nUpgrade Count: 0\nAbility: None"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
@@ -35874,8 +35874,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: 10\nDamage: 5 \nFire Rate: 0.5\nUpgrade Count: 2\nAbility: Damage
-    Over Time"
+  m_text: 'HP: 10
+
+    Damage: 6
+
+    Fire Rate: 0.5
+
+    Upgrade Count: 2
+
+    Ability:
+    Damage Over Time'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
@@ -38627,9 +38635,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'HP: 10
 
-    Damage: 8
+    Damage: 2
 
-    Fire Rate: 1
+    Fire Rate: 0.5
 
     Upgrade Count: 2
 
@@ -44028,7 +44036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa7d98688840c04fbb697c78c34428c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMapWaveComp: {fileID: 11400000, guid: 4e4ecf0aeb2a5bd4e9646b2d31b67d03, type: 2}
+  currMapWaveComp: {fileID: 11400000, guid: 789b70f639d27544b90fa163ca23dc0a, type: 2}
 --- !u!4 &1123684177
 Transform:
   m_ObjectHideFlags: 0
@@ -51126,14 +51134,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HP: 10
+  m_text: 'HP: 60
 
-    Movement Speed: 10
+    Reward: 65
 
     Ability: Disables Tower
 
-    Attack:
-    3
+    Attack: 3
 
 
     SABOTEUR'
@@ -54983,8 +54990,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: 10\nDamage: 2 \nFire Rate: 1\nUpgrade Count: 2\nAbility: Damage Over
-    Time"
+  m_text: "HP: 10\nDamage: 2 \nUpgrade Count: 2\nAbility: Damage Over Time"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
@@ -56558,23 +56564,23 @@ MonoBehaviour:
   - wave: 1
     spawnables:
     - {fileID: 1210215374597092214}
-  - wave: 3
+  - wave: 2
     spawnables:
     - {fileID: 4899362334915069622}
-  - wave: 5
+  - wave: 4
     spawnables:
     - {fileID: 4899362333596808629}
-  - wave: 8
+  - wave: 6
     spawnables:
     - {fileID: 1136957866704716056}
-  - wave: 10
+  - wave: 9
     spawnables:
     - {fileID: 4648707536710769288}
-  - wave: 13
+  - wave: 11
     spawnables:
     - {fileID: 7740388163749484304}
     - {fileID: 2884642047360790656}
-  - wave: 15
+  - wave: 14
     spawnables:
     - {fileID: 2121967906}
     - {fileID: 1711848728172961536}
@@ -57866,7 +57872,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: 10\nDamage: 2 \nFire Rate: 1\nUpgrade Count: 0\nAbility: Temp Stun"
+  m_text: "HP: 10\nDamage: 2 \nUpgrade Count: 0\nAbility: Temp Stun"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
@@ -70112,9 +70118,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HP: 40
+  m_text: 'HP: 55
 
-    Base Speed: 5
+    Reward: 60
 
     Ability: Attacks Tower
 
