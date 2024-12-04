@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+using FMODUnity;
+using FMOD.Studio;
+
 [System.Serializable]
 public class Music
 {
@@ -31,11 +34,13 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
+    private EventInstance musicEventInstance;
+
     [SerializeField] GameObject sfxPrefab;
-    [SerializeField] Music[] musicArray;
+    //[SerializeField] Music[] musicArray;
     [SerializeField] Sounds[] sfxArray;
 
-    [SerializeField] AudioSource musicSource;//, sfxSource;
+    //[SerializeField] AudioSource musicSource;//, sfxSource;
     float sfxVolumeMod = 1f;
 
     Music musicSound;
@@ -47,17 +52,46 @@ public class AudioManager : MonoBehaviour
         if (instance == null) instance = this;
         else if (instance != this) Destroy(this.gameObject);
 
-        musicSource = GetComponent<AudioSource>();
+        //musicSource = GetComponent<AudioSource>();
+
+
         DontDestroyOnLoad(this);
     }
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+        InitializeMusic(FMODEventManager.instance.music);
         //PlayMusic("MainTheme");
     }
 
-    public void PlayMusic(string musicName)
+    private void InitializeMusic(EventReference musicEventRef)
+    {
+        musicEventInstance = CreateMusicInstance(musicEventRef);
+        musicEventInstance.start();
+    }
+
+    public EventInstance CreateMusicInstance(EventReference eventRef)
+    {
+        EventInstance musicInstance = RuntimeManager.CreateInstance(eventRef);
+        return musicInstance;
+    }
+
+    public void SetDefendPhaseMusicLayer(bool play)
+    {
+        if (play)
+        {
+            musicEventInstance.setParameterByName("isDefending", 1);
+        }
+        else
+        {
+            musicEventInstance.setParameterByName("isDefending", 0);
+        }
+    }
+
+    /*public void PlayMusic(string musicName)
     {
         musicSound = Array.Find(musicArray, x => x.name == musicName);
 
@@ -68,16 +102,17 @@ public class AudioManager : MonoBehaviour
             musicSource.Play();
         }
         else Debug.LogError("Sound '" + musicName + "' not present in AudioManager: MusicArray!");
-    }
+    }*/
 
     public void StopMusic()
     {
-        musicSource.Stop();
+        //musicSource.Stop();
+        musicEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     public void UpdateMusicVolume(float newVolume)
     {
-        musicSource.volume = newVolume;
+        //musicSource.volume = newVolume;
     }
 
     public void UpdateSFXVolume(float newVolume)

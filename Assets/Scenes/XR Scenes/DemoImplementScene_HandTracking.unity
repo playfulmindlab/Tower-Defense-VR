@@ -14154,6 +14154,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 866429475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &467279948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 467279949}
+  - component: {fileID: 467279950}
+  m_Layer: 0
+  m_Name: FMODMusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &467279949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467279948}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.09919499, y: 9.2189045, z: -34.436127}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1164044099}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &467279950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467279948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8da7faa4b365f340947c455a994a509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <music>k__BackingField:
+    Guid:
+      Data1: -1311941011
+      Data2: 1122988134
+      Data3: -1310840921
+      Data4: -1511074491
+    Path: event:/Menu/ThemeMusic
 --- !u!1 &469296543
 GameObject:
   m_ObjectHideFlags: 0
@@ -46062,13 +46113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxPrefab: {fileID: 1120772177019268572, guid: 1fed88a90100be843aabc7e6369a99b4, type: 3}
-  musicArray:
-  - name: GameplayMusic
-    clip: {fileID: 8300000, guid: 8c74732a7c876a2458e32be3637da8b8, type: 3}
-    volume: 1
-  - name: MainMenuMusic
-    clip: {fileID: 8300000, guid: 519a059a23d3fb3448dede5d3aab95b4, type: 3}
-    volume: 1
   sfxArray:
   - name: BaseAttacked
     clips:
@@ -46172,7 +46216,6 @@ MonoBehaviour:
     clips:
     - clip: {fileID: 8300000, guid: 895dee8c6077f7b408a6622c846d37c1, type: 3}
       volume: 1
-  musicSource: {fileID: 1164044097}
 --- !u!4 &1164044099
 Transform:
   m_ObjectHideFlags: 0
@@ -46185,7 +46228,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 467279949}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1167315807

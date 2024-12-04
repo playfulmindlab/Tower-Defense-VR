@@ -1,0 +1,195 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8843356811154470254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ThemeMusic/isWave7
+  m_EditorClassIdentifier: 
+  Name: isWave7
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3139909830
+    data2: 1342020847
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - no
+  - yes
+  Exists: 1
+--- !u!114 &-7020566654780687345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/TD Audio/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638689188559532201
+  FileSizes:
+  - Name: Desktop
+    Value: 966
+  Exists: 1
+--- !u!114 &-4313310212734512374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/MainMusic.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/TD Audio/Build/Desktop/MainMusic.bank
+  Name: MainMusic
+  StudioPath: bank:/MainMusic
+  lastModified: 638689198340808707
+  FileSizes:
+  - Name: Desktop
+    Value: 16253376
+  Exists: 1
+--- !u!114 &-2356980934820261783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Menu/ThemeMusic
+  m_EditorClassIdentifier: 
+  Path: event:/Menu/ThemeMusic
+  Guid:
+    Data1: -1311941011
+    Data2: 1122988134
+    Data3: -1310840921
+    Data4: -1511074491
+  Banks:
+  - {fileID: -4313310212734512374}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8843356811154470254}
+  - {fileID: 7529622596103981011}
+  - {fileID: 2131900466540742920}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 320000
+--- !u!114 &-1276618752803574550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/TD Audio/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638689188559522194
+  FileSizes:
+  - Name: Desktop
+    Value: 1036
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -7020566654780687345}
+  - {fileID: -1276618752803574550}
+  - {fileID: -4313310212734512374}
+  EditorEvents:
+  - {fileID: -2356980934820261783}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: -1276618752803574550}
+  StringsBanks:
+  - {fileID: -7020566654780687345}
+  cacheTime: 638689198340808707
+  cacheVersion: 131621
+--- !u!114 &2131900466540742920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ThemeMusic/isDefending
+  m_EditorClassIdentifier: 
+  Name: isDefending
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2578403573
+    data2: 554334864
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - no
+  - yes
+  Exists: 1
+--- !u!114 &7529622596103981011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ThemeMusic/isDefendingAndWave9
+  m_EditorClassIdentifier: 
+  Name: isDefendingAndWave9
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1578672857
+    data2: 1243924847
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - no
+  - yes
+  Exists: 1

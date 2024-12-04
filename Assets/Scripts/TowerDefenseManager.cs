@@ -160,6 +160,7 @@ public class TowerDefenseManager : MonoBehaviour
             case Phase.Build:
                 spawnEnemies = false;
                 phaseText.text = "Build";
+                AudioManager.instance.SetDefendPhaseMusicLayer(false);
                 break;
 
             case Phase.Defend_ChooseJump:
@@ -177,6 +178,7 @@ public class TowerDefenseManager : MonoBehaviour
 
                     UpdateWaveCount(waveCount);
                     SpawnablesEnabler.instance.DisableAllTowers();
+                    AudioManager.instance.SetDefendPhaseMusicLayer(true);
                 }
                 break;
 
@@ -189,6 +191,8 @@ public class TowerDefenseManager : MonoBehaviour
                 spawnEnemies = false;
                 prePausePhase = currPhase;
                 phaseText.text = "PAUSED";
+                //AudioManager.instance.StopMusic();
+                AudioManager.instance.SetDefendPhaseMusicLayer(false);
                 break;
 
             default:

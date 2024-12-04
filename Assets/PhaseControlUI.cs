@@ -31,7 +31,8 @@ public class PhaseControlUI : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        TowerDefenseManager.instance.TogglePause();
+        //TowerDefenseManager.instance.TogglePause();
+        //TowerDefenseManager.instance.Reset
 
         DataEvent newEvent2 = new DataEvent("Game Quit", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent2);
