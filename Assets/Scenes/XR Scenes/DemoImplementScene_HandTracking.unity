@@ -38417,7 +38417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HP: 100\nBase Speed: 8\nAbility: None\r\nAttack: 3\n\nTANK\r"
+  m_text: "HP: 100\nReward:55 \nAbility: None\r\nAttack: 3\n\nTANK\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
   m_sharedMaterial: {fileID: -7962428712703926435, guid: 7c9c2a1f11a5c2648ab27d8c8475dceb, type: 2}
@@ -44028,7 +44028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa7d98688840c04fbb697c78c34428c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMapWaveComp: {fileID: 11400000, guid: 789b70f639d27544b90fa163ca23dc0a, type: 2}
+  currMapWaveComp: {fileID: 11400000, guid: 4e4ecf0aeb2a5bd4e9646b2d31b67d03, type: 2}
 --- !u!4 &1123684177
 Transform:
   m_ObjectHideFlags: 0
@@ -57468,9 +57468,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HP: 20
+  m_text: 'HP: 50
 
-    Base Speed: x
+    Reward:50
 
     Ability: None
 
