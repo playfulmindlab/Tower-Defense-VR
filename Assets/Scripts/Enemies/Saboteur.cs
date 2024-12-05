@@ -10,27 +10,53 @@ public class Saboteur : Enemy
 
     [SerializeField] float stopTowersTime = 15f;
 
+    [SerializeField] float stunRate = 2f;
+    float stunDelay = 2f;
+
     private void Start()
     {
         effectID = gameObject.name.ToString();
+
+        stunDelay = 1 / stunRate;
     }
 
     public override void Tick()
     {
         //Attack Obstacle
-        Debug.Log("SAB tick GOTHRU");
-        attackDelay -= Time.deltaTime;
+        //Debug.Log("SAB tick GOTHRU");
 
-        if (attackDelay <= 0)
+        //First, go through Stun Attack
+        stunDelay -= Time.deltaTime;
+
+        if (stunDelay <= 0)
         {
-            Attack(null);
-            attackDelay = 1 / attackRate;
+            StunAttack(null);
+            stunDelay = 1 / stunRate;
         }
 
         base.Tick();
+/*
+        if (attackingTower != null)
+        {
+            attackDelay -= Time.deltaTime;
+            if (attackDelay <= 0)
+            {
+                Attack(attackingTower);
+                attackDelay = 1 / attackRate;
+            }
+        }
+        else if (speed == 0 && speedAffected == false && attackingTower == null)
+        {
+            ChangeTowerTarget(null);
+            //Speed = origSpeed;
+        }
+
+        */
+
+
     }  
 
-    public override void Attack(TowerBehaviour attackedObject)
+    public void StunAttack(TowerBehaviour attackedObject)
     {
         Collider[] towerColliders = Physics.OverlapSphere(transform.position, empRadius, 1 << LayerMask.NameToLayer("Towers"));
 

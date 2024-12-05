@@ -214,6 +214,11 @@ public class Enemy : MonoBehaviour
         }
 
         //Effects Activate
+        TickActiveEffects();
+    }
+
+    protected void TickActiveEffects()
+    {
         for (int i = 0; i < activeEffects.Count; i++)
         {
             if (activeEffects[i].GetEffectType() == EffectType.Damage)
@@ -250,7 +255,8 @@ public class Enemy : MonoBehaviour
             {
                 activeEffects[i].expireTime -= Time.deltaTime;
                 activeEffects[i].stopExpireTime -= Time.deltaTime;
-                if (activeEffects[i].expireTime > 0) {
+                if (activeEffects[i].expireTime > 0)
+                {
                     shockDamage -= activeEffects[i].damage;
                     if (shockDamage > 0f)
                     {
@@ -268,10 +274,10 @@ public class Enemy : MonoBehaviour
                             shockDamage = shockDamageMax;
                         }
                         else //otherwise, enemy has NOT stopped and needs to be!
-                        
+
                         {
                             Speed = 0f;
-                            shockEffect.stopExpireTime = shockEffect.resumeIntervalTime ;
+                            shockEffect.stopExpireTime = shockEffect.resumeIntervalTime;
                             speedAffected = true;
                         }
                     }
