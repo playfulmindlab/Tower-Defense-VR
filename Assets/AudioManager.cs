@@ -91,6 +91,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void SetFMODMusicLayer(string paramName, bool play)
+    {
+        if (play)
+        {
+            musicEventInstance.setParameterByName(paramName, 1);
+        }
+        else
+        {
+            musicEventInstance.setParameterByName(paramName, 0);
+        }
+    }
+
     /*public void PlayMusic(string musicName)
     {
         musicSound = Array.Find(musicArray, x => x.name == musicName);
