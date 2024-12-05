@@ -31,6 +31,12 @@ public class EnemySensor : MonoBehaviour
             if (other.gameObject.GetComponent<TowerBehaviour>() != null)
             {
                 enemyBase.ChangeTowerTarget(other.gameObject.GetComponent<TowerBehaviour>());
+
+                if (other.gameObject.CompareTag("BaseObstacle"))
+                {
+                    DataEvent newEvent = new DataEvent(enemyBase.gameObject.name + " Reached Home Base", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+                    EventManager.instance.RecordNewEvent(newEvent);
+                }
             }
         }
     }

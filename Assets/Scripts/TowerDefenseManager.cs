@@ -755,7 +755,7 @@ public class TowerDefenseManager : MonoBehaviour
     {
         GameControlManager.instance.SwapToUnjumpedControls();
 
-        DataEvent newEvent = new DataEvent("Player Death", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+        DataEvent newEvent = new DataEvent("Start Game Over Sequence", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent);
 
         gameOverScreen.SetActive(true);

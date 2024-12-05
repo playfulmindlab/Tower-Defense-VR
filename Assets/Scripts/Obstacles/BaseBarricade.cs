@@ -48,6 +48,9 @@ public class BaseBarricade : TowerBehaviour
 
         if (health <= 0 && this.gameObject.activeSelf)
         {
+            DataEvent newEvent = new DataEvent("Player Death", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
+            EventManager.instance.RecordNewEvent(newEvent);
+
             this.gameObject.SetActive(false);
             TowerDie();
         }

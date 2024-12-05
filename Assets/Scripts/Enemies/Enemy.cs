@@ -172,10 +172,6 @@ public class Enemy : MonoBehaviour
             Vector3 newDir = transform.position - positionToRotateTowards;
             transform.rotation = Quaternion.LookRotation(newDir, Vector3.up);
 
-            //Vector3 targetPos = newTower.transform.position;
-            //targetPos.y = transform.position.y;
-            //transform.LookAt(targetPos, Vector3.up);
-
             Speed = 0f;
         }
         else
@@ -184,7 +180,6 @@ public class Enemy : MonoBehaviour
             {
                 anim.SetBool("Stopped", false);
             }
-            //Vector3 positionToRotateTowards = currNodePath[nodeIndex].transform.position;
             Vector3 positionToRotateTowards = currNodePath[indexIndex].transform.position;
             Vector3 newDir = transform.position - positionToRotateTowards;
             transform.rotation = Quaternion.LookRotation(newDir, Vector3.up);
@@ -243,13 +238,11 @@ public class Enemy : MonoBehaviour
                 if (activeEffects[i].expireTime > 0)
                 {
                     Speed = activeEffects[i].origSpeed * activeEffects[i].slowAmount;
-                    Debug.Log("Step 1: " + speed + " // " + activeEffects[i].origSpeed + " x " + activeEffects[i].slowAmount);
                     speedAffected = false;
                 }
                 else
                 {
                     Speed = activeEffects[i].origSpeed;
-                    Debug.Log("Step 2: " + speed);
                     speedAffected = true;
                 }
             }
