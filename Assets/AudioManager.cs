@@ -58,8 +58,6 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -69,8 +67,13 @@ public class AudioManager : MonoBehaviour
 
     private void InitializeMusic(EventReference musicEventRef)
     {
-        musicEventInstance = CreateMusicInstance(musicEventRef);
-        musicEventInstance.start();
+        PLAYBACK_STATE state;
+        musicEventInstance.getPlaybackState(out state);
+        if (state != PLAYBACK_STATE.PLAYING)
+        {
+            musicEventInstance = CreateMusicInstance(musicEventRef);
+            musicEventInstance.start();
+        }
     }
 
     public EventInstance CreateMusicInstance(EventReference eventRef)

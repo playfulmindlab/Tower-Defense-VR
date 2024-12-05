@@ -180,6 +180,8 @@ public class TowerDefenseManager : MonoBehaviour
                     SpawnablesEnabler.instance.DisableAllTowers();
                     AudioManager.instance.SetFMODMusicLayer("isDefending", true);
                 }
+                if (waveCount == 9)
+                    AudioManager.instance.SetFMODMusicLayer("isLevel9AndDefending", true);
                 break;
 
             case Phase.Repair:
@@ -344,6 +346,9 @@ public class TowerDefenseManager : MonoBehaviour
         spawnablesEnabler.WaveUpdate(waveCount, playerStats.CurrentMoney);
 
         UpdateGameManagerStats();
+
+        if (waveCount == 7)
+            AudioManager.instance.SetFMODMusicLayer("isLevel7", true);
 
         if (newWaveNum < 0)
         {
