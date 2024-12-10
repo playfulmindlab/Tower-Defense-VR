@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
 
     public int attack = 3;
     public float attackRate = 1f;
-    EnemySensor towerSensor;
+    //EnemySensor towerSensor;
     [SerializeField] TowerBehaviour attackingTower;
 
     //public float damageResistance = 1f;
@@ -123,10 +123,10 @@ public class Enemy : MonoBehaviour
 
         anim = transform.GetComponentInChildren<Animator>();
 
-        if (transform.GetComponentsInChildren<EnemySensor>().Length > 0)
-        {
-            towerSensor = transform.GetComponentsInChildren<EnemySensor>()[0];
-        }
+        //if (transform.GetComponentsInChildren<EnemySensor>().Length > 0)
+        //{
+        //    towerSensor = transform.GetComponentsInChildren<EnemySensor>()[0];
+        //}
 
         GameManager.instance.LogNewEvent("Enemy Spawn", gameObject, transform.position, GameControlManager.instance.IsJumped);
         //DataEvent newEvent = new DataEvent("Enemy Spawn", gameObject, transform.position, GameControlManager.instance.IsJumped);
