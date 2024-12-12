@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PropManager : MonoBehaviour
 {
-
-    //[SerializeField] bool aliveOnStartup = false;
     public LineRenderer line;
     public GameObject towerSpawn;
 
@@ -20,7 +18,7 @@ public class PropManager : MonoBehaviour
 
     public TowerBehaviour upgradedTowerRef;
 
-    LayerMask baseLayer; //= LayerMask.GetMask("Baseplate");
+    LayerMask baseLayer;
     LayerMask pathLayer;
 
     protected bool isPropDropped = false;
@@ -55,6 +53,9 @@ public class PropManager : MonoBehaviour
         }
     }
 
+    //when this gameobject is created, the game will immediately try to call objects that are assigned in Start(),
+    //before Start() has a chance to run. When that happens, the script will then call ForceStart(), forcing the
+    //Start() function to run before the other functions
     public void ForceStart() { Start(); }
 
     public void TowerDropped()
@@ -137,15 +138,23 @@ public class PropManager : MonoBehaviour
     {
         radialMenuCanvas.enabled = toggleState;
 
+        if (toggleState == false)
+        {
+            miniMapScript.AssignCurrentTower(null);
+            miniMapScript.ResetRadiusDecal();
+        }
+
         if (towerScript != null && propOutline != null && towerScript.outline != null)
         {
             towerScript.ToggleOutline(toggleState);
             TogglePropOutline(toggleState);
+            //miniMapScript.AssignCurrentTower(this.gameObject);
         }
 
         if (miniMapScript != null && toggleState == true)
         {
             miniMapScript.SwapActivatedPropMenu(this);
+            miniMapScript.AssignCurrentTower(this.gameObject);
         }
     }
 

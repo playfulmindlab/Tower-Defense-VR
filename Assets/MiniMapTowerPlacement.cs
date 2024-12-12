@@ -9,46 +9,48 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
     [SerializeField] PropManager lastPropMenuActivated = null;
 
-    [SerializeField] GameObject currTower;
+    [SerializeField] GameObject currProp;
     [SerializeField] GameObject radiusDecal;
+    RadiusSizeEditor radius;
 
     [SerializeField] bool buildOnBuildPhaseOnly = true;
 
     private void Start()
     {
         playerStats = FindObjectOfType<PlayerStats>();
+
+        radius = radiusDecal.GetComponent<RadiusSizeEditor>();
     }
 
     private void Update()
     {
-        if (currTower != null)
+        if (currProp != null)
         {
-            radiusDecal.transform.position = new Vector3(currTower.transform.position.x, transform.position.y, currTower.transform.position.z);
+            radiusDecal.transform.position = new Vector3(currProp.transform.position.x, transform.position.y, currProp.transform.position.z);
         }
     }
 
     public void AssignCurrentTower(GameObject newProp)
     {
-        currTower = newProp;
+        currProp = newProp;
 
         if (newProp != null)
         {
-            RadiusSizeEditor radius = radiusDecal.GetComponent<RadiusSizeEditor>();
             radius.ChangeRadiusSize(newProp.GetComponent<PropManager>().towerSpawn.GetComponent<TowerBehaviour>());
         }
     }
 
     public void ResetRadiusDecal()
     {
-        if (currTower != null) currTower = null;
+        if (currProp != null) currProp = null;
         radiusDecal.transform.position = new Vector3(0, -1000, 0);
     }
 
     public void CancelTowerPlacement()
     {
-        if (currTower != null)
+        if (currProp != null)
         {
-            Destroy(currTower);
+            Destroy(currProp);
             AssignCurrentTower(null);
         }
         ResetRadiusDecal();
