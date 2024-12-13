@@ -48,14 +48,14 @@ public class Enemy : MonoBehaviour
     public int attack = 3;
     public float attackRate = 1f;
     //EnemySensor towerSensor;
-    [SerializeField] TowerBehaviour attackingTower;
+    TowerBehaviour attackingTower;
 
     //public float damageResistance = 1f;
     public DamageResistance[] damageResistances = new DamageResistance[0];
     public List<Effect> activeEffects;
 
-    public Node[] currNodePath;
-    public int[] currNodeIndices;
+    /*public*/ Node[] currNodePath;
+    /*public*/ int[] currNodeIndices;
     public int reward = 10;
     public int id;
     public int nodeIndex;
@@ -309,13 +309,14 @@ public class Enemy : MonoBehaviour
             indexIndex++;
             nodeIndex = currNodeIndices[indexIndex];
         }
-        //else
-        //{
-        //    GameManager.instance.LogNewEvent("Enemy Finished", this.gameObject, transform.position, GameControlManager.instance.IsJumped);
-        //    TowerDefenseManager.EnqueueEnemyToRemove(this);
-        //}
 
         return nodeIndex;
+    }
+
+    public void AssignNewNodePath(List<Node> newNodeList, List<int> newNodeIndexList)
+    {
+        currNodePath = newNodeList.ToArray();
+        currNodeIndices = newNodeIndexList.ToArray();
     }
 
     public void ToggleEndOfPath()
@@ -331,8 +332,4 @@ public class Enemy : MonoBehaviour
         TowerDefenseManager.EnqueueEnemyToRemove(this);
     }
 
-    public void UpdateNodeIndex()
-    {
-
-    }
 }

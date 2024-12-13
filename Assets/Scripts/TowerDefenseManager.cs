@@ -306,8 +306,8 @@ public class TowerDefenseManager : MonoBehaviour
 
         Debug.Log(newEnemy.name);
         Debug.Log(newNodePath);
-        newEnemy.currNodePath = newNodePath.ToArray();
-        newEnemy.currNodeIndices = newIndexPath.ToArray();
+        newEnemy.AssignNewNodePath(newNodePath, newIndexPath);
+
 
         //-----------------------
 
