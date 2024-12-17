@@ -18,18 +18,18 @@ public class SpawnablesEnabler : MonoBehaviour
 
     private void Start()
     {
-        BarrelSpawnableScript[] allBSSs = GetComponentsInChildren<BarrelSpawnableScript>();
-        foreach (BarrelSpawnableScript bss in allBSSs)
+        PropSpawnableScript[] allpsss = GetComponentsInChildren<PropSpawnableScript>();
+        foreach (PropSpawnableScript pss in allpsss)
         {
             if (activateUnlockableTowers == true)
             {
-                bss.DisableSpawnable();
-                bss.ToggleLockedStat(true);
+                pss.DisableSpawnable();
+                pss.ToggleLockedStat(true);
             }
             else
             {
-                bss.EnableSpawnable();
-                bss.ToggleLockedStat(false);
+                pss.EnableSpawnable();
+                pss.ToggleLockedStat(false);
             }
         }
     }
@@ -50,27 +50,27 @@ public class SpawnablesEnabler : MonoBehaviour
     {
         if (activateUnlockableTowers == true)
         {
-            BarrelSpawnableScript[] allBSSs = GetComponentsInChildren<BarrelSpawnableScript>();
-            foreach (BarrelSpawnableScript bss in allBSSs)
+            PropSpawnableScript[] allpsss = GetComponentsInChildren<PropSpawnableScript>();
+            foreach (PropSpawnableScript pss in allpsss)
             {
-                bss.DisableSpawnable();
-                bss.ToggleLockedStat(true);
+                pss.DisableSpawnable();
+                pss.ToggleLockedStat(true);
             }
         }
     }
 
     public void UpdateUnaffordableTowers(int playerMoney)
     {
-        BarrelSpawnableScript[] allBSSs = GetComponentsInChildren<BarrelSpawnableScript>();
-        foreach (BarrelSpawnableScript bss in allBSSs)
+        PropSpawnableScript[] allpsss = GetComponentsInChildren<PropSpawnableScript>();
+        foreach (PropSpawnableScript pss in allpsss)
         {
-            if (bss.TowerCost > playerMoney)
+            if (pss.TowerCost > playerMoney)
             {
-                bss.DisableSpawnable();
+                pss.DisableSpawnable();
             }
-            else if (bss.TowerCost <= playerMoney && !bss.isLocked)
+            else if (pss.TowerCost <= playerMoney && !pss.isLocked)
             {
-                bss.EnableSpawnable();
+                pss.EnableSpawnable();
             }
         }
     }
@@ -81,9 +81,9 @@ public class SpawnablesEnabler : MonoBehaviour
 public struct SpawnablesToEnable
 {
     public int wave;
-    public BarrelSpawnableScript[] spawnables;
+    public PropSpawnableScript[] spawnables;
 
-    public SpawnablesToEnable(int newWave, BarrelSpawnableScript[] newSpawnables)
+    public SpawnablesToEnable(int newWave, PropSpawnableScript[] newSpawnables)
     {
         wave = newWave;
         spawnables = newSpawnables;
@@ -91,7 +91,7 @@ public struct SpawnablesToEnable
 
     public void EnableSpawnables(int currMoney)
     {
-        foreach(BarrelSpawnableScript s in spawnables)
+        foreach(PropSpawnableScript s in spawnables)
         {
             if (s.TowerCost < currMoney)
                 s.EnableSpawnable();

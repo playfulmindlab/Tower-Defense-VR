@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class BarrelSpawnableScript : MonoBehaviour
+public class PropSpawnableScript : MonoBehaviour
 {
     [SerializeField] GameObject newSpawn;
     [SerializeField] Material disabledMat;

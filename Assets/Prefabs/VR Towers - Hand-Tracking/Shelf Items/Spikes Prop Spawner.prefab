@@ -131,8 +131,8 @@ GameObject:
   - component: {fileID: 614586136194158189}
   - component: {fileID: 8590568577686794107}
   - component: {fileID: 8684537672220970139}
-  - component: {fileID: 5107102778875736571}
   - component: {fileID: 7202442863206019374}
+  - component: {fileID: 5118787523574877919}
   m_Layer: 0
   m_Name: Spikes Prop Spawner
   m_TagString: Untagged
@@ -280,8 +280,8 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5107102778875736571}
-        m_TargetAssemblyTypeName: BarrelSpawnableScript, Assembly-CSharp
+      - m_Target: {fileID: 5118787523574877919}
+        m_TargetAssemblyTypeName: PropSpawnableScript, Assembly-CSharp
         m_MethodName: OnSelectFunc
         m_Mode: 1
         m_Arguments:
@@ -393,21 +393,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &5107102778875736571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1735416578218472138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 299ebf284c63dc04cb9215dbadd93d37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newSpawn: {fileID: 7284553538515552982, guid: b02862856fadbec47b27689f84658408, type: 3}
-  disabledMat: {fileID: 2100000, guid: 12d99bce8ab45264e93797611a8f7e43, type: 2}
-  isInteractable: 0
 --- !u!114 &7202442863206019374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,6 +411,22 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &5118787523574877919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735416578218472138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd151403ed2dbc468da96f4e0f5ace5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newSpawn: {fileID: 7284553538515552982, guid: b02862856fadbec47b27689f84658408, type: 3}
+  disabledMat: {fileID: 2100000, guid: 12d99bce8ab45264e93797611a8f7e43, type: 2}
+  isInteractable: 1
+  isLocked: 0
 --- !u!1 &1873423872991522476
 GameObject:
   m_ObjectHideFlags: 0

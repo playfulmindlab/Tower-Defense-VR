@@ -11,7 +11,7 @@ public class SetSpawnableTitleCanvas : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI moneyText;
 
-    BarrelSpawnableScript bss;
+    PropSpawnableScript pss;
     void Start()
     {
         if (tower != null)
@@ -19,8 +19,8 @@ public class SetSpawnableTitleCanvas : MonoBehaviour
             GameObject tempTower = Instantiate(tower, Vector3.zero, Quaternion.identity);
             towerStats = tempTower.GetComponent<TowerBehaviour>();
 
-            bss = GetComponentInParent<BarrelSpawnableScript>();
-            bss.TowerCost = towerStats.towerCost;
+            pss = GetComponentInParent<PropSpawnableScript>();
+            pss.TowerCost = towerStats.towerCost;
 
             nameText.text = towerStats.gameObject.name.Replace(" XR", "").Replace("(Clone)", "") + "s";
             moneyText.text = "$" + towerStats.towerCost;
