@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UpgradeRadialUI : MonoBehaviour
+public class PropRadialUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI towerNameText;
     [SerializeField] TextMeshProUGUI upgradeCostText;
