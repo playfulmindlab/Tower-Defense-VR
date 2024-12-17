@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 7007709402600719513}
   - component: {fileID: 5438687820239797078}
   m_Layer: 0
-  m_Name: Machine Gun Respawnables
+  m_Name: Machine Gun Prop Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

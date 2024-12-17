@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 5107102778875736571}
   - component: {fileID: 7202442863206019374}
   m_Layer: 0
-  m_Name: Spikes Respawnables
+  m_Name: Spikes Prop Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

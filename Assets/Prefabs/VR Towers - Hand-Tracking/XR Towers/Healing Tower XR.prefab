@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7091382632344026755}
   - component: {fileID: 7521704136141602585}
   - component: {fileID: 5458357974771846458}
+  - component: {fileID: -1685493715268339339}
   m_Layer: 2
   m_Name: Healing Tower XR
   m_TagString: Tower
@@ -358,6 +359,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &-1685493715268339339
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158333357990693065}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13b1f4fdcebc32948879394a4600fe24, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &530323177014185490
 GameObject:
   m_ObjectHideFlags: 0
