@@ -181,15 +181,15 @@ public class TowerBehaviour : MonoBehaviour
                 damage = 0;
             }
         }
-
         health -= damage;
         AudioManager.instance.PlaySFXArray("TowerAttacked", transform.position);
 
         if (health <= 0 && this.gameObject.activeSelf)
         {
-            if (jumpedControls != null)
+            if (jumpedControls != null && jumpedControls.JumpStatus == true)
             {
-                if (jumpedControls.JumpStatus == false)
+                jumpedControls.EndTowerJump();
+                /*if (jumpedControls.JumpStatus == false)
                 {
                     //this.gameObject.SetActive(false);
                     col.enabled = false;
@@ -198,8 +198,13 @@ public class TowerBehaviour : MonoBehaviour
                 else
                 {
                     jumpedControls.EndTowerJump();
-                }
+                }*/
             }
+            //else
+            //{
+                col.enabled = false;
+                TowerDie();
+            //}
         }
 
         if (health <= maxHealth * 0.3f)

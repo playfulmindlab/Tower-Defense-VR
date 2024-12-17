@@ -532,7 +532,7 @@ public class TowerDefenseManager : MonoBehaviour
                 {
                     EnemySpawner.enemiesInGame[i].nodeIndex = nodeIndices[i];
 
-                    Debug.Log("INDEX COMP: " + EnemySpawner.enemiesInGame[i].nodeIndex + " vs " + nodePositions2.Length);
+                    //Debug.Log("INDEX COMP: " + EnemySpawner.enemiesInGame[i].nodeIndex + " vs " + nodePositions2.Length);
                     /*if (EnemySpawner.enemiesInGame[i].nodeIndex >= nodePositions2.Length)
                     {
                         GameManager.instance.LogNewEvent("Enemy Finished", EnemySpawner.enemiesInGame[i].gameObject, 

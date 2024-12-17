@@ -42,7 +42,6 @@ public class BaseBarricade : TowerBehaviour
                 damage = 0;
             }
         }
-
         health -= damage;
         AudioManager.instance.PlaySFXArray("BaseAttacked", transform.position);
 

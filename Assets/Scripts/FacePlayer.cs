@@ -17,7 +17,8 @@ public class FacePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(cam.transform.position, Vector3.up);
+        if (cam != null)
+            transform.LookAt(cam.transform.position, Vector3.up);
         /*
                 recheckCameraTime -= Time.deltaTime;
                 if (recheckCameraTime <= 0)

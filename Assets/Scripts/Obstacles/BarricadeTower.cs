@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BarricadeTower : TowerBehaviour
 {
-
     public override void Tick()
     {
         if (healthBar != null && shieldBar != null)
@@ -12,5 +11,7 @@ public class BarricadeTower : TowerBehaviour
             healthBar.value = health;
             shieldBar.value = shield;
         }
+
+        ActivateStatusEffects();
     }
 }

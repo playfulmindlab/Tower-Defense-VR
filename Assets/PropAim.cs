@@ -42,7 +42,7 @@ public class PropAim : MonoBehaviour
         //RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out mainRayHit, 40, ignoreLayers))
         {
-            Debug.Log("DETECT LAYER: " + mainRayHit.transform.gameObject.layer + " VS " + layerInt);
+            //Debug.Log("DETECT LAYER: " + mainRayHit.transform.gameObject.layer + " VS " + layerInt);
 
             //if (hit.transform.gameObject.layer == layerInt)
             if ((rayHits[0].transform.gameObject.layer == layerInt && rayHits[1].transform.gameObject.layer == layerInt &&
