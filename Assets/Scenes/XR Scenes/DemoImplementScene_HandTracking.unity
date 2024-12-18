@@ -42277,7 +42277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa7d98688840c04fbb697c78c34428c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMapWaveComp: {fileID: 11400000, guid: 789b70f639d27544b90fa163ca23dc0a, type: 2}
+  currMapWaveComp: {fileID: 11400000, guid: 6d0430419f5c6564e8db03eae4d1849d, type: 2}
 --- !u!4 &1123684177
 Transform:
   m_ObjectHideFlags: 0
@@ -44180,17 +44180,15 @@ MonoBehaviour:
   sfxArray:
   - name: BaseAttacked
     clips:
-    - clip: {fileID: 8300000, guid: b94609c1b026b704994deb0ec59cfaac, type: 3}
+    - clip: {fileID: 8300000, guid: d25373c136f7d8e4388d4aed70cde7ac, type: 3}
       volume: 0.2
-    - clip: {fileID: 8300000, guid: 2841792790e899c4ea94db44c3fbd92d, type: 3}
+    - clip: {fileID: 8300000, guid: a91bfc190ba849f44a28c182d91918d1, type: 3}
       volume: 0.2
-    - clip: {fileID: 8300000, guid: da586672ce1b2724083b2e989d11a538, type: 3}
+    - clip: {fileID: 8300000, guid: 055db85c14dcde34ab7c0807490b159c, type: 3}
       volume: 0.2
-    - clip: {fileID: 8300000, guid: 2c68deadbb42ff84cb712c42e5a0e500, type: 3}
+    - clip: {fileID: 8300000, guid: c099443dd310c8a4e99808121ec18de7, type: 3}
       volume: 0.2
-    - clip: {fileID: 8300000, guid: d22d29778f072b44187ab4ce61dae52a, type: 3}
-      volume: 0.2
-    - clip: {fileID: 8300000, guid: 3fdad062621dbce4d91d559f30b1622d, type: 3}
+    - clip: {fileID: 8300000, guid: c5c5abcfde1001e479c5d8228a2ce2f2, type: 3}
       volume: 0.2
   - name: BaseDestroyed
     clips:
@@ -44220,11 +44218,13 @@ MonoBehaviour:
       volume: 1
   - name: TowerAttacked
     clips:
-    - clip: {fileID: 8300000, guid: f5a21cd2eba28b842bc69ae72824e28d, type: 3}
+    - clip: {fileID: 8300000, guid: 8422976f2ff18354e8f10d9df8af8ac9, type: 3}
       volume: 1
-    - clip: {fileID: 8300000, guid: 7d3723b48f2bc0849a11a1695ecbcb35, type: 3}
+    - clip: {fileID: 8300000, guid: 6698bb64141c43e4ba4d93b5de72b86f, type: 3}
       volume: 1
-    - clip: {fileID: 8300000, guid: 83f910a196e1fe74980432a8230792d2, type: 3}
+    - clip: {fileID: 8300000, guid: 6428815a0386aae42970d49f2d797e7a, type: 3}
+      volume: 1
+    - clip: {fileID: 8300000, guid: 0780623610a891744829a5bd83ca49fc, type: 3}
       volume: 1
   - name: TowerBasicShot
     clips:

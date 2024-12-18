@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35248167649168841a166c85015bb5e0, type: 3}
   m_Name: Test_SaboteurWave
   m_EditorClassIdentifier: 
-  waves: []
+  waves:
+  - enemyOrder:
+    - {fileID: 11400000, guid: 3fa82ea8c9fd1254a83db45535cd0238, type: 2}
+    numLoops: 6
+    postWaveStep: 0
+  - enemyOrder:
+    - {fileID: 11400000, guid: 3fa82ea8c9fd1254a83db45535cd0238, type: 2}
+    numLoops: 12
+    postWaveStep: 0
