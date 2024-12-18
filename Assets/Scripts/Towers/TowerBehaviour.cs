@@ -222,7 +222,7 @@ public class TowerBehaviour : MonoBehaviour
     public virtual void TowerDie()
     {
         //TODO: wirte code for what happens when tower dies here
-        //AudioManager.instance.PlaySFXArray("TowerDestroyed", transform.position);
+        AudioManager.instance.PlaySFXArray("TowerDestroyed", transform.position);
         //this.gameObject.SetActive(false);
         canFire = false;
 

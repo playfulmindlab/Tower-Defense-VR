@@ -23,6 +23,8 @@ public class PropManager : MonoBehaviour
 
     protected bool isPropDropped = false;
     bool hasStarted = false;
+    bool isDying = false;
+    public bool IsDying { get { return isDying; } set { isDying = value; } }
 
     Outline propOutline;
     public void TogglePropOutline(bool isActive) { propOutline.OutlineColor = Color.red; if (isActive) propOutline.ChangeOutlineWidth(3); else propOutline.ChangeOutlineWidth(0); }
