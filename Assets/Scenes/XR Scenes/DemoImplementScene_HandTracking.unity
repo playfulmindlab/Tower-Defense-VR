@@ -20557,11 +20557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb79bffaccef58141bfaa42839c821e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerBehaviour: {fileID: 481922887}
   towerCamera: {fileID: 465219502}
   towerTip: {fileID: 0}
-  towerUI: {fileID: 0}
-  towerUITransform: {fileID: 0}
   jumpDamageMult: 2
 --- !u!4 &481922878
 Transform:
@@ -20600,7 +20597,6 @@ MonoBehaviour:
   missileSystem: {fileID: 1743899549}
   towerHead: {fileID: 909465673}
   firingSFXName: TowerBasicShot
-  baseDamageValue: 0
 --- !u!114 &481922880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66882,8 +66878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseClass: {fileID: 481922879}
   explosionSystem: {fileID: 2066019157}
-  missileSystem: {fileID: 1743899549}
-  explositonRadius: 1
+  explosionRadius: 0
   splashDamage: 0
 --- !u!1001 &1743920326
 PrefabInstance:

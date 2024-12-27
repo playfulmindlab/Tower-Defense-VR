@@ -7,7 +7,7 @@ using UnityEngine.XR.Hands.Samples.GestureSample;
 
 public class JumpedTowerControls : MonoBehaviour
 {
-    [SerializeField] TowerBehaviour towerBehaviour;
+    TowerBehaviour towerBehaviour;
 
     [SerializeField] protected Camera towerCamera;
     public Camera TowerCamera { get { return towerCamera; } set { } }
@@ -24,13 +24,14 @@ public class JumpedTowerControls : MonoBehaviour
     protected bool jumpStatus = false;
     public bool JumpStatus { get { return jumpStatus; } }
 
-    public JumpedTowerUI towerUI;
-    public RectTransform towerUITransform;
+    JumpedTowerUI towerUI;
+    //RectTransform towerUITransform;
 
     [SerializeField] float jumpDamageMult = 2f;
 
     public void Awake()
     {
+        towerBehaviour = GetComponent<TowerBehaviour>();
         towerHead = towerBehaviour.towerPivot;
 
         cameraListener = towerCamera.GetComponent<AudioListener>();
@@ -51,7 +52,7 @@ public class JumpedTowerControls : MonoBehaviour
     public void AssignNewTowerUI(JumpedTowerUI newUI)
     {
         towerUI = newUI;
-        towerUITransform = towerUI.GetComponent<RectTransform>();
+        //towerUITransform = towerUI.GetComponent<RectTransform>();
     }
 
     public virtual void SetCamera(bool camActive)
@@ -67,7 +68,8 @@ public class JumpedTowerControls : MonoBehaviour
 
     public void SetJumpedTower()
     {
-        //if (TowerDefenseManager.CurrPhase == Phase.Defend || TowerDefenseManager.CurrPhase == Phase.Defend_ChooseJump)
+        if (!SpawnablesEnabler.instance.IsUnlockableTowersActive || //this check for if Unlockables are active is only for testing
+            (TowerDefenseManager.CurrPhase == Phase.Defend || TowerDefenseManager.CurrPhase == Phase.Defend_ChooseJump))
         {
             foreach(StaticHandGesturesTowerJump s in gestureScripts)
             {

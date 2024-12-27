@@ -154,7 +154,6 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
     void RotateTowerTowardsPath(GameObject newTower)
     {
-        //int layerMask = 1 << 11; //"Path" Layer
         string[] layerMasks = { "Path", "LevelUpPath" };
         float closestPathDistance = Mathf.Infinity;
 
@@ -259,6 +258,8 @@ public class MiniMapTowerPlacement : MonoBehaviour
         if (propScript.IsDying == false)
         {
             propScript.IsDying = true;
+            if (currProp != null && currProp == propScript)
+                ResetRadiusDecal();
             playerStats.AddMoney(towerScript.towerCost);
             TowerDefenseManager.EnqueueTowerToRemove(towerScript);
             Destroy(propScript.gameObject);

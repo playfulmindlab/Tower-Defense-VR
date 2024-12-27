@@ -6,16 +6,16 @@ public class MissileCollision : MonoBehaviour
 {
     [SerializeField] private MissileDamage baseClass;
     [SerializeField] private ParticleSystem explosionSystem;
-    [SerializeField] private ParticleSystem missileSystem;
-    [SerializeField] private float explositonRadius;
-    private List<ParticleCollisionEvent> missileCollisions;
-
-    //public float damageValue = 0;
+    [SerializeField] private float explosionRadius;
     [SerializeField] bool splashDamage = false;
+
+    private ParticleSystem missileSystem;
+    private List<ParticleCollisionEvent> missileCollisions;
 
     // Start is called before the first frame update
     void Start()
     {
+        missileSystem = GetComponent<ParticleSystem>();
         missileCollisions = new List<ParticleCollisionEvent>();
         Physics.IgnoreLayerCollision(0, 6);
     }
@@ -34,7 +34,7 @@ public class MissileCollision : MonoBehaviour
 
             if (splashDamage == true)
             {
-                Collider[] enemiesInRadius = Physics.OverlapSphere(missileCollisions[collisionEvent].intersection, explositonRadius, baseClass.enemyLayer);
+                Collider[] enemiesInRadius = Physics.OverlapSphere(missileCollisions[collisionEvent].intersection, explosionRadius, baseClass.enemyLayer);
 
                 for (int i = 0; i < enemiesInRadius.Length; i++)
                 {

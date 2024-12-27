@@ -86,4 +86,5 @@ public class PropSpawnableScript : MonoBehaviour
 
         minimap.AssignCurrentTower(newObject);
     }
+
 }

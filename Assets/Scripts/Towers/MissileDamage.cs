@@ -13,7 +13,7 @@ public class MissileDamage : Damage, IDamageMethod
     protected ParticleSystem.MainModule missileSystemMain;
     protected AudioSource audioSource;
 
-    [SerializeField] float baseDamageValue = 0;
+    float baseDamageValue = 0;
     float jumpDamageMultiplier;
 
     public override void Init(float damage, float firerate)

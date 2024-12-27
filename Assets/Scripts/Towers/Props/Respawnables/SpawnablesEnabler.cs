@@ -7,6 +7,7 @@ public class SpawnablesEnabler : MonoBehaviour
     public static SpawnablesEnabler instance;
 
     [SerializeField] bool activateUnlockableTowers;
+    public bool IsUnlockableTowersActive { get { return activateUnlockableTowers; } }
     [SerializeField] SpawnablesToEnable[] spawnables;
 
     // Start is called before the first frame update

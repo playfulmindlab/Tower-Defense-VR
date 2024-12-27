@@ -26,7 +26,9 @@ namespace AlignedGames
 
         {
 
-            Screen.lockCursor = true;
+            //Screen.lockCursor = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = true;
 
             transform.LookAt(target.transform.position);
 
