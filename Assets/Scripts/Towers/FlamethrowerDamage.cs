@@ -5,9 +5,11 @@ using UnityEngine;
 public class FlamethrowerDamage : MissileDamage
 {
     //[SerializeField] private ParticleSystem fireEffect;
-    [SerializeField] private Collider fireVolume;
+    [SerializeField] private BoxCollider fireVolume;
     bool isJumped = false;
     bool isFiring = false;
+
+    TowerBehaviour towerBehaviour;
 
     public override void Init(float damage, float firerate)
     {
@@ -16,6 +18,13 @@ public class FlamethrowerDamage : MissileDamage
 
         this.damage = damage;
         this.firerate = firerate;
+
+        towerBehaviour = GetComponent<TowerBehaviour>();
+        fireVolume.transform.localPosition = (Vector3.left * (towerBehaviour.range / 2f)) / 10f;
+        fireVolume.center = (Vector3.right * (towerBehaviour.range / 4f)) / 10f;
+        fireVolume.size = new Vector3((towerBehaviour.range / 2f) / 10f, 0.1f, 0.1f);
+
+        missileSystemMain.startSpeed = towerBehaviour.range / 2f;
         //delay = 1f / firerate;
     }
 
