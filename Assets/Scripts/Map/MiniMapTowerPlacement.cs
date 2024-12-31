@@ -5,9 +5,6 @@ using UnityEngine;
 public class MiniMapTowerPlacement : MonoBehaviour
 {
     [SerializeField] GameObject mainMap;
-    [SerializeField] private PlayerStats playerStats;
-
-    [SerializeField] PropManager lastPropMenuActivated = null;
 
     [SerializeField] GameObject currProp;
     [SerializeField] GameObject radiusDecal;
@@ -15,9 +12,13 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
     [SerializeField] bool buildOnBuildPhaseOnly = true;
 
+    private PlayerStats playerStats;
+
+    PropManager lastPropMenuActivated = null;
+
     private void Start()
     {
-        playerStats = FindObjectOfType<PlayerStats>();
+        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>() ;
 
         radius = radiusDecal.GetComponent<RadiusSizeEditor>();
     }
@@ -254,11 +255,10 @@ public class MiniMapTowerPlacement : MonoBehaviour
 
     public void DeleteTower(PropManager propScript, TowerBehaviour towerScript)
     {
-        Debug.Log("PS: " + playerStats + " // TS: " + towerScript);
         if (propScript.IsDying == false)
         {
             propScript.IsDying = true;
-            if (currProp != null && currProp == propScript)
+            if (currProp != null && currProp.GetComponent<PropManager>() == propScript)
                 ResetRadiusDecal();
             playerStats.AddMoney(towerScript.towerCost);
             TowerDefenseManager.EnqueueTowerToRemove(towerScript);

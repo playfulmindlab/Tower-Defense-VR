@@ -28,10 +28,7 @@ public class GameControlManager : MonoBehaviour
     //[SerializeField] GameObject moveControls;
     //[SerializeField] GameObject turnControls;
     [SerializeField] Camera mainCamera;
-    [SerializeField] Canvas towerSpawnCanvas;
-    [SerializeField] GameObject rightController;
-    LineRenderer pointerLine;
-    LineRenderer rayLine;
+    //[SerializeField] Canvas towerSpawnCanvas;
 
     [Header("Jumping Controls")]
     [SerializeField] GameObject jumpedHandsGO;
@@ -64,8 +61,6 @@ public class GameControlManager : MonoBehaviour
     {
         mainCamera = Camera.main;
        // overlayWarning = GetComponentInChildren<Canvas>();
-        rayLine = rightController.transform.Find("Ray Interactor").gameObject.GetComponent<LineRenderer>();
-        pointerLine = rightController.transform.Find("PhysicsPointer").GetComponent<LineRenderer>();
         bbInlet = GetComponent<SimpleInletBalanceBoard>();
         jumpTransAnim = jumpedTransitionCanvas.gameObject.GetComponent<Animator>();
 
@@ -117,16 +112,6 @@ public class GameControlManager : MonoBehaviour
                 jumpedTowerControls.RotateMissiles();
         }
 
-        /*if (attackButton.action.WasPerformedThisFrame())
-        {
-            firing = !firing;
-            jumpedTowerControls.SetGunFire(firing);
-        }
-
-        if (unjumpButton.action.WasPerformedThisFrame())
-        {
-            SwapControls(ControlsSetting.Main);
-        }*/
     }
 
     void TogglePlayerCamera(bool cameraSetting)
@@ -153,9 +138,6 @@ public class GameControlManager : MonoBehaviour
                 jumpedTowerControls.SetCamera(false);
                 TogglePlayerCamera(true);
 
-                rayLine.enabled = true;
-                pointerLine.enabled = true;
-
                 AudioManager.instance.PlaySFXArray("TowerUnjump", towerViewCanvas.transform.position);
                 attackedBaseWarning.worldCamera = mainCamera;
                 jumpedTransitionCanvas.worldCamera = mainCamera;
@@ -181,8 +163,6 @@ public class GameControlManager : MonoBehaviour
                 TogglePlayerCamera(false);
                 jumpedTowerControls.SetCamera(true);
 
-                rayLine.enabled = false;
-                pointerLine.enabled = false;
 
                 AudioManager.instance.PlaySFXArray("TowerJump", towerViewCanvas.transform.position);
                 attackedBaseWarning.worldCamera = jumpedTowerControls.TowerCamera;
@@ -192,11 +172,7 @@ public class GameControlManager : MonoBehaviour
 
                 tunnelVolume.transform.position = jumpedTowerControls.gameObject.GetComponentInChildren<Camera>().transform.position;
                 isJumped = true;
-                //ChangeTargetType();
-                //towerUI.ResetReticle();
                 GameManager.instance.LogNewEvent("Tower Jumped", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
-                //DataEvent newEvent2 = new DataEvent("Tower Jumped", jumpedTowerControls.gameObject, jumpedTowerControls.gameObject.transform.position, isJumped);
-                //EventManager.instance.RecordNewEvent(newEvent2);
 
                 break;
         }
@@ -205,7 +181,7 @@ public class GameControlManager : MonoBehaviour
     public void SwapToJumpedControls(JumpedTowerControls jumpedTower)
     {
         jumpedTowerControls = jumpedTower;
-        //jumpedHandsGO.transform.position = jumpedTowerControls.TowerCamera.transform.position;
+
         jumpedHandsGO.transform.parent = jumpedTowerControls.TowerCamera.transform;
         jumpedHandsGO.transform.localPosition = new Vector3(-0.2f, -1.5f, 0.55f);
         jumpedHandsGO.transform.localRotation = Quaternion.Euler(Vector3.zero);//new Vector3(0f, -0.8f, 1.0f);

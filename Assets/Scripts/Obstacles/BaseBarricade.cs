@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BaseBarricade : TowerBehaviour
 {
     [SerializeField] Slider baseSlider;
-    [SerializeField] Animator anim;
+    [SerializeField] Animator baseAttackedAnim;
 
     protected override void Start()
     {
@@ -30,7 +30,7 @@ public class BaseBarricade : TowerBehaviour
     {
         if (shield > 0)
         {
-            anim.SetTrigger("Reset");
+            baseAttackedAnim.SetTrigger("Reset");
             if (shield - damage < 0)
             {
                 damage -= shield;

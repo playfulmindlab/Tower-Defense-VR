@@ -14,12 +14,11 @@ public class Damage : MonoBehaviour, IDamageMethod
     //public bool canFire = true;
     [SerializeField] protected ElementType attackType;
 
-    public ElementType GetAttackType { get { return attackType; } set { } }
-
     protected private float damage;
     protected private float firerate;
     protected private float delay;
 
+    public ElementType GetAttackType { get { return attackType; } set { } }
     public float DamageValue { get { return damage; } set { } }
     public float FirerateValue { get { return firerate; } set { } }
 

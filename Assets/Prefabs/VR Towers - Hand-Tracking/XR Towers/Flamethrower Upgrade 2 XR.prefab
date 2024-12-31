@@ -1485,11 +1485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d219c045440659c47a1c78d77e3d25b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerBehaviour: {fileID: 2075990925912388850}
   towerCamera: {fileID: 2916528933405573657}
   towerTip: {fileID: 0}
-  towerUI: {fileID: 0}
-  towerUITransform: {fileID: 0}
   jumpDamageMult: 5
   flamethrowerDamage1: {fileID: 1681050569264282019}
   flamethrowerDamage2: {fileID: 1966474720907748190}
@@ -1512,7 +1509,6 @@ MonoBehaviour:
   missileSystem: {fileID: 669710328543839638}
   towerHead: {fileID: 5725384691318702232}
   firingSFXName: TowerBasicShot
-  baseDamageValue: 0
   fireVolume: {fileID: 5361246852879258427}
 --- !u!114 &1966474720907748190
 MonoBehaviour:
@@ -1533,7 +1529,6 @@ MonoBehaviour:
   missileSystem: {fileID: 2331241856556462378}
   towerHead: {fileID: 7639834913156258849}
   firingSFXName: TowerBasicShot
-  baseDamageValue: 0
   fireVolume: {fileID: 3386880315326574503}
 --- !u!54 &5388564504663921670
 Rigidbody:
@@ -3201,7 +3196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9111521058580799189, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: m_Name
-      value: FireEffect
+      value: FireEffect1
       objectReference: {fileID: 0}
     - target: {fileID: 9111521058580799189, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: m_Layer
@@ -3340,7 +3335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9111521058580799189, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: m_Name
-      value: FireEffect
+      value: FireEffect2
       objectReference: {fileID: 0}
     - target: {fileID: 9111521058580799189, guid: 25a7b1f4705342a499496755287546be, type: 3}
       propertyPath: m_Layer

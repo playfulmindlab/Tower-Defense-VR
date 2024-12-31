@@ -32,9 +32,9 @@ public class TowerDefenseManager : MonoBehaviour
     public static Vector3[] nodePositions2 = null;
     int wavesTilEndMap = 5;
 
-    [SerializeField] GameObject colliderObject;
-    [SerializeField] GameObject gameOverScreen;
-    [SerializeField] GameObject victoryScreen;
+    //[SerializeField] GameObject colliderObject;
+    //[SerializeField] GameObject gameOverScreen;
+    //[SerializeField] GameObject victoryScreen;
     [SerializeField] TMPro.TextMeshProUGUI phaseText;
  
     static Phase currPhase;
@@ -205,8 +205,8 @@ public class TowerDefenseManager : MonoBehaviour
 
     void ResetGameStatistics()
     {
-        gameOverScreen.SetActive(false);
-        victoryScreen.SetActive(false);
+        //gameOverScreen.SetActive(false);
+        //victoryScreen.SetActive(false);
         isGameOver = false;
         waveCount = 1;
         currEnemyKillCount = 0;
@@ -684,11 +684,12 @@ public class TowerDefenseManager : MonoBehaviour
         }
     }
 
+    /*
     IEnumerator LevelVictorySequence()
     {
         GameControlManager.instance.SwapToUnjumpedControls();
 
-        victoryScreen.SetActive(true);
+        //victoryScreen.SetActive(true);
         AudioManager.instance.PlaySFXArray("SceneWin", Camera.main.transform.position);
 
         DataEvent newEvent = new DataEvent("Map Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
@@ -703,12 +704,12 @@ public class TowerDefenseManager : MonoBehaviour
         TogglePause();
         GameManager.instance.ChangeScene("MainMenuXR-V2");
     }
-
+    */
     void LevelVictorySeq()
     {
         GameControlManager.instance.SwapToUnjumpedControls();
 
-        victoryScreen.SetActive(true);
+        //victoryScreen.SetActive(true);
         AudioManager.instance.PlaySFXArray("SceneWin", Camera.main.transform.position);
 
         DataEvent newEvent = new DataEvent("Map Clear", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
@@ -720,6 +721,7 @@ public class TowerDefenseManager : MonoBehaviour
         PhaseControlUI.instance.DisableUIButtons();
     }
 
+    /*
     IEnumerator GameOverSequence()
     {
         GameControlManager.instance.SwapToUnjumpedControls();
@@ -727,7 +729,7 @@ public class TowerDefenseManager : MonoBehaviour
         DataEvent newEvent = new DataEvent("Player Death", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent);
 
-        gameOverScreen.SetActive(true);
+        //gameOverScreen.SetActive(true);
         AudioManager.instance.PlaySFXArray("SceneGameOver", Camera.main.transform.position);
         TogglePause();
         phaseText.text = "GAME OVER";
@@ -738,6 +740,7 @@ public class TowerDefenseManager : MonoBehaviour
         TogglePause();
         GameManager.instance.ChangeScene("MainMenuXR-V2");
     }
+    */
 
     void GameOverSeq()
     {
@@ -746,7 +749,7 @@ public class TowerDefenseManager : MonoBehaviour
         DataEvent newEvent = new DataEvent("Start Game Over Sequence", "N/A", "N/A", GameControlManager.instance.IsJumped.ToString());
         EventManager.instance.RecordNewEvent(newEvent);
 
-        gameOverScreen.SetActive(true);
+       //gameOverScreen.SetActive(true);
         AudioManager.instance.PlaySFXArray("SceneGameOver", Camera.main.transform.position);
 
         AudioManager.instance.StopMusic();

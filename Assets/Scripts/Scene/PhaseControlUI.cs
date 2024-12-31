@@ -15,12 +15,22 @@ public class PhaseControlUI : MonoBehaviour
     {
         if (instance == null) instance = this;
         else { Destroy(this); }
+
+        EnableUIButtons();
     }
 
     public void ToggleDefendButton(bool toggleState)
     {
         defendButton.interactable = toggleState;
     }
+
+    public void EnableUIButtons()
+    {
+        defendButton.interactable = true;
+        cancelButton.interactable = true;
+        pauseButton.interactable = true;
+    }
+
 
     public void DisableUIButtons()
     {
