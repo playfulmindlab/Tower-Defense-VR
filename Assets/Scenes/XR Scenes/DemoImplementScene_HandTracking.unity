@@ -27108,7 +27108,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 500358255}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -31330,7 +31330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa7d98688840c04fbb697c78c34428c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMapWaveComp: {fileID: 11400000, guid: 3b9de330712f1f34d93a92b27bfa2ef8, type: 2}
+  currMapWaveComp: {fileID: 11400000, guid: 202810c37f2844e4d8c7c35ba2794a20, type: 2}
 --- !u!4 &1123684177
 Transform:
   m_ObjectHideFlags: 0
@@ -33986,7 +33986,6 @@ MonoBehaviour:
   jumpedOverlayWarning: {fileID: 1254555710}
   attackedBaseWarning: {fileID: 2081581126}
   mainCamera: {fileID: 500358255}
-  rightController: {fileID: 1948282755}
   jumpedHandsGO: {fileID: 106834245}
   towerViewCanvas: {fileID: 1951020948}
   jumpedTowerControls: {fileID: 0}
@@ -52720,11 +52719,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1283018401488141863, guid: a79c8d8c573e463449ac92163fcbb985, type: 3}
   m_PrefabInstance: {fileID: 1946053027}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1948282755 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9153272346877832867, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-  m_PrefabInstance: {fileID: 1574002766}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1951020947
 GameObject:

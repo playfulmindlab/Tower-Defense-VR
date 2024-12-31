@@ -32,7 +32,6 @@ public class TowerDefenseManager : MonoBehaviour
     public static Vector3[] nodePositions2 = null;
     int wavesTilEndMap = 5;
 
-    //[SerializeField] GameObject colliderObject;
     //[SerializeField] GameObject gameOverScreen;
     //[SerializeField] GameObject victoryScreen;
     [SerializeField] TMPro.TextMeshProUGUI phaseText;

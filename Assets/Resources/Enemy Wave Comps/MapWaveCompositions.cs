@@ -49,7 +49,7 @@ public class MapWaveCompositions : ScriptableObject
 public struct WaveComposition
 {
     public EnemySummonData[] enemyOrder;
-    public int numLoops;
+    [MinAttribute(1)] public int numLoops;
     public PostWaveStep postWaveStep;
 
     public int[] GetEnemyIDs_Looped()
@@ -62,7 +62,9 @@ public struct WaveComposition
             partialIDHolder.Add(enemyOrder[i].enemyID);
         }
 
-        for (int j = 0; j < numLoops; j++)
+        fullIDHolder.AddRange(partialIDHolder);
+
+        for (int j = 1; j < numLoops; j++)
         {
             fullIDHolder.AddRange(partialIDHolder);
         }
