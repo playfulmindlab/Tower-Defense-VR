@@ -27,25 +27,5 @@ public class ObstacleDamageVolume : Damage
     {
         damagingEnemies.Clear();
     }
-
-    /*
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            AppliedEffect effect = new AppliedEffect(EnemySpawner.enemyTransformPairs[other.transform], volumeEffect);
-            TowerDefenseManager.EnqueueEffectToApply(effect);
-        }
-    }
-    */
-    /*protected void Update()
-    {
-        damagingEnemies = damagingEnemies.RemoveAll(x => x is null);
-        foreach (Transform enemy in damagingEnemies)
-        {
-            AppliedEffect effect = new AppliedEffect(EnemySpawner.enemyTransformPairs[enemy], volumeEffect);
-            TowerDefenseManager.EnqueueEffectToApply(effect);
-        }
-    }*/
 }
 

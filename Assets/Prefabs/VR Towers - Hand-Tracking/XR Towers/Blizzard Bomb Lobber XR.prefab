@@ -356,11 +356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7519abea0f33540985a37c33498727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerBehaviour: {fileID: 4722608795481785458}
   towerCamera: {fileID: 4271389666837583259}
-  towerTip: {fileID: 0}
-  towerUI: {fileID: 0}
-  towerUITransform: {fileID: 0}
+  towerTip: {fileID: 8863804665551505865}
   jumpDamageMult: 5
   trajectoryLine: {fileID: 6035383577256927389}
   missileSystem: {fileID: 8114242575874099353}
@@ -387,7 +384,6 @@ MonoBehaviour:
   missileSystem: {fileID: 8114242575874099353}
   towerHead: {fileID: 8863804665551505865}
   firingSFXName: TowerBasicShot
-  baseDamageValue: 0
 --- !u!54 &2104766493429564871
 Rigidbody:
   m_ObjectHideFlags: 0

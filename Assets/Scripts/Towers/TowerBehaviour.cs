@@ -101,7 +101,8 @@ public class TowerBehaviour : MonoBehaviour
 
         activeEffects = new List<Effect>();
 
-        if (stunnedImage != null && stunnedImage.enabled == true) stunnedImage.enabled = false;
+        if (stunnedImage != null && stunnedImage.enabled == true) 
+            stunnedImage.enabled = false;
 
         if (aliveOnSceneStart)
         {
@@ -227,9 +228,6 @@ public class TowerBehaviour : MonoBehaviour
         canFire = false;
 
         propParent.DeletePropAndTower();
-        //TowerDefenseManager.EnqueueTowerToRemove(this);
-
-        //Destroy(gameObject);
     }
 
     public void Heal(int healing)

@@ -75,8 +75,6 @@ public class JumpedTowerControls : MonoBehaviour
             {
                 s.enabled = true;
             }
-
-            //ToggleFollowEnemy(false);
         }
     }
 
@@ -124,12 +122,15 @@ public class JumpedTowerControls : MonoBehaviour
 
     public virtual void SetGunFire()
     {
+
         jumpStatus = !jumpStatus;
+
+        Debug.Log("SETGUNFIRE: " + jumpStatus);
 
         missileDamage.ActivateGun(jumpStatus);
 
         if (jumpStatus == false && towerTip != null)
-            towerTip.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+            towerTip.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 90));
 
 
     }

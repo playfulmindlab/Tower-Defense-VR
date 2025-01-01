@@ -5689,11 +5689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb79bffaccef58141bfaa42839c821e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerBehaviour: {fileID: 6264497258990043031}
   towerCamera: {fileID: 7096886404840736116}
   towerTip: {fileID: 0}
-  towerUI: {fileID: 0}
-  towerUITransform: {fileID: 0}
   jumpDamageMult: 5
 --- !u!114 &8832062173300400881
 MonoBehaviour:
@@ -5714,7 +5711,6 @@ MonoBehaviour:
   missileSystem: {fileID: 5018644639687927533}
   towerHead: {fileID: 254041976011215492}
   firingSFXName: TowerBasicShot
-  baseDamageValue: 0
 --- !u!54 &2491840853492656504
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6532,6 +6528,14 @@ PrefabInstance:
       propertyPath: CollisionModule.multiplyColliderForceByParticleSize
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4737002907422082392, guid: d1df631048f08d94797db2905f49296f, type: 3}
+      propertyPath: m_RenderAlignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737002907422082392, guid: d1df631048f08d94797db2905f49296f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d46bb438eef41d449bb7588f4a77e06, type: 2}
     - target: {fileID: 6346178433994488895, guid: d1df631048f08d94797db2905f49296f, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -6621,6 +6625,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseClass: {fileID: 8832062173300400881}
   explosionSystem: {fileID: 8138655344364613829}
-  missileSystem: {fileID: 5018644639687927533}
-  explositonRadius: 3
+  explosionRadius: 0
   splashDamage: 0

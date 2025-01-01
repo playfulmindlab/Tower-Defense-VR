@@ -19,7 +19,7 @@ public class DamagePopupGenerator : MonoBehaviour
     public void SpawnNewPopup(Enemy damagedEnemy, float damageDealt)
     {
         GameObject newPopup = Instantiate(popupPrefab, damagedEnemy.transform.position, Quaternion.identity);
-        newPopup.transform.parent = damagedEnemy.transform;
+        newPopup.transform.SetParent(damagedEnemy.transform);
 
         TextMeshProUGUI newPopupText = newPopup.GetComponentInChildren<TextMeshProUGUI>();
         int damInt = Mathf.RoundToInt(damageDealt);

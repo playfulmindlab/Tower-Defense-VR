@@ -13,8 +13,11 @@ public class MissileDamage : Damage, IDamageMethod
     protected ParticleSystem.MainModule missileSystemMain;
     protected AudioSource audioSource;
 
-    float baseDamageValue = 0;
-    float jumpDamageMultiplier;
+    protected float baseDamageValue = 0;
+    protected float jumpDamageMultiplier;
+
+    bool isJumped = false;
+    bool isFiring = false;
 
     public override void Init(float damage, float firerate)
     {
@@ -35,6 +38,7 @@ public class MissileDamage : Damage, IDamageMethod
     public virtual void ActivateGun(bool activeState)
     {
         //missileSystem.Stop();
+        Debug.Log("ACTIVE: " + activeState);
         if (activeState == true)
         {
             audioSource.loop = true;
@@ -56,7 +60,10 @@ public class MissileDamage : Damage, IDamageMethod
 
     public override void DamageTick(Enemy target)
     {
-        if (target )//&& canFire == true)
+        Debug.Log("T9: " + target + "");
+
+        //if ((target && !isJumped) || (isJumped && isFiring))//&& canFire == true)
+        if (target != null)
         {
             if (delay > 0f)
             {
@@ -73,6 +80,10 @@ public class MissileDamage : Damage, IDamageMethod
 
             delay = 1f / firerate;
             return;
+        }
+        else if (target == null && missileSystem.isPlaying)
+        {
+            missileSystem.Stop();
         }
     }
 }

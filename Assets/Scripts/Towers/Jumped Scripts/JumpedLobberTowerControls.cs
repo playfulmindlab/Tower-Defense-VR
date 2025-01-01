@@ -8,7 +8,6 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     [SerializeField] LineRenderer trajectoryLine;
     [SerializeField] ParticleSystem missileSystem;
     [SerializeField, Min(3)] int lineSegments = 20;
-    [SerializeField] Transform tipTransform;
 
     [SerializeField] float cameraHeightMod = 3f;
     [SerializeField] float cameraAngleMod = 30f;
@@ -22,8 +21,6 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     float projectileSpeed = 0f;
     public float ProjectileSpeed { get { return projectileSpeed; } }
 
-    float fireateTime = 3f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +31,6 @@ public class JumpedLobberTowerControls : JumpedTowerControls
         if (trajectoryLine.enabled)
             trajectoryLine.enabled = false;
 
-        //fireateTime = gameObject.GetComponent<TowerBehaviour>().firerate;
         var em = missileSystem.emission;
         em.rateOverTime = gameObject.GetComponent<TowerBehaviour>().firerate;
     }
@@ -42,16 +38,10 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     // Update is called once per frame
     void Update()
     {
-        //fireateTime -= Time.deltaTime;
-
         if (Physics.Raycast(towerCamera.transform.position, towerCamera.transform.forward, out hit, attackRange, 1 << 12))
         {
             targetDecal.transform.position = hit.point;
             targetPoint = hit.point;
-            //targetDecal.transform.position = hit.point;
-
-            //trajectoryLine.enabled = jumpStatus;
-            //targetDecal.SetActive(jumpStatus);
 
             RenderTrajectory();
         }
@@ -73,7 +63,7 @@ public class JumpedLobberTowerControls : JumpedTowerControls
 
     void RenderTrajectory()
     {
-        Vector3 startPoint = tipTransform.position;
+        Vector3 startPoint = towerTip.position;
         Vector3 endPoint = targetPoint;
         Vector3[] positions = new Vector3[lineSegments + 1];
         trajectoryLine.positionCount = lineSegments;
@@ -96,7 +86,7 @@ public class JumpedLobberTowerControls : JumpedTowerControls
 
             float yVal = xVal - ((gravity * xVal * xVal) / (projectileSpeed * projectileSpeed));
 
-            positions[i] = tipTransform.position + (xVal * towerHead.forward) + (yVal * Vector3.up);
+            positions[i] = towerTip.position + (xVal * towerHead.forward) + (yVal * Vector3.up);
         }
 
         trajectoryLine.SetPositions(positions);
@@ -113,12 +103,9 @@ public class JumpedLobberTowerControls : JumpedTowerControls
     public override void EndTowerJump()
     {
         Debug.Log("GOTHRU EndTowerJump()");
-        base.EndTowerJump();
-        //Quaternion rot = Quaternion.Euler(Vector3.zero);
-        //towerHead.localEulerAngles = 
+        base.EndTowerJump(); 
         trajectoryLine.enabled = false;
         targetDecal.GetComponent<DecalProjector>().enabled = false;
-        //targetDecal.SetActive(false);
         ForceGun(false);
     }
 

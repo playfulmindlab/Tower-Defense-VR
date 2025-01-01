@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class EnemySensor : MonoBehaviour
 {
-    public Enemy enemyBase;
     [SerializeField] bool attackOnlyObstacles;
-    [SerializeField] float atkRadius;
 
-    public SphereCollider sC;
+    Enemy enemyBase;
 
     private void Start()
     {
         enemyBase = transform.parent.GetComponent<Enemy>();
-        if (sC != null)
-            sC.radius = atkRadius;
     }
 
     private void OnTriggerEnter(Collider other)

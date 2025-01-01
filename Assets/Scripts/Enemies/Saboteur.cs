@@ -5,10 +5,11 @@ using UnityEngine;
 public class Saboteur : Enemy
 {
     [SerializeField] float empRadius = 5f;
+    [SerializeField] Transform ringRangeTransform;
 
     string effectID = "";
 
-    [SerializeField] float stopTowersTime = 15f;
+    [SerializeField] float stunTowersTime = 15f;
 
     [SerializeField] float stunRate = 2f;
     float stunDelay = 2f;
@@ -17,12 +18,13 @@ public class Saboteur : Enemy
     {
         effectID = gameObject.name.ToString();
 
+        ringRangeTransform.localScale = new Vector3(empRadius, ringRangeTransform.localScale.y, empRadius);
+
         stunDelay = 1 / stunRate;
     }
 
     public override void Tick()
     {
-        //Attack Obstacle
         //Debug.Log("SAB tick GOTHRU");
 
         //First, go through Stun Attack
@@ -35,25 +37,6 @@ public class Saboteur : Enemy
         }
 
         base.Tick();
-/*
-        if (attackingTower != null)
-        {
-            attackDelay -= Time.deltaTime;
-            if (attackDelay <= 0)
-            {
-                Attack(attackingTower);
-                attackDelay = 1 / attackRate;
-            }
-        }
-        else if (speed == 0 && speedAffected == false && attackingTower == null)
-        {
-            ChangeTowerTarget(null);
-            //Speed = origSpeed;
-        }
-
-        */
-
-
     }  
 
     public void StunAttack(TowerBehaviour attackedObject)
@@ -69,21 +52,10 @@ public class Saboteur : Enemy
             Debug.Log("GRABBED TOWER: " + t.gameObject.name);
             //t.GetComponent<TowerBehaviour>().TowerDie();
 
-            Effect stunEffect = new Effect("Stun_" + effectID, stopTowersTime);
+            Effect stunEffect = new Effect("Stun_" + effectID, stunTowersTime);
 
             AppliedTowerEffect effect = new AppliedTowerEffect(tower, stunEffect, "ShockStatus");
             TowerDefenseManager.EnqueueTowerEffectToApply(effect);
         }
-        /*if (attackedObject != null)
-        {
-            if (anim != null)
-            {
-                anim.SetInteger("AttackIndex", Random.Range(0, 3));
-                anim.SetTrigger("Attack");
-            }
-
-            //AudioManager.instance.PlaySFXRandom("EnemyAttack", transform.position, 3);
-            attackedObject.Damage(attack);
-        }*/
     }
 }

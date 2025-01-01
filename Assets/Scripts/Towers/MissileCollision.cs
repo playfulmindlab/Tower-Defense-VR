@@ -41,14 +41,11 @@ public class MissileCollision : MonoBehaviour
                     Enemy enemyToDamage = EnemySpawner.enemyTransformPairs[enemiesInRadius[i].transform];
                     EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.GetResistanceModifier(baseClass.GetAttackType));
                     TowerDefenseManager.EnqueueDamageData(damageToApply);
-
-                    //damageValue = baseClass.DamageValue;
                 }
             }
             else
             {
                 Enemy enemyToDamage = other.GetComponent<Enemy>();
-                //damageValue = baseClass.DamageValue;
                 if (enemyToDamage != null)
                 {
                     EnemyDamage damageToApply = new EnemyDamage(enemyToDamage, baseClass.DamageValue, enemyToDamage.GetResistanceModifier(baseClass.GetAttackType));

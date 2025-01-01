@@ -44,7 +44,7 @@ public class FlamethrowerDamage : MissileDamage
         {
             audioSource.loop = true;
             //missileSystemMain.loop = true;
-            UpdateDamage(damage * 2);
+            UpdateDamage(damage * jumpDamageMultiplier);
             fireVolume.enabled = true;
             isFiring = true;
             missileSystem.Play();
@@ -56,14 +56,13 @@ public class FlamethrowerDamage : MissileDamage
             //missileSystemMain.loop = false;
             fireVolume.enabled = false;
             isFiring = false;
-            UpdateDamage(damage / 2);
+            UpdateDamage(baseDamageValue);
         }
     }
 
     public override void DamageTick(Enemy target)
     {
         //fireVolume.enabled = target != null;
-
         if ((target && !isJumped) || (isJumped && isFiring))
         {
             if (!missileSystem.isPlaying)

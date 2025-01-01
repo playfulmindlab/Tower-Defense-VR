@@ -7,7 +7,7 @@ public class PropManager : MonoBehaviour
     public LineRenderer line;
     public GameObject towerSpawn;
 
-    public MiniMapTowerPlacement miniMapScript;
+    MiniMapTowerPlacement miniMapScript;
 
     public GameObject upgradedProp;
 
